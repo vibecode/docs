@@ -1,88 +1,113 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Vibecode Docs",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#FF8A3D",
+    "light": "#FFB366",
+    "dark": "#E67E2D"
   },
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Getting Started",
         "groups": [
           {
             "group": "Getting Started",
             "pages": [
               "Getting-Started/Welcome",
+              "Getting-Started/Plans-and-Credits",
               "Getting-Started/Creating-first-app",
-              "Getting-Started/sharing-app",
-              "Getting-Started/Deploy-App-Store",
-              "Getting-Started/Plans-and-Credits"
-            ]
-          },
-          {
-            "group": "Features",
-            "pages": [
-              "Features/Haptics",
-              "Features/Sound-Generation",
-              "Features/Image-Generation",
-              "Features/Integrations",
-              "Features/Vibecode-Cloud"
-            ]
-          },
-          {
-            "group": "Getting started",
-            "pages": [
-              "index",
-              "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "Customization",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "Getting-Started/Agent-Modes",
+              "Getting-Started/Using-images",
+              "Getting-Started/Home-screen-widgets",
+              "Getting-Started/Web-App"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "Use Cases",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Tutorials",
             "pages": [
-              "api-reference/introduction"
+              "Use-Cases/Custom-Streaming-Service",
+              "Use-Cases/Phone-Storage-App",
+              "Use-Cases/Custom-Workout-App",
+              "Use-Cases/Meeting-Notes-App",
+              "Use-Cases/Image-Generation-App"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Features",
+        "groups": [
+          {
+            "group": "Core Features",
+            "pages": [
+              "Features/Haptics",
+              "Features/Sound-Generation",
+              "Features/Image-Generation",
+              "Features/Vibecode-Cloud",
+              "Features/Components",
+              "Features/Export-SSH",
+              "Features/Download-Code",
+              "Features/SSH-Cursor"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Integrations Overview",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "Features/Integrations"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Integrations",
+        "groups": [
+          {
+            "group": "API Integrations",
+            "pages": [
+              "Integrations/ElevenLabs",
+              "Integrations/Gemini",
+              "Integrations/Replicate",
+              "Integrations/OpenAI",
+              "Integrations/Anthropic-Claude",
+              "Integrations/xAI",
+              "Integrations/Serp"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "FAQ",
+        "groups": [
+          {
+            "group": "Frequently Asked Questions",
+            "pages": [
+              "FAQ/App-Ideas",
+              "FAQ/FAQ",
+              "FAQ/Tips-Tricks"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Resources",
+        "groups": [
+          {
+            "group": "Resources",
+            "pages": [
+              "Resources/Community",
+              "Resources/Skills",
+              "Resources/Prompting-Tips",
+              "Resources/Misc",
+              "Resources/Glossary",
+              "Resources/Changelog"
             ]
           }
         ]
@@ -109,8 +134,8 @@
     }
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/vibecodelogo.png",
+    "dark": "/vibecodelogo.png"
   },
   "navbar": {
     "links": [
