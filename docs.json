@@ -19,7 +19,7 @@
               "Getting-Started/Welcome",
               "Getting-Started/Plans-and-Credits",
               "Getting-Started/Creating-first-app",
-              "Getting-Started/Agent-Modes",
+              "Getting-Started/Claude-Code",
               "Getting-Started/Home-screen-widgets",
               "Getting-Started/Web-App"
             ]
@@ -29,6 +29,14 @@
       {
         "tab": "Use Cases",
         "groups": [
+          {
+            "group": "Use Cases",
+            "pages": [
+              "Use-Cases/Use-Case-1",
+              "Use-Cases/Use-Case-2",
+              "Use-Cases/Use-Case-3"
+            ]
+          },
           {
             "group": "Tutorials",
             "pages": [
@@ -68,15 +76,46 @@
         "tab": "Integrations",
         "groups": [
           {
-            "group": "API Integrations",
+            "group": "Text Generation",
             "pages": [
-              "Integrations/ElevenLabs",
-              "Integrations/Gemini",
-              "Integrations/Replicate",
-              "Integrations/OpenAI",
-              "Integrations/Anthropic-Claude",
-              "Integrations/xAI",
-              "Integrations/Serp"
+              "Integrations/OpenAI-GPT-5-Mini",
+              "Integrations/Grok-4-Fast",
+              "Integrations/Google-Gemini"
+            ]
+          },
+          {
+            "group": "Audio",
+            "pages": [
+              "Integrations/GPT-4o-Audio-Transcription",
+              "Integrations/ElevenLabs-TTS",
+              "Integrations/ElevenLabs-Sound-Effects",
+              "Integrations/ElevenLabs-Music"
+            ]
+          },
+          {
+            "group": "Image Generation",
+            "pages": [
+              "Integrations/OpenAI-GPT-Image-1",
+              "Integrations/Nano-Banana",
+              "Integrations/Ideogram-3"
+            ]
+          },
+          {
+            "group": "Data APIs",
+            "pages": [
+              "Integrations/Apple-Maps",
+              "Integrations/TMDB",
+              "Integrations/OpenWeather-API",
+              "Integrations/Stock-Market-Data",
+              "Integrations/Crypto-Market-Data",
+              "Integrations/Runtime-Logs"
+            ]
+          },
+          {
+            "group": "Communication",
+            "pages": [
+              "Integrations/Resend-Email",
+              "Integrations/Expo-Push-Notifications"
             ]
           }
         ]
@@ -85,11 +124,11 @@
         "tab": "FAQ",
         "groups": [
           {
-            "group": "Frequently Asked Questions",
+            "group": "FAQs",
             "pages": [
-              "FAQ/App-Ideas",
-              "FAQ/FAQ",
-              "FAQ/Tips-Tricks"
+              "FAQ/Getting-Started",
+              "FAQ/Building-Tips",
+              "FAQ/Data-Integrations"
             ]
           }
         ]
