@@ -14,6 +14,26 @@
         "tab": "Guides",
         "groups": [
           {
+            "group": "Getting Started",
+            "pages": [
+              "Getting-Started/Welcome",
+              "Getting-Started/Creating-first-app",
+              "Getting-Started/sharing-app",
+              "Getting-Started/Deploy-App-Store",
+              "Getting-Started/Plans-and-Credits"
+            ]
+          },
+          {
+            "group": "Features",
+            "pages": [
+              "Features/Haptics",
+              "Features/Sound-Generation",
+              "Features/Image-Generation",
+              "Features/Integrations",
+              "Features/Vibecode-Cloud"
+            ]
+          },
+          {
             "group": "Getting started",
             "pages": [
               "index",
