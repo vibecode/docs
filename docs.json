@@ -33,18 +33,7 @@
             "group": "Use Cases",
             "pages": [
               "Use-Cases/Use-Case-1",
-              "Use-Cases/Use-Case-2",
-              "Use-Cases/Use-Case-3"
-            ]
-          },
-          {
-            "group": "Tutorials",
-            "pages": [
-              "Use-Cases/Custom-Streaming-Service",
-              "Use-Cases/Phone-Storage-App",
-              "Use-Cases/Custom-Workout-App",
-              "Use-Cases/Meeting-Notes-App",
-              "Use-Cases/Image-Generation-App"
+              "Use-Cases/Use-Case-2"
             ]
           }
         ]
@@ -60,8 +49,7 @@
               "Features/Image-Generation",
               "Features/Vibecode-Cloud",
               "Features/Export-SSH",
-              "Features/Download-Code",
-              "Features/SSH-Cursor"
+              "Features/Download-Code"
             ]
           },
           {
