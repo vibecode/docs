@@ -109,14 +109,12 @@
         ]
       },
       {
-        "tab": "FAQ",
+        "tab": "FAQs",
         "groups": [
           {
             "group": "FAQs",
             "pages": [
-              "FAQ/Getting-Started",
-              "FAQ/Building-Tips",
-              "FAQ/Data-Integrations"
+              "FAQs"
             ]
           }
         ]
@@ -127,12 +125,8 @@
           {
             "group": "Resources",
             "pages": [
-              "Resources/Community",
-              "Resources/Skills",
-              "Resources/Prompting-Tips",
-              "Resources/Misc",
-              "Resources/Glossary",
-              "Resources/Changelog"
+              "Custom-GPT",
+              "Resources"
             ]
           }
         ]
