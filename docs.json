@@ -16,7 +16,7 @@
           {
             "group": "Getting Started",
             "pages": [
-              "Getting-Started/Welcome",
+              "index",
               "Getting-Started/Plans-and-Credits",
               "Getting-Started/Creating-first-app",
               "Getting-Started/Claude-Code",
