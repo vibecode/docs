@@ -140,7 +140,7 @@
       "anchors": [
         {
           "anchor": "Documentation",
-          "href": "https://www.vibecodeapp.com/docs",
+          "href": "/index",
           "icon": "book-open-cover"
         },
         {
