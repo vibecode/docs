@@ -129,7 +129,8 @@
               "Resources",
               "updates",
               "Resources/Community",
-              "Resources/Glossary"
+              "Resources/Glossary",
+              "Support"
             ]
           }
         ]
@@ -168,7 +169,7 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:support@vibecodeapp.com"
+        "href": "https://www.vibecodeapp.com/support"
       }
     ],
     "primary": {
