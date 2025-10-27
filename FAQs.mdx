@@ -1,17 +1,36 @@
 ---
-title: "FAQ's"
-description: "Frequently asked questions to help you succeed with Vibecode"
+title: "Frequently Asked Questions"
+description: "Find answers to common questions about Vibecode, our features, and how to get the most out of your app development experience."
 ---
 
-Find answers to common questions, learn best practices, and get help with Vibecode.
+Find answers to common questions about Vibecode, our features, and how to get the most out of your app development experience.
 
-## Getting Started FAQs
+## General
 
 <AccordionGroup>
   <Accordion title="What is Vibecode?">
     Vibecode is the easiest way to build beautiful mobile apps. You can simply generate apps with prompting, view and test your app on your phone, improve and complete the development of your app, and share with anyone in 1-click using App Clips.
 
     Vibecoding allows you to create anything you imagine, and Vibecode is the first ever mobile app that brings the power of Vibecoding to the masses.
+  </Accordion>
+
+  <Accordion title="What makes Vibecode different from other AI app builders?">
+    Vibecode is unique because it:
+    - Allows you to build and test directly on your mobile device
+    - Supports one-click sharing via App Clips without requiring App Store submission
+    - Generates native iOS/Android apps, not just web apps
+    - Provides real-time preview and iteration capabilities
+    - Offers extensive integrations with popular APIs and services
+    - Gives you full access to export your source code
+  </Accordion>
+
+  <Accordion title="How do I share my apps?">
+    You can share your apps in multiple ways:
+    - **App Clips**: Share instantly with anyone via a link without requiring App Store submission
+    - **Export Code**: Download your complete source code and deploy it yourself
+    - **App Store**: Submit your app to the Apple App Store for public distribution
+    
+    App Clips are the fastest way to share, allowing anyone to try your app immediately without installation.
   </Accordion>
 
   <Accordion title="What can I build with Vibecode?">
@@ -22,8 +41,34 @@ Find answers to common questions, learn best practices, and get help with Vibeco
     No. Vibecode is designed for all levels of experience. Whether you're a developer or a non-technical user, you can create apps using Vibecode.
   </Accordion>
 
-  <Accordion title="Can I start from templates?">
-    We have this feature coming very soon. Check back in a few weeks!
+  <Accordion title="When will the Vibecode Android app come out?">
+    We're actively working on Android support. While we can already generate Android-compatible code, the native Vibecode Android app for building on-device is coming soon. Stay tuned to our updates and community channels for the latest announcements.
+  </Accordion>
+
+  <Accordion title="Can I use Vibecode to build production-ready apps?">
+    Yes! Vibecode generates production-quality code that you can use for real applications. Many users have successfully built and deployed production apps using Vibecode. You have full control over the generated code and can export it for further customization or deployment.
+  </Accordion>
+
+  <Accordion title="Do I need coding experience to vibe code?">
+    No coding experience is required! Vibecode is designed for everyone, from complete beginners to experienced developers. You simply describe what you want in natural language, and the AI handles the technical implementation. However, if you do have coding experience, you can dive deeper and customize the generated code.
+  </Accordion>
+
+  <Accordion title="Can I use Vibecode for professional purposes? E.g. for my work or my business?">
+    Absolutely! Vibecode is suitable for both personal and professional use. Many businesses and professionals use Vibecode to:
+    - Prototype ideas quickly
+    - Build internal tools and apps
+    - Create client projects
+    - Develop commercial applications
+    
+    You own the code you generate and can use it however you like.
+  </Accordion>
+
+  <Accordion title="Will Vibecoded apps work on Android and iOS?">
+    Yes! Apps built with Vibecode are cross-platform and work on both iOS and Android devices. The code is built using React Native and Expo, which enables deployment to both platforms from a single codebase.
+  </Accordion>
+
+  <Accordion title="How long does it take to build an app with Vibecode?">
+    It depends on the complexity of your app. Simple apps can be built in hours, while more complex apps with multiple features might take longer. The beauty of Vibecode is that you can iterate and refine quickly using natural language.
   </Accordion>
 </AccordionGroup>
 
@@ -47,22 +92,173 @@ Find answers to common questions, learn best practices, and get help with Vibeco
   </Accordion>
 </AccordionGroup>
 
+## Features
+
+<AccordionGroup>
+  <Accordion title="How to add take payments in my app or add paywalls with RevenueCat or Stripe?">
+    You can integrate payment systems into your Vibecode app by prompting the AI to add payment functionality. Popular options include:
+    
+    **RevenueCat**: For in-app purchases and subscriptions
+    - Simply ask the AI to "integrate RevenueCat for subscriptions"
+    - Configure your RevenueCat account and add your API keys via Supabase secrets
+    
+    **Stripe**: For one-time payments and custom payment flows
+    - Prompt the AI to "add Stripe payment integration"
+    - Use Stripe's API with proper key management through Supabase
+    
+    **Important**: Never hardcode API keys in your app. Always use environment variables or Supabase secrets for sensitive credentials.
+  </Accordion>
+
+  <Accordion title="How do I publish my app to the App Store?">
+    To publish your app to the Apple App Store:
+    
+    1. **Export your code**: Download your complete source code from Vibecode
+    2. **Set up Apple Developer Account**: Enroll in the Apple Developer Program ($99/year)
+    3. **Configure your app**: Update app icons, bundle ID, and metadata
+    4. **Build for production**: Create a production build using Xcode or EAS Build
+    5. **Submit for review**: Upload to App Store Connect and submit for review
+    
+    Check our detailed guide on "Deploy to App Store" in the Getting Started section for step-by-step instructions.
+  </Accordion>
+
+  <Accordion title="How do I add a backend, database, or authentication to the app? (Firebase/Supabase)">
+    You can add backend services by integrating with Firebase or Supabase:
+    
+    **Supabase** (Recommended):
+    - Prompt the AI: "Add Supabase authentication and database"
+    - Create a Supabase project and get your API keys
+    - Store credentials securely using Supabase secrets
+    - Use Supabase Edge Functions for server-side logic
+    
+    **Firebase**:
+    - Ask the AI to "integrate Firebase authentication and Firestore"
+    - Set up your Firebase project
+    - Configure authentication methods (email, Google, etc.)
+    
+    **Note**: Be careful with authentication - if implemented incorrectly, you could lock yourself out of your app.
+  </Accordion>
+
+  <Accordion title="How do I start a new chat with the agent?">
+    To start a new chat session:
+    1. Look for the "New Chat" or "+" button in the Vibecode workspace
+    2. This will create a fresh conversation while preserving your existing chats
+    3. You can always return to previous chats by selecting them from your chat history
+    
+    Starting a new chat is useful when you want to begin a completely new project or explore a different idea.
+  </Accordion>
+
+  <Accordion title="How can I download my project's code?">
+    To download your project code:
+    1. Open your project in the Vibecode workspace
+    2. Look for the "Export" or "Download Code" option in the menu
+    3. Select the export format (typically a ZIP file)
+    4. Your complete source code will be downloaded, including all dependencies
+    
+    The exported code is a complete React Native/Expo project that you can run locally, modify, and deploy as you wish.
+  </Accordion>
+</AccordionGroup>
+
 ## Data & Integrations
 
 <AccordionGroup>
   <Accordion title="Can I connect my project to a backend to store data?">
-    This is a feature that is coming very soon.
+    Yes! You can integrate with backend services like Supabase or Firebase. Simply prompt the AI to add backend connectivity, and it will guide you through the integration process. This allows you to store user data, implement authentication, and build more complex applications.
+
+    We currently have a Vibecode Cloud feature in beta that allows you to add a backend to your app. It is not yet fully functional.
   </Accordion>
 
   <Accordion title="Can I add login to my app?">
     We currently do not support Auth/DB, so we do not recommend adding this feature even though it is possible. If it is added, there is a chance you could lock yourself out of your own app without being able to recover it since there is no database functionality (yet).
-  </Accordion>
 
-  <Accordion title="Can I add third-party APIs to my project?">
-    Yes, you can add authentication by integrating with Supabase. Simply prompt the AI to add it and follow the instructions.
-  </Accordion>
-
-  <Accordion title="Can I store sensitive API keys in Vibecode?">
-    No! Never enter your API keys directly in Vibecode. If you're integrating with an API, we recommend you use Supabase secrets to store your API keys, in combination with the Supabase Edge Functions.
+    We currently have a Vibecode Cloud feature in beta that allows you to add a backend to your app. It is not yet fully functional.
   </Accordion>
 </AccordionGroup>
+
+## Technical
+
+<AccordionGroup>
+  <Accordion title="How do I connect to my app using SSH?">
+    To connect to your app via SSH:
+    1. Navigate to the Export/SSH section in your workspace
+    2. Enable SSH access for your project
+    3. Use the provided connection details and credentials
+    4. Connect using any SSH client or terminal
+    
+    SSH access allows you to interact with your app's development environment directly, useful for advanced debugging and configuration.
+  </Accordion>
+
+  <Accordion title="Are Vibecode apps actually native iOS/Android apps? Or is it just web apps?">
+    Vibecode generates **true native mobile apps**, not web apps. Your apps are built using React Native and Expo, which compile to native iOS and Android code. This means:
+    - Full access to native device features (camera, sensors, notifications, etc.)
+    - Native performance and user experience
+    - Ability to publish to app stores
+    - Offline functionality
+    
+    While React Native uses JavaScript, the UI components are genuine native components, not web views.
+  </Accordion>
+
+  <Accordion title="Can I use Vibecode to build a web app?">
+    Yes! While Vibecode primarily focuses on mobile apps, you can also build web applications. The same React Native codebase can be adapted for web using React Native Web or you can specifically request a web-focused build.
+    
+    Simply prompt the AI to "create a web app" or "make this compatible with web browsers" and it will generate the appropriate code.
+  </Accordion>
+</AccordionGroup>
+
+## Account
+
+<AccordionGroup>
+  <Accordion title="How do I upgrade my account?">
+    To upgrade your Vibecode account:
+    1. Go to the Vibecode dashboard/workspace
+    2. Navigate to Settings or Account
+    3. Select "Upgrade" or "Plans"
+    4. Choose your desired plan (Pro, Premium, etc.)
+    5. Complete the payment process
+    
+    Upgrading gives you access to more credits, advanced features, and increased usage limits.
+  </Accordion>
+
+  <Accordion title="How do I update my email address?">
+    To update your email address:
+    1. Log into your Vibecode workspace
+    2. Go to Account Settings
+    3. Find the Email section
+    4. Enter your new email address
+    5. Verify the change via confirmation email
+    
+    If you have trouble updating your email, contact support for assistance.
+  </Accordion>
+</AccordionGroup>
+
+## Billing & Subscription
+
+<AccordionGroup>
+  <Accordion title="Does Vibecode store or own my app data or code?">
+    No, you own all the code and data you create with Vibecode. We store your projects temporarily to enable the building and iteration process, but:
+    - You retain full ownership of your code
+    - You can export your code at any time
+    - You can delete your projects whenever you want
+    - We don't claim any intellectual property rights to your creations
+    
+    Your code is yours to use, modify, and distribute as you see fit.
+  </Accordion>
+
+  <Accordion title="How do I cancel my subscription?">
+    To cancel your Vibecode subscription:
+    1. Log into your Vibecode workspace
+    2. Navigate to Account Settings or Billing
+    3. Find the Subscription section
+    4. Click "Cancel Subscription"
+    5. Confirm the cancellation
+    
+    Your subscription will remain active until the end of your current billing period. You'll retain access to your projects and can still export your code even after cancellation.
+  </Accordion>
+</AccordionGroup>
+
+## Still have questions?
+
+Can't find the answer you're looking for? Please reach out to our support team.
+
+<Card title="Contact Support" icon="headset" href="https://www.vibecodeapp.com/support">
+  Get help from our support team
+</Card>

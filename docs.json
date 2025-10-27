@@ -11,10 +11,10 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Getting Started",
+        "tab": "Introduction",
         "groups": [
           {
-            "group": "Getting Started",
+            "group": "Introduction",
             "pages": [
               "index",
               "Getting-Started/Plans-and-Credits",
@@ -104,6 +104,17 @@
             "pages": [
               "Integrations/Resend-Email",
               "Integrations/Expo-Push-Notifications"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Prompting",
+        "groups": [
+          {
+            "group": "Prompting",
+            "pages": [
+              "core-features/Advanced-Animations"
             ]
           }
         ]
