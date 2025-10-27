@@ -126,7 +126,10 @@
             "group": "Resources",
             "pages": [
               "Custom-GPT",
-              "Resources"
+              "Resources",
+              "updates",
+              "Resources/Community",
+              "Resources/Glossary"
             ]
           }
         ]
@@ -191,7 +194,6 @@
       "x": "https://x.com/vibecodeapp",
       "github": "https://github.com/vibecode",
       "instagram": "https://www.instagram.com/vibecodeapp/",
-      "tiktok": "https://www.tiktok.com/@vibecodeapp",
       "linkedin": "https://linkedin.com/company/vibecodeapp"
     }
   }
