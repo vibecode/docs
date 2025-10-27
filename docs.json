@@ -136,18 +136,23 @@
       "anchors": [
         {
           "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
+          "href": "https://www.vibecodeapp.com/docs",
           "icon": "book-open-cover"
         },
         {
-          "anchor": "Community",
-          "href": "https://mintlify.com/community",
-          "icon": "slack"
+          "anchor": "Discord",
+          "href": "https://discord.gg/qXyWYYX5Ts",
+          "icon": "discord"
         },
         {
           "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
+          "href": "https://www.vibecodeapp.com/blog",
           "icon": "newspaper"
+        },
+        {
+          "anchor": "FAQ",
+          "href": "https://www.vibecodeapp.com/faq",
+          "icon": "question-circle"
         }
       ]
     }
