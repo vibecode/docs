@@ -21,7 +21,9 @@
               "introduction/creating-first-app",
               "introduction/claude-code",
               "introduction/home-screen-widgets",
-              "introduction/web-app"
+              "introduction/web-app",
+              "introduction/sharing-app",
+              "introduction/deploy-app-store"
             ]
           }
         ]
@@ -49,7 +51,8 @@
               "features/image-generation",
               "features/vibecode-cloud",
               "features/export-ssh",
-              "features/download-code"
+              "features/download-code",
+              "features/pinch-to-build"
             ]
           },
           {
@@ -96,7 +99,8 @@
               "integrations/openweather-api",
               "integrations/stock-market-data",
               "integrations/crypto-market-data",
-              "integrations/runtime-logs"
+              "integrations/runtime-logs",
+              "integrations/haptic-feedback"
             ]
           },
           {
@@ -126,7 +130,12 @@
           {
             "group": "FAQs",
             "pages": [
-              "faqs"
+              "faqs",
+              "faq/getting-started",
+              "faq/building-tips",
+              "faq/app-ideas",
+              "faq/data-integrations",
+              "faq/tips-tricks"
             ]
           }
         ]

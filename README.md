@@ -4,7 +4,7 @@ This is the documentation for Vibecode.
 
 We use Mintlify to build and deploy our documentation.
 
-The documentation is hosted at [docs.vibecodeapp.com](https://docs.vibecodeapp.com).
+The documentation is hosted at [vibecodeapp.com/docs](https://vibecodeapp.com/docs).
 
 ## Development
 

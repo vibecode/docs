@@ -7,39 +7,63 @@ Copy and paste these prompts directly into Vibecode to implement native iOS comp
 
 ## Large Header Titles
 
-```text
-We want a large header title on the screen. Using a React Navigation Native Stack navigator, set `headerLargeTitle: true` and `headerTransparent: true` in screen options. In the screen component, use a `ScrollView` as the outermost component with `style={{ flex: 1 }}` and `contentInsetAdjustmentBehavior="automatic"`.
+<CodeGroup>
+```text Prompt
+We want a large header title on the screen. 
+
+Using a React Navigation Native Stack navigator, set `headerLargeTitle: true` and `headerTransparent: true` in screen options. 
+
+In the screen component, use a `ScrollView` as the outermost component with `style={{ flex: 1 }}` and `contentInsetAdjustmentBehavior="automatic"`.
 ```
+</CodeGroup>
 
 ## Context Menu
 
-```text
-Use Zeego ContextMenu; open on long-press; map items/submenus with native look (no custom styling). Here are the docs: https://zeego.dev/components/context-menu
+<CodeGroup>
+```text Prompt
+Use Zeego ContextMenu; open on long-press; map items/submenus with native look (no custom styling). 
+
+Here are the docs: https://zeego.dev/components/context-menu
 ```
+</CodeGroup>
 
 ## Liquid Glass Bottom Tabs
 
-```text
-Use react-native-bottom-tabs and @bottom-tabs/react-navigation package to implement Native bottom tabs. Here are the docs: https://incubator.callstack.com/react-native-bottom-tabs/docs/guides/usage-with-react-navigation
+<CodeGroup>
+```text Prompt
+Use react-native-bottom-tabs and @bottom-tabs/react-navigation package to implement Native bottom tabs. 
+
+Here are the docs: https://incubator.callstack.com/react-native-bottom-tabs/docs/guides/usage-with-react-navigation
 ```
+</CodeGroup>
 
 ## Modals and Bottom Sheets
 
-```text
-Use the @gorhom/bottom-sheet; define snap points, backdrop, and enablePanDownToClose for iOS feel. Make multiple snap points including a full screen version of the bottom sheet.
+<CodeGroup>
+```text Prompt
+Use the @gorhom/bottom-sheet; define snap points, backdrop, and enablePanDownToClose for iOS feel. 
+
+Make multiple snap points including a full screen version of the bottom sheet.
 ```
+</CodeGroup>
 
 ## iOS-Style Switch
 
-```text
+<CodeGroup>
+```text Prompt
 Use the native iOS style switch component. You can import this from "react-native"
 ```
+</CodeGroup>
 
 ## Date and Time Pickers
 
-```text
-Use @react-native-community/datetimepicker; present mode="date" / "time" and handle onChange inline/modal on iOS. Make sure to make the text color black or some other color based on the background. Most backgrounds are white.
+<CodeGroup>
+```text Prompt
+Use @react-native-community/datetimepicker; present mode="date" / "time" and handle onChange inline/modal on iOS. 
+
+Make sure to make the text color black or some other color based on the background. Most backgrounds are white.
 ```
+</CodeGroup>
 
 ## Haptics
 
@@ -51,13 +75,17 @@ Use Vibecode app's built-in [Haptics feature](/Features/Haptics) to add tactile 
 
 ### iOS-Style Segmented Control
 
-```text
+<CodeGroup>
+```text Prompt
 Use @react-native-segmented-control/segmented-control; control via selectedIndex + onChange to switch views.
 ```
+</CodeGroup>
 
 ### Swipe to Delete
 
-```text
+<CodeGroup>
+```text Prompt
 Build list rows with RNGH Swipeable/Reanimated; render renderRightActions with a Delete action and commit on full swipe.
 ```
+</CodeGroup>
 
