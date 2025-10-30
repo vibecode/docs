@@ -118,6 +118,7 @@
           {
             "group": "Prompting",
             "pages": [
+              "prompting/web-to-mobile",
               "prompting/advanced-animations",
               "prompting/native-ui-components"
             ]
