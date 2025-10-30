@@ -114,7 +114,8 @@
           {
             "group": "Prompting",
             "pages": [
-              "core-features/Advanced-Animations"
+              "core-features/Advanced-Animations",
+              "core-features/Native-UI-Components"
             ]
           }
         ]
