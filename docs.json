@@ -17,11 +17,11 @@
             "group": "Introduction",
             "pages": [
               "index",
-              "Getting-Started/Plans-and-Credits",
-              "Getting-Started/Creating-first-app",
-              "Getting-Started/Claude-Code",
-              "Getting-Started/Home-screen-widgets",
-              "Getting-Started/Web-App"
+              "introduction/plans-and-credits",
+              "introduction/creating-first-app",
+              "introduction/claude-code",
+              "introduction/home-screen-widgets",
+              "introduction/web-app"
             ]
           }
         ]
@@ -32,8 +32,8 @@
           {
             "group": "Use Cases",
             "pages": [
-              "Use-Cases/Use-Case-1",
-              "Use-Cases/Use-Case-2"
+              "use-cases/use-case-1",
+              "use-cases/use-case-2"
             ]
           }
         ]
@@ -44,18 +44,18 @@
           {
             "group": "Core Features",
             "pages": [
-              "Features/Haptics",
-              "Features/Sound-Generation",
-              "Features/Image-Generation",
-              "Features/Vibecode-Cloud",
-              "Features/Export-SSH",
-              "Features/Download-Code"
+              "features/haptics",
+              "features/sound-generation",
+              "features/image-generation",
+              "features/vibecode-cloud",
+              "features/export-ssh",
+              "features/download-code"
             ]
           },
           {
             "group": "Integrations Overview",
             "pages": [
-              "Features/Integrations"
+              "features/integrations"
             ]
           }
         ]
@@ -66,44 +66,44 @@
           {
             "group": "Text Generation",
             "pages": [
-              "Integrations/OpenAI-GPT-5-Mini",
-              "Integrations/Grok-4-Fast",
-              "Integrations/Google-Gemini"
+              "integrations/openai-gpt-5-mini",
+              "integrations/grok-4-fast",
+              "integrations/google-gemini"
             ]
           },
           {
             "group": "Audio",
             "pages": [
-              "Integrations/GPT-4o-Audio-Transcription",
-              "Integrations/ElevenLabs-TTS",
-              "Integrations/ElevenLabs-Sound-Effects",
-              "Integrations/ElevenLabs-Music"
+              "integrations/gpt-4o-audio-transcription",
+              "integrations/elevenlabs-tts",
+              "integrations/elevenlabs-sound-effects",
+              "integrations/elevenlabs-music"
             ]
           },
           {
             "group": "Image Generation",
             "pages": [
-              "Integrations/OpenAI-GPT-Image-1",
-              "Integrations/Nano-Banana",
-              "Integrations/Ideogram-3"
+              "integrations/openai-gpt-image-1",
+              "integrations/nano-banana",
+              "integrations/ideogram-3"
             ]
           },
           {
             "group": "Data APIs",
             "pages": [
-              "Integrations/Apple-Maps",
-              "Integrations/TMDB",
-              "Integrations/OpenWeather-API",
-              "Integrations/Stock-Market-Data",
-              "Integrations/Crypto-Market-Data",
-              "Integrations/Runtime-Logs"
+              "integrations/apple-maps",
+              "integrations/tmdb",
+              "integrations/openweather-api",
+              "integrations/stock-market-data",
+              "integrations/crypto-market-data",
+              "integrations/runtime-logs"
             ]
           },
           {
             "group": "Communication",
             "pages": [
-              "Integrations/Resend-Email",
-              "Integrations/Expo-Push-Notifications"
+              "integrations/resend-email",
+              "integrations/expo-push-notifications"
             ]
           }
         ]
@@ -114,8 +114,8 @@
           {
             "group": "Prompting",
             "pages": [
-              "core-features/Advanced-Animations",
-              "core-features/Native-UI-Components"
+              "prompting/advanced-animations",
+              "prompting/native-ui-components"
             ]
           }
         ]
@@ -126,7 +126,7 @@
           {
             "group": "FAQs",
             "pages": [
-              "FAQs"
+              "faqs"
             ]
           }
         ]
@@ -137,12 +137,12 @@
           {
             "group": "Resources",
             "pages": [
-              "Custom-GPT",
-              "Resources",
+              "custom-gpt",
+              "resources",
               "updates",
-              "Resources/Community",
-              "Resources/Glossary",
-              "Support"
+              "resources/community",
+              "resources/glossary",
+              "support"
             ]
           }
         ]
