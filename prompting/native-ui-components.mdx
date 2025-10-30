@@ -1,103 +1,49 @@
 ---
 title: "Native iOS UI Components"
-description: "Learn how to implement native iOS UI patterns and components in your Vibecode apps"
+description: "Easy-to-copy prompts for implementing native iOS UI patterns in your Vibecode apps"
 ---
 
-Create apps that feel truly native on iOS by using these native UI components and patterns. Each component matches the iOS design language and provides the familiar interactions users expect.
+Copy and paste these prompts directly into Vibecode to implement native iOS components.
 
 ## Large Header Titles
 
-Large, collapsing header titles create a dynamic, immersive browsing experience that's characteristic of native iOS apps.
-
-**Implementation:**
-
-Using a React Navigation Native Stack navigator, set the following in your screen options:
-- `headerLargeTitle: true` - Enables the large title display
-- `headerTransparent: true` - Makes the header transparent for the collapsing effect
-
-In your screen component, use a `ScrollView` as the outermost component with:
-- `style={{ flex: 1 }}`
-- `contentInsetAdjustmentBehavior="automatic"`
-
-This creates the signature iOS collapsing header effect as users scroll through content.
+```text
+We want a large header title on the screen. Using a React Navigation Native Stack navigator, set `headerLargeTitle: true` and `headerTransparent: true` in screen options. In the screen component, use a `ScrollView` as the outermost component with `style={{ flex: 1 }}` and `contentInsetAdjustmentBehavior="automatic"`.
+```
 
 ## Context Menu
 
-Context menus provide contextual actions through a long-press gesture, just like native iOS apps.
-
-**Implementation:**
-
-Use the Zeego ContextMenu component which opens on long-press. Map your items and submenus to achieve the native iOS look—no custom styling needed.
-
-**Documentation:** [zeego.dev/components/context-menu](https://zeego.dev/components/context-menu)
-
-**Best Practices:**
-- Keep menu items relevant to the long-pressed element
-- Use clear, action-oriented labels
-- Group related actions using submenus
-- Let the native styling handle the appearance
+```text
+Use Zeego ContextMenu; open on long-press; map items/submenus with native look (no custom styling). Here are the docs: https://zeego.dev/components/context-menu
+```
 
 ## Liquid Glass Bottom Tabs
 
-Modern, translucent bottom tab bars with the signature iOS blur effect that adapts to content beneath it.
-
-**Implementation:**
-
-Use `react-native-bottom-tabs` and `@bottom-tabs/react-navigation` packages to implement native bottom tabs with the authentic iOS appearance.
-
-**Documentation:** [incubator.callstack.com/react-native-bottom-tabs/docs/guides/usage-with-react-navigation](https://incubator.callstack.com/react-native-bottom-tabs/docs/guides/usage-with-react-navigation)
+```text
+Use react-native-bottom-tabs and @bottom-tabs/react-navigation package to implement Native bottom tabs. Here are the docs: https://incubator.callstack.com/react-native-bottom-tabs/docs/guides/usage-with-react-navigation
+```
 
 ## Modals and Bottom Sheets
 
-Bottom sheets provide a native iOS modal experience with smooth animations and gestures.
-
-**Implementation:**
-
-Use `@gorhom/bottom-sheet` with the following configuration:
-- Define multiple **snap points** including a full-screen version
-- Add a **backdrop** for focus and context
-- Enable **enablePanDownToClose** for the natural iOS dismiss gesture
-
-**Best Practices:**
-- Provide at least 2-3 snap points (e.g., 25%, 50%, 90%)
-- Always include a full-screen snap point for complex content
-- Use the backdrop to indicate modal state
-- Allow users to dismiss by swiping down
+```text
+Use the @gorhom/bottom-sheet; define snap points, backdrop, and enablePanDownToClose for iOS feel. Make multiple snap points including a full screen version of the bottom sheet.
+```
 
 ## iOS-Style Switch
 
-The classic iOS toggle switch for binary choices.
-
-**Implementation:**
-
-Use the native iOS-style Switch component imported directly from `react-native`:
-
-```javascript
-import { Switch } from 'react-native';
+```text
+Use the native iOS style switch component. You can import this from "react-native"
 ```
-
-The component automatically matches the iOS design language with no additional configuration needed.
 
 ## Date and Time Pickers
 
-Native iOS date and time picker components that match system behavior.
-
-**Implementation:**
-
-Use `@react-native-community/datetimepicker` with:
-- `mode="date"` for date selection
-- `mode="time"` for time selection
-- Handle `onChange` events inline or in a modal on iOS
-
-**Important:** Ensure text color contrasts with your background. Most backgrounds are white, so use black or another appropriate color for visibility.
+```text
+Use @react-native-community/datetimepicker; present mode="date" / "time" and handle onChange inline/modal on iOS. Make sure to make the text color black or some other color based on the background. Most backgrounds are white.
+```
 
 ## Haptics
 
-Add tactile feedback to enhance user interactions.
-
-**Implementation:**
-
-Use the Vibecode app's built-in [Haptics feature](/Features/Haptics) to add the perfect haptic response for every interaction.
+Use Vibecode app's built-in [Haptics feature](/Features/Haptics) to add tactile feedback.
 
 ---
 
@@ -105,54 +51,13 @@ Use the Vibecode app's built-in [Haptics feature](/Features/Haptics) to add the 
 
 ### iOS-Style Segmented Control
 
-A native segmented control for switching between 2-4 related views or filters.
-
-**Implementation:**
-
-Use `@react-native-segmented-control/segmented-control`:
-- Control via `selectedIndex` prop
-- Handle view switching with `onChange` callback
-- Perfect for filtering content or switching between related screens
-
-**Best Practices:**
-- Limit to 2-4 segments for optimal usability
-- Use short, clear labels
-- Ensure segments are related and mutually exclusive
+```text
+Use @react-native-segmented-control/segmented-control; control via selectedIndex + onChange to switch views.
+```
 
 ### Swipe to Delete
 
-The familiar iOS swipe-to-delete pattern for list items.
-
-**Implementation:**
-
-Build list rows using React Native Gesture Handler's Swipeable component with Reanimated:
-- Render `renderRightActions` with a Delete action
-- Commit deletion on full swipe
-- Add haptic feedback for confirmation
-
-**Example Prompt:**
-> "Build list rows with RNGH Swipeable/Reanimated; render renderRightActions with a Delete action and commit on full swipe."
-
-**Best Practices:**
-- Show the delete button on left swipe (from right edge)
-- Use red background for destructive actions
-- Add confirmation haptic feedback
-- Animate the row removal smoothly
-
----
-
-## General Tips
-
-- **Test on real devices** - Native components often behave differently on physical devices than in simulators
-- **Respect system settings** - Many components automatically adapt to user preferences like dark mode and accessibility settings
-- **Keep it native** - Avoid heavy customization that breaks the iOS feel users expect
-- **Combine patterns** - Mix these components to create rich, native-feeling interfaces
-
-## What's Next?
-
-Once you've implemented these native components:
-- Test your app thoroughly on iOS devices
-- Pay attention to animations and transitions
-- Consider adding [sound effects](/Features/Sound-Generation) to complement haptics
-- Share your app using the [export features](/Features/Export-SSH)
+```text
+Build list rows with RNGH Swipeable/Reanimated; render renderRightActions with a Delete action and commit on full swipe.
+```
 
