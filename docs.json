@@ -29,6 +29,17 @@
         ]
       },
       {
+        "tab": "Payments",
+        "groups": [
+          {
+            "group": "Payments",
+            "pages": [
+              "payments/revenuecat-setup"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Use Cases",
         "groups": [
           {

@@ -1,0 +1,198 @@
+---
+title: "RevenueCat Setup"
+description: "Add in-app purchases and subscriptions to your Vibecode app with RevenueCat"
+---
+
+Ready to monetize your app? Vibecode integrates with [RevenueCat](https://www.revenuecat.com/) to handle in-app purchases and subscriptions. This guide walks you through the complete setup process.
+
+## Before You Start
+
+You'll need the following:
+
+- [**Vibecode Pro Plan**](/introduction/plans-and-credits) (upgrade in your account settings if needed)
+- [**RevenueCat Account**](https://www.revenuecat.com/) (sign up for free)
+- [**Apple Developer Program Membership**](https://developer.apple.com/programs/) ($99/year)
+
+## Step 1: Connect Your RevenueCat Account
+
+1. Open your project in Vibecode
+2. Click the **Payments** tab
+<img src="/payments/payments-tab.png" alt="Payments tab" style={{maxHeight: '250px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
+3. Click **Connect RevenueCat**
+4. Sign into your RevenueCat account in the popup
+5. Authorize Vibecode to access your account
+6. You'll be redirected back automatically
+
+{/* TODO: Add screenshot of Payments tab with Connect RevenueCat button */}
+
+<Tip>If the popup is blocked, check your browser's popup settings and try again.</Tip>
+
+## Step 2: Configure Your App Identity
+
+After connecting, you'll set up your app identity:
+
+1. **Display Name** - Your app's name as it appears on the home screen
+2. **Bundle Identifier** - A unique identifier for your app (Vibecode auto-generates one)
+
+{/* TODO: Add screenshot of app identity configuration form */}
+
+<Warning>Your Bundle Identifier cannot be changed after your first build. Choose carefully!</Warning>
+
+Click **Continue** to complete the setup.
+
+## Step 3: Configure RevenueCat Credentials
+
+<Note>This step is critical! Without these credentials, your in-app purchases will not work.</Note>
+
+For RevenueCat to communicate with App Store Connect, you need to set up two API keys in your RevenueCat dashboard:
+
+### App Store Connect API Key
+
+1. Go to [App Store Connect](https://appstoreconnect.apple.com/) → **Users and Access** → **Integrations** → **App Store Connect API**
+2. Click **Generate API Key** with "App Manager" access level
+3. Download the `.p8` file (you can only download this once!)
+4. Note your **Issuer ID** from this page
+5. In RevenueCat, go to your app's settings and upload the `.p8` file
+6. Enter your Issuer ID and Vendor number (found in App Store Connect under **Payments and Financial Reports**)
+
+<Card title="Full Guide" icon="book" href="https://www.revenuecat.com/docs/service-credentials/itunesconnect-app-specific-shared-secret/app-store-connect-api-key-configuration">
+  App Store Connect API Key Configuration
+</Card>
+
+### In-App Purchase Key
+
+1. Go to [App Store Connect](https://appstoreconnect.apple.com/) → **Users and Access** → **Integrations** → **In-App Purchase**
+2. Click **Generate In-App Purchase Key**
+3. Download the `.p8` file (you can only download this once!)
+4. In RevenueCat, upload this key in the **In-app purchase key configuration** section
+5. Add your Issuer ID and save
+
+<Card title="Full Guide" icon="book" href="https://www.revenuecat.com/docs/service-credentials/itunesconnect-app-specific-shared-secret/in-app-purchase-key-configuration">
+  In-App Purchase Key Configuration
+</Card>
+
+<Warning>The In-App Purchase key is required. Without it, transactions will fail to be recorded when using StoreKit 2.</Warning>
+
+## Step 4: Create Your Product with AI
+
+Ask the Vibecode AI to create your subscription or in-app purchase product:
+
+**Example prompts:**
+
+<CodeGroup>
+```text Monthly Subscription
+Create a monthly premium subscription for $4.99
+```
+```text Yearly with Trial
+Add a yearly subscription with a 7-day free trial
+```
+```text One-Time Purchase
+Create a one-time purchase to remove ads for $2.99
+```
+</CodeGroup>
+
+The AI will create the product in RevenueCat for you.
+
+{/* TODO: Add screenshot of AI chat creating a product */}
+
+## Step 5: Create a Paywall
+
+Ask the AI to create a paywall screen for your app:
+
+**Example prompts:**
+
+<CodeGroup>
+```text Basic Paywall
+Create a paywall screen showing my subscription options
+```
+```text Premium Upgrade
+Add a premium upgrade screen with monthly and yearly options
+```
+```text Feature Gate
+Show a paywall when users try to access pro features
+```
+</CodeGroup>
+
+<img src="/payments/paywall-example.png" alt="Paywall example" style={{maxHeight: '400px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
+
+## Step 6: Test in Vibecode
+
+Before publishing, test your paywall inside Vibecode:
+
+1. Preview your app
+2. Navigate to where the paywall appears
+3. Verify the products display correctly
+4. Test the purchase flow
+
+<img src="/payments/test-store.png" alt="Test store" style={{maxHeight: '400px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
+
+## Step 7: Sync Product with App Store Connect
+
+<Note>This step creates your product in App Store Connect. You must complete this before your app can accept real payments.</Note>
+
+Tell the AI to sync your product with App Store Connect:
+
+**Example prompts:**
+
+<CodeGroup>
+```text Sync Products
+Sync my RevenueCat products with App Store Connect
+```
+```text Publish Subscription
+Publish my subscription to App Store Connect
+```
+</CodeGroup>
+
+<img src="/payments/prompt-to-sync-products.png" alt="Sync products prompt" style={{maxHeight: '250px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
+
+This creates the corresponding product in your App Store Connect account.
+
+## Step 8: Complete Product Setup in App Store Connect
+
+Your product was created but needs additional metadata before it can go live:
+
+1. Go to [App Store Connect](https://appstoreconnect.apple.com/)
+2. Click on your app in the bottom left
+3. Navigate to **Monetization** → **Subscriptions** (or **In-App Purchases**)
+4. Click on the subscription group that was created
+5. Select your product
+
+<img src="/payments/app-store-connect-subscriptions-page.png" alt="App Store Connect subscriptions page" style={{maxHeight: '400px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
+
+### Add Required Metadata
+
+For each product, you need to add:
+
+- **Display Name** - What users see during purchase
+- **Description** - Explain what the subscription includes
+- **Screenshot** - A screenshot showing your subscription in action
+
+<img src="/payments/asc-missing-metadata.png" alt="App Store Connect missing metadata" style={{maxHeight: '400px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
+
+<img src="/payments/asc-paywall-screenshot.png" alt="App Store Connect paywall screenshot" style={{maxHeight: '400px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
+
+<Note>Your product will show "Missing Metadata" status until you add all required information including the screenshot.</Note>
+
+Once all metadata is complete, the status will change and your product is ready for submission.
+
+## Troubleshooting
+
+**Can't connect to RevenueCat?**
+- Check that popups aren't blocked in your browser
+- Try refreshing the page and connecting again
+- Ensure you're signed into your RevenueCat account
+
+**Products not showing up?**
+- Click **Refresh** in the Payment Dashboard
+- Verify products are created in both App Store Connect and RevenueCat
+- Check that products are linked to the correct app in RevenueCat
+
+**Product shows "Missing Metadata"?**
+- Go to App Store Connect and add all required fields
+- Make sure to upload a screenshot for the product
+- Save your changes and the status will update
+
+**Purchases failing in testing?**
+- Ensure you're using a valid Sandbox Tester account
+- Sign out of your regular Apple ID first
+- Check that your app's bundle ID matches App Store Connect
