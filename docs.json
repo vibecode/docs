@@ -29,17 +29,6 @@
         ]
       },
       {
-        "tab": "Payments",
-        "groups": [
-          {
-            "group": "Payments",
-            "pages": [
-              "payments/revenuecat-setup"
-            ]
-          }
-        ]
-      },
-      {
         "tab": "Use Cases",
         "groups": [
           {
@@ -70,6 +59,18 @@
             "group": "Integrations Overview",
             "pages": [
               "features/integrations"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Prompting",
+        "groups": [
+          {
+            "group": "Prompting",
+            "pages": [
+              "prompting/web-to-mobile",
+              "prompting/native-ui-components"
             ]
           }
         ]
@@ -124,14 +125,12 @@
         ]
       },
       {
-        "tab": "Prompting",
+        "tab": "Payments",
         "groups": [
           {
-            "group": "Prompting",
+            "group": "Payments",
             "pages": [
-              "prompting/web-to-mobile",
-              "prompting/advanced-animations",
-              "prompting/native-ui-components"
+              "payments/revenuecat-setup"
             ]
           }
         ]
