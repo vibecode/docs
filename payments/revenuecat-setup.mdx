@@ -196,3 +196,16 @@ Once all metadata is complete, the status will change and your product is ready 
 - Ensure you're using a valid Sandbox Tester account
 - Sign out of your regular Apple ID first
 - Check that your app's bundle ID matches App Store Connect
+
+**Products not appearing in TestFlight?**
+
+When subscriptions or in-app purchase products don't appear in TestFlight, it's usually due to an incomplete setup in App Store Connect—missing legal entity information and incomplete agreements or tax information.
+
+<img src="/payments/asc-legal.png" alt="App Store Connect Business Agreements" style={{maxHeight: '400px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
+
+To fix this:
+- Go to [App Store Connect](https://appstoreconnect.apple.com/) → **Business** → **Agreements**
+- Ensure your **Paid Apps Agreement** is active (not "New")
+- Complete any pending legal entity information
+- Fill out all required tax and banking information
+- Make sure to also fill out all the metadata for your products in App Store Connect. You can do this by going to App -> Subscriptions -> Your Subscription -> Edit -> Metadata.
