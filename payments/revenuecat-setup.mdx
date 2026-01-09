@@ -177,6 +177,8 @@ Once all metadata is complete, the status will change and your product is ready 
 
 ## Troubleshooting
 
+There are many common issues that can prevent your products from working correctly. Please go through all of them and make sure they do not impact you.
+
 **Can't connect to RevenueCat?**
 - Check that popups aren't blocked in your browser
 - Try refreshing the page and connecting again
@@ -209,3 +211,15 @@ To fix this:
 - Complete any pending legal entity information
 - Fill out all required tax and banking information
 - Make sure to also fill out all the metadata for your products in App Store Connect. You can do this by going to App -> Subscriptions -> Your Subscription -> Edit -> Metadata.
+
+**Pending agreements blocking purchases?**
+
+If you see a yellow warning banner in App Store Connect about updated agreements, you must clear all pending agreements before RevenueCat can process purchases.
+
+<img src="/payments/asc-agreements.png" alt="App Store Connect pending agreements warning" style={{maxHeight: '400px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
+
+To fix this:
+- The **Account Holder** (not just any team member) must sign in to App Store Connect
+- Review and accept any updated license agreements shown in the yellow banner
+- Check **Business** → **Agreements** for any other pending agreements
+- Once all agreements are accepted, the yellow warning will disappear and purchases will work
