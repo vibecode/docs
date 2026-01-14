@@ -138,22 +138,6 @@
         ]
       },
       {
-        "tab": "FAQs",
-        "groups": [
-          {
-            "group": "FAQs",
-            "pages": [
-              "faqs",
-              "faq/getting-started",
-              "faq/building-tips",
-              "faq/app-ideas",
-              "faq/data-integrations",
-              "faq/tips-tricks"
-            ]
-          }
-        ]
-      },
-      {
         "tab": "Resources",
         "groups": [
           {
