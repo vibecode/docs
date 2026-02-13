@@ -1,0 +1,228 @@
+---
+title: "Stripe Setup"
+description: "Learn how to integrate Stripe payments with your Vibecode application"
+---
+
+# Stripe Payment Setup for Vibecode
+
+> Step-by-step guide to connecting Stripe for subscription billing and checkout
+
+You've built your app in Vibecode and you're ready to accept payments. Whether you're selling subscriptions, one-time purchases, or premium features, Stripe makes it easy to handle payments securely. This guide walks you through connecting Stripe to your Vibecode app so you can start accepting payments.
+
+## What is Stripe Integration?
+
+Stripe is a payment processing platform that handles the complex parts of accepting payments such as security, compliance, fraud prevention, and payment methods. When you integrate Stripe with your Vibecode app, you're connecting your app to Stripe's infrastructure so customers can pay you securely.
+
+Think of it like setting up a cash register in a physical store. You need the register itself (Stripe), you need to connect it to your point-of-sale system (your Vibecode app), and you need to configure it with your business information (API keys and webhooks). Once everything is connected, payments flow smoothly from your customers to your account.
+
+Stripe handles everything from processing credit cards to managing subscriptions, sending receipts, and handling refunds. Your app only needs to trigger the correct Stripe actions at the correct times.
+
+### Why Use Stripe?
+
+You might be considering other payment processors, but Stripe offers several advantages:
+
+* **Developer-friendly**. Stripe's API is well-documented and straightforward to integrate.
+* **Global reach**. Accept payments from customers worldwide in multiple currencies.
+* **Subscription management**. Built-in tools for recurring billing, plan changes, and cancellations.
+* **Security**. Stripe manages PCI compliance so you never handle sensitive card data directly.
+* **Vibecode integration**. Works seamlessly with Vibecode's environment variable system.
+
+If you're ready to start accepting payments, follow the steps below.
+
+---
+
+## Step 1: Create a Stripe Account
+
+First, you'll need a Stripe account. Visit [stripe.com](https://stripe.com) and sign up. Complete all verification steps in the Stripe Dashboard. This includes confirming your email, verifying your identity, and setting up your business information.
+
+### If you have not created a company in Stripe
+
+If you haven’t set up a company inside Stripe yet, you'll need to do this before continuing. If your company is already created, you can skip to Step 2.
+
+1. In the top right, click **Organizations**
+2. Click **Create Account**
+3. Choose **Create an account from your organization**
+4. Fill out all required information such as your business name, address, and other details
+5. Add your billing information
+6. Complete the creation process
+
+Once completed, Stripe will guide you through the remaining verification steps. After verification, you'll have access to your Stripe Dashboard where you can manage products, payments, and settings.
+
+![Create Account](01-create-account.png)
+![Create Project](01b-create-project.png)
+![Name Your Account](01c-name-account.png)
+![Use Existing Account](01d-existing-account.png)
+
+---
+
+## Step 2: Get Your API Keys
+
+Your API keys allow your Vibecode app to authenticate with Stripe. They work like a username and password for your app.
+
+**Important:** In the top right of your Stripe Dashboard, switch to **Live Account**. Using test keys in production will prevent real payments from working.
+
+![API Keys](02-api-keys.png)
+
+If your keys are not visible:
+
+1. Click **Developers → API keys**
+2. You will see two types of keys:
+   * **Publishable key** (`pk_...`) for frontend use
+   * **Secret key** (`sk_...`) for backend use only
+
+Copy both keys. You will add them to Vibecode in the next step.
+
+> **Tip:** Test keys are different from Live keys. Always use Live keys for production.
+
+---
+
+## Step 3: Add API Keys to Vibecode
+
+Environment variables let you store sensitive data securely.
+
+1. Go to [vibecodeapp.com](https://vibecodeapp.com) and open your project
+2. Select **Env Var** at the bottom
+
+![Vibecode ENV Variables](03-env-variables.png)
+
+### Frontend
+
+1. Go to **Frontend**
+2. Click **add variable**
+3. Key: `VITE_STRIPE_PUBLISHABLE_KEY`
+4. Value: your Publishable key (`pk_...`)
+
+![Publishable Key](03-publishable-key.png)
+
+### Backend
+
+1. Go to **Backend**
+2. Click **add variable**
+3. Key: `STRIPE_SECRET_KEY`
+4. Value: your Secret key (`sk_...`)
+
+![Secret Key](03-secret-key.png)
+
+> **Warning:** Never expose your Secret key. Only use it in backend code.
+
+---
+
+## Step 4: Create Your Product
+
+Before customers can purchase anything, you must create at least one product in Stripe.
+
+1. Go to **Product Catalog**
+2. Click **Add a product**
+3. Enter a product name such as Pro Plan
+4. Add a description
+5. Choose **Recurring**
+6. Set your price such as 4.99
+7. Choose billing period such as Monthly
+8. Save the product
+
+![Products](04-products.png)
+![Create Product](04b-create-product.png)
+![Add Product](04c-add-product.png)
+![Product Catalog](04d-product-catalog.png)
+
+---
+
+## Step 5: Get Your Price IDs
+
+Each price has its own unique ID. You will need this so your Vibecode app knows which product to charge for.
+
+1. Open your product in Stripe
+2. Click the three dots beside the price
+3. Click **Copy price ID**
+4. Go to Vibecode
+5. Navigate to **Env Var → Backend**
+6. Add a new variable:
+   * Key: `STRIPE_PRICE_ID_MONTHLY`
+   * Value: your price ID
+
+![Copy Price ID](05-copy-price-id.png)
+![Price ID Monthly](05b-price-id-monthly.png)
+
+If you offer yearly billing, repeat this using the key `STRIPE_PRICE_ID_YEARLY`.
+
+---
+
+## Step 6: Set Up Webhooks
+
+Webhooks notify your app when something happens in Stripe.
+
+### In Stripe Dashboard
+
+1. Go to **Developers → Webhooks**
+2. Click **Add destination**
+3. Choose **Your account**
+4. Select these events:
+   * `checkout.session.completed`
+   * `customer.subscription.updated`
+   * `customer.subscription.deleted`
+5. Click **Continue**
+6. Choose **Webhook endpoint**
+7. Enter your Vibecode webhook URL
+8. Create the destination
+9. Copy the **Signing Secret**
+
+![Webhook Step 1](06-webhook-1.png)
+![Webhook Step 2](06-webhook-2.png)
+![Webhook Step 3](06-webhook-3.png)
+![Webhook Step 4](06-webhook-4.png)
+![Webhook Step 5](06-webhook-5.png)
+![Webhook Step 6](06-webhook-6.png)
+![Webhook Step 7](06-webhook-7.png)
+![Webhook Step 8](06-webhook-8.png)
+
+### Add to Vibecode
+
+1. Go back to Vibecode
+2. Open **Env Var → Backend**
+3. Add:
+   * Key: `STRIPE_WEBHOOK_SECRET`
+   * Value: the secret you copied (`whsec_...`)
+
+> **Warning:** Never expose your webhook secret. Always verify signatures in your webhook handler.
+
+---
+
+## Environment Variable Summary
+
+| Name | Location | Example |
+|------|-----------|-----------|
+| `VITE_STRIPE_PUBLISHABLE_KEY` | Frontend | `pk_live_...` |
+| `STRIPE_SECRET_KEY` | Backend | `sk_live_...` |
+| `STRIPE_PRICE_ID_MONTHLY` | Backend | `price_...` |
+| `STRIPE_PRICE_ID_YEARLY` | Backend | `price_...` |
+| `STRIPE_WEBHOOK_SECRET` | Backend | `whsec_...` |
+
+---
+
+## Troubleshooting
+
+### Cannot find API keys
+* Make sure you are in the correct Stripe account
+* Ensure Live mode is enabled
+* Go to Developers → API keys
+
+### Payments not working
+* Verify you are using Live keys
+* Check for typos in environment variables
+* Make sure the Secret key is in Backend only
+* Review Stripe logs
+
+### Webhooks not firing
+* Confirm your webhook endpoint URL
+* Check that the correct events are selected
+* Confirm the webhook secret is correct
+* Review delivery logs in Stripe
+
+### Subscription updates not appearing
+* Check your webhook handler for `customer.subscription.updated`
+* Verify your endpoint is receiving payloads
+* Confirm your app logic updates subscription status correctly
+
+---
+
+Need help? Use Vibecode live support or visit Stripe's documentation at stripe.com/docs.
