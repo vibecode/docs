@@ -1,0 +1,173 @@
+---
+title: "Connect a Custom Domain"
+description: "Use your own domain for your deployed Vibecode web app"
+---
+
+Want to use your own domain instead of the default `.vibecode.app` URL? This guide walks you through connecting a custom domain to your deployed Vibecode web app.
+
+## Before You Start
+
+You'll need:
+
+- A **deployed Vibecode web app** (see [Deploying Your Web App](/deployments/guide) if you haven't deployed yet)
+- A **domain you own** with access to its DNS settings (e.g. via Cloudflare, GoDaddy, Namecheap, etc.)
+
+## Step 1: Open the Domain Tab
+
+In your deployment dashboard, click the **Domain** tab.
+
+<img
+  src="/deployments/custom-domain/01-domain-tab.png"
+  alt="Domain tab in the deployment dashboard"
+  style={{ maxHeight: "400px", display: "block", margin: "0 auto" }}
+  className="rounded-lg"
+/>
+
+{/* TODO: Add annotated screenshot highlighting the Domain tab */}
+
+## Step 2: Add Your Domain
+
+Click the **Add Custom Domain** button. You'll see a modal with two options.
+
+<img
+  src="/deployments/custom-domain/02-add-domain-modal.png"
+  alt="Add Custom Domain modal with 'I have a domain' and 'Maybe later' options"
+  style={{ maxHeight: "400px", display: "block", margin: "0 auto" }}
+  className="rounded-lg"
+/>
+
+Click **"I have a domain"** to continue.
+
+## Step 3: Enter Your Domain
+
+Type in your domain name — just the domain, no `http://` or `https://` prefix.
+
+<img
+  src="/deployments/custom-domain/03-enter-domain.png"
+  alt="Domain input field with www redirect checkbox"
+  style={{ maxHeight: "400px", display: "block", margin: "0 auto" }}
+  className="rounded-lg"
+/>
+
+{/* TODO: Add annotated screenshot highlighting the domain input and www checkbox */}
+
+- Enter your domain (e.g. `example.com`)
+- Optionally check **"Redirect www to this domain"** if you want `www.example.com` to redirect to your apex domain
+- Click **Save**
+
+## Step 4: Configure DNS Records
+
+After saving, Vibecode shows you the DNS records you need to add at your domain provider. The exact records depend on whether you're connecting an **apex domain** or a **subdomain**.
+
+<Tabs>
+  <Tab title="Apex domain (e.g. example.com)">
+    <img
+      src="/deployments/custom-domain/04b-dns-records-apex.png"
+      alt="DNS records for apex domain showing ALIAS and CNAME records"
+      style={{ maxHeight: "500px", display: "block", margin: "0 auto" }}
+      className="rounded-lg"
+    />
+
+    | Type | Name | Target |
+    |------|------|--------|
+    | CNAME or ALIAS | `@` | `<your-project>.vibecode.run` |
+    | CNAME | `www` | `<your-project>.vibecode.run` |
+  </Tab>
+  <Tab title="Subdomain (e.g. app.example.com)">
+    <img
+      src="/deployments/custom-domain/04-dns-records.png"
+      alt="DNS records for subdomain showing CNAME records"
+      style={{ maxHeight: "500px", display: "block", margin: "0 auto" }}
+      className="rounded-lg"
+    />
+
+    | Type | Name | Target |
+    |------|------|--------|
+    | CNAME | `app` | `<your-project>.vibecode.run` |
+    | CNAME | `www.app` | `<your-project>.vibecode.run` |
+  </Tab>
+</Tabs>
+
+<Note>
+  The `www` record only appears if you enabled the www redirect in the previous step.
+</Note>
+
+<Tip>
+  Some DNS providers don't support CNAME records on the apex domain (`@`). In that case, use an **ALIAS** or **ANAME** record instead — most modern providers support this. See the provider guides below for specifics.
+</Tip>
+
+## Step 5: Add Records at Your DNS Provider
+
+Go to your DNS provider's dashboard and add the records from the previous step. Here are direct links to guides for popular providers:
+
+<CardGroup cols={2}>
+  <Card title="Cloudflare" icon="cloud" href="https://developers.cloudflare.com/dns/manage-dns-records/how-to/create-dns-records/">
+    Create DNS records on Cloudflare
+  </Card>
+  <Card title="GoDaddy" icon="globe" href="https://www.godaddy.com/en-in/help/add-a-cname-record-19236">
+    Add a CNAME record on GoDaddy
+  </Card>
+  <Card title="Namecheap" icon="globe" href="https://www.namecheap.com/support/knowledgebase/article.aspx/9646/2237/how-to-create-a-cname-record-for-your-domain/">
+    Create a CNAME record on Namecheap
+  </Card>
+  <Card title="Google Domains" icon="google" href="https://support.google.com/domains/answer/9211383">
+    Manage DNS records on Google Domains
+  </Card>
+  <Card title="Hostinger" icon="globe" href="https://www.hostinger.com/support/4738777-how-to-manage-cname-records-at-hostinger/">
+    Manage CNAME records on Hostinger
+  </Card>
+</CardGroup>
+
+## Step 6: Verify Your Domain
+
+Once you've added the DNS records, go back to the Domain tab in Vibecode and click **"Check now"**. Vibecode will verify that your DNS records are set up correctly.
+
+<Note>
+  DNS changes can take anywhere from a few minutes to **24–48 hours** to propagate. If verification fails, wait a bit and try again.
+</Note>
+
+Once verified, you'll see a green **"Domain verified"** banner confirming routing is correct. Click **"Done"** to finish, then deploy to activate your custom domain.
+
+<img
+  src="/deployments/custom-domain/06-domain-verified.png"
+  alt="Domain verified confirmation showing routing is correct"
+  style={{ maxHeight: "500px", display: "block", margin: "0 auto" }}
+  className="rounded-lg"
+/>
+
+## Troubleshooting
+
+<img
+  src="/deployments/custom-domain/05-troubleshoot.png"
+  alt="Troubleshoot section showing Cloudflare proxy tip"
+  style={{ maxHeight: "500px", display: "block", margin: "0 auto" }}
+  className="rounded-lg"
+/>
+
+{/* TODO: Add annotated screenshot highlighting the troubleshoot section */}
+
+Click **"Troubleshoot"** in the Domain tab to see common issues. Here are the most frequent ones:
+
+<AccordionGroup>
+  <Accordion title="Cloudflare proxy conflict">
+    If you're using Cloudflare, make sure the DNS record is set to **DNS-only mode** (gray cloud icon), not **Proxied** (orange cloud). Cloudflare's proxy can interfere with domain verification.
+
+    Alternatively, if your provider blocks CNAME on the apex domain, use an **ALIAS** or **ANAME** record instead.
+  </Accordion>
+
+  <Accordion title="A/AAAA record conflict">
+    If you already have A or AAAA records pointing your domain somewhere else, they'll conflict with the CNAME record. **Remove the old A/AAAA records first**, then add the CNAME.
+  </Accordion>
+
+  <Accordion title="DNS propagation delay">
+    DNS changes don't take effect instantly. It can take up to **48 hours** for records to propagate worldwide. If the check fails right after adding records, wait 15–30 minutes and try again.
+  </Accordion>
+
+  <Accordion title="Need to start over?">
+    You can click **"Remove domain"** in the Domain tab to disconnect your custom domain and start the process from scratch.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  **Still stuck?** Reach out via live support chat in the app, or join our [Discord community](https://discord.gg/qXyWYYX5Ts) for help.
+</Note>
