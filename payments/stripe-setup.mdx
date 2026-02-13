@@ -3,43 +3,23 @@ title: "Stripe Setup"
 description: "Learn how to integrate Stripe payments with your Vibecode web app"
 ---
 
-# Stripe Payment Setup for Vibecode
-
 <Note>Stripe integration is only available for **web apps**. For native mobile apps (iOS/Android), use [RevenueCat](/payments/revenuecat-setup) instead.</Note>
 
-> Step-by-step guide to connecting Stripe for subscription billing and checkout
+## Before You Start
 
-You've built your app in Vibecode and you're ready to accept payments. Whether you're selling subscriptions, one-time purchases, or premium features, Stripe makes it easy to handle payments securely. This guide walks you through connecting Stripe to your Vibecode app so you can start accepting payments.
+You'll need the following:
 
-## What is Stripe Integration?
-
-Stripe is a payment processing platform that handles the complex parts of accepting payments such as security, compliance, fraud prevention, and payment methods. When you integrate Stripe with your Vibecode app, you're connecting your app to Stripe's infrastructure so customers can pay you securely.
-
-Think of it like setting up a cash register in a physical store. You need the register itself (Stripe), you need to connect it to your point-of-sale system (your Vibecode app), and you need to configure it with your business information (API keys and webhooks). Once everything is connected, payments flow smoothly from your customers to your account.
-
-Stripe handles everything from processing credit cards to managing subscriptions, sending receipts, and handling refunds. Your app only needs to trigger the correct Stripe actions at the correct times.
-
-### Why Use Stripe?
-
-You might be considering other payment processors, but Stripe offers several advantages:
-
-* **Developer-friendly**. Stripe's API is well-documented and straightforward to integrate.
-* **Global reach**. Accept payments from customers worldwide in multiple currencies.
-* **Subscription management**. Built-in tools for recurring billing, plan changes, and cancellations.
-* **Security**. Stripe manages PCI compliance so you never handle sensitive card data directly.
-* **Vibecode integration**. Works seamlessly with Vibecode's environment variable system.
-
-If you're ready to start accepting payments, follow the steps below.
-
----
+- [**Vibecode Account**](https://vibecodeapp.com) (sign up if you haven't already)
+- [**Stripe Account**](https://stripe.com) (sign up for free)
+- A **deployed Vibecode web app** ready to accept payments
 
 ## Step 1: Create a Stripe Account
 
-First, you'll need a Stripe account. Visit [stripe.com](https://stripe.com) and sign up. Complete all verification steps in the Stripe Dashboard. This includes confirming your email, verifying your identity, and setting up your business information.
+Visit [stripe.com](https://stripe.com) and sign up. Complete all verification steps in the Stripe Dashboard, including confirming your email, verifying your identity, and setting up your business information.
 
 ### If you have not created a company in Stripe
 
-If you haven’t set up a company inside Stripe yet, you'll need to do this before continuing. If your company is already created, you can skip to Step 2.
+If you haven't set up a company inside Stripe yet, you'll need to do this before continuing. If your company is already created, skip to Step 2.
 
 1. In the top right, click **Organizations**
 2. Click **Create Account**
@@ -48,22 +28,22 @@ If you haven’t set up a company inside Stripe yet, you'll need to do this befo
 5. Add your billing information
 6. Complete the creation process
 
-Once completed, Stripe will guide you through the remaining verification steps. After verification, you'll have access to your Stripe Dashboard where you can manage products, payments, and settings.
+Once completed, Stripe will guide you through the remaining verification steps.
 
-![Create Account](01-create-account.png)
-![Create Project](01b-create-project.png)
-![Name Your Account](01c-name-account.png)
-![Use Existing Account](01d-existing-account.png)
+<img src="/payments/01-create-account.png" alt="Create Account" style={{maxHeight: '400px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
+<img src="/payments/01b-create-project.png" alt="Create Project" style={{maxHeight: '400px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
+<img src="/payments/01c-name-account.png" alt="Name Your Account" style={{maxHeight: '400px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
+<img src="/payments/01d-existing-account.png" alt="Use Existing Account" style={{maxHeight: '400px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
 
 ---
 
 ## Step 2: Get Your API Keys
 
-Your API keys allow your Vibecode app to authenticate with Stripe. They work like a username and password for your app.
+Your API keys allow your Vibecode app to authenticate with Stripe.
 
-**Important:** In the top right of your Stripe Dashboard, switch to **Live Account**. Using test keys in production will prevent real payments from working.
+<Warning>In the top right of your Stripe Dashboard, switch to **Live Account**. Using test keys in production will prevent real payments from working.</Warning>
 
-![API Keys](02-api-keys.png)
+<img src="/payments/02-api-keys.png" alt="API Keys" style={{maxHeight: '400px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
 
 If your keys are not visible:
 
@@ -74,7 +54,7 @@ If your keys are not visible:
 
 Copy both keys. You will add them to Vibecode in the next step.
 
-> **Tip:** Test keys are different from Live keys. Always use Live keys for production.
+<Tip>Test keys are different from Live keys. Always use Live keys for production.</Tip>
 
 ---
 
@@ -85,7 +65,7 @@ Environment variables let you store sensitive data securely.
 1. Go to [vibecodeapp.com](https://vibecodeapp.com) and open your project
 2. Select **Env Var** at the bottom
 
-![Vibecode ENV Variables](03-env-variables.png)
+<img src="/payments/03-env-variables.png" alt="Vibecode ENV Variables" style={{maxHeight: '400px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
 
 ### Frontend
 
@@ -94,7 +74,7 @@ Environment variables let you store sensitive data securely.
 3. Key: `VITE_STRIPE_PUBLISHABLE_KEY`
 4. Value: your Publishable key (`pk_...`)
 
-![Publishable Key](03-publishable-key.png)
+<img src="/payments/03-publishable-key.png" alt="Publishable Key" style={{maxHeight: '400px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
 
 ### Backend
 
@@ -103,9 +83,9 @@ Environment variables let you store sensitive data securely.
 3. Key: `STRIPE_SECRET_KEY`
 4. Value: your Secret key (`sk_...`)
 
-![Secret Key](03-secret-key.png)
+<img src="/payments/03-secret-key.png" alt="Secret Key" style={{maxHeight: '400px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
 
-> **Warning:** Never expose your Secret key. Only use it in backend code.
+<Warning>Never expose your Secret key. Only use it in backend code.</Warning>
 
 ---
 
@@ -122,10 +102,10 @@ Before customers can purchase anything, you must create at least one product in 
 7. Choose billing period such as Monthly
 8. Save the product
 
-![Products](04-products.png)
-![Create Product](04b-create-product.png)
-![Add Product](04c-add-product.png)
-![Product Catalog](04d-product-catalog.png)
+<img src="/payments/04-products.png" alt="Products" style={{maxHeight: '400px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
+<img src="/payments/04b-create-product.png" alt="Create Product" style={{maxHeight: '400px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
+<img src="/payments/04c-add-product.png" alt="Add Product" style={{maxHeight: '400px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
+<img src="/payments/04d-product-catalog.png" alt="Product Catalog" style={{maxHeight: '400px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
 
 ---
 
@@ -142,8 +122,8 @@ Each price has its own unique ID. You will need this so your Vibecode app knows 
    * Key: `STRIPE_PRICE_ID_MONTHLY`
    * Value: your price ID
 
-![Copy Price ID](05-copy-price-id.png)
-![Price ID Monthly](05b-price-id-monthly.png)
+<img src="/payments/05-copy-price-id.png" alt="Copy Price ID" style={{maxHeight: '400px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
+<img src="/payments/05b-price-id-monthly.png" alt="Price ID Monthly" style={{maxHeight: '400px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
 
 If you offer yearly billing, repeat this using the key `STRIPE_PRICE_ID_YEARLY`.
 
@@ -168,14 +148,14 @@ Webhooks notify your app when something happens in Stripe.
 8. Create the destination
 9. Copy the **Signing Secret**
 
-![Webhook Step 1](06-webhook-1.png)
-![Webhook Step 2](06-webhook-2.png)
-![Webhook Step 3](06-webhook-3.png)
-![Webhook Step 4](06-webhook-4.png)
-![Webhook Step 5](06-webhook-5.png)
-![Webhook Step 6](06-webhook-6.png)
-![Webhook Step 7](06-webhook-7.png)
-![Webhook Step 8](06-webhook-8.png)
+<img src="/payments/06-webhook-1.png" alt="Webhook Step 1" style={{maxHeight: '400px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
+<img src="/payments/06-webhook-2.png" alt="Webhook Step 2" style={{maxHeight: '400px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
+<img src="/payments/06-webhook-3.png" alt="Webhook Step 3" style={{maxHeight: '400px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
+<img src="/payments/06-webhook-4.png" alt="Webhook Step 4" style={{maxHeight: '400px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
+<img src="/payments/06-webhook-5.png" alt="Webhook Step 5" style={{maxHeight: '400px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
+<img src="/payments/06-webhook-6.png" alt="Webhook Step 6" style={{maxHeight: '400px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
+<img src="/payments/06-webhook-7.png" alt="Webhook Step 7" style={{maxHeight: '400px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
+<img src="/payments/06-webhook-8.png" alt="Webhook Step 8" style={{maxHeight: '400px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
 
 ### Add to Vibecode
 
@@ -185,7 +165,32 @@ Webhooks notify your app when something happens in Stripe.
    * Key: `STRIPE_WEBHOOK_SECRET`
    * Value: the secret you copied (`whsec_...`)
 
-> **Warning:** Never expose your webhook secret. Always verify signatures in your webhook handler.
+<Warning>Never expose your webhook secret. Always verify signatures in your webhook handler.</Warning>
+
+---
+
+## Step 7: Set Up Payments with AI
+
+Ask the Vibecode AI to integrate Stripe into your web app:
+
+**Example prompts:**
+
+<CodeGroup>
+```text Checkout Session
+Add Stripe checkout to my web app
+```
+```text Subscription Page
+Create a subscription payment page with monthly and yearly options
+```
+```text One-Time Payment
+Add a one-time payment button for my premium feature
+```
+```text Customer Portal
+Set up a Stripe customer portal so users can manage their subscription
+```
+</CodeGroup>
+
+The AI will generate the checkout flow, webhook handler, and subscription management code for you.
 
 ---
 
