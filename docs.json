@@ -33,7 +33,10 @@
         "groups": [
           {
             "group": "Use Cases",
-            "pages": ["use-cases/use-case-1", "use-cases/use-case-2"]
+            "pages": [
+              "use-cases/use-case-1",
+              "use-cases/use-case-2"
+            ]
           }
         ]
       },
@@ -54,7 +57,9 @@
           },
           {
             "group": "Integrations Overview",
-            "pages": ["features/integrations"]
+            "pages": [
+              "features/integrations"
+            ]
           }
         ]
       },
@@ -124,7 +129,10 @@
         "groups": [
           {
             "group": "Payments",
-            "pages": ["payments/revenuecat-setup"]
+            "pages": [
+              "payments/revenuecat-setup",
+              "payments/stripe-setup"
+            ]
           }
         ]
       },
@@ -133,7 +141,9 @@
         "groups": [
           {
             "group": "Deployments",
-            "pages": ["deployments/guide"]
+            "pages": [
+              "deployments/guide"
+            ]
           }
         ]
       },
