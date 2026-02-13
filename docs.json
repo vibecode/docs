@@ -142,7 +142,8 @@
           {
             "group": "Deployments",
             "pages": [
-              "deployments/guide"
+              "deployments/guide",
+              "deployments/custom-domain"
             ]
           }
         ]
