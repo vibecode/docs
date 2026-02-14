@@ -11,67 +11,100 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Introduction",
+        "tab": "Getting Started",
         "groups": [
           {
             "group": "Introduction",
             "pages": [
               "index",
-              "introduction/plans-and-credits",
-              "introduction/creating-first-app",
-              "introduction/claude-code",
-              "introduction/home-screen-widgets",
-              "introduction/web-app",
-              "introduction/sharing-app",
-              "introduction/deploy-app-store"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Use Cases",
-        "groups": [
-          {
-            "group": "Use Cases",
-            "pages": [
-              "use-cases/use-case-1",
-              "use-cases/use-case-2"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Features",
-        "groups": [
-          {
-            "group": "Core Features",
-            "pages": [
-              "features/backend-auth",
-              "features/haptics",
-              "features/sound-generation",
-              "features/image-generation",
-              "features/vibecode-cloud",
-              "features/export-ssh",
-              "features/download-code",
-              "features/pinch-to-build"
+              "getting-started/plans-and-credits",
+              "getting-started/creating-first-app",
+              "getting-started/claude-code",
+              "getting-started/web-app"
             ]
           },
           {
-            "group": "Integrations Overview",
+            "group": "Sharing & Publishing",
             "pages": [
-              "features/integrations"
+              "getting-started/sharing-app",
+              "getting-started/home-screen-widgets",
+              "getting-started/deploy-app-store"
+            ]
+          },
+          {
+            "group": "Vibecode Tools",
+            "pages": [
+              "getting-started/pinch-to-build",
+              "getting-started/export-ssh",
+              "getting-started/download-code",
+              "getting-started/integrations"
+            ]
+          },
+          {
+            "group": "Prompting Tips",
+            "pages": [
+              "getting-started/web-to-mobile",
+              "getting-started/native-ui-components"
+            ]
+          },
+          {
+            "group": "Use Cases",
+            "pages": [
+              "getting-started/use-case-1",
+              "getting-started/use-case-2"
             ]
           }
         ]
       },
       {
-        "tab": "Prompting",
+        "tab": "Backend & Features",
         "groups": [
           {
-            "group": "Prompting",
+            "group": "Backend & Data",
             "pages": [
-              "prompting/web-to-mobile",
-              "prompting/native-ui-components"
+              "features/backend-auth",
+              "features/api-integrations",
+              "features/vibecode-cloud"
+            ]
+          },
+          {
+            "group": "App Capabilities",
+            "pages": [
+              "features/haptics",
+              "features/sound-generation",
+              "features/image-generation"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Payments",
+        "groups": [
+          {
+            "group": "Payments",
+            "pages": [
+              "payments/revenuecat-setup",
+              "payments/stripe-setup"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Deploying",
+        "groups": [
+          {
+            "group": "Web Apps",
+            "pages": [
+              "deploying/guide",
+              "deploying/custom-domain"
+            ]
+          },
+          {
+            "group": "Mobile Apps",
+            "pages": [
+              "getting-started/sharing-app",
+              "getting-started/home-screen-widgets",
+              "getting-started/deploy-app-store"
             ]
           }
         ]
@@ -79,6 +112,12 @@
       {
         "tab": "Integrations",
         "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "integrations/index"
+            ]
+          },
           {
             "group": "Text Generation",
             "pages": [
@@ -121,30 +160,6 @@
             "pages": [
               "integrations/resend-email",
               "integrations/expo-push-notifications"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Payments",
-        "groups": [
-          {
-            "group": "Payments",
-            "pages": [
-              "payments/revenuecat-setup",
-              "payments/stripe-setup"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Deployments",
-        "groups": [
-          {
-            "group": "Deployments",
-            "pages": [
-              "deployments/guide",
-              "deployments/custom-domain"
             ]
           }
         ]
@@ -220,6 +235,16 @@
       "vscode"
     ]
   },
+  "redirects": [
+    { "source": "/introduction/:slug*", "destination": "/getting-started/:slug*" },
+    { "source": "/prompting/:slug*", "destination": "/getting-started/:slug*" },
+    { "source": "/use-cases/:slug*", "destination": "/getting-started/:slug*" },
+    { "source": "/deployments/:slug*", "destination": "/deploying/:slug*" },
+    { "source": "/features/pinch-to-build", "destination": "/getting-started/pinch-to-build" },
+    { "source": "/features/export-ssh", "destination": "/getting-started/export-ssh" },
+    { "source": "/features/download-code", "destination": "/getting-started/download-code" },
+    { "source": "/features/integrations", "destination": "/getting-started/integrations" }
+  ],
   "footer": {
     "socials": {
       "x": "https://x.com/vibecodeapp",
