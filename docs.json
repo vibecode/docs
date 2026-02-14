@@ -46,6 +46,7 @@
           {
             "group": "Core Features",
             "pages": [
+              "features/backend-auth",
               "features/haptics",
               "features/sound-generation",
               "features/image-generation",

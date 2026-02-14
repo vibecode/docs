@@ -1,0 +1,146 @@
+---
+title: "Backend and Auth"
+description: "How your app stores data, uses APIs securely, and handles user accounts"
+---
+
+Every real app needs a place to store data, a way to know who's using it, and a secure way to call external APIs. In Vibecode, your project comes with a backend server, a database, and a full authentication system—all set up for you by the AI when you need it.
+
+<CardGroup cols={2}>
+  <Card
+    title="How the Database Works"
+    icon="database"
+    href="#the-database-sqlite"
+  >
+    Where your app's data lives
+  </Card>
+  <Card
+    title="How Auth Works"
+    icon="lock"
+    href="#authentication-better-auth"
+  >
+    User accounts and login
+  </Card>
+  <Card
+    title="APIs and Integrations"
+    icon="plug"
+    href="#apis-and-integrations"
+  >
+    Using APIs securely through your backend
+  </Card>
+  <Card
+    title="Viewing Your Data"
+    icon="table"
+    href="#viewing-and-managing-your-data"
+  >
+    Browse and edit your database
+  </Card>
+</CardGroup>
+
+## What's a Backend?
+
+When you use an app—say, a to-do list—your tasks need to be saved somewhere so they're still there when you come back tomorrow. That "somewhere" is the **backend**. It's a server that runs behind the scenes, storing your data, handling logins, and calling external APIs securely.
+
+In Vibecode, every project includes a backend server powered by [Hono](https://hono.dev). You don't need to configure it—it's already wired up and ready to go. When you deploy your app, the backend deploys with it.
+
+Without a backend, your app can only store data on the user's device (it disappears if they delete the app), can't share data between users, and can't safely call APIs without exposing secret keys. A backend solves all of this.
+
+## The Database (SQLite)
+
+Your app uses **SQLite** as its database—a simple, fast, and reliable database that stores everything in a single file. It's the same database engine used by most mobile apps in the world, including every iPhone and Android phone. [Prisma](https://www.prisma.io) is used as the ORM to interact with it.
+
+When auth is set up, your database automatically includes tables for users, sessions, accounts, and verification codes. Beyond that, the AI can add any tables your app needs—products, posts, messages, orders, whatever you describe.
+
+<Tip>
+  You don't need to know SQL or database design. Just tell the AI what data your app needs to store—like "I need to save user posts with a title and body"—and it'll handle the rest.
+</Tip>
+
+## Authentication (Better Auth)
+
+Authentication is how your app knows *who* is using it. Vibecode uses [Better Auth](https://www.better-auth.com) with **email one-time passwords (OTP)** as the sign-in method.
+
+### How sign-in works
+
+1. **User enters their email** on the login screen
+2. **A 6-digit code is sent** to their inbox via Vibecode's built-in email service
+3. **User enters the code** and they're signed in
+
+No passwords to remember, no OAuth setup, no third-party accounts required.
+
+<Note>
+  The OTP email is sent automatically through Vibecode's built-in email service. You don't need to set up any external email provider.
+</Note>
+
+### Sessions and protected routes
+
+Once signed in, a **session** keeps the user authenticated as they use your app. Your backend always knows who's making each request, so you can show users only their data, prevent unauthorized access, and personalize the experience.
+
+Your app automatically has **public routes** (like the login page) and **protected routes** (like a dashboard). If someone isn't logged in and tries to visit a protected screen, they're redirected to login automatically.
+
+### Social login (Google, Apple, and more)
+
+Email OTP is the default, but you can also add social login to your app.
+
+**Google sign-in** has a guided setup built into Vibecode. When you ask the AI to add Google auth, Vibecode walks you through creating OAuth credentials in the [Google Cloud Console](https://console.cloud.google.com/apis/credentials) and automatically provides the correct redirect URLs for your project. You just paste in your Client ID and Client Secret, and the AI wires up the rest.
+
+**Apple sign-in** and other providers require a bit more manual setup—you'll need to create credentials with the provider and add them as environment variables. Better Auth supports [30+ authentication providers](https://www.better-auth.com/docs/concepts/authentication) including Apple, GitHub, Discord, Microsoft, Facebook, Twitter, and many more. The AI can follow the [Better Auth docs](https://www.better-auth.com/docs) to set up any of them.
+
+<Note>
+  Social login providers like Google and Apple won't work inside the Vibecode preview (it runs in an iframe). You'll need to test social login on your [deployed app](/deployments/guide) or via the direct preview URL.
+</Note>
+
+## APIs and Integrations
+
+Your backend is also where external API calls happen. Things like AI text generation, image generation, weather data, and more should always be called from the backend—never directly from the frontend. This keeps your API keys safe and hidden from users.
+
+In Vibecode, all API integrations are **proxied through Vibecode** and paid for with your **Vibecode credits at no additional markup**. You don't need to create separate accounts with OpenAI, ElevenLabs, or other providers—just use the integration and it's billed directly to your Vibecode credits.
+
+Browse all available integrations and their pricing at [vibecodeapp.com/integrations](https://www.vibecodeapp.com/integrations).
+
+<Tip>
+  To add an integration, just tell the AI what you need—like "add AI chat using GPT" or "generate images with DALL-E." It will wire up the API call through your backend automatically.
+</Tip>
+
+## Getting Started
+
+You don't need to set any of this up manually. Just tell the AI what you need:
+
+- **"Add user accounts to my app"** — Sets up auth with login screens
+- **"I need to save data for each user"** — Sets up the database with user-specific tables
+- **"Add a backend with login and a database"** — Sets up everything at once
+
+The AI handles all the packages, configuration, database schema, login screens, and wiring.
+
+## Viewing and Managing Your Data
+
+Once your app has a database, you can view and edit your data from the deployment dashboard. After [deploying your app](/deployments/guide), go to the **Database** tab to browse tables, view records, and make edits.
+
+This is useful for debugging, customer support, and content management.
+
+<Tip>
+  During development, you can also ask the AI to query the database for you. For example: "Show me all users who signed up today" or "Delete the test accounts I created."
+</Tip>
+
+## Common Questions
+
+**Do I need to set up the database myself?**
+
+No. Just tell the AI what data you need and it handles everything.
+
+**Can I use a different database?**
+
+Vibecode uses SQLite by default. It's fast and works great for most apps. SQLite handles far more than most people think—you likely won't outgrow it.
+
+**What happens to my database when I deploy?**
+
+Your database deploys with your app. You can view and manage it from the **Database** tab in your [deployment dashboard](/deployments/guide).
+
+**My users are stuck on the login screen after entering the code—what's wrong?**
+
+This is usually a session configuration issue. Ask the AI to verify the auth configuration—especially the cookie settings and trusted origins.
+
+<Note>
+  **Need help?** Reach out via live support chat in the app for the fastest
+  support. You can also join our [Discord
+  community](https://discord.gg/qXyWYYX5Ts) to connect with other Vibecode
+  builders.
+</Note>
