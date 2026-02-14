@@ -1,6 +1,6 @@
 ---
-title: "Deploying Your Web App"
-description: "Step-by-step guide to deploying your web app on Vibecode"
+title: "Deploying Your App"
+description: "Step-by-step guide to deploying your app on Vibecode"
 ---
 
 You've built something great in Vibecode. Now it's time to share it with the world. This guide walks you through deploying your project so anyone can access it—not just you.
@@ -29,6 +29,10 @@ When you build an app in Vibecode, it lives inside the Vibecode environment. You
 Think of deployment like publishing a book. Writing the book is one thing, but it needs to go to a printer and get distributed before anyone can read it. Deployment is the "printing and distribution" step for your app.
 
 Once deployed, your app gets its own public URL (and API endpoint) that works anywhere -- on any device, any browser, anytime. Your project goes from a private experiment to a live, working product.
+
+<Info>
+  **For both web and mobile apps, the backend is deployed first.** When you hit Deploy, Vibecode builds and publishes your backend server before anything else. This means your API endpoints, database, and authentication are live and ready before your frontend connects to them. For mobile apps, the backend is what gets deployed — the app itself is distributed separately via TestFlight or the App Store.
+</Info>
 
 ### Why Vibecode Deployments?
 
