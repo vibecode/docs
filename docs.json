@@ -90,6 +90,17 @@
         ]
       },
       {
+        "tab": "Google Login",
+        "groups": [
+          {
+            "group": "Google Sign-In (Better Auth)",
+            "pages": [
+              "google-login/setup"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Deploying",
         "groups": [
           {
@@ -236,14 +247,38 @@
     ]
   },
   "redirects": [
-    { "source": "/introduction/:slug*", "destination": "/getting-started/:slug*" },
-    { "source": "/prompting/:slug*", "destination": "/getting-started/:slug*" },
-    { "source": "/use-cases/:slug*", "destination": "/getting-started/:slug*" },
-    { "source": "/deployments/:slug*", "destination": "/deploying/:slug*" },
-    { "source": "/features/pinch-to-build", "destination": "/getting-started/pinch-to-build" },
-    { "source": "/features/export-ssh", "destination": "/getting-started/export-ssh" },
-    { "source": "/features/download-code", "destination": "/getting-started/download-code" },
-    { "source": "/features/integrations", "destination": "/getting-started/integrations" }
+    {
+      "source": "/introduction/:slug*",
+      "destination": "/getting-started/:slug*"
+    },
+    {
+      "source": "/prompting/:slug*",
+      "destination": "/getting-started/:slug*"
+    },
+    {
+      "source": "/use-cases/:slug*",
+      "destination": "/getting-started/:slug*"
+    },
+    {
+      "source": "/deployments/:slug*",
+      "destination": "/deploying/:slug*"
+    },
+    {
+      "source": "/features/pinch-to-build",
+      "destination": "/getting-started/pinch-to-build"
+    },
+    {
+      "source": "/features/export-ssh",
+      "destination": "/getting-started/export-ssh"
+    },
+    {
+      "source": "/features/download-code",
+      "destination": "/getting-started/download-code"
+    },
+    {
+      "source": "/features/integrations",
+      "destination": "/getting-started/integrations"
+    }
   ],
   "footer": {
     "socials": {
