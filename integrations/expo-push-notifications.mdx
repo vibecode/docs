@@ -1,25 +1,54 @@
 ---
 title: 'Expo Push Notifications'
-description: 'Cross-platform notification service'
+description: 'Cross-platform notification service for iOS and Android'
 ---
 
-Expo Push Notifications is a cross-platform notification service that works seamlessly with Expo and React Native apps.
+Expo Push Notifications is a cross-platform notification service that works seamlessly with Expo and React Native apps. It enables sending push notifications to iOS and Android devices with a simple API, handling all platform-specific details automatically.
 
-It enables sending push notifications to iOS and Android devices with a simple API, handling all platform-specific details automatically.
+<Card
+  title="Full Setup Guide"
+  icon="book-open"
+  href="/guides/push-notifications"
+>
+  Step-by-step walkthrough with screenshots — from building your app to receiving your first push notification.
+</Card>
+
+## How It Works
+
+When you ask the AI to add push notifications to your app, Vibecode handles the code automatically. But push notifications also require some **one-time setup** in the Apple Developer portal and Expo dashboard that you'll do yourself.
+
+Here's the high-level flow:
+
+1. **Build your app** in Vibecode with push notification functionality
+2. **Submit to the App Store** via Expo Launch (creates a native build)
+3. **Create an APNs key** in the Apple Developer portal
+4. **Upload the key to Expo** so it can send notifications through Apple
+5. **Configure your project** with the Expo Project ID
+6. **Test** by sending a notification to your device via TestFlight
 
 ## Features
 
-- Cross-platform support
-- iOS and Android
-- Simple API
-- Automatic handling
-- Real-time delivery
-- Easy integration
+- Cross-platform support (iOS and Android)
+- Foreground, background, and lock-screen delivery
+- Custom notification titles, messages, and sounds
+- Data payloads for deep linking and navigation
+- Delivery receipts to verify notifications were received
+- Backend integration for server-triggered notifications
 
 ## Use Cases
 
-- User notifications
-- Real-time alerts
-- Reminders
-- Push marketing
-- App engagement
+- **Reminders** — task due dates, habit tracking, calendar events
+- **Real-time alerts** — new messages, order updates, price changes
+- **User engagement** — daily streaks, weekly summaries, new content
+- **Social** — friend requests, likes, comments, follows
+- **Transactional** — payment confirmations, shipping updates
+
+## Requirements
+
+- **Apple Developer Program** ($99/year) — required for iOS push notifications
+- **Physical device** — push tokens can't be generated on simulators
+- **TestFlight build** — push notifications don't work in Vibecode preview or Expo Go
+
+<Note>
+  For the complete walkthrough with screenshots, see the [Push Notifications Setup Guide](/guides/push-notifications).
+</Note>
