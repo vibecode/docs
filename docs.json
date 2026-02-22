@@ -74,6 +74,12 @@
               "features/sound-generation",
               "features/image-generation"
             ]
+          },
+          {
+            "group": "Guides",
+            "pages": [
+              "guides/push-notifications"
+            ]
           }
         ]
       },
