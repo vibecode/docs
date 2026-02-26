@@ -1,16 +1,43 @@
 ---
 title: "Vibecode Cloud"
-description: "Cloud infrastructure and backend services for your mobile apps"
+description: "Cloud infrastructure and backend services for your apps"
 ---
 
-Vibecode Cloud allows you to enable a backend within your apps created on Vibecode. It's simple and easy to use, and you can create it with simple natural language. No complicated dashboards or setup required.
+Vibecode Cloud gives your app a full backend — database, authentication, and file storage — set up automatically with a simple prompt. No dashboards to configure, no infrastructure to manage.
 
 <iframe src="https://www.youtube.com/embed/YRInUnMs9mc" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
 
-## What's in Vibecode Cloud
+## What's Included
 
-1. **Authentication** - User login and signup with secure password handling
-2. **Storage** - Save user data, photos, and files securely
-3. **Database** - Query and update your app's data in real-time
+### Authentication
+User sign-up and login with secure password handling. Supports email/password authentication and social login (Google Sign-In via Better Auth).
 
-All the backend infrastructure is automatically set up and taken care of. You focus on building your app, and Vibecode Cloud handles the rest. Connect safely with other services and APIs. Store and manage data without worrying about security or reliability.
+### Database
+A SQLite database managed through Prisma ORM. Store and query your app's data in real-time. The AI sets up your database schema based on what your app needs.
+
+### File Storage
+Save user-uploaded photos, documents, and files securely in the cloud.
+
+## How to Enable It
+
+1. Open your project in Vibecode
+2. Tell the AI: **"Add a database and authentication to my app"**
+3. The AI sets up Vibecode Cloud automatically — database schema, auth routes, and API endpoints
+4. Deploy your app to activate the backend
+
+That's it. The entire backend infrastructure is provisioned and configured for you.
+
+## Requirements
+
+Vibecode Cloud is available on **Plus plans and above**. The Free plan does not include database or authentication features.
+
+## How It Works Under the Hood
+
+- **Database:** SQLite with Prisma ORM, running on your deployed backend
+- **Auth:** Better Auth library with secure cookie-based sessions
+- **Hosting:** Your backend runs on Vibecode's infrastructure at `*.vibecode.run`
+- **API:** Express.js backend with auto-generated routes for your data models
+
+<Note>
+  Want to add Google Sign-In? See the [Google Sign-In setup guide](/google-login/setup) after enabling Vibecode Cloud.
+</Note>
