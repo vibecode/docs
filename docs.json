@@ -15,22 +15,26 @@
         "groups": [
           {
             "group": "Welcome",
-            "pages": ["index", "quickstart", "getting-started/plans-and-credits"]
+            "pages": ["index", "getting-started/plans-and-credits"]
           },
           {
-            "group": "Your First App",
-            "pages": ["getting-started/creating-first-app", "getting-started/claude-code", "getting-started/web-app"]
+            "group": "Build Your First App",
+            "pages": ["getting-started/creating-first-app"]
+          },
+          {
+            "group": "Building on Web",
+            "pages": ["getting-started/web-app"]
           },
           {
             "group": "Vibecode Tools",
-            "pages": ["getting-started/pinch-to-build", "getting-started/export-ssh", "getting-started/download-code", "getting-started/integrations"]
+            "pages": ["getting-started/pinch-to-build", "getting-started/export-ssh", "getting-started/download-code"]
           },
           {
-            "group": "Prompting Tips",
+            "group": "Prompt Templates",
             "pages": ["getting-started/web-to-mobile", "getting-started/native-ui-components"]
           },
           {
-            "group": "Use Cases",
+            "group": "Example Projects",
             "pages": ["getting-started/use-case-1", "getting-started/use-case-2"]
           }
         ]
@@ -39,8 +43,12 @@
         "tab": "Features",
         "groups": [
           {
+            "group": "How It Works",
+            "pages": ["getting-started/claude-code"]
+          },
+          {
             "group": "Backend & Data",
-            "pages": ["features/backend-auth", "features/vibecode-cloud", "features/api-integrations"]
+            "pages": ["features/vibecode-cloud", "features/backend-auth"]
           },
           {
             "group": "Authentication",
@@ -89,6 +97,10 @@
         "tab": "Deploying",
         "groups": [
           {
+            "group": "Choose Your Path",
+            "pages": ["deploying/overview"]
+          },
+          {
             "group": "Web Apps",
             "pages": ["deploying/guide", "deploying/custom-domain"]
           },
@@ -102,8 +114,16 @@
         "tab": "Resources",
         "groups": [
           {
-            "group": "Resources",
-            "pages": ["resources", "custom-gpt", "faqs", "resources/community", "resources/glossary", "support", "updates"]
+            "group": "Help",
+            "pages": ["faqs", "troubleshooting", "support"]
+          },
+          {
+            "group": "Community",
+            "pages": ["resources/community", "custom-gpt"]
+          },
+          {
+            "group": "Reference",
+            "pages": ["resources/glossary", "updates"]
           }
         ]
       }
@@ -194,6 +214,22 @@
     {
       "source": "/features/integrations",
       "destination": "/getting-started/integrations"
+    },
+    {
+      "source": "/quickstart",
+      "destination": "/getting-started/creating-first-app"
+    },
+    {
+      "source": "/getting-started/integrations",
+      "destination": "/integrations/index"
+    },
+    {
+      "source": "/features/api-integrations",
+      "destination": "/integrations/index"
+    },
+    {
+      "source": "/resources",
+      "destination": "/resources/community"
     }
   ],
   "footer": {
