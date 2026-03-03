@@ -213,7 +213,7 @@
     },
     {
       "source": "/features/integrations",
-      "destination": "/getting-started/integrations"
+      "destination": "/integrations/index"
     },
     {
       "source": "/quickstart",
@@ -230,6 +230,22 @@
     {
       "source": "/resources",
       "destination": "/resources/community"
+    },
+    {
+      "source": "/faq/:slug*",
+      "destination": "/faqs"
+    },
+    {
+      "source": "/google-login/setup-guide",
+      "destination": "/google-login/setup"
+    },
+    {
+      "source": "/google-login/implementation",
+      "destination": "/google-login/setup"
+    },
+    {
+      "source": "/google-login/code-reference",
+      "destination": "/google-login/setup"
     }
   ],
   "footer": {
