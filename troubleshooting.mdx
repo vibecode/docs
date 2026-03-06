@@ -1,0 +1,249 @@
+---
+title: "Troubleshooting"
+description: "Solutions to common issues when building, deploying, and running Vibecode apps"
+---
+
+Having trouble? This guide covers the most common issues Vibecode users run into and how to fix them.
+
+<Info>
+  If your issue isn't listed here, reach out to us via [Intercom chat in the app](/support) or our [Discord community](https://discord.gg/qXyWYYX5Ts).
+</Info>
+
+## Building & Prompting
+
+<AccordionGroup>
+  <Accordion title="My app is stuck on a white/blank screen">
+    A blank screen usually means a JavaScript error is crashing the app before it can render.
+
+    **Try these steps:**
+    1. Tell the AI agent: *"My app is showing a blank white screen. Check for errors and fix them."*
+    2. Check the **Runtime Logs** tab in your project — look for red error messages
+    3. If you recently added a new package, it may not be compatible. Ask the agent to remove it and try an alternative
+    4. Start a **new chat** with the agent and describe the issue — a fresh context often helps
+
+    **Common causes:**
+    - Missing or incorrect imports
+    - Undefined variable being accessed on render
+    - A navigation stack configured incorrectly
+  </Accordion>
+
+  <Accordion title="The AI agent keeps making the same mistake or going in circles">
+    Sometimes the conversation context gets cluttered and the agent loses track of what it was doing.
+
+    **Try these steps:**
+    1. **Start a new chat** — this gives the agent a clean slate while preserving your code
+    2. Be more specific in your prompt. Instead of *"fix the bug"*, try *"The login button on the home screen throws an error when tapped. The error says: [paste error here]"*
+    3. If the issue is complex, break it into smaller steps: *"First, just make the button appear. Don't add any logic yet."*
+    4. Try a different AI model from the model selector — different models have different strengths
+  </Accordion>
+
+  <Accordion title="My app looks different on the phone vs the preview">
+    The web preview is an approximation. Some differences are expected, especially with:
+    - Safe area insets (notch, status bar, home indicator)
+    - Native gestures and animations
+    - Platform-specific components (e.g., date pickers, action sheets)
+    - Font rendering differences
+
+    **Try these steps:**
+    1. Always test on a real device or Expo Go for the most accurate preview
+    2. Tell the agent: *"Make sure the layout accounts for safe area insets on iOS"*
+    3. For styling issues, ask the agent to use `Platform.OS` checks for platform-specific adjustments
+  </Accordion>
+
+  <Accordion title="A package or library won't install or keeps crashing">
+    Not all npm packages are compatible with React Native and Expo.
+
+    **Try these steps:**
+    1. Ask the agent: *"Is [package name] compatible with Expo? If not, suggest an alternative."*
+    2. Check if the package requires native code — if so, it may need a [custom dev client build](https://docs.expo.dev/develop/development-builds/introduction/)
+    3. Try using Expo's built-in libraries when possible (they're pre-configured and tested)
+    4. If a package was working before and suddenly broke, ask the agent to check for version conflicts
+  </Accordion>
+
+  <Accordion title="My app is slow or laggy">
+    Performance issues usually come from re-renders, large lists, or heavy computations on the main thread.
+
+    **Try these steps:**
+    1. Tell the agent: *"My app feels slow. Optimize the performance, especially on [specific screen]."*
+    2. For long lists, make sure you're using `FlatList` or `FlashList`, not `ScrollView` with `.map()`
+    3. Ask the agent to add `React.memo` to components that don't need to re-render frequently
+    4. Heavy images? Ask the agent to add image caching and lazy loading
+  </Accordion>
+</AccordionGroup>
+
+## Deployment Issues
+
+<AccordionGroup>
+  <Accordion title="Deployment fails or gets stuck">
+    Deployment can fail for several reasons. Here's how to diagnose:
+
+    **Try these steps:**
+    1. Check your **deployment logs** — they'll show exactly where the build failed
+    2. Make sure all environment variables are set in the **ENV** tab for production
+    3. Common culprits:
+       - Missing environment variables (API keys, database URLs)
+       - A package that works in dev but fails to build for production
+       - TypeScript errors that were ignored during development
+    4. If the deploy is stuck (no progress for 5+ minutes), try canceling and redeploying
+
+    <Warning>
+      Make sure your environment variables are set for the **production** environment, not just development. They're separate.
+    </Warning>
+  </Accordion>
+
+  <Accordion title="My deployed app works differently than in development">
+    The deployed version runs in production mode, which behaves differently:
+
+    - **Environment variables** may differ between dev and production — double-check them
+    - **API endpoints** might point to different URLs (localhost vs production)
+    - **Debug tools** are stripped in production — errors you could see in dev may be silent
+    - **Database** — if you're using Vibecode Cloud, ensure your production database has the necessary seed data
+
+    **Try these steps:**
+    1. Compare your dev and production environment variables side by side
+    2. Ask the agent: *"Make sure all API calls use the correct production URLs"*
+    3. Check the deployment logs for any warnings during build
+  </Accordion>
+
+  <Accordion title="My custom domain isn't working">
+    Custom domain setup involves DNS configuration, which can take time to propagate.
+
+    **Try these steps:**
+    1. Verify your DNS records are correct — check the [custom domain guide](/deploying/custom-domain) for exact values
+    2. DNS changes can take **up to 48 hours** to propagate (usually much faster)
+    3. Use a tool like [dnschecker.org](https://dnschecker.org) to verify your DNS records are resolving
+    4. Make sure you've added **both** the CNAME/A record and any required TXT verification records
+    5. If using Cloudflare or another proxy, make sure the proxy is configured correctly
+
+    See our full [Custom Domain Setup Guide](/deploying/custom-domain) for detailed instructions.
+  </Accordion>
+</AccordionGroup>
+
+## Backend & Database
+
+<AccordionGroup>
+  <Accordion title="My backend API calls are failing">
+    Backend issues are usually related to authentication, environment variables, or CORS.
+
+    **Try these steps:**
+    1. Check the **Runtime Logs** for error details
+    2. Verify your API keys are set in the ENV tab and haven't expired
+    3. If you're getting CORS errors, ask the agent: *"Add CORS headers to allow requests from my frontend"*
+    4. Test your API endpoints directly using the URL shown in your deployment dashboard
+    5. Make sure your backend is actually deployed — the backend deploys separately from the frontend
+  </Accordion>
+
+  <Accordion title="Authentication isn't working (can't log in / locked out)">
+    Auth issues can be tricky. Here's how to approach them:
+
+    **Try these steps:**
+    1. Check that your auth environment variables are correctly set (API keys, secrets, callback URLs)
+    2. If using **Vibecode Cloud auth**: Make sure the backend is deployed and running
+    3. If using **Google Sign-In**: Verify your OAuth client ID and redirect URIs match — see the [Google Login guide](/google-login/setup)
+    4. If you're locked out of your own app:
+       - Access your database directly through the Database tab
+       - Ask the agent to add a temporary bypass or admin route
+       - Reset auth state by clearing the relevant database tables
+
+    <Warning>
+      Be careful with auth changes in production. Always test login/signup flows thoroughly in development first.
+    </Warning>
+  </Accordion>
+
+  <Accordion title="Database tab loads infinitely or shows no data">
+    The Database tab connects to your backend's database. If it's not loading:
+
+    **Try these steps:**
+    1. Make sure your backend is **deployed and running** — the database viewer connects to the live backend
+    2. Try refreshing the page
+    3. Check that your database connection string is correctly set in environment variables
+    4. If you recently changed your database schema, the viewer may need a moment to re-sync
+  </Accordion>
+</AccordionGroup>
+
+## App Store & Distribution
+
+<AccordionGroup>
+  <Accordion title="My app was rejected from the App Store">
+    Apple's review process can be strict. Common rejection reasons:
+
+    - **Missing privacy policy** — Every app needs one. Ask the agent to generate a privacy policy page
+    - **Incomplete metadata** — App description, screenshots, and categories must all be filled out
+    - **Crashes on launch** — Make sure your production build works on a real device before submitting
+    - **Login issues** — If your app has auth, Apple requires a demo account for review
+    - **Guideline 4.2 (Minimum Functionality)** — Your app needs to provide enough value beyond what a website could offer
+
+    **Try these steps:**
+    1. Read the rejection reason carefully — Apple tells you exactly what to fix
+    2. Address each issue one by one
+    3. When resubmitting, include a **note to the reviewer** explaining what you changed
+    4. See our [Deploy to App Store guide](/getting-started/deploy-app-store) for the full checklist
+  </Accordion>
+
+  <Accordion title="Sharing via link doesn't work or shows an error">
+    If sharing your app via link isn't working:
+
+    **Try these steps:**
+    1. Make sure your app is **deployed** — sharing requires a live deployment
+    2. Check that the recipient has the Vibecode app installed (for App Clip links)
+    3. Try generating a new share link
+    4. If using a custom domain, verify the domain is correctly configured
+  </Accordion>
+</AccordionGroup>
+
+## Account & Billing
+
+<AccordionGroup>
+  <Accordion title="I ran out of credits — what now?">
+    Credits are consumed when the AI agent generates or modifies code, and when you use integrations (AI models, APIs, etc.).
+
+    **Your options:**
+    1. **Upgrade your plan** — Higher plans include more monthly credits. See [Plans & Credits](/getting-started/plans-and-credits)
+    2. **Wait for renewal** — Credits reset at the start of each billing cycle
+    3. **Optimize usage** — Be more specific in your prompts to reduce back-and-forth iterations
+    4. **Use integrations wisely** — Image generation and large AI model calls consume more credits than text generation
+
+    <Tip>
+      Writing clear, detailed prompts upfront saves credits by reducing the number of revision cycles needed.
+    </Tip>
+  </Accordion>
+
+  <Accordion title="I was charged but my plan didn't update">
+    Payment processing can sometimes take a few minutes.
+
+    **Try these steps:**
+    1. Wait 5–10 minutes and refresh your dashboard
+    2. Check your email for a payment confirmation
+    3. If it still hasn't updated after 15 minutes, contact [support](/support) with your payment receipt
+  </Accordion>
+</AccordionGroup>
+
+## General Tips
+
+<CardGroup cols={2}>
+  <Card title="Start a new chat" icon="message-plus">
+    When the agent seems confused, a fresh chat often fixes it. Your code stays intact.
+  </Card>
+  <Card title="Check Runtime Logs" icon="terminal">
+    The logs tab shows real-time errors. Copy-paste errors into chat for the agent to fix.
+  </Card>
+  <Card title="Be specific" icon="crosshairs">
+    *"The save button on the settings page crashes when tapped"* works better than *"my app is broken"*.
+  </Card>
+  <Card title="Test on device" icon="mobile">
+    The web preview is an approximation. Always test important flows on a real device.
+  </Card>
+</CardGroup>
+
+## Still stuck?
+
+If none of these solutions work, we're here to help:
+
+<CardGroup cols={2}>
+  <Card title="Chat Support" icon="headset" href="/support">
+    Get help via Intercom in the app
+  </Card>
+  <Card title="Discord Community" icon="discord" href="https://discord.gg/qXyWYYX5Ts">
+    Ask the community for help
+  </Card>
+</CardGroup>
