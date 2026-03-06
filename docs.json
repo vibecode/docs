@@ -188,6 +188,12 @@
               "resources/glossary",
               "support"
             ]
+          },
+          {
+            "group": "Help",
+            "pages": [
+              "troubleshooting"
+            ]
           }
         ]
       }
