@@ -14,109 +14,53 @@
         "tab": "Getting Started",
         "groups": [
           {
-            "group": "Introduction",
-            "pages": [
-              "index",
-              "getting-started/plans-and-credits",
-              "getting-started/creating-first-app",
-              "getting-started/claude-code",
-              "getting-started/web-app"
-            ]
+            "group": "Welcome",
+            "pages": ["index", "getting-started/plans-and-credits"]
           },
           {
-            "group": "Sharing & Publishing",
-            "pages": [
-              "getting-started/sharing-app",
-              "getting-started/home-screen-widgets",
-              "getting-started/deploy-app-store"
-            ]
+            "group": "Build Your First App",
+            "pages": ["getting-started/creating-first-app"]
+          },
+          {
+            "group": "Building on Web",
+            "pages": ["getting-started/web-app"]
           },
           {
             "group": "Vibecode Tools",
-            "pages": [
-              "getting-started/pinch-to-build",
-              "getting-started/export-ssh",
-              "getting-started/download-code",
-              "getting-started/integrations"
-            ]
+            "pages": ["getting-started/pinch-to-build", "getting-started/export-ssh", "getting-started/download-code"]
           },
           {
-            "group": "Prompting Tips",
-            "pages": [
-              "getting-started/web-to-mobile",
-              "getting-started/native-ui-components"
-            ]
+            "group": "Prompt Templates",
+            "pages": ["getting-started/web-to-mobile", "getting-started/native-ui-components"]
           },
           {
-            "group": "Use Cases",
-            "pages": [
-              "getting-started/use-case-1",
-              "getting-started/use-case-2"
-            ]
+            "group": "Example Projects",
+            "pages": ["getting-started/use-case-1", "getting-started/use-case-2"]
           }
         ]
       },
       {
-        "tab": "Backend & Features",
+        "tab": "Features",
         "groups": [
           {
+            "group": "How It Works",
+            "pages": ["getting-started/claude-code"]
+          },
+          {
             "group": "Backend & Data",
-            "pages": [
-              "features/backend-auth",
-              "features/api-integrations",
-              "features/vibecode-cloud"
-            ]
+            "pages": ["features/vibecode-cloud", "features/backend-auth"]
+          },
+          {
+            "group": "Authentication",
+            "pages": ["google-login/setup"]
+          },
+          {
+            "group": "Monetization",
+            "pages": ["payments/revenuecat-setup", "payments/stripe-setup"]
           },
           {
             "group": "App Capabilities",
-            "pages": [
-              "features/haptics",
-              "features/sound-generation",
-              "features/image-generation"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Payments",
-        "groups": [
-          {
-            "group": "Payments",
-            "pages": [
-              "payments/revenuecat-setup",
-              "payments/stripe-setup"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Google Login",
-        "groups": [
-          {
-            "group": "Google Sign-In (Better Auth)",
-            "pages": [
-              "google-login/setup"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Deploying",
-        "groups": [
-          {
-            "group": "Web Apps",
-            "pages": [
-              "deploying/guide",
-              "deploying/custom-domain"
-            ]
-          },
-          {
-            "group": "Mobile Apps",
-            "pages": [
-              "getting-started/sharing-app",
-              "getting-started/home-screen-widgets",
-              "getting-started/deploy-app-store"
-            ]
+            "pages": ["features/haptics", "features/sound-generation", "features/image-generation"]
           }
         ]
       },
@@ -125,53 +69,44 @@
         "groups": [
           {
             "group": "Overview",
-            "pages": [
-              "integrations/index"
-            ]
+            "pages": ["integrations/index"]
           },
           {
             "group": "Text Generation",
-            "pages": [
-              "integrations/openai-gpt-5-mini",
-              "integrations/grok-4-fast",
-              "integrations/google-gemini"
-            ]
+            "pages": ["integrations/openai-gpt-5-mini", "integrations/grok-4-fast", "integrations/google-gemini"]
           },
           {
             "group": "Audio",
-            "pages": [
-              "integrations/gpt-4o-audio-transcription",
-              "integrations/elevenlabs-tts",
-              "integrations/elevenlabs-sound-effects",
-              "integrations/elevenlabs-music"
-            ]
+            "pages": ["integrations/gpt-4o-audio-transcription", "integrations/elevenlabs-tts", "integrations/elevenlabs-sound-effects", "integrations/elevenlabs-music"]
           },
           {
             "group": "Image Generation",
-            "pages": [
-              "integrations/openai-gpt-image-1",
-              "integrations/nano-banana",
-              "integrations/ideogram-3"
-            ]
+            "pages": ["integrations/openai-gpt-image-1", "integrations/nano-banana", "integrations/ideogram-3"]
           },
           {
             "group": "Data APIs",
-            "pages": [
-              "integrations/apple-maps",
-              "integrations/tmdb",
-              "integrations/openweather-api",
-              "integrations/stock-market-data",
-              "integrations/crypto-market-data",
-              "integrations/runtime-logs",
-              "integrations/haptic-feedback"
-            ]
+            "pages": ["integrations/apple-maps", "integrations/tmdb", "integrations/openweather-api", "integrations/stock-market-data", "integrations/crypto-market-data", "integrations/runtime-logs", "integrations/haptic-feedback"]
           },
           {
             "group": "Communication",
-            "pages": [
-              "integrations/resend-email",
-              "integrations/expo-push-notifications"
-            ]
+            "pages": ["integrations/resend-email", "integrations/expo-push-notifications"]
+          }
+        ]
+      },
+      {
+        "tab": "Deploying",
+        "groups": [
+          {
+            "group": "Choose Your Path",
+            "pages": ["deploying/overview"]
+          },
+          {
+            "group": "Web Apps",
+            "pages": ["deploying/guide", "deploying/custom-domain"]
+          },
+          {
+            "group": "Mobile Apps",
+            "pages": ["getting-started/sharing-app", "getting-started/home-screen-widgets", "getting-started/deploy-app-store"]
           }
         ]
       },
@@ -179,15 +114,16 @@
         "tab": "Resources",
         "groups": [
           {
-            "group": "Resources",
-            "pages": [
-              "custom-gpt",
-              "resources",
-              "updates",
-              "resources/community",
-              "resources/glossary",
-              "support"
-            ]
+            "group": "Help",
+            "pages": ["faqs", "troubleshooting", "support"]
+          },
+          {
+            "group": "Community",
+            "pages": ["resources/community", "custom-gpt"]
+          },
+          {
+            "group": "Reference",
+            "pages": ["resources/glossary", "updates"]
           }
         ]
       }
@@ -277,7 +213,39 @@
     },
     {
       "source": "/features/integrations",
-      "destination": "/getting-started/integrations"
+      "destination": "/integrations/index"
+    },
+    {
+      "source": "/quickstart",
+      "destination": "/getting-started/creating-first-app"
+    },
+    {
+      "source": "/getting-started/integrations",
+      "destination": "/integrations/index"
+    },
+    {
+      "source": "/features/api-integrations",
+      "destination": "/integrations/index"
+    },
+    {
+      "source": "/resources",
+      "destination": "/resources/community"
+    },
+    {
+      "source": "/faq/:slug*",
+      "destination": "/faqs"
+    },
+    {
+      "source": "/google-login/setup-guide",
+      "destination": "/google-login/setup"
+    },
+    {
+      "source": "/google-login/implementation",
+      "destination": "/google-login/setup"
+    },
+    {
+      "source": "/google-login/code-reference",
+      "destination": "/google-login/setup"
     }
   ],
   "footer": {

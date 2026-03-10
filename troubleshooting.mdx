@@ -1,0 +1,88 @@
+---
+title: "Troubleshooting"
+description: "Solutions to common issues when building with Vibecode"
+---
+
+Having trouble? Here are solutions to the most common issues.
+
+## I ran out of credits
+
+Your credits are shown in the bottom left (web) or Profile/Settings (mobile). To get more:
+
+- **Free credits**: Post about Vibecode on social media and redeem in the credits section
+- **Pay-as-you-go**: Enable automatic top-ups in your account settings
+- **Upgrade**: Higher plans include more credits each month
+
+<Card title="Plans & Credits" icon="credit-card" href="/getting-started/plans-and-credits">
+  See all plans and credit options
+</Card>
+
+## My app isn't generating
+
+If the AI isn't responding or your app isn't building:
+
+1. **Check your credits** — generation requires credits. See your balance in the bottom left (web) or Profile (mobile)
+2. **Start a new chat** — tap the "+" button to start a fresh conversation
+3. **Simplify your prompt** — try a shorter, clearer description of what you want
+4. **Check your internet connection** — Vibecode requires an active connection
+
+## The preview isn't loading
+
+If the in-app preview is blank or stuck:
+
+1. **Wait a moment** — complex apps may take a few seconds to load
+2. **Refresh the preview** — tap the refresh button in the preview area
+3. **Check the deploy status** — if your app is deployed, make sure the deployment is active
+4. **Try a different device** — test on the web app or scan the QR code on your phone
+
+## Auth/login isn't working
+
+If users can't sign in or get stuck on the login screen:
+
+1. **Check your auth configuration** — ask the AI to "verify the auth configuration, especially cookie settings and trusted origins"
+2. **Check environment variables** — make sure `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` are set in the **Backend** section of your ENV tab (not Frontend)
+3. **Check Google Cloud Console** — verify your redirect URI matches exactly: `https://YOUR_BACKEND_URL/api/auth/callback/google`
+4. **Redeploy after changes** — environment variable changes require a redeployment
+
+See the [Google Sign-In setup guide](/google-login/setup) for the full setup checklist.
+
+## My app looks broken on device
+
+If your app looks different on a real device vs. the preview:
+
+1. **Check native UI components** — use the [Native iOS UI Components](/getting-started/native-ui-components) prompts to get proper native styling
+2. **Test on the actual device** — the preview is an approximation; scan the QR code for a real test
+3. **Ask the AI to fix it** — describe what looks wrong and share a screenshot if possible
+
+## Deployment isn't working
+
+If your deployment fails or your deployed app has issues:
+
+1. **Check environment variables** — make sure you're using **production** API keys, not test keys
+2. **Review build logs** — check the Logs tab in your deployment dashboard for errors
+3. **Verify your app works locally** — make sure everything works in the Vibecode preview before deploying
+4. **Check payment** — deployments require an active Plus plan or above
+
+See the [Deployment guide](/deploying/guide) for the full walkthrough.
+
+## App Store submission failed
+
+If your build fails when submitting to the App Store:
+
+1. **Check Apple credentials** — verify your Apple ID and password are correct
+2. **Check Expo token** — make sure your access token hasn't expired
+3. **Sign all agreements** — go to [App Store Connect](https://appstoreconnect.apple.com/) and accept any pending terms
+4. **Check the bundle ID** — it must be unique and follow the format `com.company.appname`
+
+See the [App Store deployment guide](/getting-started/deploy-app-store) for the full process.
+
+## Still stuck?
+
+<CardGroup cols={2}>
+  <Card title="Contact Support" icon="headset" href="/support">
+    Get help from our support team via Intercom chat
+  </Card>
+  <Card title="Join Discord" icon="discord" href="https://discord.gg/qXyWYYX5Ts">
+    Ask the community for help
+  </Card>
+</CardGroup>
