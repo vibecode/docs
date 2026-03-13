@@ -55,12 +55,25 @@
             "pages": ["google-login/setup"]
           },
           {
-            "group": "Monetization",
-            "pages": ["payments/revenuecat-setup", "payments/stripe-setup"]
-          },
-          {
             "group": "App Capabilities",
             "pages": ["features/haptics", "features/sound-generation", "features/image-generation"]
+          }
+        ]
+      },
+      {
+        "tab": "Monetization",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": ["payments/overview"]
+          },
+          {
+            "group": "Billing Basics",
+            "pages": ["getting-started/plans-and-credits"]
+          },
+          {
+            "group": "Providers",
+            "pages": ["payments/revenuecat-setup", "payments/stripe-setup"]
           }
         ]
       },
