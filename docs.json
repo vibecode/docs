@@ -65,15 +65,11 @@
         "groups": [
           {
             "group": "Overview",
-            "pages": ["payments/overview"]
-          },
-          {
-            "group": "Billing Basics",
-            "pages": ["getting-started/plans-and-credits"]
+            "pages": ["monetization/overview"]
           },
           {
             "group": "Providers",
-            "pages": ["payments/revenuecat-setup", "payments/stripe-setup"]
+            "pages": ["monetization/revenuecat-setup", "monetization/stripe-setup"]
           }
         ]
       },
@@ -259,6 +255,10 @@
     {
       "source": "/google-login/code-reference",
       "destination": "/google-login/setup"
+    },
+    {
+      "source": "/payments/:slug*",
+      "destination": "/monetization/:slug*"
     }
   ],
   "footer": {
