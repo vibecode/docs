@@ -55,12 +55,21 @@
             "pages": ["google-login/setup"]
           },
           {
-            "group": "Monetization",
-            "pages": ["payments/revenuecat-setup", "payments/stripe-setup"]
-          },
-          {
             "group": "App Capabilities",
             "pages": ["features/haptics", "features/sound-generation", "features/image-generation"]
+          }
+        ]
+      },
+      {
+        "tab": "Monetization",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": ["monetization/overview"]
+          },
+          {
+            "group": "Providers",
+            "pages": ["monetization/revenuecat-setup", "monetization/stripe-setup"]
           }
         ]
       },
@@ -246,6 +255,10 @@
     {
       "source": "/google-login/code-reference",
       "destination": "/google-login/setup"
+    },
+    {
+      "source": "/payments/:slug*",
+      "destination": "/monetization/:slug*"
     }
   ],
   "footer": {
