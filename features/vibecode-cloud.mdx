@@ -10,7 +10,7 @@ Vibecode Cloud gives your app a full backend — database, authentication, and f
 ## What's Included
 
 ### Authentication
-User sign-up and login with secure password handling. Supports email/password authentication and social login (Google Sign-In via Better Auth).
+User sign-up and login powered by Better Auth. By default, Vibecode sets up email OTP sign-in, and you can also add Google, Apple, and other Better Auth providers.
 
 ### Database
 A SQLite database managed through Prisma ORM. Store and query your app's data in real-time. The AI sets up your database schema based on what your app needs.
@@ -36,7 +36,7 @@ Vibecode Cloud is available on **Plus plans and above**. The Free plan does not 
 - **Database:** SQLite with Prisma ORM, running on your deployed backend
 - **Auth:** Better Auth library with secure cookie-based sessions
 - **Hosting:** Your backend runs on Vibecode's infrastructure at `*.vibecode.run`
-- **API:** Express.js backend with auto-generated routes for your data models
+- **API:** Hono backend with your app's routes, auth endpoints, and data APIs
 
 <CardGroup cols={2}>
   <Card title="Google Sign-In Setup" icon="google" href="/google-login/setup">

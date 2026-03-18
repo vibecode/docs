@@ -61,7 +61,7 @@ If your deployment fails or your deployed app has issues:
 1. **Check environment variables** — make sure you're using **production** API keys, not test keys
 2. **Review build logs** — check the Logs tab in your deployment dashboard for errors
 3. **Verify your app works locally** — make sure everything works in the Vibecode preview before deploying
-4. **Check payment** — deployments require an active Plus plan or above
+4. **Check deployment billing** — if your deployment is outside your included allowance, add or update your payment method
 
 See the [Deployment guide](/deploying/guide) for the full walkthrough.
 
@@ -69,8 +69,8 @@ See the [Deployment guide](/deploying/guide) for the full walkthrough.
 
 If your build fails when submitting to the App Store:
 
-1. **Check Apple credentials** — verify your Apple ID and password are correct
-2. **Check Expo token** — make sure your access token hasn't expired
+1. **Check Expo token** — make sure your access token hasn't expired
+2. **Check the Expo Launch flow** — if Expo Launch opened but stalled, complete any required Apple login or team selection steps there
 3. **Sign all agreements** — go to [App Store Connect](https://appstoreconnect.apple.com/) and accept any pending terms
 4. **Check the bundle ID** — it must be unique and follow the format `com.company.appname`
 
