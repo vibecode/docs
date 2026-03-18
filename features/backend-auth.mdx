@@ -56,9 +56,11 @@ When auth is set up, your database automatically includes tables for users, sess
 
 ## Authentication (Better Auth)
 
-Authentication is how your app knows *who* is using it. Vibecode uses [Better Auth](https://www.better-auth.com) with **email one-time passwords (OTP)** as the sign-in method.
+Authentication is how your app knows *who* is using it. Vibecode uses [Better Auth](https://www.better-auth.com) as the auth system for your project.
 
-### How sign-in works
+By default, Vibecode sets up **email one-time passwords (OTP)** so users can sign in without passwords. On top of that, Better Auth supports [30+ auth providers](https://www.better-auth.com/docs/concepts/authentication), so you can also add Google, Apple, GitHub, Discord, Microsoft, and more.
+
+### Default sign-in flow
 
 1. **User enters their email** on the login screen
 2. **A 6-digit code is sent** to their inbox via Vibecode's built-in email service
@@ -67,7 +69,7 @@ Authentication is how your app knows *who* is using it. Vibecode uses [Better Au
 No passwords to remember, no OAuth setup, no third-party accounts required.
 
 <Note>
-  The OTP email is sent automatically through Vibecode's built-in email service. You don't need to set up any external email provider.
+  The OTP email is sent automatically through Vibecode's built-in email service. You do not need to wire up a separate email provider just to get default email auth working.
 </Note>
 
 ### Sessions and protected routes
@@ -76,16 +78,23 @@ Once signed in, a **session** keeps the user authenticated as they use your app.
 
 Your app automatically has **public routes** (like the login page) and **protected routes** (like a dashboard). If someone isn't logged in and tries to visit a protected screen, they're redirected to login automatically.
 
-### Social login (Google, Apple, and more)
+### Adding Google, Apple, and any other Better Auth provider
 
-Email OTP is the default, but you can also add social login to your app.
+Email OTP is the default, but you are not limited to it.
 
-[**Google sign-in**](/google-login/setup) has a guided setup built into Vibecode. When you ask the AI to add Google auth, Vibecode walks you through creating OAuth credentials in the [Google Cloud Console](https://console.cloud.google.com/apis/credentials) and automatically provides the correct redirect URLs for your project. You just paste in your Client ID and Client Secret, and the AI wires up the rest.
+[**Google sign-in**](/google-login/setup) has a guided setup built into Vibecode. When you ask the AI to add Google auth, Vibecode walks you through creating OAuth credentials in the [Google Cloud Console](https://console.cloud.google.com/apis/credentials) and provides the correct redirect URLs for your project.
 
-**Apple sign-in** and other providers require a bit more manual setup—you'll need to create credentials with the provider and add them as environment variables. Better Auth supports [30+ authentication providers](https://www.better-auth.com/docs/concepts/authentication) including Apple, GitHub, Discord, Microsoft, Facebook, Twitter, and many more. The AI can follow the [Better Auth docs](https://www.better-auth.com/docs) to set up any of them.
+**Apple sign-in is available now**, but it is a more manual setup. In practice, the flow is:
+
+1. Follow the relevant provider tutorial in the [Better Auth docs](https://www.better-auth.com/docs)
+2. Create the provider credentials in Apple, GitHub, Discord, or whichever platform you want
+3. Add the required environment variables to your Vibecode project
+4. Ask the AI to wire the provider into your existing Better Auth setup
+
+This same approach works for **any Better Auth provider**, not just Apple. If Better Auth supports it, Vibecode can usually add it to your app.
 
 <Note>
-  Social login providers like Google and Apple won't work inside the Vibecode preview (it runs in an iframe). You'll need to test social login on your [deployed app](/deploying/guide) or via the direct preview URL.
+  Social login providers like Google and Apple will not work inside the embedded Vibecode preview because it runs in an iframe. Test them on your [deployed app](/deploying/guide) or a direct preview URL instead.
 </Note>
 
 ## APIs and Integrations
@@ -102,11 +111,14 @@ Browse all available integrations and their pricing at [vibecodeapp.com/integrat
 
 ## Getting Started
 
-You don't need to set any of this up manually. Just tell the AI what you need:
+You usually do not need to set any of this up manually. Just tell the AI what you need:
 
 - **"Add user accounts to my app"** — Sets up auth with login screens
 - **"I need to save data for each user"** — Sets up the database with user-specific tables
 - **"Add a backend with login and a database"** — Sets up everything at once
+- **"Add Google sign-in to my app"** — Uses the guided Google setup flow
+- **"Add Apple sign-in using Better Auth"** — Uses Better Auth's Apple setup pattern
+- **"Add GitHub auth using Better Auth"** — Works for other Better Auth providers too
 
 The AI handles all the packages, configuration, database schema, login screens, and wiring.
 
@@ -137,6 +149,10 @@ Your database deploys with your app. You can view and manage it from the **Datab
 **My users are stuck on the login screen after entering the code—what's wrong?**
 
 This is usually a session configuration issue. Ask the AI to verify the auth configuration—especially the cookie settings and trusted origins.
+
+**Can I use Apple, GitHub, Discord, or another provider besides Google?**
+
+Yes. Better Auth supports 30+ providers, and Vibecode can follow Better Auth's provider tutorials to add them. Google has the most guided in-product setup today, while other providers are usually added by following the Better Auth docs and supplying the right environment variables.
 
 ## Next Steps
 

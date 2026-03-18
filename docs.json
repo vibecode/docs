@@ -23,7 +23,7 @@
           },
           {
             "group": "Building on Web",
-            "pages": ["getting-started/web-app"]
+            "pages": ["getting-started/web-app", "vibecode-cli"]
           },
           {
             "group": "Vibecode Tools",
@@ -82,23 +82,58 @@
           },
           {
             "group": "Text Generation",
-            "pages": ["integrations/openai-gpt-5-mini", "integrations/grok-4-fast", "integrations/google-gemini"]
+            "pages": [
+              "integrations/openai-gpt-5-2",
+              "integrations/openai-gpt-5-1",
+              "integrations/openai-gpt-5",
+              "integrations/openai-gpt-5-mini",
+              "integrations/openai-gpt-5-nano",
+              "integrations/openai-gpt-5-1-streaming",
+              "integrations/grok-4-fast",
+              "integrations/grok-4-fast-reasoning",
+              "integrations/google-gemini"
+            ]
           },
           {
             "group": "Audio",
-            "pages": ["integrations/gpt-4o-audio-transcription", "integrations/elevenlabs-tts", "integrations/elevenlabs-sound-effects", "integrations/elevenlabs-music"]
+            "pages": [
+              "integrations/gpt-4o-audio-transcription",
+              "integrations/elevenlabs-tts",
+              "integrations/elevenlabs-sound-effects",
+              "integrations/elevenlabs-music",
+              "integrations/elevenlabs-voice-changer"
+            ]
           },
           {
             "group": "Image Generation",
-            "pages": ["integrations/openai-gpt-image-1", "integrations/nano-banana", "integrations/ideogram-3"]
+            "pages": [
+              "integrations/openai-gpt-image-1",
+              "integrations/openai-gpt-image-1-5",
+              "integrations/nano-banana",
+              "integrations/ideogram-3"
+            ]
           },
           {
             "group": "Data APIs",
-            "pages": ["integrations/apple-maps", "integrations/tmdb", "integrations/openweather-api", "integrations/stock-market-data", "integrations/crypto-market-data", "integrations/runtime-logs", "integrations/haptic-feedback"]
+            "pages": [
+              "integrations/apple-maps",
+              "integrations/tmdb",
+              "integrations/openweather-api",
+              "integrations/stock-market-data",
+              "integrations/crypto-market-data"
+            ]
           },
           {
             "group": "Communication",
             "pages": ["integrations/resend-email", "integrations/expo-push-notifications"]
+          },
+          {
+            "group": "Video",
+            "pages": ["integrations/sora-2", "integrations/sora-2-pro"]
+          },
+          {
+            "group": "Agents",
+            "pages": ["integrations/claude-code-agent-sdk"]
           }
         ]
       },

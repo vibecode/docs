@@ -3,7 +3,7 @@ title: "Connect a Custom Domain"
 description: "Use your own domain for your deployed Vibecode web app"
 ---
 
-Want to use your own domain instead of the default `.vibecode.app` URL? This guide walks you through connecting a custom domain to your deployed Vibecode web app.
+Want to use your own domain instead of the default `.vibecode.run` URL? This guide walks you through connecting a custom domain to your deployed Vibecode web app.
 
 ## Before You Start
 
@@ -23,8 +23,6 @@ In your deployment dashboard, click the **Domain** tab.
   className="rounded-lg"
 />
 
-{/* TODO: Add annotated screenshot highlighting the Domain tab */}
-
 ## Step 2: Add Your Domain
 
 Click the **Add Custom Domain** button. You'll see a modal with two options.
@@ -40,7 +38,7 @@ Click **"I have a domain"** to continue.
 
 ## Step 3: Enter Your Domain
 
-Type in your domain name — just the domain, no `http://` or `https://` prefix.
+Type in your domain name, just the domain, with no `http://` or `https://` prefix.
 
 <img
   src="/deploying/custom-domain/03-enter-domain.png"
@@ -48,8 +46,6 @@ Type in your domain name — just the domain, no `http://` or `https://` prefix.
   style={{ maxHeight: "400px", display: "block", margin: "0 auto" }}
   className="rounded-lg"
 />
-
-{/* TODO: Add annotated screenshot highlighting the domain input and www checkbox */}
 
 - Enter your domain (e.g. `example.com`)
 - Optionally check **"Redirect www to this domain"** if you want `www.example.com` to redirect to your apex domain
@@ -93,7 +89,7 @@ After saving, Vibecode shows you the DNS records you need to add at your domain 
 </Note>
 
 <Tip>
-  Some DNS providers don't support CNAME records on the apex domain (`@`). In that case, use an **ALIAS** or **ANAME** record instead — most modern providers support this. See the provider guides below for specifics.
+  Some DNS providers don't support CNAME records on the apex domain (`@`). In that case, use an **ALIAS** or **ANAME** record instead.
 </Tip>
 
 ## Step 5: Add Records at Your DNS Provider
@@ -120,13 +116,13 @@ Go to your DNS provider's dashboard and add the records from the previous step. 
 
 ## Step 6: Verify Your Domain
 
-Once you've added the DNS records, go back to the Domain tab in Vibecode and click **"Check now"**. Vibecode will verify that your DNS records are set up correctly.
+Once you've added the DNS records, go back to the Domain tab in Vibecode and click **Check now**.
 
 <Note>
-  DNS changes can take anywhere from a few minutes to **24–48 hours** to propagate. If verification fails, wait a bit and try again.
+  DNS changes can take a while to propagate. If verification fails, wait a bit and try again.
 </Note>
 
-Once verified, you'll see a green **"Domain verified"** banner confirming routing is correct. Click **"Done"** to finish, then deploy to activate your custom domain.
+Once verified, you'll see a confirmation banner showing the domain is routed correctly. Click **Done** to finish, then deploy to activate your custom domain.
 
 <img
   src="/deploying/custom-domain/06-domain-verified.png"
@@ -144,30 +140,24 @@ Once verified, you'll see a green **"Domain verified"** banner confirming routin
   className="rounded-lg"
 />
 
-{/* TODO: Add annotated screenshot highlighting the troubleshoot section */}
-
-Click **"Troubleshoot"** in the Domain tab to see common issues. Here are the most frequent ones:
-
 <AccordionGroup>
   <Accordion title="Cloudflare proxy conflict">
-    If you're using Cloudflare, make sure the DNS record is set to **DNS-only mode** (gray cloud icon), not **Proxied** (orange cloud). Cloudflare's proxy can interfere with domain verification.
-
-    Alternatively, if your provider blocks CNAME on the apex domain, use an **ALIAS** or **ANAME** record instead.
+    If you're using Cloudflare, make sure the DNS record is set to **DNS-only mode** rather than **Proxied**.
   </Accordion>
 
-  <Accordion title="A/AAAA record conflict">
-    If you already have A or AAAA records pointing your domain somewhere else, they'll conflict with the CNAME record. **Remove the old A/AAAA records first**, then add the CNAME.
+  <Accordion title="A or AAAA record conflict">
+    If you already have A or AAAA records pointing your domain somewhere else, they can conflict with the CNAME record. Remove the old records first.
   </Accordion>
 
   <Accordion title="DNS propagation delay">
-    DNS changes don't take effect instantly. It can take up to **48 hours** for records to propagate worldwide. If the check fails right after adding records, wait 15–30 minutes and try again. You can also try from a **different browser** — your current browser may have cached the old DNS response.
+    DNS changes do not take effect instantly. Wait a bit and try the verification again.
   </Accordion>
 
   <Accordion title="Need to start over?">
-    You can click **"Remove domain"** in the Domain tab to disconnect your custom domain and start the process from scratch.
+    You can click **Remove domain** in the Domain tab to disconnect your custom domain and start over.
   </Accordion>
 </AccordionGroup>
 
 <Note>
-  **Still stuck?** Reach out via live support chat in the app, or join our [Discord community](https://discord.gg/qXyWYYX5Ts) for help.
+  Still stuck? Reach out via live support chat in the app, or join our [Discord community](https://discord.gg/qXyWYYX5Ts) for help.
 </Note>
