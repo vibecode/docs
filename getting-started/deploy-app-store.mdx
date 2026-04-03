@@ -26,6 +26,25 @@ You'll need the following before submitting your app:
 4. **Apple Device for 2FA**
    - Have your iPhone, iPad, or Mac nearby to receive two-factor authentication codes
 
+## Run Preflight Before Submitting
+
+Before uploading your app, we recommend running **Preflight** — an automated check that scans your app for common issues that could cause Apple to reject it (missing icons, incorrect configurations, metadata problems, etc.).
+
+<Frame>
+  <img src="/getting-started/preflight_button.png" alt="Preflight button in the deploy dropdown" />
+</Frame>
+
+**How to run Preflight:**
+
+1. Open the **Deploy** dropdown for your project
+2. Hover over the App Store submission section — the **Preflight** button will slide in next to "Submit to App Store"
+3. Click **Preflight** — this inserts the `/appstore-preflight` command into your chat
+4. The AI agent will run through a checklist and flag anything that needs fixing
+
+You can also type `/appstore-preflight` directly in the chat at any time.
+
+<Tip>Running Preflight is optional but highly recommended, especially for your first submission. It can save you days of waiting for Apple to reject your build over a simple fix.</Tip>
+
 ## Step-by-Step Submission Process
 
 ### Step 1: Start the Submission
