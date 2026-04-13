@@ -15,7 +15,7 @@
         "groups": [
           {
             "group": "Welcome",
-            "pages": ["index", "getting-started/plans-and-credits"]
+            "pages": ["index", "getting-started/how-vibecode-compares", "getting-started/plans-and-credits"]
           },
           {
             "group": "Build Your First App",
