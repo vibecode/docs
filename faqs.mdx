@@ -39,8 +39,8 @@ Find answers to common questions about Vibecode, our features, and how to get th
     No coding experience is required! Vibecode is designed for everyone, from complete beginners to experienced developers. You simply describe what you want in natural language, and the AI handles the technical implementation. If you do have coding experience, you can [download your code](/getting-started/download-code) or [connect via SSH](/getting-started/export-ssh) for deeper customization.
   </Accordion>
 
-  <Accordion title="When will the Vibecode Android app come out?">
-    We're actively working on Android support. While we can already generate Android-compatible code, the native Vibecode Android app for building on-device is coming soon. Stay tuned to our [updates](/updates) and [community channels](/resources/community) for the latest announcements.
+  <Accordion title="When will Vibecode come out for Android?">
+    The Vibecode Android app is available now! You can download it from the [Google Play Store](https://play.google.com/store/apps/details?id=com.vibecodeapp.app). You can run and edit apps on Android, but Play Store submission is not available yet.
   </Accordion>
 
   <Accordion title="Can I use Vibecode to build production-ready apps?">
@@ -96,11 +96,19 @@ Find answers to common questions about Vibecode, our features, and how to get th
   </Accordion>
 
   <Accordion title="How do I publish my app to the App Store?">
-    Vibecode has a built-in App Store submission flow — no need to use Xcode manually.
+    Vibecode has a built-in App Store submission flow — no need to use Xcode manually. Due to Apple's restrictions, this is only available on the web app.
 
+    1. Open your project on the web app and click the **Deploy** button
+    2. Select **Deploy to App Store**
+    3. Follow the step-by-step wizard to configure your app and add your Expo token
+    4. After the wizard, you'll be directed to Expo Launch where you can create a new Expo dev project or connect an existing one
+    5. Sign in to your Apple Developer account to complete the submission
+
+    {/*
     1. Open your project and tap the app name (mobile) or click Share (web)
     2. Select **Publish on App Store** / **Deploy to App Store**
     3. Follow the step-by-step wizard to configure your app, add your Expo token, and start Expo Launch
+    */}
 
     You'll need an [Apple Developer Program membership](https://developer.apple.com/programs/) ($99/year) and an [Expo account](https://expo.dev/signup) (free).
 
@@ -120,7 +128,17 @@ Find answers to common questions about Vibecode, our features, and how to get th
   </Accordion>
 
   <Accordion title="How can I download my project's code?">
+    Due to Apple's restrictions, downloading your code is only available on the web app.
+
+    1. Open your project in the web app
+    2. Click the **`<>`** button
+    3. Click **"Download Code"**
+
+    After clicking, the download link will be sent to your email. The exported code is a complete React Native/Expo project that you can run locally, modify, and deploy.
+
+    {/*
     Long-press on any app in your projects list and select "Download Code." Check your email for the download link. The exported code is a complete React Native/Expo project that you can run locally, modify, and deploy.
+    */}
 
     See the full guide: [Download Your Code](/getting-started/download-code)
   </Accordion>
