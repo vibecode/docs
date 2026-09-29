@@ -125,7 +125,7 @@ Find answers to common questions about Vibecode, our features, and how to get th
   </Accordion>
 
   <Accordion title="How can I download my project's code?">
-    Long-press on any app in your projects list and select "Download Code." Check your email for the download link. You get the complete project: an Xcode project for iOS apps, a React Native/Expo project for mobile apps, or a web project. Run it locally, modify it, and deploy it.
+    Open your project in the web app, click the **`<>`** button, and select "Download Code." Check your email for the download link. You get the complete project: an Xcode project for iOS apps, a React Native/Expo project for mobile apps, or a web project. Run it locally, modify it, and deploy it.
 
     See the full guide: [Download Your Code](/getting-started/download-code)
   </Accordion>
@@ -171,7 +171,14 @@ Find answers to common questions about Vibecode, our features, and how to get th
   <Accordion title="How do native iOS apps run without running code on my device?">
     While you build, your Swift app is compiled and runs in an iOS Simulator in the cloud. What you see in the browser or the Vibecode app is a live video stream of that simulator, and your taps are sent back to it. No app code runs on your phone.
 
-    When you want the app on your own iPhone, click **Publish** and choose **Install**. Vibecode builds and signs the app with your Apple Developer account (connected through an App Store Connect API key), then gives you an install link. This needs a paid Apple Developer Program membership. See [Native iOS Apps](/getting-started/native-ios-apps#install-on-your-iphone).
+    To put the app on your own iPhone, you need a paid Apple Developer Program membership. Click **Publish**, choose **Install**, and follow the steps:
+
+    1. Connect an App Store Connect API key so Vibecode can sign with your Apple Developer account.
+    2. Register your iPhone: scan the QR code with it, or tap **Register this iPhone** if you're already on it. The build can't start until a device is registered.
+    3. Click **Build and install**, then open the install link on your iPhone.
+    4. If iOS says the app needs Developer Mode, turn it on in **Settings → Privacy & Security → Developer Mode** and restart your iPhone.
+
+    See [Native iOS Apps](/getting-started/native-ios-apps#install-on-your-iphone) for the full walkthrough.
   </Accordion>
 
   <Accordion title="Can I use Vibecode to build a web app?">
