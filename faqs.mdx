@@ -9,14 +9,14 @@ Find answers to common questions about Vibecode, our features, and how to get th
 
 <AccordionGroup>
   <Accordion title="What is Vibecode?">
-    Vibecode is the easiest way to build apps using natural language. Available on iOS and on the web at vibecodeapp.com, you can generate fully functional apps with prompting, test them in real-time, and share with anyone instantly.
+    Vibecode is the easiest way to build apps using natural language. Available on iOS, Android, and the web at vibecodeapp.com, you can generate fully functional apps with prompting, test them in real-time, and share with anyone instantly.
   </Accordion>
 
   <Accordion title="What makes Vibecode different from other AI app builders?">
     Vibecode is unique because it:
     - Allows you to build and test directly on your mobile device
     - Supports one-click sharing via published links without requiring App Store submission
-    - Generates native iOS/Android apps, not just web apps
+    - Builds [native Swift iOS apps](/getting-started/native-ios-apps), cross-platform React Native apps, and web apps
     - Provides real-time preview and iteration capabilities
     - Offers extensive [integrations](/integrations/index) with popular APIs and services
     - Gives you full access to [export your source code](/getting-started/download-code)
@@ -32,15 +32,15 @@ Find answers to common questions about Vibecode, our features, and how to get th
   </Accordion>
 
   <Accordion title="What can I build with Vibecode?">
-    Mobile apps for iOS and Android, plus web apps. The world is your oyster — you can build whatever comes to your mind. Check out the [Example Projects](/getting-started/use-case-1) for inspiration.
+    Native Swift apps for iPhone and iPad, cross-platform React Native apps for iOS and Android, and web apps. The world is your oyster — you can build whatever comes to your mind. Check out the [Example Projects](/getting-started/use-case-1) for inspiration.
   </Accordion>
 
   <Accordion title="Do I need coding experience to build with Vibecode?">
     No coding experience is required! Vibecode is designed for everyone, from complete beginners to experienced developers. You simply describe what you want in natural language, and the AI handles the technical implementation. If you do have coding experience, you can [download your code](/getting-started/download-code) or [connect via SSH](/getting-started/export-ssh) for deeper customization.
   </Accordion>
 
-  <Accordion title="When will the Vibecode Android app come out?">
-    We're actively working on Android support. While we can already generate Android-compatible code, the native Vibecode Android app for building on-device is coming soon. Stay tuned to our [updates](/updates) and [community channels](/resources/community) for the latest announcements.
+  <Accordion title="Is there a Vibecode Android app?">
+    Yes. The Vibecode Android app is available on [Google Play](https://play.google.com/store/apps/details?id=com.vibecodeapp.app). Android runs Mobile app (React Native) projects; native iOS projects are Swift apps and run on iPhone.
   </Accordion>
 
   <Accordion title="Can I use Vibecode to build production-ready apps?">
@@ -58,7 +58,10 @@ Find answers to common questions about Vibecode, our features, and how to get th
   </Accordion>
 
   <Accordion title="Will Vibecoded apps work on Android and iOS?">
-    Yes! Apps built with Vibecode are cross-platform and work on both iOS and Android devices. The code is built using React Native and Expo, which enables deployment to both platforms from a single codebase.
+    It depends on the platform you pick when you create a project:
+    - **iOS app**: a [native Swift and SwiftUI app](/getting-started/native-ios-apps) for iPhone and iPad. No React Native. It runs on Apple devices only.
+    - **Mobile app**: a React Native and Expo app. One codebase runs on both iOS and Android.
+    - **Web app**: runs in any browser.
   </Accordion>
 
   <Accordion title="How long does it take to build an app with Vibecode?">
@@ -102,7 +105,9 @@ Find answers to common questions about Vibecode, our features, and how to get th
     2. Select **Publish on App Store** / **Deploy to App Store**
     3. Follow the step-by-step wizard to configure your app, add your Expo token, and start Expo Launch
 
-    You'll need an [Apple Developer Program membership](https://developer.apple.com/programs/) ($99/year) and an [Expo account](https://expo.dev/signup) (free).
+    You'll need an [Apple Developer Program membership](https://developer.apple.com/programs/) ($99/year) and an [Expo account](https://expo.dev/signup) (free) for Mobile app projects.
+
+    Native iOS app projects skip Expo: click **Publish**, choose **Publish to App Store**, and connect an App Store Connect API key. Vibecode builds, signs, and uploads your Swift app to Apple for you. See [Native iOS Apps](/getting-started/native-ios-apps#publish-to-the-app-store).
 
     See the full guide: [Deploy to App Store](/getting-started/deploy-app-store)
   </Accordion>
@@ -120,7 +125,7 @@ Find answers to common questions about Vibecode, our features, and how to get th
   </Accordion>
 
   <Accordion title="How can I download my project's code?">
-    Long-press on any app in your projects list and select "Download Code." Check your email for the download link. The exported code is a complete React Native/Expo project that you can run locally, modify, and deploy.
+    Long-press on any app in your projects list and select "Download Code." Check your email for the download link. You get the complete project: an Xcode project for iOS apps, a React Native/Expo project for mobile apps, or a web project. Run it locally, modify it, and deploy it.
 
     See the full guide: [Download Your Code](/getting-started/download-code)
   </Accordion>
@@ -154,7 +159,19 @@ Find answers to common questions about Vibecode, our features, and how to get th
   </Accordion>
 
   <Accordion title="Are Vibecode apps actually native iOS/Android apps? Or is it just web apps?">
-    Vibecode generates **true native mobile apps**, not web apps. Your apps are built using React Native and Expo, which compile to native iOS and Android code. This means full access to native device features (camera, sensors, notifications), native performance, and ability to publish to app stores.
+    They are real apps, not web apps. Choose **iOS app** and Vibecode writes a [native Swift and SwiftUI app](/getting-started/native-ios-apps), compiled with Xcode, with no React Native or web view in between. Choose **Mobile app** for a React Native and Expo app that runs on both iOS and Android.
+
+    Both have full access to native device features (camera, sensors, notifications) and can be published to the App Store.
+  </Accordion>
+
+  <Accordion title="Is Vibecode React Native or native Swift?">
+    Both, and you choose per project. **iOS app** projects are native Swift and SwiftUI for iPhone and iPad. **Mobile app** projects are React Native and Expo, for when you need one codebase on iOS and Android. You pick the platform when you create the project.
+  </Accordion>
+
+  <Accordion title="How do native iOS apps run without running code on my device?">
+    While you build, your Swift app is compiled and runs in an iOS Simulator in the cloud. What you see in the browser or the Vibecode app is a live video stream of that simulator, and your taps are sent back to it. No app code runs on your phone.
+
+    When you want the app on your own iPhone, click **Publish** and choose **Install**. Vibecode builds and signs the app with your Apple Developer account (connected through an App Store Connect API key), then gives you an install link. This needs a paid Apple Developer Program membership. See [Native iOS Apps](/getting-started/native-ios-apps#install-on-your-iphone).
   </Accordion>
 
   <Accordion title="Can I use Vibecode to build a web app?">

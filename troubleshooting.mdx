@@ -67,7 +67,7 @@ See the [Deployment guide](/deploying/guide) for the full walkthrough.
 
 ## App Store submission failed
 
-If your build fails when submitting to the App Store:
+If your build fails when submitting a **Mobile app** (React Native) to the App Store:
 
 1. **Check Expo token** — make sure your access token hasn't expired
 2. **Check the Expo Launch flow** — if Expo Launch opened but stalled, complete any required Apple login or team selection steps there
@@ -75,6 +75,15 @@ If your build fails when submitting to the App Store:
 4. **Check the bundle ID** — it must be unique and follow the format `com.company.appname`
 
 See the [App Store deployment guide](/getting-started/deploy-app-store) for the full process.
+
+For a native **iOS app** (Swift):
+
+1. **Check your App Store Connect API key**: it needs the App Manager or Admin role
+2. **Check your Apple Developer membership**: installs and App Store uploads need the paid Apple Developer Program
+3. **Deploy your backend**: iOS apps can't be installed or published until the backend is deployed
+4. **Ask the agent**: paste the build error into the chat and ask it to fix the Xcode build
+
+See [Native iOS Apps](/getting-started/native-ios-apps) for the full process.
 
 ## Still stuck?
 

@@ -19,7 +19,7 @@
           },
           {
             "group": "Build Your First App",
-            "pages": ["getting-started/creating-first-app"]
+            "pages": ["getting-started/creating-first-app", "getting-started/native-ios-apps"]
           },
           {
             "group": "Building on Web",
