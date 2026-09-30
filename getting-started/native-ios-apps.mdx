@@ -37,8 +37,8 @@ Your app runs in a real iOS Simulator in the cloud. What you see in the browser 
 
 Preview controls:
 
-- **Reload**: restarts your app in the simulator
-- **Hard reset** (web) / **Reset simulator** (iPhone project menu): starts the simulator fresh if it gets stuck
+- **Reload**: rebuilds your app from the latest code and restarts it in the simulator
+- **Hard reset** (web) / **Reset simulator** (iPhone project menu): starts a fresh simulator if it gets stuck. If the latest version of your app is already built, it reopens right away without a rebuild.
 
 <Note>The preview runs as an iPhone or an iPhone Duo. Your app is still built for iPad too.</Note>
 
@@ -69,12 +69,12 @@ When you want the real app on your own phone, Vibecode builds it, signs it with 
 **What you need:**
 
 - A paid [Apple Developer Program](https://developer.apple.com/programs/) membership ($99/year)
-- An [App Store Connect API key](https://appstoreconnect.apple.com/access/integrations/api) with the **App Manager** or **Admin** role. You'll enter its issuer ID, key ID, `.p8` key file, and team ID once, and Vibecode reuses it for every build.
+- Your Apple ID, or an [App Store Connect API key](https://appstoreconnect.apple.com/access/integrations/api) with the **App Manager** or **Admin** role. **Sign in with your Apple ID** (with the verification code Apple sends to your devices) and Vibecode creates the API key for you. Or enter the key's issuer ID, key ID, `.p8` key file, and team ID yourself. You connect once, and Vibecode reuses it for every build.
 
 **Steps:**
 
 1. Click **Publish** and choose **Install** (or click **Install on iPhone** in the preview toolbar)
-2. **Connect Apple credentials**: add your App Store Connect API key
+2. **Connect Apple credentials**: sign in with your Apple ID, or add your App Store Connect API key
 3. **Register your iPhone**: scan the QR code with your iPhone (or tap **Register this iPhone** if you're already on it). This installs a small Apple profile that shares your device ID, and Vibecode adds the device to your Apple Developer account for you.
 4. If your app has a backend that was never deployed, the panel says **Your backend isn't deployed**. Click **Deploy** (**Go to Deploy** in the iPhone app). The build starts on its own once the deploy finishes.
 5. Click **Build and install** if the build hasn't started yet, and wait for it to finish
@@ -83,6 +83,8 @@ When you want the real app on your own phone, Vibecode builds it, signs it with 
 The installed app uses your deployed backend. If your backend has changes you haven't deployed, Vibecode asks before building: choose **Install anyway**, or deploy first. When a build is ready, the panel also shows **Deploy backend** with the number of unpublished updates.
 
 Past builds stay listed in the panel. If you've changed the app since the last build, the panel offers to build again.
+
+To see, replace, or disconnect your Apple credentials later, open **Settings** on the web and find **Apple Developer**.
 
 <Tip>If iOS says the app needs Developer Mode, turn it on in **Settings → Privacy & Security → Developer Mode** and restart your iPhone.</Tip>
 
@@ -93,7 +95,7 @@ Past builds stay listed in the panel. If you've changed the app since the last b
 Native iOS projects don't use Expo. Vibecode builds, signs, and uploads the app to Apple itself.
 
 1. Click **Publish** and choose **Publish to App Store**
-2. Add your App Store Connect API key if you haven't already
+2. Connect your Apple credentials if you haven't already
 3. Deploy your backend if prompted
 4. Confirm your **bundle ID**. You can edit it now, but it can't be changed after publishing.
 5. Click **Confirm and publish**
