@@ -50,6 +50,10 @@ Preview controls:
 
 iPhone Duo is the foldable iPhone. On the web, use the device switch in the preview toolbar to pick **iPhone** or **iPhone Duo**.
 
+<Frame caption="A real Vibecode project on iPhone Duo: folded on the outer display, then unfolded to the inner display">
+  <video autoPlay muted loop playsInline className="w-full rounded-xl" poster="/images/screens/iphone-duo-unfold-poster.jpg" src="/images/screens/iphone-duo-unfold.mp4" />
+</Frame>
+
 Closed, your app runs on the outer display. Open it and iOS moves your app to the inner display. Use the **Unfold** / **Fold** button or drag the **Hinge** slider to test both.
 
 - Switching devices starts a fresh simulator, so data your app saved on the other device doesn't carry over. Your choice is saved with the project.
@@ -84,6 +88,10 @@ When you want the real app on your own phone, Vibecode builds it, signs it with 
 5. Click **Build and install** if the build hasn't started yet, and wait for it to finish
 6. Scan the QR code (or tap the link on your iPhone) to install the app
 
+<Frame caption="The install panel asks you to deploy your backend first">
+  <img src="/images/screens/install-panel.png" alt="The install panel asks you to deploy your backend first" style={{ maxWidth: "500px" }} />
+</Frame>
+
 The installed app uses your deployed backend. If your backend has changes you haven't deployed, Vibecode asks before building: choose **Install anyway**, or deploy first. When a build is ready, the panel also shows **Deploy backend** with the number of unpublished updates.
 
 Past builds stay listed in the panel. If you've changed the app since the last build, the panel offers to build again.
@@ -97,6 +105,10 @@ To see, replace, or disconnect your Apple credentials later, open **Settings** o
 ## Publish to the App Store
 
 Native iOS projects don't use Expo. Vibecode builds, signs, and uploads the app to Apple itself.
+
+<Frame caption="The Publish menu for a native iOS project">
+  <img src="/images/screens/publish-menu-ios.png" alt="The Publish menu for a native iOS project" style={{ maxWidth: "500px" }} />
+</Frame>
 
 1. Click **Publish** and choose **Publish to App Store**
 2. Connect your Apple credentials if you haven't already
