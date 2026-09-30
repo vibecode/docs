@@ -1,0 +1,54 @@
+---
+title: "Agent Testing"
+description: "The agent tests the app it just built, fixes what it finds, and lets you watch it happen in the preview"
+---
+
+When the agent changes how your app looks or works, it tests the change itself. It opens your app, clicks or taps through what it just built, checks that it works, and fixes what it finds before it finishes.
+
+This is on for every **Web app** and **Mobile app** project. There's nothing to set up. Native iOS apps get their own version, covered [below](#native-ios-apps).
+
+## When the Agent Tests
+
+The agent tests after any change to your app's screens or behavior. Code that compiles isn't enough. It checks that the app actually does what you asked before it tells you it's done.
+
+<Tip>Want a specific flow checked? Say so in your prompt, for example: "Sign up with a new account and make sure the welcome screen shows."</Tip>
+
+## Watch It Live
+
+While the agent tests, its browser appears right in your preview with an **Agent is testing your app** badge. When it's done, your normal preview comes back.
+
+- **Web app:** the agent's browser fills the preview frame. The preview toolbar hides until the agent is done.
+- **Mobile app:** the agent's browser shows inside the phone frame. If you have **iOS (beta)** selected in the preview, the agent tests on the iOS simulator instead.
+
+While the agent is testing, the preview picker stays where it is: "The agent is testing here. You can switch when it's done."
+
+You can click and scroll in the live view. It's the same page the agent is using, so your clicks land there too.
+
+<Note>You see the live view in projects you own.</Note>
+
+### In the iPhone App
+
+In the Vibecode iPhone app, your preview stays on screen and usable while the agent works on a web or mobile app, instead of switching to a loading screen. On web app projects, you'll also see the agent testing in the preview, with the same badge.
+
+## What the Agent Can't Check
+
+For mobile apps, the agent tells you where it tested. The web version in the phone frame can't confirm native-only features such as the camera, haptics, push notifications, purchases, secure storage, native tab bars and pickers, or the keyboard moving your layout. The agent lists these as not verified, so check them on your phone.
+
+## Native iOS Apps
+
+Native Swift projects get agent testing too. The agent builds your app, opens it in the cloud iOS Simulator, and taps through the flow it changed. At the end of each turn, Vibecode checks the build. If it fails, the agent is sent back to fix it automatically.
+
+See [Native iOS Apps](/getting-started/native-ios-apps) for how the simulator preview works.
+
+<Note>Testing is part of the agent's turn, so it uses credits like the rest of the turn. See [Plans and Credits](/getting-started/plans-and-credits).</Note>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Creating Your First App" icon="rocket" href="/getting-started/creating-first-app">
+    Write a prompt and generate your app
+  </Card>
+  <Card title="Native iOS Apps" icon="apple" href="/getting-started/native-ios-apps">
+    Build and preview native Swift apps
+  </Card>
+</CardGroup>

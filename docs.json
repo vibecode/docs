@@ -44,7 +44,7 @@
         "groups": [
           {
             "group": "How It Works",
-            "pages": ["getting-started/claude-code"]
+            "pages": ["getting-started/claude-code", "features/agent-testing"]
           },
           {
             "group": "Backend & Data",
