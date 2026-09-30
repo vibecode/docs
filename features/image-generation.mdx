@@ -1,42 +1,41 @@
 ---
 title: "Image Generation"
-description: "Generate AI-powered images directly within your Vibecode apps"
+description: "Generate images and short videos for your app in the Media tab"
 ---
 
-Visuals make your app stand out. AI-powered image generation lets you create custom photos, illustrations, gradients, and icons without leaving Vibecode. Vibecode uses the GPT-4 Image One image model, which can generate images without backgrounds, giving you more flexibility in your designs. Whether you need a unique splash screen, branded visuals, or perfectly matched icons, you can describe what you want and let AI bring it to life. This makes it easy to keep your design consistent and professional.
+Visuals make your app stand out. The **Media** tab lets you generate custom photos, illustrations, icons, and backgrounds without leaving Vibecode, then turn any image into a short video. Describe what you want, then add the result to your prompt so the agent puts it in your app.
 
-<iframe src="https://www.youtube.com/embed/H0f0y_VGjpw" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+## Generate an Image
 
-## Generate Images and Icons
+1. In the web app, open the **Media** tab in your project
+2. Make sure **Image** is selected
+3. Pick a **Model**: **GPT Image 2** (the default), **Nano Banana 2**, or **Nano Banana 2 Lite**
+4. Optionally pick a **Type**, such as **Icon**, **Character**, **Background**, or **Component**, and a **Style**
+5. Describe the image to generate and send
 
-1. Navigate to the **Images & Icons** tab at the bottom of your project interface
-2. Select which type of image you want to generate
-3. Select which images and icons you want to add to include in your prompt to add to your app
+Your images appear in the Media tab gallery. Open one to regenerate it, use it as a reference for a new image, or click **Add to chat** to add it to your prompt.
 
-### Example Prompt:
+<Tip>Choose the **Icon** type when you want an app icon or an in-app icon.</Tip>
 
-```
-Please create a simple splash screen that puts the {{logo}}
-above my {{image}}. Add text at the bottom of that screen
-that says "Anthropic"
-```
+## Use Images in Your App
 
-> **Note:** These are brand assets that were uploaded but you can generate your own image and ask AI to place those images in the app instead.
-
-### Replacing Generated Images:
+Click **Add to chat** on an image, then tell the agent where it goes:
 
 ```
-// Please replace the image beneath "Claude" with this {{image}}
-that I just generated.
+Put this image at the top of the welcome screen, above the sign-up button.
 ```
 
-## Icons
+To replace an image, generate a new one, add it to chat, and say which image it replaces.
 
-You can also add icons.
+## Animate an Image Into Video
 
-When in the image tab, select **Icons**. This will make sure you are using the best image model in the world for generating icons.
+1. Open an image and click **Animate**, or switch the Media tab to **Video** and pick an image as the reference
+2. Describe the motion to animate
+3. Pick the **Duration**, **Resolution**, and **Aspect**, then send
 
-After selecting "Icon" just describe the type of icon you want to include in your app.
+Generated videos show up in the same gallery, and you can add them to chat the same way.
+
+<Note>Generating images and videos uses credits. See [Plans and Credits](/getting-started/plans-and-credits).</Note>
 
 ## Next Steps
 
@@ -45,7 +44,7 @@ After selecting "Icon" just describe the type of icon you want to include in you
     Add audio to your app
   </Card>
   <Card title="Browse Integrations" icon="plug" href="/integrations/index">
-    See all available integrations
+    Let your app generate images for its users
   </Card>
   <Card title="Deploy Your App" icon="rocket" href="/deploying/overview">
     Share your app with the world
