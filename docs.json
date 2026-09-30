@@ -84,7 +84,7 @@
             "group": "Text Generation",
             "pages": [
               "integrations/openai-gpt-6-astra",
-              "integrations/openai-gpt-6-sol",
+              "integrations/openai-gpt-6-1-sol",
               "integrations/openai-gpt-6-luna",
               "integrations/openai-gpt-5-6",
               "integrations/openai-gpt-5-6-terra",
