@@ -1,0 +1,4 @@
+/* Keep changelog dates in place instead of sticking while scrolling */
+.update-container > div:first-child {
+  position: static !important;
+}
