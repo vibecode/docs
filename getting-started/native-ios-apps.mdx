@@ -7,6 +7,10 @@ Vibecode builds **native Swift apps**. Pick **iOS app** when you create a projec
 
 You don't need a Mac or Xcode. Vibecode compiles your app on cloud Macs, runs it in a cloud iOS Simulator, and streams that simulator to you.
 
+<Frame caption="Built on iPhone: describe an app on your iPhone, and Vibecode writes the Swift, builds it, and installs it">
+  <video controls playsInline preload="metadata" className="w-full rounded-xl" poster="/images/videos/built-on-iphone-launch-poster.jpg" src="/images/videos/built-on-iphone-launch.mp4" />
+</Frame>
+
 ## Native iOS or React Native?
 
 You choose the platform per project:
@@ -23,24 +27,52 @@ Pick **iOS app** when you want a real native iPhone app that looks and feels lik
 
 ## Create a Native iOS App
 
-**On the web:** click **New Project** and choose **iOS app** ("Native apps for iPhone and iPad, ready for the App Store"). You can also switch the platform picker in the prompt box to **iOS** before you send your first prompt.
+**On the web:** click **New app** and choose **iOS app** ("Native apps for iPhone, iPhone Duo and iPad, ready for the App Store"). You can also switch the platform picker in the prompt box to **iOS** before you send your first prompt.
 
 **On iPhone:** tap the new project button and choose **iOS app** ("Native SwiftUI for iPhone & iPad").
 
-Then describe your app like any other project. The agent writes Swift and SwiftUI, adds Swift packages when it needs them, and builds the app with Xcode after each change.
+Then describe your app like any other project. The agent writes Swift and SwiftUI, adds Swift packages when it needs them, and builds and tests the app in the simulator after each change.
 
 ## How the Preview Works
 
 Your app runs in a real iOS Simulator in the cloud. What you see in the browser or in the Vibecode iPhone app is a **live video stream** of that simulator. Your taps, swipes, and typing are sent back to it.
 
+<Frame caption="A native Swift game running live in the cloud iOS Simulator, streamed to the browser">
+  <video autoPlay muted loop playsInline controls preload="metadata" className="w-full rounded-xl" poster="/images/videos/iphone-duo-hockey-poster.jpg" src="/images/videos/iphone-duo-hockey.mp4" />
+</Frame>
+
 **No app code runs on your device while you build.** That's why the preview works in any browser and why nothing has to be installed on your phone to test.
 
 Preview controls:
 
-- **Reload**: restarts your app in the simulator
-- **Hard Reset Simulator** (web) / **Reset simulator** (iPhone project menu): starts the simulator fresh if it gets stuck
+- **Reload**: rebuilds your app from the latest code and restarts it in the simulator
+- **Hard reset** (web) / **Reset simulator** (iPhone project menu): starts a fresh simulator if it gets stuck. If the latest version of your app is already built, it reopens right away without a rebuild.
 
-<Note>The preview simulator is an iPhone. Your app is still built for both iPhone and iPad.</Note>
+<Note>The preview runs as an iPhone or an iPhone Duo. Your app is still built for iPad too.</Note>
+
+### Preview on iPhone Duo
+
+iPhone Duo is the foldable iPhone. On the web, use the device switch in the preview toolbar to pick **iPhone** or **iPhone Duo**.
+
+<Frame caption="Folded on the outer display, then unfolded: the app moves to the inner display">
+  <video autoPlay muted loop playsInline controls preload="metadata" className="w-full rounded-xl" style={{ maxWidth: "560px" }} poster="/images/videos/iphone-duo-pulse-poster.jpg" src="/images/videos/iphone-duo-pulse.mp4" />
+</Frame>
+
+Closed, your app runs on the outer display. Open it and iOS moves your app to the inner display. Use the **Unfold** / **Fold** button or drag the **Hinge** slider to test both.
+
+- Switching devices starts a fresh simulator, so data your app saved on the other device doesn't carry over. Your choice is saved with the project.
+- The agent can switch the simulator to iPhone Duo when a change needs it. Your preview follows.
+- The iPhone Duo preview takes single-finger taps and drags. Pinch, other multi-finger gestures, and scroll-wheel scrolling don't work.
+
+### While the Agent Works
+
+Your preview stays live while the agent works, and you can keep using your app. The agent tests in the same simulator: it builds the app, opens it, and taps through what it changed, so you may see it moving around your app. On the web, **Hard reset** and the device switch are off until it's done.
+
+When the agent finishes, Vibecode makes sure the app builds and loads the new version into your preview. If the build fails, the agent automatically tries to fix it. If it still fails, send a message such as "keep going" to try again.
+
+### If the Preview Pauses
+
+If you don't use the preview or send a prompt for an hour, the simulator stops. The preview asks **Are you still here?** over your app's last screen. Click or tap **I'm still here** to start it again, or just send a prompt. On the web, the toolbar shows **Simulator paused** until you're back.
 
 ## Install on Your iPhone
 
@@ -49,18 +81,26 @@ When you want the real app on your own phone, Vibecode builds it, signs it with 
 **What you need:**
 
 - A paid [Apple Developer Program](https://developer.apple.com/programs/) membership ($99/year)
-- An [App Store Connect API key](https://appstoreconnect.apple.com/access/integrations/api) with the **App Manager** or **Admin** role. You'll enter its issuer ID, key ID, `.p8` key file, and team ID once, and Vibecode reuses it for every build.
+- Your Apple ID, or an [App Store Connect API key](https://appstoreconnect.apple.com/access/integrations/api) with the **App Manager** or **Admin** role. **Sign in with your Apple ID** (with the verification code Apple sends to your devices) and Vibecode creates the API key for you. Or enter the key's issuer ID, key ID, `.p8` key file, and team ID yourself. You connect once, and Vibecode reuses it for every build.
 
 **Steps:**
 
-1. Click **Publish** and choose **Install**
-2. **Connect Apple credentials**: add your App Store Connect API key
+1. Click **Publish** and choose **Install** (or click **Install on iPhone** in the preview toolbar)
+2. **Connect Apple credentials**: sign in with your Apple ID, or add your App Store Connect API key
 3. **Register your iPhone**: scan the QR code with your iPhone (or tap **Register this iPhone** if you're already on it). This installs a small Apple profile that shares your device ID, and Vibecode adds the device to your Apple Developer account for you.
-4. If your app's backend isn't deployed yet, click **Deploy** when prompted
-5. Click **Build and install** and wait for the build to finish
+4. If your app has a backend that was never deployed, the panel says **Your backend isn't deployed**. Click **Deploy** (**Go to Deploy** in the iPhone app). The build starts on its own once the deploy finishes.
+5. Click **Build and install** if the build hasn't started yet, and wait for it to finish
 6. Scan the QR code (or tap the link on your iPhone) to install the app
 
+<Frame caption="The install panel asks you to deploy your backend first">
+  <img src="/images/screens/install-panel.png" alt="The install panel asks you to deploy your backend first" style={{ maxWidth: "500px" }} />
+</Frame>
+
+The installed app uses your deployed backend. If your backend has changes you haven't deployed, Vibecode asks before building: choose **Install anyway**, or deploy first. When a build is ready, the panel also shows **Deploy backend** with the number of unpublished updates.
+
 Past builds stay listed in the panel. If you've changed the app since the last build, the panel offers to build again.
+
+To see, replace, or disconnect your Apple credentials later, open **Settings** on the web and find **Apple Developer**.
 
 <Tip>If iOS says the app needs Developer Mode, turn it on in **Settings → Privacy & Security → Developer Mode** and restart your iPhone.</Tip>
 
@@ -70,8 +110,12 @@ Past builds stay listed in the panel. If you've changed the app since the last b
 
 Native iOS projects don't use Expo. Vibecode builds, signs, and uploads the app to Apple itself.
 
+<Frame caption="The Publish menu for a native iOS project">
+  <img src="/images/screens/publish-menu-ios.png" alt="The Publish menu for a native iOS project" style={{ maxWidth: "500px" }} />
+</Frame>
+
 1. Click **Publish** and choose **Publish to App Store**
-2. Add your App Store Connect API key if you haven't already
+2. Connect your Apple credentials if you haven't already
 3. Deploy your backend if prompted
 4. Confirm your **bundle ID**. You can edit it now, but it can't be changed after publishing.
 5. Click **Confirm and publish**
