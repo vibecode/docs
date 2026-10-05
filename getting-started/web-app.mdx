@@ -1,28 +1,116 @@
 ---
 title: "Web App"
-description: "Access your Vibecode apps from the web"
+description: "Build iOS, mobile, and web apps from your browser at vibecodeapp.com"
 ---
 
-### Getting Started with Web App
+The Vibecode web app at [vibecodeapp.com](https://vibecodeapp.com) lets you build from any browser. You describe your idea, the agent builds it, and you test it in a live preview next to the chat.
 
-You can also use the web app to build mobile apps. This is a very simple web interface that feels a lot like popular Vibecode coding tools. The output is a QR code that you can scan to open your app in the Vibecode app as you make changes on the web app.
+<Frame caption="A 3D space exploration game built from one prompt in the Vibecode web app">
+  <video autoPlay muted loop playsInline controls preload="metadata" className="w-full rounded-xl" poster="/images/videos/web-3d-space-game-poster.jpg" src="/images/videos/web-3d-space-game.mp4" />
+</Frame>
 
-<iframe src="https://www.youtube.com/embed/NlxBofRg6D8" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+It builds all three project types:
 
-## Key Features
+- **iOS app**: a native Swift app for iPhone and iPad. See [Native iOS Apps](/getting-started/native-ios-apps).
+- **Mobile app**: a React Native app for iOS and Android
+- **Web app**: a website or web app that runs in any browser
 
-- **Build on Web** - Create mobile apps using the web interface instead of just on your phone
-- **QR Code Output** - Your app generates a QR code that you can scan to instantly open it in the Vibecode app
-- **Live Iteration** - Make changes on the web app and see updates live on your phone as you test
-- **Select Your Model** - Choose which AI model you want to use for your app generation
-- **Project Sidebar** - All of your projects are organized in the sidebar for easy access and management
-- **App Store Deployment** - Deploy your app straight to the App Store just like you would from the mobile app
+## Start a Project
+
+- **From the home page:** type your idea in the prompt box ("What do you want to create?"). Use the platform picker in the prompt box to choose **Web**, **Mobile**, or **iOS**, then send.
+- **From your projects:** click **New app** in the sidebar (or **Create** on the **Workspaces** page). Choose **Mobile app**, **Web app**, or **iOS app**, then describe what you want to build.
+
+<Frame caption="New app: pick Mobile app, Web app, or iOS app">
+  <img src="/images/screens/new-app-menu.png" alt="New app: pick Mobile app, Web app, or iOS app" style={{ maxWidth: "285px" }} />
+</Frame>
+
+The platform picker only appears before a project is created.
+
+New to prompting? See [Creating Your First App](/getting-started/creating-first-app).
+
+## Find Your Way Around
+
+A project opens with the chat on the left and your app on the right.
+
+### Prompt Box
+
+- The model picker shows the current model. Click it to choose which AI model builds your app. Some models also let you set **Reasoning**.
+- The camera button attaches a screenshot of the preview
+- The mic button lets you dictate your prompt
+- Drag files onto the prompt box to attach them
+
+<Frame caption="The model picker in the prompt box">
+  <img src="/images/screens/model-picker.png" alt="The model picker in the prompt box" style={{ maxWidth: "275px" }} />
+</Frame>
+
+### Preview
+
+What you see depends on the project type:
+
+- **Web app**: a browser preview. Switch between **Desktop**, **Tablet**, and **Mobile** sizes, or open it in a new tab.
+- **Mobile app**: runs in the browser. Click **Open on mobile** for a QR code to preview it on your phone. You can also switch the simulator type to **iOS (beta)**.
+- **iOS app**: a live stream of an iOS Simulator in the cloud. See [How the Preview Works](/getting-started/native-ios-apps#how-the-preview-works).
+
+Use the tab bar to switch between **Preview** and **Code**, or open tools like **API**, **Env Var**, **Database**, and **Logs**. The **API** tab is where you add [integrations](/integrations/index).
+
+### Top Bar
+
+- Your credit balance, shown in dollars. Click it to buy more credits, turn on auto reload, or redeem a promo code. See [Plans and Credits](/getting-started/plans-and-credits).
+- **`<>`**: code options, including [Download Code](/getting-started/download-code) on Pro and Max plans
+- **Share**: once your app is published, copy its link or share it (Mobile and Web apps). Before that, it asks you to publish first.
+- **Deploy** or **Publish**: see [Publish Your App](#publish-your-app)
+
+<Frame caption="Click your credit balance to buy credits, compare plans, or set up auto reload">
+  <img src="/images/screens/credits-menu.png" alt="Click your credit balance to buy credits, compare plans, or set up auto reload" style={{ maxWidth: "400px" }} />
+</Frame>
+
+The menu next to your project name has **Change Icon**, **Duplicate**, **Hard Restart**, **Export chat**, and **Delete**.
+
+Your projects are listed on the **Workspaces** page. **Settings** is in the sidebar there.
+
+## Publish Your App
+
+The button in the top right depends on the project type:
+
+| Project type | Button | What's inside |
+|---|---|---|
+| **iOS app** | **Publish** | **Install** on your iPhone, or **Publish to App Store** |
+| **Mobile app** | **Deploy** | **Submit to App Store**, and deploy your backend if your app has one |
+| **Web app** | **Deploy** | Put your app online at a live URL |
+
+<Frame caption="Publish menu for an iOS app">
+  <img src="/images/screens/publish-menu-ios.png" alt="Publish menu for an iOS app" style={{ maxWidth: "500px" }} />
+</Frame>
+
+Once your app has been deployed, **Deploy** changes to **Deployments**.
+
+Not sure which path fits? See [Choose Your Deployment Path](/deploying/overview).
+
+## Keep Working While the Agent Builds
+
+You don't have to wait for the agent to finish.
+
+- **Queue prompts.** While the agent works, the prompt box shows "Queue more prompts". Type your next request and click **Queue**.
+- **Manage the queue.** Queued prompts sit above the prompt box (for example, "2 in queue"). Click to open the list, then hover a prompt to edit or delete it.
+- **Stop** ends the current run and clears the queue.
+
+Queued prompts run in order, one at a time, as each run finishes. They're saved with your project, so they still run if you refresh or close the tab.
+
+<Tip>After you send a prompt, Vibecode suggests keeping the tab open in the background and offers **Enable notifications**. Turn them on and your browser tells you when your app is ready. On desktop this shows as a pop-up message; in a phone browser, as a card above the prompt box.</Tip>
+
+On Web and Mobile apps, the agent may test your app itself. When it does, the preview shows **Agent is testing your app** and you can watch it work.
 
 ## Next Steps
 
 <CardGroup cols={2}>
-  <Card title="Deploy Your Web App" icon="rocket" href="/deploying/guide">
-    Put your web app online
+  <Card title="Creating Your First App" icon="rocket" href="/getting-started/creating-first-app">
+    Write a prompt and generate your app
+  </Card>
+  <Card title="Native iOS Apps" icon="mobile" href="/getting-started/native-ios-apps">
+    Build native Swift apps without a Mac
+  </Card>
+  <Card title="Choose Your Deployment Path" icon="route" href="/deploying/overview">
+    Compare install, App Store, and web options
   </Card>
   <Card title="Browse Integrations" icon="plug" href="/integrations/index">
     Add AI, maps, payments, and more
