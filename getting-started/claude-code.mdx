@@ -64,7 +64,14 @@ Then open a **new** terminal window and check it worked:
 claude --version
 ```
 
-It prints a version number followed by `(Claude Code)`. If your shell says `claude` isn't found, the install folder isn't on your PATH yet. Run `claude doctor` for a diagnosis.
+It prints a version number followed by `(Claude Code)`. If your shell says `claude` isn't found, the install folder isn't on your PATH yet. The native installer puts `claude` in `~/.local/bin` (on Windows, `%USERPROFILE%\.local\bin`). On macOS, add it to your PATH with:
+
+```bash
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+On Linux, use `~/.bashrc` in place of `~/.zshrc`. For Windows and other shells, see Anthropic's [PATH fix](https://code.claude.com/docs/en/troubleshoot-install#verify-your-path).
 
 <Tip>The native installer (the first three commands) updates itself in the background. Homebrew, WinGet, and npm installs don't, so update them yourself.</Tip>
 
