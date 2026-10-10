@@ -1,11 +1,13 @@
 ---
-title: "Native iOS Apps (Swift)"
-description: "Build native Swift and SwiftUI apps for iPhone and iPad, preview them in a cloud simulator, and install or publish them without a Mac"
+title: "Native iOS Apps: Build Swift iPhone Apps Without a Mac"
+sidebarTitle: "Native iOS Apps (Swift)"
+description: "Vibecode builds native Swift and SwiftUI apps for iPhone and iPad, previews them in a cloud iOS Simulator, installs them on your iPhone, and publishes them to the App Store, all without a Mac or Xcode."
+keywords: ["native ios app builder", "build iphone app without mac", "swiftui app builder", "ai swift app builder", "vibecode swift"]
 ---
 
-Vibecode builds **native Swift apps**. Pick **iOS app** when you create a project and the AI writes a SwiftUI app for iPhone and iPad. It is not React Native and not a web view. It's a standard Xcode project that you own.
+**Vibecode builds native Swift and SwiftUI apps for iPhone and iPad and publishes them to the App Store.** Pick **iOS app** when you create a project and the agent writes a standard Xcode project in Swift (not React Native, not a web view), builds it on cloud Macs, and runs it in a cloud iOS Simulator streamed to your browser or phone. When it's ready, Vibecode installs it on your iPhone or uploads it to the App Store and submits it for review with your Apple Developer account.
 
-You don't need a Mac or Xcode. Vibecode compiles your app on cloud Macs, runs it in a cloud iOS Simulator, and streams that simulator to you.
+Need the same app on Android too? Pick **Mobile app** for React Native and Expo, or **Web app** for the browser. You don't need a Mac or Xcode for any of them.
 
 <Frame caption="Built on iPhone: describe an app on your iPhone, and Vibecode writes the Swift, builds it, and installs it">
   <video controls playsInline preload="metadata" className="w-full rounded-xl" poster="/images/videos/built-on-iphone-launch-poster.jpg" src="/images/videos/built-on-iphone-launch.mp4" />
@@ -23,7 +25,7 @@ You choose the platform per project:
 | **Install on your phone** | Vibecode builds and signs it for your iPhone | Run it through the Vibecode app | Open the URL |
 | **App Store** | Built, signed, and uploaded by Vibecode | Built with Expo Launch | Not applicable |
 
-Pick **iOS app** when you want a real native iPhone app that looks and feels like one. Pick **Mobile app** when you need the same app on iOS and Android.
+Pick **iOS app** when you want a real native iPhone app that looks and feels like one. Pick **Mobile app** when you need the same app on iOS and Android. For a deeper comparison, see [Swift vs React Native](/guides/swift-vs-react-native).
 
 ## Create a Native iOS App
 
@@ -80,7 +82,7 @@ When you want the real app on your own phone, Vibecode builds it, signs it with 
 
 **What you need:**
 
-- A paid [Apple Developer Program](https://developer.apple.com/programs/) membership ($99/year)
+- A paid [Apple Developer Program](https://developer.apple.com/programs/) membership ($99/year). New to it? See [How to Create an Apple Developer Account](/guides/apple-developer-account).
 - Your Apple ID, or an [App Store Connect API key](https://appstoreconnect.apple.com/access/integrations/api) with the **App Manager** or **Admin** role. **Sign in with your Apple ID** (with the verification code Apple sends to your devices) and Vibecode creates the API key for you. Or enter the key's issuer ID, key ID, `.p8` key file, and team ID yourself. You connect once, and Vibecode reuses it for every build.
 
 **Steps:**
@@ -114,19 +116,21 @@ Native iOS projects don't use Expo. Vibecode builds, signs, and uploads the app 
   <img src="/images/screens/publish-menu-ios.png" alt="The Publish menu for a native iOS project" style={{ maxWidth: "500px" }} />
 </Frame>
 
-1. Click **Publish** and choose **Publish to App Store**
-2. Connect your Apple credentials if you haven't already
-3. Deploy your backend if prompted
-4. Confirm your **bundle ID**. You can edit it now, but it can't be changed after publishing.
+1. Click **Publish** and choose **Publish to App Store** (in the Vibecode iPhone app, tap **Publish** at the top of your project)
+2. **Connect your Apple credentials** if you haven't already: sign in with your Apple ID, or add your App Store Connect API key (see [what you need](#install-on-your-iphone))
+3. **Deploy your backend** if Vibecode asks. The published app uses your deployed backend.
+4. **Confirm your bundle ID**, for example `com.yourname.habittracker`. You can edit it now, but it can't be changed after publishing.
 5. Click **Confirm and publish**
 
-Vibecode then prepares the release, uploads it to Apple, waits for Apple to process the build, updates your listing, and submits the app for review. On your first publish, it may ask you to return to the project chat to finish App Store setup, such as your listing details.
+Vibecode then shows its progress as it works: **Preparing your release**, **Uploading to Apple**, **Apple is processing your build**, **Updating your listing**, and **Submitting for review**. On your first publish, it may send you back to the project chat, where the agent finishes App Store setup such as your listing details and screenshots.
 
-Want a TestFlight build instead? Ask the agent in chat to "upload this build to TestFlight."
+Your listing, Apple's review, and what to do after approval are covered in [How to Publish an App to the App Store](/getting-started/deploy-app-store#complete-your-listing-and-submit).
+
+Want a TestFlight build instead? Ask the agent in chat to "upload this build to TestFlight." Then [invite testers in App Store Connect](/guides/testflight).
 
 ## Your Code
 
-Native iOS projects are standard Xcode projects that use Swift Package Manager for dependencies. You can [download the code](/getting-started/download-code) from the web app or [connect via SSH](/getting-started/export-ssh), then open it in Xcode.
+Native iOS projects are standard Xcode projects that use Swift Package Manager for dependencies. On the Pro and Max plans you can [download the code](/getting-started/download-code) from the web app or [connect via SSH](/getting-started/export-ssh), then open it in Xcode.
 
 ## What's Different From Mobile App Projects
 
@@ -137,13 +141,47 @@ A few features are specific to React Native projects and don't apply to native i
 - **RevenueCat**: not available for native iOS apps yet
 - **Expo integrations** such as [Expo Push Notifications](/integrations/expo-push-notifications)
 
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion title="Does Vibecode build native iOS apps or only React Native?">
+    Both. **iOS app** projects are native Swift and SwiftUI, compiled with Xcode, with no React Native or web view. **Mobile app** projects are React Native and Expo, for one codebase on iPhone and Android. You choose per project.
+  </Accordion>
+
+  <Accordion title="Can I publish a Swift app to the App Store from Vibecode?">
+    Yes. Click **Publish** and choose **Publish to App Store**. Vibecode builds and signs the app, uploads it to Apple, updates your listing, and submits it for review. You need a paid Apple Developer Program membership ($99/year). See [the steps above](#publish-to-the-app-store).
+  </Accordion>
+
+  <Accordion title="Do I need a Mac or Xcode?">
+    No. Vibecode compiles your app on cloud Macs and streams a cloud iOS Simulator to your browser or the Vibecode iPhone app. You only need Xcode if you want to open the downloaded project yourself. See [How to Publish an iPhone App Without a Mac](/guides/publish-app-without-mac).
+  </Accordion>
+
+  <Accordion title="Do I own the Swift code?">
+    Yes. It's a standard Xcode project that uses Swift Package Manager. On the Pro and Max plans you can [download it](/getting-started/download-code) or [connect via SSH](/getting-started/export-ssh) and open it in Xcode.
+  </Accordion>
+
+  <Accordion title="Does it work on iPad and iPhone Duo?">
+    Yes. iOS apps are built for iPhone and iPad, and you can preview them as an iPhone or as iPhone Duo, the foldable iPhone.
+  </Accordion>
+
+  <Accordion title="Can a native iOS app run on Android?">
+    No. Swift apps run on Apple devices. If you need Android, create a **Mobile app** (React Native) project instead.
+  </Accordion>
+</AccordionGroup>
+
 ## Next Steps
 
 <CardGroup cols={2}>
   <Card title="Creating Your First App" icon="rocket" href="/getting-started/creating-first-app">
     Write a prompt and generate your app
   </Card>
+  <Card title="Publish to the App Store" icon="apple" href="/getting-started/deploy-app-store">
+    The full App Store guide
+  </Card>
   <Card title="Choose Your Deployment Path" icon="route" href="/deploying/overview">
     Compare install, App Store, and web options
+  </Card>
+  <Card title="Best AI Mobile App Builders" icon="ranking-star" href="https://www.vibecodeapp.com/best/ai-mobile-app-builders">
+    Native Swift vs React Native builders compared
   </Card>
 </CardGroup>

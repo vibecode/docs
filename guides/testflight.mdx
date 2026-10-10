@@ -1,0 +1,114 @@
+---
+title: "How to Use TestFlight: Upload a Build and Invite Beta Testers"
+sidebarTitle: "TestFlight Beta Testing"
+description: "TestFlight is Apple's free beta testing service. Upload a build to App Store Connect, add up to 100 internal or 10,000 external testers, and share a public link. Step-by-step, including how to get a Vibecode app into TestFlight without a Mac."
+keywords: ["testflight", "how to use testflight", "how to upload app to testflight", "testflight beta testing", "testflight public link", "testflight external testers"]
+---
+
+**TestFlight is Apple's free service for testing beta versions of your iPhone app before it's on the App Store. You upload a build to App Store Connect, add testers, and they install it with the TestFlight app.** You can invite up to 100 internal testers (members of your App Store Connect team) and up to 10,000 external testers by email or a public link. The first build you share with external testers is checked by App Review first, and each build can be tested for up to 90 days. With Vibecode, every build it uploads to App Store Connect is ready for TestFlight, no Mac or Xcode needed.
+
+## TestFlight at a Glance
+
+| | Internal testing | External testing |
+|---|---|---|
+| **Who** | Up to 100 people on your App Store Connect team (Account Holder, Admin, App Manager, Developer, or Marketing role) | Up to 10,000 people, anyone with an email address or your public link |
+| **Review needed?** | No | Yes, the first build added to a group goes to App Review |
+| **How they join** | Email invite | Email invite or public link |
+| **Best for** | You, cofounders, and your team | Customers, friends, and a public beta |
+| **Build availability** | 90 days per build | 90 days per build |
+| **Cost** | Free, with an Apple Developer Program membership | Free, with an Apple Developer Program membership |
+
+Testers install the free **TestFlight** app on their iPhone or iPad, then accept your invite. You don't need their device IDs.
+
+## Step 1: Get a Build into App Store Connect
+
+TestFlight uses the builds you upload to App Store Connect. To get one there with Vibecode:
+
+- **iOS app (Swift) projects:** ask the agent in chat to "upload this build to TestFlight." Every build Vibecode uploads when you **Publish → Publish to App Store** also lands in App Store Connect. See [Native iOS Apps](/getting-started/native-ios-apps#publish-to-the-app-store).
+- **Mobile app (React Native) projects:** use **Deploy → Submit to App Store**. Expo Launch builds the app and uploads it to App Store Connect, where it's available in TestFlight. See [Publish a Mobile App](/getting-started/deploy-app-store#publish-a-mobile-react-native-app).
+
+Building yourself? Upload from Xcode (**Product → Archive**, then **Distribute App**) or with Expo's `eas submit --platform ios`.
+
+After an upload, Apple processes the build. It shows up under the **TestFlight** tab of your app in App Store Connect when processing is done.
+
+<Tip>If the build shows **Missing Compliance**, click it and answer the export compliance question about encryption. Most apps that only use standard HTTPS qualify for an exemption, but check Apple's guidance for your app.</Tip>
+
+## Step 2: Add Internal Testers
+
+1. Open [App Store Connect](https://appstoreconnect.apple.com/) → **Apps** → your app → **TestFlight**
+2. Next to **Internal Testing**, click **+** to create a group
+3. Add testers from your App Store Connect users. Not on your team yet? Invite them under **Users and Access** first.
+4. Select the build to test. Internal testers can get new builds automatically.
+
+Each tester gets an email invite. They open it on their iPhone, install TestFlight, and tap **Accept** and then **Install**.
+
+## Step 3: Add External Testers or a Public Link
+
+1. In the **TestFlight** tab, open **Test Information** and add a beta app description, a feedback email, and Beta App Review contact details. If your app needs a login, add a demo account.
+2. Next to **External Testing**, click **+** to create a group
+3. Add a build to the group. The first build is sent to App Review automatically; testing starts once it's approved.
+4. Add testers by email, or turn on a **public link** and share it anywhere: your website, social media, or a newsletter. You can set criteria such as device type and iOS version, and limit how many people can join.
+
+Later builds for the same app may not need a full review.
+
+## Step 4: Collect Feedback
+
+Testers can take a screenshot inside your app, mark it up, and send it as feedback, or send feedback from the TestFlight app. Crash reports are collected automatically. You'll find all of it under **TestFlight → Feedback** in App Store Connect.
+
+In Vibecode, paste feedback or a crash description into your project chat and ask the agent to fix it, then upload a new build. Testers get the update in TestFlight.
+
+## Step 5: Release to the App Store
+
+When a build is ready, submit it for App Review from App Store Connect, or publish from Vibecode. The [App Store review guidelines checklist](/guides/app-store-review-guidelines) helps you avoid common rejections. Testers who installed the beta can keep testing until the build expires.
+
+## TestFlight Rules to Know
+
+- **90-day limit:** a build stops working for testers 90 days after upload. Upload a new build to keep testing.
+- **Build numbers:** every new build you upload for the same version needs a higher build number than the last one.
+- **In-app purchases** in TestFlight builds use Apple's sandbox, so testers aren't charged. If products don't appear, check your agreements: see [RevenueCat troubleshooting](/monetization/revenuecat-setup#troubleshooting).
+- **App Review still applies** to external builds, so the same [guidelines](/guides/app-store-review-guidelines) matter, especially 2.1 App Completeness.
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion title="Is TestFlight free?">
+    Yes. TestFlight is included with the Apple Developer Program membership ($99/year), which you need to upload builds at all. Testers pay nothing.
+  </Accordion>
+
+  <Accordion title="How many testers can I add on TestFlight?">
+    Up to 100 internal testers from your App Store Connect team and up to 10,000 external testers.
+  </Accordion>
+
+  <Accordion title="How long do TestFlight builds last?">
+    90 days from upload. After that the build stops opening for testers, so upload a new one to continue.
+  </Accordion>
+
+  <Accordion title="Does TestFlight need App Review?">
+    Only for external testers. The first build you add to an external group goes to App Review, and later builds may not need a full review. Internal testing needs no review.
+  </Accordion>
+
+  <Accordion title="Can I use TestFlight without a Mac?">
+    Yes. App Store Connect is a website, and Vibecode builds and uploads your app from its cloud. See [How to Publish an iPhone App Without a Mac](/guides/publish-app-without-mac).
+  </Accordion>
+
+  <Accordion title="TestFlight or installing directly on my iPhone?">
+    For your own iPhone, Vibecode's **Publish → Install** is quicker: it builds, signs, and gives you a QR code to install, with no App Store Connect setup. Use TestFlight to share the app with other people.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Publish to the App Store" icon="apple" href="/getting-started/deploy-app-store">
+    Ship the version your testers approved
+  </Card>
+  <Card title="Apple Developer Account" icon="id-card" href="/guides/apple-developer-account">
+    Needed to upload any build
+  </Card>
+  <Card title="Native iOS Apps" icon="mobile" href="/getting-started/native-ios-apps">
+    Install on your iPhone and publish
+  </Card>
+  <Card title="Vibecode" icon="rocket" href="https://www.vibecodeapp.com">
+    Build an app to test
+  </Card>
+</CardGroup>

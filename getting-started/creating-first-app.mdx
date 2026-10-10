@@ -1,18 +1,30 @@
 ---
 title: "Creating Your First App"
-description: "Go from idea to working app in minutes with Vibecode"
+description: "Build your first app with Vibecode: describe it in plain English and get a native Swift iPhone app, a React Native app for iOS and Android, or a web app, then publish it to the App Store."
 ---
 
-Vibecode lets you turn your idea into a working app by describing what you want. Here's how to get started.
+**Vibecode is an AI app builder: you describe an app in plain English and its agent builds it as a native Swift and SwiftUI app for iPhone and iPad, a React Native app for iPhone and Android, or a web app.** You watch it come together in a live preview, and when it's ready you publish it to the Apple App Store from the Vibecode web app with your own Apple Developer account. Your first app build on a new account is free.
+
+## What Vibecode Builds
+
+| Project type | Language | Runs on | Publish to |
+|---|---|---|---|
+| **iOS app** | [Swift and SwiftUI](/getting-started/native-ios-apps) (native, not React Native) | iPhone and iPad | Apple App Store, or install on your own iPhone |
+| **Mobile app** | React Native and Expo (TypeScript) | iPhone and Android | Apple App Store (via Expo Launch), or share a link |
+| **Web app** | TypeScript | Any browser | A `yourapp.vibecode.run` URL or your own domain |
+
+You don't need a Mac, Xcode, or coding experience. Here's how to build your first one.
 
 ## Step 1: Sign Up and Create a Project
 
-1. Download the Vibecode app on [iOS](https://apps.apple.com/us/app/vibecode-ai-app-builder/id6742912146) or open the [web app](https://vibecodeapp.com)
+1. Download the Vibecode app on [iOS](https://apps.apple.com/us/app/vibecode-ai-app-builder/id6742912146) or [Android](https://play.google.com/store/apps/details?id=com.vibecodeapp.app), or open the [web app](https://vibecodeapp.com)
 2. Create an account with your email
 3. Tap **New project** in the iPhone app (or click **New app** on the web) and pick what you want to build:
    - **iOS app**: a [native Swift app](/getting-started/native-ios-apps) for iPhone and iPad
    - **Mobile app**: a React Native app for iOS and Android
    - **Web app**: a website or web app
+
+   Not sure between iOS app and Mobile app? See [Swift vs React Native](/guides/swift-vs-react-native), or follow [How to Build an iPhone App with AI](/guides/build-iphone-app-with-ai) for the full walkthrough.
 
 ## Step 2: Describe Your App
 
@@ -46,6 +58,34 @@ Type a prompt that describes what you want your app to do. Be as detailed or as 
 Most AI-built apps end up looking the same. This video covers 9 ways to fix that.
 
 <iframe src="https://www.youtube.com/embed/eehib-xdDZo" title="Why Every AI App Looks the Same (9 Fixes)" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion title="What can I build with Vibecode?">
+    Three kinds of apps: native Swift and SwiftUI apps for iPhone and iPad (**iOS app**), React Native apps that run on iPhone and Android (**Mobile app**), and websites or web apps (**Web app**). You pick the type when you create a project.
+  </Accordion>
+
+  <Accordion title="Is Vibecode only for React Native apps?">
+    No. Vibecode builds native Swift and SwiftUI iPhone apps, React Native apps for iOS and Android, and web apps. Native iOS projects are standard Xcode projects with no React Native or web view. See [Native iOS Apps](/getting-started/native-ios-apps).
+  </Accordion>
+
+  <Accordion title="Can Vibecode publish my app to the App Store?">
+    Yes. On the web, click **Publish → Publish to App Store** (iOS apps) or **Deploy → Submit to App Store** (Mobile apps). In the Vibecode iPhone app, tap **Publish**. Vibecode builds and uploads the app with your Apple Developer account ($99/year from Apple). See [How to Publish an App to the App Store](/getting-started/deploy-app-store).
+  </Accordion>
+
+  <Accordion title="Is Vibecode free?">
+    Your first app build on a new account is free. After that you need credits, which come with paid plans starting at $20/month, or with auto-reload. App Store submission is included from the Plus plan. See [Plans and Credits](/getting-started/plans-and-credits) and [pricing](https://www.vibecodeapp.com/pricing).
+  </Accordion>
+
+  <Accordion title="Do I need a Mac or coding experience?">
+    No. Native iOS apps are built on cloud Macs and previewed in a cloud iOS Simulator streamed to your browser or phone. You build by chatting with the agent, and on the Pro and Max plans you can still [download the code](/getting-started/download-code) if you want it.
+  </Accordion>
+
+  <Accordion title="Which AI builds my app?">
+    Vibecode runs [Claude Code](/getting-started/claude-code), Anthropic's coding agent, in a cloud sandbox for each project. Claude Opus 5.5 is the default model for new apps, and you can switch models in the model picker.
+  </Accordion>
+</AccordionGroup>
 
 ## Next Steps
 

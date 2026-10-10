@@ -1,194 +1,233 @@
 ---
-title: "Deploy to App Store"
-description: "Publish your Vibecode Mobile (React Native) app to the Apple App Store with Expo Launch"
+title: "How to Publish an App to the App Store (2026)"
+sidebarTitle: "Publish to the App Store"
+description: "Step-by-step guide to publishing an iPhone app on the Apple App Store: the $99/year Apple Developer account, building and uploading, your listing, App Review, and how Vibecode builds and submits your app for you."
+keywords: ["how to publish an app to the app store", "how to put an app on the app store", "how to upload an app to the app store", "how to submit an app to the app store", "how to get an app on the app store"]
 ---
 
-Ready to share your app with the world? Vibecode makes it easy to publish your app directly to the Apple App Store. Follow this step-by-step guide to submit your first build.
-
-<Info>
-  This guide covers **Mobile app** (React Native and Expo) projects. Building a native Swift **iOS app**? Those publish without Expo. See [Native iOS Apps → Publish to the App Store](/getting-started/native-ios-apps#publish-to-the-app-store).
-</Info>
-
-<Note>
-  Due to Apple's restrictions, deploying to the App Store is only available on the web app.
-</Note>
+**To publish an app on the App Store you need four things: a paid Apple Developer Program membership ($99/year), a signed build of your app uploaded to App Store Connect, a complete App Store listing (name, description, screenshots, privacy policy, and privacy details), and approval from Apple's App Review, which finishes 90% of submissions in under 48 hours.** With Vibecode you don't need a Mac or Xcode. For a native Swift **iOS app**, click **Publish → Publish to App Store**: Vibecode builds, signs, uploads, and submits the app for review. For a React Native **Mobile app**, click **Deploy → Submit to App Store**: Vibecode prepares the app, Expo Launch builds and uploads it, and you submit it for review in App Store Connect.
 
 <iframe src="https://www.youtube.com/embed/bJYwrB31PsQ" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+
+## The Publishing Process at a Glance
+
+| Step | What happens | Who does it in Vibecode | How long |
+|---|---|---|---|
+| 1. Join the Apple Developer Program | Pay $99/year and verify your identity | You ([guide](/guides/apple-developer-account)) | Individuals pay while enrolling; Apple says to contact them if no confirmation arrives within 24 hours. Organizations first need a D-U-N-S Number (up to 5 business days). |
+| 2. Accept agreements in App Store Connect | Free apps need the standard agreement; paid apps and in-app purchases also need the Paid Apps Agreement, tax, and banking | You | A few minutes |
+| 3. Build and sign the app | Compile a release build and sign it with your Apple account | Vibecode | Expo builds take about 20 minutes, longer at busy times |
+| 4. Upload to App Store Connect | Send the build to Apple and wait for Apple to process it | Vibecode | Apple's processing time varies |
+| 5. Complete the listing | Name, description, keywords, screenshots, privacy policy, App Privacy details, age rating, price | Vibecode's agent helps; some fields are yours to confirm | Longest on your first app |
+| 6. Submit for review | Send the version to App Review | Vibecode (iOS apps) or you in App Store Connect (Mobile apps) | One click |
+| 7. App Review | Apple checks the app against the [App Review Guidelines](/guides/app-store-review-guidelines) | Apple | 50% within 24 hours, 90% within 48 hours ([details](/guides/app-store-review-time)) |
+| 8. Release | Release manually, automatically on approval, or on a date | You | Your choice |
 
 ## Before You Start
 
 You'll need the following before submitting your app:
 
-1. **Apple Developer Program Membership** ($99/year)
-   - Sign up at [developer.apple.com/programs](https://developer.apple.com/programs/)
-   - Make sure you've completed payment and received confirmation
+1. **Apple Developer Program membership** ($99/year)
+   - Enroll at [developer.apple.com/programs](https://developer.apple.com/programs/) or in the Apple Developer app. See [How to Create an Apple Developer Account](/guides/apple-developer-account).
+   - Make sure you've completed payment and received the confirmation email
+2. **App Store Connect access**
+   - Sign in at [appstoreconnect.apple.com](https://appstoreconnect.apple.com/) and accept any pending agreements
+   - Charging money? Also complete the **Paid Apps Agreement**, tax, and banking under **Business**
+3. **A Vibecode plan with App Store submission**: Plus or higher ([compare plans](https://www.vibecodeapp.com/pricing))
+4. **For Mobile app (React Native) projects:** a free [Expo account](https://expo.dev/signup). Vibecode uses Expo Launch to build and upload.
+5. **For iOS app (Swift) projects:** your Apple ID, or an [App Store Connect API key](https://appstoreconnect.apple.com/access/integrations/api) with the **App Manager** or **Admin** role. Sign in with your Apple ID and Vibecode creates the key for you.
+6. **An Apple device for 2FA:** keep your iPhone, iPad, or Mac nearby for two-factor authentication codes
+7. **A privacy policy URL and a support URL.** Apple requires both for every app.
 
-2. **App Store Connect Access**
-   - Sign all required agreements at [appstoreconnect.apple.com](https://appstoreconnect.apple.com/)
-   - Accept all terms and conditions
+Your app is published under **your** Apple Developer account, so your name (or your company's legal name) appears as the seller on the App Store.
 
-3. **Expo Account**
-   - Create a free account at [expo.dev/signup](https://expo.dev/signup)
-   - Vibecode uses Expo Launch to start the App Store build flow
+## iOS App or Mobile App: Which Steps to Follow
 
-4. **Apple Device for 2FA**
-   - Have your iPhone, iPad, or Mac nearby to receive two-factor authentication codes
+Vibecode projects are one of three types. Two of them can go to the App Store, and they publish differently:
 
-## Run Preflight Before Submitting
+| | iOS app (native Swift) | Mobile app (React Native) |
+|---|---|---|
+| **Code** | Swift and SwiftUI | React Native and Expo |
+| **Runs on** | iPhone and iPad | iOS and Android |
+| **Start from** | **Publish → Publish to App Store** | **Deploy → Submit to App Store** |
+| **Built by** | Vibecode, on cloud Macs | Expo Launch (EAS Build) |
+| **Expo account** | Not needed | Required (free) |
+| **Apple sign-in** | Apple ID or App Store Connect API key, connected once | Through Expo Launch |
+| **Submits for review** | Vibecode | You, in App Store Connect |
+| **Steps** | [Publish a native iOS app](#publish-a-native-ios-swift-app) | [Publish a Mobile app](#publish-a-mobile-react-native-app) |
 
-Before uploading your app, we recommend running **Preflight** — an automated check that scans your app for common issues that could cause Apple to reject it (missing icons, incorrect configurations, metadata problems, etc.).
+You can start either flow from the Vibecode web app or from the Vibecode iPhone app: tap **Publish** at the top of your project.
+
+Web apps don't go to the App Store. To turn a website into an iPhone app, see [How to Turn a Website Into an App](/getting-started/web-to-mobile).
+
+## Publish a Native iOS (Swift) App
+
+Native iOS projects don't use Expo. Click **Publish → Publish to App Store**, connect your Apple account once, confirm your bundle ID, and click **Confirm and publish**. Vibecode builds and signs the app on its cloud Macs, uploads it to Apple, updates your listing, and submits it for review.
+
+The full steps are in [Native iOS Apps: Publish to the App Store](/getting-started/native-ios-apps#publish-to-the-app-store). Want testers first? See [How to Use TestFlight](/guides/testflight).
+
+## Publish a Mobile (React Native) App
+
+Mobile app projects are built with Expo. Vibecode prepares the app, Expo Launch builds it in the cloud and uploads it to App Store Connect, and you submit it for review.
+
+### Run Preflight First
+
+**Preflight** is an automated check that scans your app for common issues that cause Apple to reject it. It's optional, but it can save you days of waiting on a rejection over a simple fix.
 
 <Frame>
   <img src="/getting-started/preflight_button.png" alt="Preflight button in the deploy dropdown" />
 </Frame>
 
-**How to run Preflight:**
+1. Open the **Deploy** menu (**Deployments** once your app is published)
+2. Hover over the App Store section. The **Preflight** button slides in next to **Submit to App Store**.
+3. Click **Preflight**. This runs the `/appstore-preflight` skill in your chat, and you can also run it there yourself at any time.
+4. The agent works through the checklist, fixes what it can, and reports what's left
 
-1. Open the **Deploy** dropdown for your project
-2. Hover over the App Store submission section — the **Preflight** button will slide in next to "Submit to App Store"
-3. Click **Preflight** — this runs the `/appstore-preflight` skill in your chat
-4. The AI agent will run through a checklist and flag anything that needs fixing
+| Area | App Review Guideline | What the agent does |
+|---|---|---|
+| Privacy permissions | 5.1 | Removes permissions your app doesn't use and rewrites generic permission messages ("Allow VibeCode to…") into specific ones |
+| In-app purchases | 3.1.1 | Checks the paywall is reachable, has **Restore Purchases**, and shows clear pricing; flags non-Apple payment code |
+| App completeness | 2.1, 4.2 | Finds placeholder text, "coming soon" screens, and buttons that do nothing |
+| Misleading design | 4.1, 4.3 | Removes fake user counts, ratings, testimonials, and countdown timers; checks labels match what buttons do |
 
-You can also run the `/appstore-preflight` skill directly in the chat at any time.
+### Submit With Expo Launch
 
-<Tip>Running Preflight is optional but highly recommended, especially for your first submission. It can save you days of waiting for Apple to reject your build over a simple fix.</Tip>
+<Steps>
+  <Step title="Start the submission">
+    In the web app, click **Deploy** (or **Deployments**) at the top right, choose **Submit to App Store**, and click **Get Started**. In the Vibecode iPhone app, tap **Publish** at the top of your project; the same steps open in a sheet.
+  </Step>
+  <Step title="Confirm the prerequisites">
+    Check the four boxes: you've paid for the Apple Developer Program, signed the agreements in App Store Connect, have an Expo account, and have an Apple device ready for 2FA codes. Quick links help you finish any you haven't.
+  </Step>
+  <Step title="Add your Expo access token">
+    Click **Get access token from Expo**, sign in to Expo, go to **Settings → Access Tokens**, create a token, and paste it into Vibecode. Check for extra spaces when you paste.
+  </Step>
+  <Step title="Confirm your app details and icon">
+    Vibecode prefills the **App Name** (2 to 30 characters), the **Version Number** (such as `1.0.0`), and **Support iPad** (if on, Apple also requires iPad screenshots). Review your app icon too; you can generate one in Vibecode.
+  </Step>
+  <Step title="Choose a bundle ID (first build only)">
+    A bundle ID is your app's unique identifier, like `com.yourcompany.appname`. Vibecode suggests one and you can change it, but treat it as permanent once your first build is submitted.
+  </Step>
+  <Step title="Start Expo Launch">
+    Click **Start Expo Launch**. It opens in a new tab, handles Apple sign-in and build setup, starts the cloud build, and uploads the build to App Store Connect. Builds usually take about 20 minutes, longer at busy times. You can close the Vibecode dialog once the build has started and follow it in the **Expo Dashboard**.
+  </Step>
+  <Step title="Submit for review">
+    When the build finishes, it's in App Store Connect and available in TestFlight. [Complete your listing and submit it](#complete-your-listing-and-submit).
+  </Step>
+</Steps>
 
-## Step-by-Step Submission Process
+### Later Builds
 
-### Step 1: Start the Submission
+You won't need a new bundle ID. Start Expo Launch again with a higher version number, then follow the new build in Expo and App Store Connect.
 
-{/*
-**On Mobile App:**
-1. Open your project in Vibecode
-2. Tap the **app name** at the top
-3. In the dropdown menu, select **Publish on App Store**
-4. Tap **Get Started** on the welcome screen
-*/}
+## Complete Your Listing and Submit
 
-**On Web App:**
-1. Open your project in Vibecode
-2. Click the **Deploy** button at the top right
-3. Select **Deploy to App Store**
-4. Click **Get Started** on the welcome screen
+Before Apple reviews your app, its App Store listing must be complete. For Mobile apps you fill this in at [App Store Connect](https://appstoreconnect.apple.com/) → **Apps** → your app. For iOS apps, the agent fills in what it can on your first publish and tells you what's left.
 
-### Step 2: Verify Prerequisites
+| Field | Required? | Limit or format |
+|---|---|---|
+| App name | Yes | 2 to 30 characters |
+| Subtitle | No | Up to 30 characters |
+| Description | Yes | Up to 4,000 characters, plain text |
+| Keywords | Yes | Up to 100 bytes, comma-separated. Don't repeat your app name or use other apps' names. |
+| Screenshots | Yes | 1 to 10 per device size, PNG or JPEG, no transparency. For iPhone, Apple requires the 6.1" Dynamic Island size (1179 × 2556 or 1206 × 2622); add iPad 13" (2064 × 2752) if your app supports iPad. Other sizes: [Apple's screenshot specifications](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications/). |
+| Privacy policy URL | Yes | Must say what data you collect, how you use it, and how users can request deletion |
+| Support URL | Yes | Must lead to real contact information |
+| App Privacy details | Yes | Answer Apple's questions about the data your app collects (shown as the "privacy nutrition label") |
+| Age rating | Yes | Answer the age rating questionnaire |
+| Category | Yes | A primary category, plus an optional secondary one |
+| Price | Yes | Free, or a price tier (paid apps need the Paid Apps Agreement) |
+| Copyright | Yes | Year and owner, for example `2026 Jane Smith` |
+| Sign-in information | If your app has a login | A working demo account for the reviewer that doesn't expire |
 
-Check all four boxes to confirm:
-- I have paid for the Apple Developer Program
-- I have signed all required agreements in App Store Connect
-- I have an Expo account
-- I have my Apple Device ready to receive 2FA codes
+<Note>Apple has announced that from April 2027, apps built with the iOS 27.1 SDK or later also need iPhone Duo screenshots (1398 × 2034 outer display, 2007 × 2853 inner display).</Note>
 
-If you haven't completed these steps, use the quick links provided to join the Apple Developer Program or access App Store Connect.
+For Mobile apps, then submit in App Store Connect:
 
-### Step 3: Add Your Expo Access Token
+1. Open your app and the version you're preparing (for example **1.0 Prepare for Submission**)
+2. Under **Build**, select the build Expo Launch uploaded
+3. Choose how to release it: manually, automatically after approval, or on a date
+4. Click **Add for Review**, then submit it to App Review
 
-Vibecode uses Expo Launch to handle the App Store build flow. Before starting, add your Expo access token:
+Apple emails you when the status changes. You can also follow it in App Store Connect or the App Store Connect app.
 
-1. Click **Get access token from Expo**
-2. Sign into your Expo account
-3. Go to **Settings -> Access Tokens**
-4. Create a new access token
-5. Copy the token and paste it into Vibecode
+## After You Submit
 
-<Tip>Use the paste button for quick entry of long tokens. Make sure your token is correct and there are no extra spaces or characters.</Tip>
-
-### Step 4: Confirm App Details
-
-Review and edit your app information:
-
-- **App Name** - The name displayed in the App Store
-- **Version Number** - Starting version like `1.0.0`
-- **Support iPad** - Toggle on if you want your app to work on iPad
-
-<Note>You don't usually need to update these details manually, because Vibecode can prefill them for you.</Note>
-
-### Step 5: Confirm Your App Icon
-
-Review your app icon. Make sure it looks good and represents your app well. This is what users will see in the App Store. You can generate an icon inside the Vibecode app.
-
-### Step 6: Create a Bundle ID (First Build Only)
-
-A bundle ID is a unique identifier for your app, like `com.vibecode.yourapp`.
-
-**Important:** Once you submit your first build, you should treat your bundle ID as permanent.
-
-- Vibecode automatically generates a suggested bundle ID
-- You can customize it if needed
-- Check the box to confirm you understand the bundle ID choice
-
-<Tip>The bundle ID format is typically: `com.yourcompany.appname`</Tip>
-
-### Step 7: Start Expo Launch
-
-Once your app details are confirmed, Vibecode prepares the submission and asks you to start **Expo Launch**.
-
-When you click **Start Expo Launch**:
-
-1. Vibecode opens the Expo Launch flow in a new tab
-2. Expo Launch handles the Apple authentication and build setup flow
-3. Expo starts the cloud build for your app
-4. The build is uploaded to App Store Connect
-
-The build usually starts quickly, but full Expo build times are typically around 20 minutes and can occasionally take much longer during busy periods.
-
-### Step 8: Monitor the Build
-
-After Expo Launch starts successfully:
-
-- Vibecode shows that the launch has started
-- You can open the **Expo Dashboard** in a new tab
-- You can close the Vibecode dialog once Expo has started the build
-- The build continues in the cloud
-
-### Step 9: Build Complete
-
-Once your build is finished:
-
-- Your app is uploaded to App Store Connect
-- Your app is available in TestFlight for testing
-- You can submit for App Store review directly from App Store Connect
-
-## Subsequent Builds
-
-After your first successful build, the process is faster:
-
-1. You won't need to create a new bundle ID
-2. You can reuse the same Expo Launch flow
-3. Start the launch again and monitor the new build from Expo/App Store Connect
-
-## App Store Review & Release
-
-After your build completes, it is available in TestFlight for testing. If you want to submit for review:
-
-1. Go to [App Store Connect](https://appstoreconnect.apple.com/)
-2. Navigate to your app
-3. Fill in your app metadata:
-   - Description
-   - Screenshots
-   - Categories
-   - Privacy policy
-   - Pricing
-4. Submit for review
-5. Apple review usually takes a few days
-6. Once approved, your app is live on the App Store
+- **Review:** see [How Long Does App Store Review Take?](/guides/app-store-review-time) for timelines and expedited reviews.
+- **Rejections:** paste Apple's message from App Store Connect into your project chat, ask the agent to fix it, and submit again. The [App Store rejections checklist](/guides/app-store-review-guidelines) covers the common reasons.
+- **Release:** if you chose manual release, click **Release This Version** in App Store Connect. Your app appears on the App Store shortly after.
+- **Updates:** make changes in Vibecode, then publish again. Each new version needs a higher version number (for example `1.0.1`), and every update goes through App Review.
+- **TestFlight:** builds that reach App Store Connect are available in [TestFlight](/guides/testflight), so you can share a beta before release.
+- **Keep your membership active:** if your Apple Developer membership expires, your app is removed from sale (it keeps working for people who already downloaded it).
 
 ## Troubleshooting
 
-**Build Failed?**
+**Expo build failed?**
 - Verify your Expo token is valid and hasn't expired
-- Make sure you've signed all agreements in App Store Connect
-- If Expo Launch opens but cannot continue, complete any Apple authentication or team selection steps there
+- Make sure you've accepted all agreements in App Store Connect
+- If Expo Launch opens but can't continue, complete any Apple authentication or team selection steps there
 - Contact support via Intercom chat in the app if you need help
 
-**Version Number Issues?**
-- Each new build must have a higher version number than the previous
+**Version number issues?**
+- Each new build must have a higher version number than the previous one
 
-**Bundle ID Errors?**
-- Ensure your bundle ID is unique and not already taken
-- Follow the format: `com.company.appname`
+**Bundle ID errors?**
+- Make sure your bundle ID is unique and not already taken
+- Follow the format `com.company.appname`
 - Use only lowercase letters, numbers, hyphens, and periods
+
+**In-app purchases not showing?** See the [RevenueCat troubleshooting](/monetization/revenuecat-setup#troubleshooting) section. The Paid Apps Agreement is the usual cause.
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion title="How much does it cost to put an app on the App Store?">
+    $99 per year for the Apple Developer Program, which every App Store app needs. Apple takes 15% of sales if you're in the App Store Small Business Program (under $1 million a year), or the standard commission above that. App Store submission in Vibecode is included from the Plus plan ($20/month), and builds use credits. See [what an Apple Developer account costs](/guides/apple-developer-account#how-much-does-an-apple-developer-account-cost).
+  </Accordion>
+
+  <Accordion title="Can I publish an app to the App Store for free?">
+    No. Apple requires a paid Apple Developer Program membership ($99/year) to publish, even for free apps. Nonprofits, accredited schools, and government entities can request a fee waiver. Your app itself can be free to download.
+  </Accordion>
+
+  <Accordion title="Do I need a Mac to publish an iPhone app?">
+    Not with Vibecode, which builds your app in the cloud. You only need an Apple device to receive two-factor authentication codes. See [How to Publish an iPhone App Without a Mac](/guides/publish-app-without-mac).
+  </Accordion>
+
+  <Accordion title="Can I publish from the Vibecode iPhone app?">
+    Yes. Open your project and tap **Publish** at the top. iOS app projects offer **Install** and the App Store; Mobile app projects open the same App Store submission steps as the web app.
+  </Accordion>
+
+  <Accordion title="Can I publish an app without knowing how to code?">
+    Yes. You describe the app in Vibecode, the agent builds it, and the publish flow handles building, signing, and uploading. You'll still make the decisions Apple asks for, like your app's name, price, privacy answers, and age rating.
+  </Accordion>
+
+  <Accordion title="Whose name is on the App Store listing?">
+    Yours. Vibecode publishes with your Apple Developer account, so the seller is your legal name (individual accounts) or your organization's legal name (organization accounts).
+  </Accordion>
+
+  <Accordion title="Can Vibecode publish to Google Play?">
+    Vibecode's built-in publishing flow is for the Apple App Store. Mobile app (React Native) projects also run on Android: on the Pro and Max plans you can [download the code](/getting-started/download-code) and publish it on Google Play with your own Play Console account ($25 one-time).
+  </Accordion>
+
+  <Accordion title="What happens if Apple rejects my app?">
+    Apple tells you which guideline the app didn't meet in App Store Connect. Fix the issue (paste the message into your project chat and ask the agent), then submit again. If you think the reviewer misunderstood your app, you can reply in App Store Connect or appeal to the App Review Board.
+  </Accordion>
+</AccordionGroup>
 
 ## Need Help?
 
 Request support via Intercom chat in the app. You can also join our [Discord community](https://discord.gg/qXyWYYX5Ts).
+
+<CardGroup cols={2}>
+  <Card title="Apple Developer Account" icon="apple" href="/guides/apple-developer-account">
+    Create your account and pay the $99 fee
+  </Card>
+  <Card title="Review Guidelines Checklist" icon="list-check" href="/guides/app-store-review-guidelines">
+    Avoid the most common rejections
+  </Card>
+  <Card title="App Store Review Time" icon="clock" href="/guides/app-store-review-time">
+    How long Apple takes and how to speed it up
+  </Card>
+  <Card title="Best AI Mobile App Builders" icon="ranking-star" href="https://www.vibecodeapp.com/best/ai-mobile-app-builders">
+    Which builders can publish to the App Store
+  </Card>
+</CardGroup>

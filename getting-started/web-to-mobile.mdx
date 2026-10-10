@@ -1,9 +1,82 @@
 ---
-title: "Web App to Mobile App with AI Vibe Coding"
-description: "Convert your web applications into native mobile apps with AI Vibe Coding"
+title: "How to Turn a Website Into an App (iPhone and Android)"
+sidebarTitle: "Website to App"
+description: "Three ways to make a website an app: add it to the Home Screen, wrap it in a WebView, or rebuild it as a native app with AI. Compare cost, App Store approval, and features, then convert your site with Vibecode."
+keywords: ["how to make a website an app", "how to turn a website into an app", "website to app", "convert website to app", "how to make a website into an app"]
 ---
 
-Use this prompt to convert any web application into a native mobile app. Just attach your web app codebase and copy this prompt.
+**There are three ways to turn a website into an app: add it to your phone's Home Screen as a web app (free and instant, but not in the App Store), wrap the site in a WebView app with a converter (fast, but Apple often rejects plain wrappers), or rebuild it as a real native app.** Vibecode does the third with AI: give it your site's URL, screenshots, or code, and it builds a native Swift app for iPhone or a React Native app for iPhone and Android, which you can then publish to the App Store.
+
+## The Three Options Compared
+
+| | Home Screen web app | WebView wrapper | Native rebuild with Vibecode |
+|---|---|---|---|
+| **What it is** | A shortcut that opens your site full screen, without the browser bar | Your website loaded inside an app shell | A real iPhone or Android app with its own screens, built from your site |
+| **Cost** | Free | Converter fees, plus Apple's $99/year | Vibecode plan ([from $20/month](https://www.vibecodeapp.com/pricing)), plus Apple's $99/year to publish |
+| **Time** | Seconds | Hours | A first version in one session of prompting |
+| **On the App Store** | No | Only if Apple approves it | Yes |
+| **Android** | Yes, from Chrome | Usually | Yes, with a Mobile app (React Native) project |
+| **Native features** (push, haptics, camera, widgets, in-app purchases) | Limited | Limited | Yes |
+| **Apple rejection risk** | Not applicable | High: guideline 4.2 rejects repackaged websites | Normal review |
+| **Feels like** | Your website | Your website | An app |
+
+If you only want quick access for yourself or your team, use the Home Screen. If you want to be on the App Store, rebuild it as a native app.
+
+## Option 1: Add a Website to Your Home Screen
+
+**On iPhone (iOS 26 and later):**
+
+1. Open the website in Safari
+2. Tap **Share** (or **More**, then **Share**)
+3. Scroll down and tap **Add to Home Screen**
+4. Keep **Open as Web App** turned on, then tap **Add**
+
+The site gets its own icon and opens in its own window without Safari's address bar. The icon is only on that device, and the app isn't listed on the App Store.
+
+**On Android:** open the site in Chrome, tap the **⋮** menu, then **Add to Home screen** or **Install app**.
+
+## Option 2: Wrap Your Website in a WebView
+
+Website-to-app converters put your site inside an app shell (a WebView) and give you an app file to submit. It's fast, but it's the option Apple rejects most:
+
+> "Your app should include features, content, and UI that elevate it beyond a repackaged website." (App Review Guideline 4.2, Minimum Functionality)
+
+Apple's App Review page also lists "websites served in an iOS app, web content that is not formatted for iOS, and limited web interactions" as a common reason apps don't pass review. A wrapper has the best chance when the app adds real native features, but at that point you're rebuilding it anyway. See the [App Store rejections checklist](/guides/app-store-review-guidelines).
+
+## Option 3: Rebuild Your Website as a Native App with Vibecode
+
+Vibecode's agent reads your site and builds a mobile version that looks and behaves like an app: tab bars, native lists, gestures, and haptics instead of web pages.
+
+### Step 1: Pick the Kind of App
+
+Create a new project in the [Vibecode web app](https://www.vibecodeapp.com) and choose:
+
+- **iOS app**: a [native Swift and SwiftUI app](/getting-started/native-ios-apps) for iPhone and iPad. Best if you want it to look and feel like a real iPhone app.
+- **Mobile app**: a React Native and Expo app that runs on **iPhone and Android** from one codebase
+
+### Step 2: Show the Agent Your Website
+
+Give the agent as much of your site as you have:
+
+- **The URL.** The agent can read public pages.
+- **Screenshots** of your most important pages, attached to the prompt (drag them onto the prompt box)
+- **Your API**, if your site has one: the base URL and the endpoints the app should use, so the app shows the same data as your website
+
+Then describe what the app should do. For example:
+
+<CodeGroup>
+```text No code? Start here
+Build a mobile app version of my website https://example.com.
+
+Keep the same branding: colors, logo, and fonts. I've attached screenshots of the home, menu, and booking pages.
+
+Use a bottom tab bar with Home, Menu, Book, and Account. Customers should be able to browse the menu, book a table, and see their upcoming bookings. Make it feel like a native app, not a web page.
+```
+</CodeGroup>
+
+### Step 3: Have the Source Code? Generate the Perfect Prompt First
+
+If you have your website's codebase, you'll get a closer match by having an AI coding tool (Claude Code, Cursor, or ChatGPT with your code attached) write the Vibecode prompt for you. Open your web project in that tool, paste this prompt, then paste the result into your new Vibecode project.
 
 <CodeGroup>
 ```text Copy This Prompt
@@ -35,9 +108,45 @@ What i don't want you to do:
 ```
 </CodeGroup>
 
----
+Building a native iOS app instead? Replace "in react native" and "react native with expo" with "in Swift and SwiftUI".
 
-**How to use:** Copy the prompt above, attach your web app's codebase, and paste into Vibecode.
+### Step 4: Connect Your Data and Test
+
+- Add any API keys your app needs in the **Env Var** tab, not in the prompt
+- No backend yet? Ask for one: [Vibecode Cloud](/features/vibecode-cloud) adds a database, login, and file storage
+- The agent [tests the app it builds](/features/agent-testing) and fixes what it finds. Try it yourself in the live preview and keep chatting to change it. The [native UI component prompts](/getting-started/native-ui-components) help it feel at home on iPhone.
+
+### Step 5: Publish to the App Store
+
+When it's ready, publish from the web app with your Apple Developer account. See [How to Publish an App to the App Store](/getting-started/deploy-app-store).
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion title="Can I turn my website into an app for free?">
+    Yes, as a Home Screen web app: open your site in Safari, tap Share, then Add to Home Screen. It won't be on the App Store, though. Publishing any app on the App Store requires an Apple Developer Program membership ($99/year).
+  </Accordion>
+
+  <Accordion title="Will Apple accept my website wrapped as an app?">
+    Often not. Guideline 4.2 says apps should "elevate it beyond a repackaged website", and Apple lists websites served in an iOS app as a common rejection reason. Apps that are rebuilt with native screens and features have a much better chance.
+  </Accordion>
+
+  <Accordion title="Do I have to rebuild my website's backend?">
+    No. If your website has an API, the app can call the same API, so your website and app share the same data and accounts. Give the agent the API's base URL and endpoints.
+  </Accordion>
+
+  <Accordion title="Can I make an Android app from my website?">
+    Yes. Choose **Mobile app** when you create the Vibecode project. It's built with React Native, so the same app runs on Android and iPhone. Vibecode's publishing flow is for the App Store; for Google Play, [download the code](/getting-started/download-code) and submit it with your own Play Console account.
+  </Accordion>
+
+  <Accordion title="How long does it take to turn a website into an app?">
+    With Vibecode you can have a working first version in one session of prompting, then refine it. Getting on the App Store adds Apple's review, which finishes 90% of submissions within 48 hours.
+  </Accordion>
+
+  <Accordion title="Do I need to know how to code?">
+    No. You describe the app and attach screenshots, and the agent writes the code. If you do have the source code, the prompt above helps you get a closer match.
+  </Accordion>
+</AccordionGroup>
 
 ## Next Steps
 
@@ -45,8 +154,13 @@ What i don't want you to do:
   <Card title="Native UI Components" icon="mobile" href="/getting-started/native-ui-components">
     Copy-paste prompts for native iOS components
   </Card>
+  <Card title="Publish to the App Store" icon="apple" href="/getting-started/deploy-app-store">
+    Get your new app approved
+  </Card>
   <Card title="Create Your First App" icon="rocket" href="/getting-started/creating-first-app">
     New to Vibecode? Start here
   </Card>
+  <Card title="Compare App Builders" icon="scale-balanced" href="https://www.vibecodeapp.com/compare">
+    How Vibecode compares to other tools
+  </Card>
 </CardGroup>
-

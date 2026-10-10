@@ -1,27 +1,37 @@
 ---
-title: "Monetization"
-description: "Set up payments and subscriptions for your app"
+title: "How to Make Money From Your App: Subscriptions, In-App Purchases, and Payments"
+sidebarTitle: "Monetization"
+description: "Charge for your Vibecode app: RevenueCat for subscriptions and in-app purchases in iPhone apps, Stripe for web app payments. Which to use for each project type and what Apple requires."
 ---
 
-Monetization is where you set up how **your app** charges users.
+**Charge for a mobile app with Apple's in-app purchase system, which Vibecode sets up through [RevenueCat](/monetization/revenuecat-setup), and charge on the web with [Stripe](/monetization/stripe-setup).** Apple requires in-app purchase for digital content, features, and subscriptions sold inside an iPhone app ([guideline 3.1.1](https://developer.apple.com/app-store/review/guidelines/)). Apps on the US App Store may also link to a web checkout such as Stripe; in other countries that needs an Apple entitlement, offered only in some of them (3.1.1(a)). Physical goods and real-world services always use other payment methods.
 
-## Options
+## Which One to Use
+
+| Your project | What you're selling | Use |
+|---|---|---|
+| **Mobile app** (React Native) | Subscriptions, premium features, one-time unlocks | [RevenueCat](/monetization/revenuecat-setup) in the **Payment** tab |
+| **Web app** | Subscriptions, one-time payments, checkout | [Stripe](/monetization/stripe-setup) in the **Payment** tab |
+| **iOS app** (native Swift) | Subscriptions and in-app purchases | The guided **Payment** tab setup isn't available for iOS app projects yet |
 
 <CardGroup cols={2}>
-  <Card title="Stripe" icon="credit-card" href="/monetization/stripe-setup">
-    For web app payments.
-  </Card>
   <Card title="RevenueCat" icon="mobile" href="/monetization/revenuecat-setup">
-    For mobile subscriptions and in-app purchases.
+    Subscriptions and in-app purchases for iPhone apps
+  </Card>
+  <Card title="Stripe" icon="credit-card" href="/monetization/stripe-setup">
+    Payments and subscriptions for web apps
   </Card>
 </CardGroup>
 
-## Use Stripe if
+## Use RevenueCat If
 
-- you are charging on the web
+- you're charging inside a mobile app
+- you need App Store subscriptions or in-app purchases
+- you want the agent to create your products and paywall and sync them to App Store Connect
+
+## Use Stripe If
+
+- you're charging on the web
 - you need checkout or subscriptions for a web app
 
-## Use RevenueCat if
-
-- you are charging in a native mobile app
-- you need App Store subscriptions or in-app purchases
+Before you submit a paid app, check Apple's payment rules in the [App Store rejections checklist](/guides/app-store-review-guidelines).

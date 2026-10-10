@@ -1,0 +1,140 @@
+---
+title: "How to Create an Apple Developer Account: Cost and Enrollment (2026)"
+sidebarTitle: "Apple Developer Account"
+description: "An Apple Developer account costs $99 per year and is required to publish on the App Store. Here's how to enroll as an individual or organization, what you need (D-U-N-S Number, ID), how long it takes, and how to connect it to Vibecode."
+keywords: ["apple developer account", "apple developer program", "create apple developer account", "apple developer account cost", "apple developer program cost", "does it cost money to put an app on the app store"]
+---
+
+**An Apple Developer account is a paid Apple Developer Program membership, and you need one to publish apps on the App Store or TestFlight. It costs $99 per year (shown in local currency where available), covers as many apps as you want, and nonprofits, accredited schools, and government entities can ask for a fee waiver.** To create one, sign in with an Apple Account that has two-factor authentication turned on, enroll in the Apple Developer app or at [developer.apple.com/programs/enroll](https://developer.apple.com/programs/enroll/), choose **Individual** or **Organization** (organizations need a free D-U-N-S Number), verify your identity, and pay.
+
+## Apple Developer Program at a Glance
+
+| | |
+|---|---|
+| **Cost** | $99 per membership year, in local currency where available. One membership covers all your apps. |
+| **Fee waiver** | Available for eligible nonprofits, accredited educational institutions, and government entities |
+| **Who can enroll** | Individuals (sole proprietors included) and organizations that are legal entities |
+| **You need** | An Apple Account with two-factor authentication, your legal name, and to be of legal age in your region. Organizations also need a D-U-N-S Number, a public website, and a work email on that website's domain. |
+| **Where to enroll** | The Apple Developer app (iPhone, iPad, or Mac) or the web |
+| **Renewal** | Yearly. App enrollments auto-renew as a subscription; web enrollments can turn on auto-renew. |
+| **If it expires** | Your apps are removed from sale and you can't submit updates. Apps people already downloaded keep working. |
+
+## Individual or Organization?
+
+| | Individual | Organization |
+|---|---|---|
+| **Seller name on the App Store** | Your personal legal name | Your organization's legal entity name |
+| **D-U-N-S Number** | Not needed | Required (free; optional for government organizations) |
+| **Identity check** | Government-issued photo ID (when enrolling in the app) | Apple verifies the organization and your authority to sign for it |
+| **Website and work email** | Not needed | A working public website, and a work email on its domain |
+| **Pay** | During enrollment | After Apple verifies your information and emails you |
+| **Best for** | Solo founders and side projects | Companies, LLCs, nonprofits, and schools, or anyone who wants a company name as the seller |
+
+Sole proprietors and single-person businesses enroll as **Individual**, so your own name is shown as the seller. Apple doesn't accept DBAs, trade names, or branches as organizations. You can ask Apple to convert an individual membership to an organization later by contacting Apple Developer Support.
+
+## How to Enroll in the Apple Developer App
+
+This is the simplest route for individuals:
+
+1. Install the **Apple Developer** app on an iPhone or iPad (with Face ID, Touch ID, or a passcode) or an Apple silicon Mac. Use the same device for the whole enrollment, and make sure you're signed in to iCloud on it.
+2. Open the app, tap the **Account** tab, and sign in with your Apple Account (it needs two-factor authentication)
+3. Tap **Enroll Now**, then review the program requirements and tap **Continue**
+4. Enter your legal first and last name and phone number. Use your real legal name, not a nickname or company name, or your enrollment will be delayed.
+5. Verify your identity by taking a photo of your government-issued photo ID
+6. Select **Individual** as your entity type and accept the Apple Developer Program License Agreement
+7. Tap **Subscribe** to pay the yearly fee with your Apple Account's payment method
+
+Apple Gift Card balances can't be used to pay (except for developers based in India, who must enroll in the app).
+
+## How to Enroll on the Web
+
+1. Go to [developer.apple.com/programs/enroll](https://developer.apple.com/programs/enroll/) and click **Start your enrollment**
+2. Sign in with your Apple Account and accept the Apple Developer Agreement
+3. Choose your entity type and enter your information. Organizations enter the legal entity name, D-U-N-S Number, headquarters address, website, and confirm they can sign for the organization.
+4. **Individuals** review the license agreement and pay right away. **Organizations** wait for Apple to verify the information and email next steps, then sign the agreement and pay.
+
+If you pay by credit card as an individual, use a card in your own name. Otherwise Apple delays the enrollment and asks for a copy of your ID.
+
+## How to Get a D-U-N-S Number (Organizations)
+
+1. Look up your organization with Apple's [D-U-N-S lookup tool](https://developer.apple.com/enroll/duns-lookup/). You may already have one.
+2. If you don't, submit your details to Dun & Bradstreet through the same tool. It's free.
+3. Allow up to 5 business days to receive the number, then up to 2 more business days for it to reach Apple
+4. Enroll as an organization using the exact legal entity name on your D-U-N-S record
+
+## How Much Does an Apple Developer Account Cost?
+
+| Item | Cost |
+|---|---|
+| Apple Developer Program | $99 per year |
+| Apple Developer Enterprise Program (internal company apps only, not the App Store) | $299 per year |
+| Publishing each app | Nothing extra. One membership covers all your apps. |
+| Apple's commission on sales | 15% in the App Store Small Business Program (up to $1 million in yearly proceeds), the standard rate above that. Free apps pay nothing. |
+| Google Play Console, for comparison | $25 one-time |
+
+So yes, it costs money to put an app on the App Store: at least $99 a year, even if your app is free.
+
+## Connect Your Apple Developer Account to Vibecode
+
+Once your membership is active, Vibecode uses it to install apps on your iPhone and to publish to the App Store. Your apps are published under your account and your name.
+
+- **iOS app (Swift) projects:** click **Publish**, choose **Install** or **Publish to App Store**, and sign in with your Apple ID. Vibecode creates an App Store Connect API key for you. You can also enter an existing key (with the **App Manager** or **Admin** role). Manage it later in **Settings → Apple Developer** on the web. See [Native iOS Apps](/getting-started/native-ios-apps#install-on-your-iphone).
+- **Mobile app (React Native) projects:** Expo Launch signs in to your Apple account during the [App Store submission](/getting-started/deploy-app-store#submit-with-expo-launch)
+- **Selling subscriptions or in-app purchases?** The Account Holder also needs to accept the **Paid Apps Agreement** and add tax and banking details in App Store Connect under **Business**. See [In-App Purchases with RevenueCat](/monetization/revenuecat-setup).
+
+## Common Enrollment Problems
+
+- **Enrollment delayed:** usually a name that doesn't match your legal name, or a credit card in someone else's name
+- **Organization not accepted:** DBAs, trade names, and branches aren't accepted. The name must match your D-U-N-S record.
+- **Website rejected:** social media pages and parked domains don't count as a website
+- **No confirmation email:** if you paid and heard nothing within 24 hours, contact Apple Developer Support with your Enrollment ID
+- **Under the age of majority:** a parent or guardian enrolls with their own Apple Account
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion title="How much does an Apple Developer account cost?">
+    $99 per year for the Apple Developer Program, in local currency where available. It's one fee for all your apps. Eligible nonprofits, accredited schools, and government entities can request a fee waiver.
+  </Accordion>
+
+  <Accordion title="Is there a free Apple Developer account?">
+    You can sign in to Apple's developer site with any Apple Account to read documentation and download tools, but publishing to the App Store or TestFlight requires the paid Apple Developer Program membership.
+  </Accordion>
+
+  <Accordion title="How long does it take to get an Apple Developer account?">
+    Individuals enroll and pay in one sitting. Apple says to contact them if the membership confirmation hasn't arrived within 24 hours of purchase. Organizations take longer: up to 5 business days for a new D-U-N-S Number, 2 more for Apple to receive it, then Apple's own verification.
+  </Accordion>
+
+  <Accordion title="Do I need a company to publish an app?">
+    No. You can enroll as an individual, and your legal name is shown as the seller on the App Store. Enroll as an organization if you want your company's name shown instead.
+  </Accordion>
+
+  <Accordion title="Do I need a Mac to create an Apple Developer account?">
+    No. You can enroll on the web from any computer, or in the Apple Developer app on an iPhone or iPad. With Vibecode you also don't need a Mac to build or publish your app.
+  </Accordion>
+
+  <Accordion title="What happens if I don't renew?">
+    Your apps stop being available to download and you can't submit updates, but people who already installed them can keep using them. If you renew later, free apps return within 24 hours, and paid apps return after you accept the Paid Applications Agreement. You don't need to resubmit.
+  </Accordion>
+
+  <Accordion title="Can Vibecode publish my app without my own Apple Developer account?">
+    No. Apple requires every App Store app to be published by a developer account, and Vibecode publishes under yours. That's also why your name, or your company's, appears as the seller.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Publish to the App Store" icon="apple" href="/getting-started/deploy-app-store">
+    Build, upload, and submit your app
+  </Card>
+  <Card title="Review Guidelines Checklist" icon="list-check" href="/guides/app-store-review-guidelines">
+    Avoid the most common rejections
+  </Card>
+  <Card title="Native iOS Apps" icon="mobile" href="/getting-started/native-ios-apps">
+    Build a Swift iPhone app without a Mac
+  </Card>
+  <Card title="Vibecode Pricing" icon="credit-card" href="https://www.vibecodeapp.com/pricing">
+    Plans with App Store submission
+  </Card>
+</CardGroup>
