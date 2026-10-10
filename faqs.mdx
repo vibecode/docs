@@ -9,7 +9,7 @@ Find answers to common questions about Vibecode, our features, and how to get th
 
 <AccordionGroup>
   <Accordion title="What is Vibecode?">
-    Vibecode is an AI app builder. You describe an app in plain English and its agent builds a native Swift and SwiftUI app for iPhone and iPad, a React Native app for iPhone and Android, or a web app. You test it in a live preview, share it, and publish iPhone apps to the App Store from the web app. Vibecode is available on iOS, Android, and the web at vibecodeapp.com.
+    Vibecode is an AI app builder. You describe an app in plain English and its agent builds a native Swift and SwiftUI app for iPhone and iPad, a React Native app for iPhone and Android, or a web app. You test it in a live preview, share it, and publish iPhone apps to the App Store. Vibecode is available on iOS, Android, and the web at vibecodeapp.com.
   </Accordion>
 
   <Accordion title="What makes Vibecode different from other AI app builders?">
@@ -101,13 +101,10 @@ Find answers to common questions about Vibecode, our features, and how to get th
   <Accordion title="How do I publish my app to the App Store?">
     Vibecode has a built-in App Store submission flow, so you don't need a Mac or Xcode.
 
-    1. Open your project and tap the app name (mobile) or click Share (web)
-    2. Select **Publish on App Store** / **Deploy to App Store**
-    3. Follow the step-by-step wizard to configure your app, add your Expo token, and start Expo Launch
+    - **iOS app (Swift) projects:** click **Publish → Publish to App Store** and sign in with your Apple ID. Vibecode builds, signs, uploads, and submits your app for review.
+    - **Mobile app (React Native) projects:** click **Deploy → Submit to App Store**, add your Expo token, and start Expo Launch. You'll need a free [Expo account](https://expo.dev/signup).
 
-    You'll need an [Apple Developer Program membership](https://developer.apple.com/programs/) ($99/year) and an [Expo account](https://expo.dev/signup) (free) for Mobile app projects.
-
-    Native iOS app projects skip Expo: click **Publish**, choose **Publish to App Store**, and connect an App Store Connect API key. Vibecode builds, signs, and uploads your Swift app to Apple for you. See [Native iOS Apps](/getting-started/native-ios-apps#publish-to-the-app-store).
+    In the Vibecode iPhone app, tap **Publish** at the top of your project. Either way you need an [Apple Developer Program membership](https://developer.apple.com/programs/) ($99/year).
 
     See the full guide: [How to Publish an App to the App Store](/getting-started/deploy-app-store). New to Apple's side of it? See [How to Create an Apple Developer Account](/guides/apple-developer-account) and the [App Store rejections checklist](/guides/app-store-review-guidelines).
   </Accordion>
@@ -125,7 +122,7 @@ Find answers to common questions about Vibecode, our features, and how to get th
   </Accordion>
 
   <Accordion title="How can I download my project's code?">
-    Open your project in the web app, click the **`<>`** button, and select "Download Code." Check your email for the download link. You get the complete project: an Xcode project for iOS apps, a React Native/Expo project for mobile apps, or a web project. Run it locally, modify it, and deploy it.
+    On the Pro and Max plans, open your project in the web app, click the **`<>`** button, and select "Download Code." Check your email for the download link. You get the complete project: an Xcode project for iOS apps, a React Native/Expo project for mobile apps, or a web project. Run it locally, modify it, and deploy it.
 
     See the full guide: [Download Your Code](/getting-started/download-code)
   </Accordion>
@@ -173,7 +170,7 @@ Find answers to common questions about Vibecode, our features, and how to get th
 
     To put the app on your own iPhone, you need a paid Apple Developer Program membership. Click **Publish**, choose **Install**, and follow the steps:
 
-    1. Connect an App Store Connect API key so Vibecode can sign with your Apple Developer account.
+    1. Sign in with your Apple ID (or add an App Store Connect API key) so Vibecode can sign with your Apple Developer account.
     2. Register your iPhone: scan the QR code with it, or tap **Register this iPhone** if you're already on it. The build can't start until a device is registered.
     3. Click **Build and install**, then open the install link on your iPhone.
     4. If iOS says the app needs Developer Mode, turn it on in **Settings → Privacy & Security → Developer Mode** and restart your iPhone.

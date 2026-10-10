@@ -7,8 +7,6 @@ keywords: ["publish app to app store without mac", "how to publish an app on the
 
 **Yes, you can publish an iPhone app to the App Store without owning a Mac. Apple's tools that build and sign iOS apps (Xcode) only run on macOS, so the build has to happen on a Mac somewhere, but it can be a cloud Mac that someone else runs.** Vibecode builds native Swift apps on its own cloud Macs and React Native apps in Expo's cloud, then uploads them to App Store Connect, so you can do everything from a browser on Windows, Linux, or a Chromebook. You still need a paid Apple Developer account ($99/year).
 
-*Last updated: October 10, 2026*
-
 ## Four Ways to Ship an iPhone App Without a Mac
 
 | Option | How it works | Coding needed? | Best for |
@@ -33,20 +31,17 @@ All four still need an [Apple Developer Program membership](/guides/apple-develo
 ### Native iPhone app (Swift)
 
 1. Build the app in an **iOS app** project ([how](/guides/build-iphone-app-with-ai)). Preview it in the cloud iOS Simulator in your browser.
-2. Open the project in the [Vibecode web app](https://www.vibecodeapp.com), click **Publish**, and choose **Publish to App Store**
-3. **Connect your Apple account**: sign in with your Apple ID and Vibecode creates an App Store Connect API key for you, or enter an existing key
-4. **Deploy your backend** if Vibecode asks, so the published app has live data
-5. **Confirm your bundle ID** and click **Confirm and publish**
-6. Vibecode builds and signs the app on its cloud Macs, uploads it to Apple, updates your listing, and submits it for review. On your first publish, the agent may ask you in chat to finish listing details and screenshots.
+2. Click **Publish → Publish to App Store** and sign in with your Apple ID. Vibecode builds and signs the app on its cloud Macs, uploads it to Apple, and submits it for review.
+
+Step-by-step: [Native iOS Apps: Publish to the App Store](/getting-started/native-ios-apps#publish-to-the-app-store).
 
 ### React Native app (iPhone and Android)
 
 1. Build the app in a **Mobile app** project
-2. Run **Preflight** from the **Deploy** menu to catch common rejection reasons
-3. Click **Deploy → Deploy to App Store** and follow the steps. Vibecode prepares the app, and Expo Launch builds it in Expo's cloud and uploads it to App Store Connect (builds take about 20 minutes).
-4. Complete your listing in App Store Connect and submit the build for review
+2. Click **Deploy → Submit to App Store**. Vibecode prepares the app, and Expo Launch builds it in Expo's cloud and uploads it to App Store Connect.
+3. Complete your listing in App Store Connect and submit the build for review
 
-Full details for both: [How to Publish an App to the App Store](/getting-started/deploy-app-store).
+Step-by-step: [Publish a Mobile (React Native) App](/getting-started/deploy-app-store#publish-a-mobile-react-native-app).
 
 ## What You Can Do Without a Mac (and How)
 

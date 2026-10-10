@@ -9,8 +9,6 @@ keywords: ["native ios app builder", "build iphone app without mac", "swiftui ap
 
 Need the same app on Android too? Pick **Mobile app** for React Native and Expo, or **Web app** for the browser. You don't need a Mac or Xcode for any of them.
 
-*Last updated: October 10, 2026*
-
 <Frame caption="Built on iPhone: describe an app on your iPhone, and Vibecode writes the Swift, builds it, and installs it">
   <video controls playsInline preload="metadata" className="w-full rounded-xl" poster="/images/videos/built-on-iphone-launch-poster.jpg" src="/images/videos/built-on-iphone-launch.mp4" />
 </Frame>
@@ -118,19 +116,21 @@ Native iOS projects don't use Expo. Vibecode builds, signs, and uploads the app 
   <img src="/images/screens/publish-menu-ios.png" alt="The Publish menu for a native iOS project" style={{ maxWidth: "500px" }} />
 </Frame>
 
-1. Click **Publish** and choose **Publish to App Store**
-2. Connect your Apple credentials if you haven't already
-3. Deploy your backend if prompted
-4. Confirm your **bundle ID**. You can edit it now, but it can't be changed after publishing.
+1. Click **Publish** and choose **Publish to App Store** (in the Vibecode iPhone app, tap **Publish** at the top of your project)
+2. **Connect your Apple credentials** if you haven't already: sign in with your Apple ID, or add your App Store Connect API key (see [what you need](#install-on-your-iphone))
+3. **Deploy your backend** if Vibecode asks. The published app uses your deployed backend.
+4. **Confirm your bundle ID**, for example `com.yourname.habittracker`. You can edit it now, but it can't be changed after publishing.
 5. Click **Confirm and publish**
 
-Vibecode then prepares the release, uploads it to Apple, waits for Apple to process the build, updates your listing, and submits the app for review. On your first publish, it may ask you to return to the project chat to finish App Store setup, such as your listing details.
+Vibecode then shows its progress as it works: **Preparing your release**, **Uploading to Apple**, **Apple is processing your build**, **Updating your listing**, and **Submitting for review**. On your first publish, it may send you back to the project chat, where the agent finishes App Store setup such as your listing details and screenshots.
+
+Your listing, Apple's review, and what to do after approval are covered in [How to Publish an App to the App Store](/getting-started/deploy-app-store#complete-your-listing-and-submit).
 
 Want a TestFlight build instead? Ask the agent in chat to "upload this build to TestFlight." Then [invite testers in App Store Connect](/guides/testflight).
 
 ## Your Code
 
-Native iOS projects are standard Xcode projects that use Swift Package Manager for dependencies. You can [download the code](/getting-started/download-code) from the web app or [connect via SSH](/getting-started/export-ssh), then open it in Xcode.
+Native iOS projects are standard Xcode projects that use Swift Package Manager for dependencies. On the Pro and Max plans you can [download the code](/getting-started/download-code) from the web app or [connect via SSH](/getting-started/export-ssh), then open it in Xcode.
 
 ## What's Different From Mobile App Projects
 
@@ -149,7 +149,7 @@ A few features are specific to React Native projects and don't apply to native i
   </Accordion>
 
   <Accordion title="Can I publish a Swift app to the App Store from Vibecode?">
-    Yes. Click **Publish** and choose **Publish to App Store**. Vibecode builds and signs the app, uploads it to Apple, updates your listing, and submits it for review. You need a paid Apple Developer Program membership ($99/year). See [How to Publish an App to the App Store](/getting-started/deploy-app-store).
+    Yes. Click **Publish** and choose **Publish to App Store**. Vibecode builds and signs the app, uploads it to Apple, updates your listing, and submits it for review. You need a paid Apple Developer Program membership ($99/year). See [the steps above](#publish-to-the-app-store).
   </Accordion>
 
   <Accordion title="Do I need a Mac or Xcode?">
@@ -157,7 +157,7 @@ A few features are specific to React Native projects and don't apply to native i
   </Accordion>
 
   <Accordion title="Do I own the Swift code?">
-    Yes. It's a standard Xcode project that uses Swift Package Manager. [Download it](/getting-started/download-code) or [connect via SSH](/getting-started/export-ssh) and open it in Xcode.
+    Yes. It's a standard Xcode project that uses Swift Package Manager. On the Pro and Max plans you can [download it](/getting-started/download-code) or [connect via SSH](/getting-started/export-ssh) and open it in Xcode.
   </Accordion>
 
   <Accordion title="Does it work on iPad and iPhone Duo?">

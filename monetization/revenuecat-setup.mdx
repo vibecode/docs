@@ -5,12 +5,10 @@ description: "Add subscriptions and in-app purchases to an iPhone app with Reven
 keywords: ["in app purchases", "how to add in app purchases", "revenuecat paywall", "add subscriptions to app", "revenuecat setup", "revenuecat pricing", "storekit subscriptions"]
 ---
 
-**To sell subscriptions or in-app purchases in an iPhone app, you use Apple's in-app purchase system (App Review Guideline 3.1.1 requires it for digital goods), create the products in App Store Connect, and show them on a paywall with clear prices and a Restore Purchases button.** Vibecode does most of this with [RevenueCat](https://www.revenuecat.com/), which handles purchases, receipts, and subscription status for you: connect RevenueCat in your project's **Payments** tab, ask the agent to create your products and paywall, sync the products to App Store Connect, then test with a sandbox account. RevenueCat is free up to $2,500 in monthly tracked revenue, then 1% of tracked revenue.
-
-*Last updated: October 10, 2026*
+**To sell subscriptions or in-app purchases in an iPhone app, you use Apple's in-app purchase system (App Review Guideline 3.1.1 requires it for digital goods; US App Store apps may also link to a web checkout), create the products in App Store Connect, and show them on a paywall with clear prices and a Restore Purchases button.** Vibecode does most of this with [RevenueCat](https://www.revenuecat.com/), which handles purchases, receipts, and subscription status for you: connect RevenueCat in your project's **Payment** tab, ask the agent to create your products and paywall, sync the products to App Store Connect, then test with a sandbox account. RevenueCat is free up to $2,500 in monthly tracked revenue, then 1% of tracked revenue.
 
 <Info>
-  The RevenueCat **Payments** tab is for **Mobile app** (React Native) projects. It isn't available for native Swift **iOS app** projects yet. Charging on the web? Use [Stripe](/monetization/stripe-setup) instead.
+  The RevenueCat **Payment** tab is for **Mobile app** (React Native) projects. It isn't available for native Swift **iOS app** projects yet. Charging on the web? Use [Stripe](/monetization/stripe-setup) instead.
 </Info>
 
 ## In-App Purchases at a Glance
@@ -38,14 +36,14 @@ You'll need the following:
 ## Step 1: Connect Your RevenueCat Account
 
 1. Open your project in Vibecode
-2. Click the **Payments** tab
-<img src="/payments/payments-tab.png" alt="Payments tab" style={{maxHeight: '250px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
+2. Click the **Payment** tab
+<img src="/payments/payments-tab.png" alt="Payment tab" style={{maxHeight: '250px', display: 'block', margin: '0 auto'}} className="rounded-lg" />
 3. Click **Connect RevenueCat**
 4. Sign into your RevenueCat account in the popup
 5. Authorize Vibecode to access your account
 6. You'll be redirected back automatically
 
-{/* TODO: Add screenshot of Payments tab with Connect RevenueCat button */}
+{/* TODO: Add screenshot of Payment tab with Connect RevenueCat button */}
 
 <Tip>If the popup is blocked, check your browser's popup settings and try again.</Tip>
 
@@ -201,14 +199,14 @@ Once all metadata is complete, the status will change and your product is ready 
 
 Apple checks these during App Review. Getting them wrong is a common reason for rejection under guideline 3.1:
 
-- **Use Apple's in-app purchase for digital goods.** Subscriptions, premium features, in-game currency, and content used inside the app must go through Apple (3.1.1). Physical goods and real-world services, such as deliveries or rides, use other payment methods.
+- **Use Apple's in-app purchase for digital goods.** Subscriptions, premium features, in-game currency, and content used inside the app go through Apple (3.1.1). On the US App Store you may also link to your own web checkout; elsewhere that needs an Apple entitlement (3.1.1(a)). Physical goods and real-world services, such as deliveries or rides, use other payment methods.
 - **Show clear prices and terms.** The paywall must say what the user gets, how much it costs, and how often they're billed.
 - **Include Restore Purchases.** Users who reinstall or switch devices must be able to get back what they paid for.
 - **Subscriptions must last at least 7 days** and provide ongoing value (3.1.2(a)).
 - **Link your terms of use and privacy policy** on the paywall and in your App Store listing.
 - **Submit your products with the app.** New in-app purchases must have complete metadata in App Store Connect and be submitted for review together with an app version.
 
-In Mobile app projects, the App Store [Preflight](/getting-started/deploy-app-store#run-preflight-before-submitting) check reviews your paywall for Restore Purchases, clear pricing, and non-Apple payment code before you submit. More in the [App Store rejections checklist](/guides/app-store-review-guidelines).
+In Mobile app projects, the App Store [Preflight](/getting-started/deploy-app-store#run-preflight-first) check reviews your paywall for Restore Purchases, clear pricing, and non-Apple payment code before you submit. More in the [App Store rejections checklist](/guides/app-store-review-guidelines).
 
 ## Troubleshooting
 
@@ -263,7 +261,7 @@ To fix this:
 
 <AccordionGroup>
   <Accordion title="Do I have to use Apple's in-app purchase?">
-    For digital content, features, and subscriptions used in your iPhone app, yes (guideline 3.1.1). RevenueCat runs on top of Apple's in-app purchase system, so purchases made through it follow that rule. Physical goods and services used outside the app can use other payment methods.
+    For digital content, features, and subscriptions used in your iPhone app, in-app purchase is required ([guideline 3.1.1](https://developer.apple.com/app-store/review/guidelines/)). On the US App Store you can also add a button or link to your own web checkout; outside the US that needs an Apple entitlement, which only some countries offer (3.1.1(a)). RevenueCat runs on top of Apple's in-app purchase system. Physical goods and services used outside the app can use other payment methods.
   </Accordion>
 
   <Accordion title="How much does RevenueCat cost?">
@@ -283,11 +281,11 @@ To fix this:
   </Accordion>
 
   <Accordion title="Can I add in-app purchases to a native Swift iOS app?">
-    The guided RevenueCat setup in the **Payments** tab isn't available for **iOS app** (Swift) projects yet. It's built for **Mobile app** (React Native) projects. See [Swift vs React Native](/guides/swift-vs-react-native).
+    The guided RevenueCat setup in the **Payment** tab isn't available for **iOS app** (Swift) projects yet. It's built for **Mobile app** (React Native) projects. See [Swift vs React Native](/guides/swift-vs-react-native).
   </Accordion>
 
   <Accordion title="Can I use Stripe instead?">
-    For web apps, yes: see [Stripe Setup](/monetization/stripe-setup). Inside an iPhone app, digital goods must use Apple's in-app purchase.
+    For web apps, yes: see [Stripe Setup](/monetization/stripe-setup). Inside an iPhone app, digital goods use Apple's in-app purchase, and on the US App Store you can also link to a Stripe checkout on your website (3.1.1(a)).
   </Accordion>
 </AccordionGroup>
 

@@ -7,7 +7,7 @@ keywords: ["app store review guidelines", "app review guidelines", "app store gu
 
 **Apple's App Review Guidelines are the rules every App Store app is checked against, organized in five sections: Safety, Performance, Business, Design, and Legal.** Most rejections come from a handful of them: Apple says over 40% of unresolved issues fall under guideline 2.1 App Completeness (crashes, placeholder content, broken links, missing demo login), followed by privacy (5.1), minimum functionality (4.2), accurate metadata (2.3), in-app purchase (3.1.1), and spam or copycat apps (4.3, 4.1). Run through the checklist below before you submit.
 
-*Last updated: October 10, 2026. Summarizes Apple's [App Review Guidelines](https://developer.apple.com/app-store/review/guidelines/), which are the official source and change over time.*
+*This page summarizes Apple's [App Review Guidelines](https://developer.apple.com/app-store/review/guidelines/), which are the official source and change over time.*
 
 ## The Five Sections of the Guidelines
 
@@ -33,7 +33,7 @@ keywords: ["app store review guidelines", "app review guidelines", "app store gu
 | No account deletion | 5.1.1(v) | Users can create an account but not delete it in the app | Add a **Delete account** option in settings |
 | Just a website | 4.2 | A website inside an app, or too little functionality | Add native screens and features that make it app-like |
 | Inaccurate screenshots or description | 2.3 | Screenshots that are only a splash or login screen, or show features the app doesn't have | Show the app in use, and describe what it actually does |
-| Paying outside Apple's system | 3.1.1 | Digital features or content unlocked by a non-Apple payment | Use Apple in-app purchase for digital goods and subscriptions |
+| Paying outside Apple's system | 3.1.1 | Digital features or content unlocked by a non-Apple payment | Use Apple in-app purchase for digital goods and subscriptions. US App Store apps may also link to a web checkout (3.1.1(a)). |
 | Copies and duplicates | 4.1, 4.3 | A clone of a popular app, or several near-identical apps | Make it your own: original name, icon, and design |
 | Using someone else's brand | 5.2 | Another company's name, logo, or content without permission | Only use content you created or are licensed to use |
 
@@ -62,7 +62,7 @@ keywords: ["app store review guidelines", "app review guidelines", "app store gu
 - [ ] The App Privacy questions in App Store Connect match what the app really collects
 
 **Payments (3.1)**
-- [ ] Subscriptions, premium features, in-game currency, and other digital goods use Apple in-app purchase (3.1.1)
+- [ ] Subscriptions, premium features, in-game currency, and other digital goods use Apple in-app purchase (3.1.1). Links to a web checkout appear only in the US storefront, or with an Apple entitlement elsewhere (3.1.1(a)).
 - [ ] Paywalls show clear prices and terms, and include **Restore Purchases**
 - [ ] Auto-renewing subscriptions last at least 7 days and give ongoing value (3.1.2(a))
 - [ ] Your in-app purchase products are complete in App Store Connect and submitted with the app
@@ -82,7 +82,7 @@ keywords: ["app store review guidelines", "app review guidelines", "app store gu
 
 ## How Vibecode Helps You Pass Review
 
-- **Preflight (Mobile apps):** run `/appstore-preflight` in your project chat, or click **Preflight** in the Deploy menu. The agent checks privacy permissions (5.1), in-app purchases (3.1.1), completeness (2.1, 4.2), and misleading design (4.1, 4.3), fixes what it can, and lists what's left. See [Run Preflight Before Submitting](/getting-started/deploy-app-store#run-preflight-before-submitting).
+- **Preflight (Mobile apps):** run `/appstore-preflight` in your project chat, or click **Preflight** in the Deploy menu. The agent checks privacy permissions (5.1), in-app purchases (3.1.1), completeness (2.1, 4.2), and misleading design (4.1, 4.3), fixes what it can, and lists what's left. See [Run Preflight First](/getting-started/deploy-app-store#run-preflight-first).
 - **Agent testing:** after each change, the agent opens your app and taps through what it built, so fewer bugs reach App Review. See [Agent Testing](/features/agent-testing).
 - **Deployed backend:** for native iOS apps, Vibecode asks you to deploy your backend before it builds the app you publish, so the reviewer sees real data. For Mobile apps, [deploy your backend](/deploying/guide) before you start Expo Launch.
 - **In-app purchases through Apple:** [RevenueCat](/monetization/revenuecat-setup) runs on Apple's in-app purchase system, and Preflight checks that your paywall shows clear pricing and a **Restore Purchases** button
@@ -115,7 +115,7 @@ You can also just ask: "Check my app against Apple's App Review Guidelines befor
   </Accordion>
 
   <Accordion title="Do I have to use Apple's in-app purchase?">
-    For digital content, features, and subscriptions used inside the app, yes (3.1.1). Physical goods and services used outside the app, such as food delivery or rides, use other payment methods.
+    For digital content, features, and subscriptions used inside the app, in-app purchase is required (3.1.1). On the US App Store you can also add buttons or links to your own web checkout; in other countries that needs an Apple entitlement, available only in some of them (3.1.1(a)). Physical goods and services used outside the app, such as food delivery or rides, use other payment methods.
   </Accordion>
 
   <Accordion title="Do I need Sign in with Apple?">

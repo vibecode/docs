@@ -4,15 +4,15 @@ sidebarTitle: "Monetization"
 description: "Charge for your Vibecode app: RevenueCat for subscriptions and in-app purchases in iPhone apps, Stripe for web app payments. Which to use for each project type and what Apple requires."
 ---
 
-**Charge for a mobile app with Apple's in-app purchase system, which Vibecode sets up through [RevenueCat](/monetization/revenuecat-setup), and charge on the web with [Stripe](/monetization/stripe-setup).** Apple requires in-app purchase for digital content, features, and subscriptions sold inside an iPhone app, so a web checkout like Stripe is only for web apps (and for physical goods or services).
+**Charge for a mobile app with Apple's in-app purchase system, which Vibecode sets up through [RevenueCat](/monetization/revenuecat-setup), and charge on the web with [Stripe](/monetization/stripe-setup).** Apple requires in-app purchase for digital content, features, and subscriptions sold inside an iPhone app ([guideline 3.1.1](https://developer.apple.com/app-store/review/guidelines/)). Apps on the US App Store may also link to a web checkout such as Stripe; in other countries that needs an Apple entitlement, offered only in some of them (3.1.1(a)). Physical goods and real-world services always use other payment methods.
 
 ## Which One to Use
 
 | Your project | What you're selling | Use |
 |---|---|---|
-| **Mobile app** (React Native) | Subscriptions, premium features, one-time unlocks | [RevenueCat](/monetization/revenuecat-setup) in the **Payments** tab |
-| **Web app** | Subscriptions, one-time payments, checkout | [Stripe](/monetization/stripe-setup) in the **Payments** tab |
-| **iOS app** (native Swift) | Subscriptions and in-app purchases | The guided **Payments** setup isn't available for iOS app projects yet |
+| **Mobile app** (React Native) | Subscriptions, premium features, one-time unlocks | [RevenueCat](/monetization/revenuecat-setup) in the **Payment** tab |
+| **Web app** | Subscriptions, one-time payments, checkout | [Stripe](/monetization/stripe-setup) in the **Payment** tab |
+| **iOS app** (native Swift) | Subscriptions and in-app purchases | The guided **Payment** tab setup isn't available for iOS app projects yet |
 
 <CardGroup cols={2}>
   <Card title="RevenueCat" icon="mobile" href="/monetization/revenuecat-setup">

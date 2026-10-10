@@ -7,8 +7,6 @@ keywords: ["testflight", "how to use testflight", "how to upload app to testflig
 
 **TestFlight is Apple's free service for testing beta versions of your iPhone app before it's on the App Store. You upload a build to App Store Connect, add testers, and they install it with the TestFlight app.** You can invite up to 100 internal testers (members of your App Store Connect team) and up to 10,000 external testers by email or a public link. The first build you share with external testers is checked by App Review first, and each build can be tested for up to 90 days. With Vibecode, every build it uploads to App Store Connect is ready for TestFlight, no Mac or Xcode needed.
 
-*Last updated: October 10, 2026*
-
 ## TestFlight at a Glance
 
 | | Internal testing | External testing |
@@ -27,7 +25,7 @@ Testers install the free **TestFlight** app on their iPhone or iPad, then accept
 TestFlight uses the builds you upload to App Store Connect. To get one there with Vibecode:
 
 - **iOS app (Swift) projects:** ask the agent in chat to "upload this build to TestFlight." Every build Vibecode uploads when you **Publish → Publish to App Store** also lands in App Store Connect. See [Native iOS Apps](/getting-started/native-ios-apps#publish-to-the-app-store).
-- **Mobile app (React Native) projects:** use **Deploy → Deploy to App Store**. Expo Launch builds the app and uploads it to App Store Connect, where it's available in TestFlight. See [Publish a Mobile App](/getting-started/deploy-app-store#publish-a-mobile-react-native-app).
+- **Mobile app (React Native) projects:** use **Deploy → Submit to App Store**. Expo Launch builds the app and uploads it to App Store Connect, where it's available in TestFlight. See [Publish a Mobile App](/getting-started/deploy-app-store#publish-a-mobile-react-native-app).
 
 Building yourself? Upload from Xcode (**Product → Archive**, then **Distribute App**) or with Expo's `eas submit --platform ios`.
 
