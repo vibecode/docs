@@ -1,9 +1,25 @@
 ---
-title: "Connect a Custom Domain"
-description: "Use your own domain for your deployed Vibecode web app"
+title: "How to Connect a Custom Domain to Your Web App"
+sidebarTitle: "Custom Domain"
+description: "Point your own domain (example.com or app.example.com) at your Vibecode web app: add the domain in the Domain tab, create the CNAME or ALIAS records at your DNS provider, verify, and deploy. Includes Cloudflare, GoDaddy, and Namecheap tips."
+keywords: ["custom domain web app", "connect custom domain", "how to connect a domain to a website", "cname record for app", "vibecode custom domain", "point domain to app"]
 ---
 
-Want to use your own domain instead of the default `.vibecode.run` URL? This guide walks you through connecting a custom domain to your deployed Vibecode web app.
+**To use your own domain for a Vibecode web app, open your deployment's Domain tab, click Add Custom Domain, enter the domain, add the CNAME (or ALIAS) records Vibecode shows you at your domain provider, click Check now to verify, then deploy.** Your app is then served at your domain over HTTPS instead of the default `yourapp.vibecode.run` address. You need a deployed web app and a domain you own, bought from any registrar such as Cloudflare, GoDaddy, or Namecheap.
+
+*Last updated: October 10, 2026*
+
+## Custom Domain Setup at a Glance
+
+| Step | Where | What you do |
+|---|---|---|
+| 1. Deploy your web app | Vibecode | [Deploy it](/deploying/guide) so it has a `vibecode.run` address |
+| 2. Add the domain | Vibecode → **Domain** tab | **Add Custom Domain** → **I have a domain** → enter `example.com` or `app.example.com` |
+| 3. Add DNS records | Your domain provider | A CNAME (or ALIAS/ANAME for a root domain) pointing to `<your-project>.vibecode.run` |
+| 4. Verify | Vibecode → **Domain** tab | Click **Check now** once DNS has updated |
+| 5. Deploy | Vibecode | Deploy to activate the domain |
+
+<Tip>Just want a nicer free address? You can change your app's `vibecode.run` subdomain in the **Domain** tab without buying a domain.</Tip>
 
 ## Before You Start
 
@@ -161,3 +177,48 @@ Once verified, you'll see a confirmation banner showing the domain is routed cor
 <Note>
   Still stuck? Reach out via live support chat in the app, or join our [Discord community](https://discord.gg/qXyWYYX5Ts) for help.
 </Note>
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion title="Can I use a custom domain with a free vibecode.run address?">
+    Every deployed web app gets a free `yourapp.vibecode.run` address, and you can change the subdomain in the **Domain** tab. A custom domain like `example.com` has to be bought from a domain registrar.
+  </Accordion>
+
+  <Accordion title="Should I use example.com or www.example.com?">
+    Either works. Enter the one you want people to see, and check **Redirect www to this domain** if you enter the root domain so `www.example.com` sends visitors there too.
+  </Accordion>
+
+  <Accordion title="How long does it take for a custom domain to work?">
+    Often minutes, but DNS changes can take longer to spread depending on your provider. If **Check now** fails, wait and try again.
+  </Accordion>
+
+  <Accordion title="Do I need to set up SSL or HTTPS?">
+    No separate certificate setup is needed in Vibecode. Once the domain is verified and deployed, open it at `https://` your domain.
+  </Accordion>
+
+  <Accordion title="Why won't my domain verify on Cloudflare?">
+    Set the record to **DNS only** (grey cloud) instead of **Proxied**, and remove any old A or AAAA records for the same name.
+  </Accordion>
+
+  <Accordion title="Can I connect a custom domain to an iPhone app?">
+    Custom domains are for web apps and backends served at a URL. iPhone apps are installed from the App Store. See [How to Publish an App to the App Store](/getting-started/deploy-app-store).
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Deploy Your Web App" icon="globe" href="/deploying/guide">
+    Get a live URL first
+  </Card>
+  <Card title="Build a Web App" icon="browser" href="/getting-started/web-app">
+    Start a web app project
+  </Card>
+  <Card title="Stripe Payments" icon="credit-card" href="/monetization/stripe-setup">
+    Charge on your web app
+  </Card>
+  <Card title="Vibecode" icon="rocket" href="https://www.vibecodeapp.com">
+    Build and host your web app
+  </Card>
+</CardGroup>

@@ -1,9 +1,27 @@
 ---
-title: "Backend and Auth"
-description: "How your app stores data, uses APIs securely, and handles user accounts"
+title: "How to Add a Database and User Login to Your App"
+sidebarTitle: "Backend and Auth"
+description: "Add a backend, database, and user login to an AI-built app with one prompt. How Vibecode Cloud's database (SQLite), auth (Better Auth: email codes, Google, Apple), and file storage work, and how to use Supabase or Firebase instead."
+keywords: ["add database to app", "add login to app", "app authentication", "backend for ai app", "supabase ai app builder", "firebase vs supabase", "vibecode cloud"]
 ---
 
-Every real app needs a place to store data, a way to know who's using it, and a secure way to call external APIs. In Vibecode, your project comes with a backend server, a database, and a full authentication system—all set up for you by the AI when you need it.
+**To add a database and user login to your Vibecode app, ask the agent: "Add sign-in and save each user's data."** It sets up [Vibecode Cloud](/features/vibecode-cloud): a backend server with a SQLite database, user accounts with Better Auth (passwordless email codes by default, plus Google, Apple, and other sign-in providers), and file storage. There's no dashboard to configure and no separate account to create. Deploy the app and the backend goes live with it. If you'd rather use Supabase or Firebase, add your keys in the **Env Var** tab and ask the agent to use them instead. Vibecode Cloud is included from the Plus plan.
+
+*Last updated: October 10, 2026*
+
+## Vibecode Cloud vs Supabase vs Firebase
+
+| | Vibecode Cloud | Supabase | Firebase |
+|---|---|---|---|
+| **Setup in Vibecode** | One prompt, built in | Create a Supabase project, add its keys, then prompt | Create a Firebase project, add its config, then prompt |
+| **Database** | SQLite with Prisma, on your deployed backend | Postgres | Firestore (NoSQL) |
+| **Login** | Better Auth: email codes by default, Google, Apple, and more | Supabase Auth | Firebase Authentication |
+| **File storage** | Included | Supabase Storage | Cloud Storage for Firebase |
+| **Separate account and bill** | No, part of your Vibecode plan and deployment | Yes, Supabase's plans | Yes, Google's plans |
+| **View your data** | **Database** tab in your deployment dashboard | Supabase dashboard | Firebase console |
+| **Best for** | Most apps, and anyone who wants it handled | Teams already on Supabase or Postgres | Teams already on Google Cloud or Firebase |
+
+Start with Vibecode Cloud unless you already have data or users in another service.
 
 <CardGroup cols={2}>
   <Card
@@ -122,6 +140,18 @@ You usually do not need to set any of this up manually. Just tell the AI what yo
 
 The AI handles all the packages, configuration, database schema, login screens, and wiring.
 
+## Use Supabase or Firebase Instead
+
+Already have a Supabase or Firebase project, or want one? The agent can connect your app to it:
+
+1. Create the project at [supabase.com](https://supabase.com) or in the [Firebase console](https://console.firebase.google.com)
+2. Copy its connection details: for Supabase, the project URL and public (anon) key, plus the service role key if the backend needs full access; for Firebase, the web or app config
+3. In Vibecode, open the **Env Var** tab and add them. Put public keys under **Frontend** and secret keys (like Supabase's service role key) only under **Backend**.
+4. Ask the agent, for example: "Use my Supabase project for the database and login instead of the built-in backend. The keys are in the env vars."
+5. Set up the tables and security rules the agent asks for in Supabase or Firebase, then test sign-in on a [deployed app](/deploying/guide) or real device
+
+<Warning>Never paste secret keys into the chat. Put them in the **Env Var** tab.</Warning>
+
 ## Viewing and Managing Your Data
 
 Once your app has a database, you can view and edit your data from the deployment dashboard. After [deploying your app](/deploying/guide), go to the **Database** tab to browse tables, view records, and make edits.
@@ -132,27 +162,45 @@ This is useful for debugging, customer support, and content management.
   During development, you can also ask the AI to query the database for you. For example: "Show me all users who signed up today" or "Delete the test accounts I created."
 </Tip>
 
-## Common Questions
+## Frequently Asked Questions
 
-**Do I need to set up the database myself?**
+<AccordionGroup>
+  <Accordion title="Do I need to set up the database myself?">
+    No. Tell the agent what data your app needs ("save each user's workouts with date, type, and duration") and it creates the tables, backend routes, and screens.
+  </Accordion>
 
-No. Just tell the AI what data you need and it handles everything.
+  <Accordion title="Can I use Supabase with Vibecode?">
+    Yes. Add your Supabase project URL and keys in the **Env Var** tab and ask the agent to use Supabase for the database and auth. See [Use Supabase or Firebase Instead](#use-supabase-or-firebase-instead). Vibecode Cloud is built in, so you only need Supabase if you want it.
+  </Accordion>
 
-**Can I use a different database?**
+  <Accordion title="Can I use a different database than SQLite?">
+    Vibecode Cloud uses SQLite, which is fast and handles far more than most apps need. If you need Postgres, connect an external service such as Supabase.
+  </Accordion>
 
-Vibecode uses SQLite by default. It's fast and works great for most apps. SQLite handles far more than most people think—you likely won't outgrow it.
+  <Accordion title="What happens to my database when I deploy?">
+    Your database deploys with your app. View and manage it from the **Database** tab in your [deployment dashboard](/deploying/guide).
+  </Accordion>
 
-**What happens to my database when I deploy?**
+  <Accordion title="How do users sign in?">
+    By default, with a 6-digit code sent to their email, so there are no passwords. You can add [Google sign-in](/google-login/setup) with a guided setup, and Apple, GitHub, Discord, and other Better Auth providers by adding their credentials.
+  </Accordion>
 
-Your database deploys with your app. You can view and manage it from the **Database** tab in your [deployment dashboard](/deploying/guide).
+  <Accordion title="Do I need Sign in with Apple for the App Store?">
+    If your iPhone app offers a third-party or social login like Google for the user's main account, Apple's guideline 4.8 requires an equivalent privacy-focused option such as Sign in with Apple. Email code sign-in on its own doesn't trigger that rule. See the [review guidelines checklist](/guides/app-store-review-guidelines).
+  </Accordion>
 
-**My users are stuck on the login screen after entering the code—what's wrong?**
+  <Accordion title="Does the App Store require account deletion?">
+    Yes. If users can create an account in your app, they must be able to delete it from inside the app (guideline 5.1.1(v)). Ask the agent to "add a Delete account option in settings."
+  </Accordion>
 
-This is usually a session configuration issue. Ask the AI to verify the auth configuration—especially the cookie settings and trusted origins.
+  <Accordion title="My users are stuck on the login screen after entering the code. What's wrong?">
+    This is usually a session configuration issue. Ask the agent to check the auth configuration, especially the cookie settings and trusted origins.
+  </Accordion>
 
-**Can I use Apple, GitHub, Discord, or another provider besides Google?**
-
-Yes. Better Auth supports 30+ providers, and Vibecode can follow Better Auth's provider tutorials to add them. Google has the most guided in-product setup today, while other providers are usually added by following the Better Auth docs and supplying the right environment variables.
+  <Accordion title="Which plan includes database and auth?">
+    Vibecode Cloud is available on Plus plans and above. The Free plan doesn't include database or authentication. See [Plans and Credits](/getting-started/plans-and-credits).
+  </Accordion>
+</AccordionGroup>
 
 ## Next Steps
 

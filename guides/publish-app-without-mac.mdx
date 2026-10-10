@@ -1,0 +1,106 @@
+---
+title: "How to Publish an iPhone App to the App Store Without a Mac"
+sidebarTitle: "Publish Without a Mac"
+description: "You can publish an iPhone app without owning a Mac by building it on cloud Macs. Compare the four ways (Vibecode, Expo EAS, cloud CI, renting a Mac), what each needs, and the steps to go from Windows, Linux, or a Chromebook to the App Store."
+keywords: ["publish app to app store without mac", "how to publish an app on the app store without a mac", "build ios app without mac", "upload app to app store from windows", "ios app without xcode"]
+---
+
+**Yes, you can publish an iPhone app to the App Store without owning a Mac. Apple's tools that build and sign iOS apps (Xcode) only run on macOS, so the build has to happen on a Mac somewhere, but it can be a cloud Mac that someone else runs.** Vibecode builds native Swift apps on its own cloud Macs and React Native apps in Expo's cloud, then uploads them to App Store Connect, so you can do everything from a browser on Windows, Linux, or a Chromebook. You still need a paid Apple Developer account ($99/year).
+
+*Last updated: October 10, 2026*
+
+## Four Ways to Ship an iPhone App Without a Mac
+
+| Option | How it works | Coding needed? | Best for |
+|---|---|---|---|
+| **Vibecode** | Describe the app; Vibecode builds native Swift apps on its cloud Macs (or React Native apps through Expo), signs them with your Apple account, uploads, and submits them | No | Non-developers and anyone who wants the whole path handled |
+| **Expo EAS Build and Submit** | Run `eas build --platform ios` and `eas submit --platform ios` from any computer; Expo builds on its Macs and uploads to App Store Connect | Yes (React Native) | Developers with a React Native app |
+| **Cloud CI with Mac runners** | Services such as Codemagic, Bitrise, or GitHub Actions build and upload your app on hosted Macs | Yes | Teams with an existing Swift, Flutter, or React Native codebase |
+| **Rent a cloud Mac** | Remote into a hosted Mac (for example MacinCloud or AWS EC2 Mac) and use Xcode like you would on your own | Yes | Developers who need full Xcode |
+
+All four still need an [Apple Developer Program membership](/guides/apple-developer-account) and an App Store listing in App Store Connect, which is a website you can use from any computer.
+
+## What You Need
+
+- **An Apple Developer account** ($99/year). You can enroll on the web from any computer. See [How to Create an Apple Developer Account](/guides/apple-developer-account).
+- **Two-factor authentication on your Apple Account**, with a trusted device or phone number to receive codes
+- **A browser.** For Vibecode, that's all. No Mac, Xcode, or command line.
+- **A privacy policy URL and a support URL** for your App Store listing
+- **A Vibecode plan with App Store submission**: Plus or higher ([pricing](https://www.vibecodeapp.com/pricing))
+
+## How to Publish Without a Mac Using Vibecode
+
+### Native iPhone app (Swift)
+
+1. Build the app in an **iOS app** project ([how](/guides/build-iphone-app-with-ai)). Preview it in the cloud iOS Simulator in your browser.
+2. Open the project in the [Vibecode web app](https://www.vibecodeapp.com), click **Publish**, and choose **Publish to App Store**
+3. **Connect your Apple account**: sign in with your Apple ID and Vibecode creates an App Store Connect API key for you, or enter an existing key
+4. **Deploy your backend** if Vibecode asks, so the published app has live data
+5. **Confirm your bundle ID** and click **Confirm and publish**
+6. Vibecode builds and signs the app on its cloud Macs, uploads it to Apple, updates your listing, and submits it for review. On your first publish, the agent may ask you in chat to finish listing details and screenshots.
+
+### React Native app (iPhone and Android)
+
+1. Build the app in a **Mobile app** project
+2. Run **Preflight** from the **Deploy** menu to catch common rejection reasons
+3. Click **Deploy → Deploy to App Store** and follow the steps. Vibecode prepares the app, and Expo Launch builds it in Expo's cloud and uploads it to App Store Connect (builds take about 20 minutes).
+4. Complete your listing in App Store Connect and submit the build for review
+
+Full details for both: [How to Publish an App to the App Store](/getting-started/deploy-app-store).
+
+## What You Can Do Without a Mac (and How)
+
+| Task | Usually done on a Mac with | Without a Mac in Vibecode |
+|---|---|---|
+| Write the app | Xcode | Describe it to the agent |
+| Run and test it | iOS Simulator in Xcode | Cloud iOS Simulator streamed to your browser |
+| Test on a real iPhone | Xcode device install | **Publish → Install** with a QR code, or [TestFlight](/guides/testflight) |
+| Sign the app | Xcode signing, certificates, profiles | Vibecode signs with your Apple Developer account |
+| Upload the build | Xcode Organizer or Transporter | Vibecode (iOS apps) or Expo Launch (Mobile apps) |
+| Take App Store screenshots | Simulator screenshots | The agent can capture them on your first publish, or upload your own in App Store Connect |
+| Fill in the listing and submit | App Store Connect (website) | Vibecode updates the listing and submits iOS apps; App Store Connect works in any browser |
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion title="Can you publish an iOS app without a Mac?">
+    Yes. The app has to be built with Apple's tools on macOS, but that can be a cloud Mac. Vibecode, Expo EAS, cloud CI services, and rented cloud Macs all do this. You never need to own a Mac.
+  </Accordion>
+
+  <Accordion title="Can I upload an app to the App Store from Windows?">
+    Yes, through a service that builds and uploads for you. In Vibecode, you click **Publish to App Store** in the browser on Windows. With Expo, you run `eas submit --platform ios` from your Windows terminal. You can't run Xcode itself on Windows.
+  </Accordion>
+
+  <Accordion title="Do I need Xcode to publish an app?">
+    The build must be made with Xcode, but it doesn't have to run on your computer. Vibecode runs Xcode on its cloud Macs for native Swift apps.
+  </Accordion>
+
+  <Accordion title="Do I need an iPhone to make an iPhone app?">
+    No. You can build and test the whole app in Vibecode's cloud iOS Simulator. A real iPhone is still the best way to check performance, the camera, and haptics before you publish.
+  </Accordion>
+
+  <Accordion title="Can I publish an iPhone app from a Chromebook or Linux?">
+    Yes. The Vibecode web app runs in any modern browser, and App Store Connect is a website. Expo's command-line tools also run on Linux.
+  </Accordion>
+
+  <Accordion title="Is publishing without a Mac against Apple's rules?">
+    No. Apple reviews the app you submit, not the computer you used. Builds made on cloud Macs go through the same App Review as any other app.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Build an iPhone App with AI" icon="wand-magic-sparkles" href="/guides/build-iphone-app-with-ai">
+    From idea to native Swift app
+  </Card>
+  <Card title="Publish to the App Store" icon="apple" href="/getting-started/deploy-app-store">
+    The complete publishing guide
+  </Card>
+  <Card title="App Store Review Time" icon="clock" href="/guides/app-store-review-time">
+    How long Apple takes
+  </Card>
+  <Card title="Try Vibecode" icon="rocket" href="https://www.vibecodeapp.com">
+    Build and publish from your browser
+  </Card>
+</CardGroup>

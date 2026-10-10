@@ -1,0 +1,111 @@
+---
+title: "Swift vs React Native: Which Should You Build Your App With? (2026)"
+sidebarTitle: "Swift vs React Native"
+description: "Swift builds native apps for Apple devices only; React Native builds one app for iPhone and Android. Compare platforms, look and feel, Apple features, and publishing, and see which to pick when an AI app builder like Vibecode writes the code."
+keywords: ["swift vs react native", "react native vs swift", "native ios vs react native", "swiftui vs react native", "should i use swift or react native", "ai app builder swift"]
+---
+
+**Choose Swift if your app is for iPhone and iPad only and you want the most native look, feel, and access to Apple features. Choose React Native if you need the same app on iPhone and Android from one codebase.** Swift (with SwiftUI) is Apple's own language for Apple devices. React Native is Meta's framework that writes the app in JavaScript or TypeScript and renders real native components on both iOS and Android. In Vibecode you don't write either one: pick **iOS app** for Swift or **Mobile app** for React Native when you create a project, and the agent writes the code.
+
+*Last updated: October 10, 2026*
+
+## Swift vs React Native at a Glance
+
+| | Swift (SwiftUI) | React Native (Expo) |
+|---|---|---|
+| **Made by** | Apple | Meta, with Expo's tools and cloud services |
+| **Language** | Swift | JavaScript or TypeScript |
+| **Runs on** | iPhone, iPad, and other Apple devices | iPhone and Android (plus web) |
+| **UI** | Apple's native SwiftUI components | Native components on each platform, driven by JavaScript |
+| **Look and feel** | Exactly like Apple's own apps | Native, but cross-platform code can feel less "iOS" unless tuned |
+| **New Apple features** | Available as soon as Apple ships them | Available once a library or native module supports them |
+| **Android** | No | Yes, same codebase |
+| **Build tools** | Xcode on macOS | Expo (EAS) or Xcode and Android Studio |
+| **Best for** | iPhone-first products, polished consumer apps, games, apps that lean on Apple features | Apps that must reach both iPhone and Android users |
+
+## Swift vs React Native in Vibecode
+
+In Vibecode the choice is the project type. Here's what changes:
+
+| | iOS app (Swift) | Mobile app (React Native) |
+|---|---|---|
+| **Code** | Swift and SwiftUI, a standard Xcode project | React Native and Expo, TypeScript |
+| **Runs on** | iPhone and iPad (preview as iPhone or iPhone Duo) | iPhone and Android |
+| **Preview** | Cloud iOS Simulator streamed to your browser or phone | On your phone with a QR code, or in the web preview |
+| **Put it on your phone** | **Publish → Install**: Vibecode builds and signs it for your iPhone | Scan the QR code to open it in an app on your phone |
+| **Share with testers** | [TestFlight](/guides/testflight) | Share link, or TestFlight |
+| **App Store** | Vibecode builds, signs, uploads, and submits it | Built and uploaded with Expo Launch (free Expo account) |
+| **Google Play** | Not applicable | [Download the code](/getting-started/download-code) and publish with your Play Console account |
+| **In-app purchases** | The RevenueCat **Payments** tab isn't available for iOS app projects yet | [RevenueCat](/monetization/revenuecat-setup) setup built in |
+| **App Store Preflight check** | Not available | [Preflight](/getting-started/deploy-app-store#run-preflight-before-submitting) |
+| **Expo integrations** (such as push notifications) | Don't apply | [Expo Push Notifications](/integrations/expo-push-notifications) and other Expo integrations |
+| **Backend, login, AI integrations** | Yes ([Vibecode Cloud](/features/vibecode-cloud), [integrations](/integrations/index)) | Yes |
+| **Needs a Mac?** | No | No |
+
+Both are real apps you can download as code and publish under your own Apple Developer account. See [Native iOS Apps](/getting-started/native-ios-apps) for everything about Swift projects.
+
+## When to Choose Swift
+
+- **Your users are on iPhone.** Many consumer, productivity, and paid-subscription apps start on iPhone only.
+- **You want it to feel like an Apple app.** SwiftUI uses Apple's own controls, navigation, and animations.
+- **You'll use Apple features.** Things Apple adds to iOS show up in Swift first.
+- **You're making a game or something visual.** Swift gives the agent direct access to Apple's graphics and animation frameworks.
+- **You want to build for iPhone Duo.** Vibecode previews iOS apps on the foldable iPhone Duo as well as iPhone.
+
+## When to Choose React Native
+
+- **You need Android too.** One codebase reaches iPhone and Android users.
+- **You want to share a link.** Testers can open a Mobile app from a share link without an App Store release.
+- **You're selling subscriptions today.** The guided RevenueCat setup and the App Store Preflight check are built for Mobile app projects.
+- **Your team knows JavaScript.** If you'll edit the code yourself later, TypeScript may be familiar.
+
+Still unsure? If you only care about iPhone, start with Swift. If losing Android users would hurt, start with React Native.
+
+## Is React Native "Native"?
+
+Mostly. React Native doesn't run your app in a web view: it draws real iOS and Android components, controlled by JavaScript. Apps feel native for most uses. The differences show up in platform-specific details (navigation patterns, the newest Apple APIs, heavy animation), where Swift has direct access and React Native relies on libraries. A website wrapped in an app shell is different again, and Apple often rejects those. See [How to Turn a Website Into an App](/getting-started/web-to-mobile).
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion title="Is Swift better than React Native?">
+    Neither is better for every app. Swift is better for iPhone-only apps that should feel fully native and use Apple features. React Native is better when you need one app for iPhone and Android.
+  </Accordion>
+
+  <Accordion title="Can a Swift app run on Android?">
+    No. Swift apps run on Apple devices. For Android, build a React Native (**Mobile app**) project.
+  </Accordion>
+
+  <Accordion title="Do AI app builders make Swift or React Native apps?">
+    It depends on the builder. Many generate React Native or web apps. Vibecode builds both: native Swift and SwiftUI apps (**iOS app**) and React Native apps (**Mobile app**), plus web apps.
+  </Accordion>
+
+  <Accordion title="Can I switch my Vibecode project from React Native to Swift later?">
+    The project type is set when you create the project. To switch, create a new project of the other type and describe the same app. Screenshots of your current app help the agent match it.
+  </Accordion>
+
+  <Accordion title="Does Apple treat Swift and React Native apps differently in review?">
+    No. App Review checks the app against the same [guidelines](/guides/app-store-review-guidelines) whatever it's built with.
+  </Accordion>
+
+  <Accordion title="Which is faster to build?">
+    With Vibecode, both start from the same plain-English prompt, so the difference is small. React Native saves time when you need Android too, because you build one app instead of two.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Build an iPhone App with AI" icon="apple" href="/guides/build-iphone-app-with-ai">
+    Start a native Swift app
+  </Card>
+  <Card title="Create Your First App" icon="rocket" href="/getting-started/creating-first-app">
+    Pick a project type and build
+  </Card>
+  <Card title="Native iOS Apps" icon="mobile" href="/getting-started/native-ios-apps">
+    How Swift projects work in Vibecode
+  </Card>
+  <Card title="Best AI Mobile App Builders" icon="ranking-star" href="https://www.vibecodeapp.com/best/ai-mobile-app-builders">
+    Swift and React Native builders compared
+  </Card>
+</CardGroup>

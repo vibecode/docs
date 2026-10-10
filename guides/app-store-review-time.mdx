@@ -1,0 +1,121 @@
+---
+title: "How Long Does App Store Review Take? (2026)"
+sidebarTitle: "App Store Review Time"
+description: "Apple reviews 50% of App Store submissions within 24 hours and 90% within 48 hours. What each review status means, what slows review down, how to request an expedited review, and the full timeline from build to live."
+keywords: ["app store review time", "app store review times", "how long does app store review take", "how long does apple take to review an app", "expedite app store review"]
+---
+
+**Apple reviews at least 50% of App Store submissions within 24 hours and 90% within 48 hours, according to Apple's App Review page.** The clock starts when your submission reaches **Waiting for Review**, not when you upload the build. Incomplete submissions, apps that need a login without a demo account, and apps that get rejected and resubmitted take longer. If you're fixing a critical bug or launching for a dated event, you can request an expedited review.
+
+*Last updated: October 10, 2026*
+
+## App Store Review Time at a Glance
+
+| | Typical time |
+|---|---|
+| **App Review (new apps and updates)** | 50% within 24 hours, 90% within 48 hours (Apple) |
+| **Build processing after upload** | Varies; your build must finish processing before you can submit it |
+| **After approval** | Released right away, on a date you choose, or when you click **Release**. Apple notes processing for distribution can take up to 24 hours. |
+| **Resubmission after a rejection** | Goes back into the queue, with the same typical review times |
+| **Expedited review** | Available for critical bug fixes and dated events, on request |
+
+## What Each Review Status Means
+
+You'll see these statuses for your app version in App Store Connect, and Apple emails you when they change:
+
+| Status | What it means | Who acts |
+|---|---|---|
+| **Prepare for Submission** | The version exists but isn't complete or submitted | You |
+| **Ready for Review** | All required information is in, but you haven't submitted yet | You |
+| **Waiting for Review** | Apple received your submission and hasn't started reviewing it. Review time is counted from here. | Apple |
+| **In Review** | A reviewer is testing your app | Apple |
+| **Pending Developer Release** | Approved, waiting for you to release it | You |
+| **Processing for Distribution** | Approved and being prepared for the App Store, ready within 24 hours | Apple |
+| **Ready for Distribution** | Approved and live (or ready to go live in the countries you chose) | Done |
+| **Rejected** or **Metadata Rejected** | Something didn't meet the guidelines. Check the message in App Store Connect. | You |
+| **Developer Rejected** | You pulled the version from review yourself | You |
+
+## The Full Timeline: From Built App to Live on the App Store
+
+With Vibecode, a typical first publish looks like this:
+
+1. **Apple Developer account:** enroll and pay $99/year. Individuals can do it in one sitting; organizations first need a D-U-N-S Number (up to 5 business days). See [How to Create an Apple Developer Account](/guides/apple-developer-account).
+2. **Build and upload:** Vibecode builds and uploads native iOS apps on its cloud Macs; Mobile app builds through Expo Launch take about 20 minutes
+3. **Apple processes the build** before it can be submitted
+4. **Complete your listing:** screenshots, description, privacy policy, App Privacy details, and age rating
+5. **Submit for review:** Vibecode submits native iOS apps for you; you submit Mobile apps in App Store Connect
+6. **App Review:** 90% of submissions finish within 48 hours
+7. **Release:** automatically, on a date, or manually
+
+The full steps are in [How to Publish an App to the App Store](/getting-started/deploy-app-store).
+
+## What Slows App Store Review Down
+
+- **Missing information.** Apple says incomplete submissions may take longer or not pass. Fill in every required field before you submit.
+- **A login with no demo account.** If the reviewer can't sign in, the app is rejected and you lose a round. Add a working demo account in **App Review Information**.
+- **Special setup.** Features that need specific hardware, a location, or an account type need clear notes, and sometimes a demo video.
+- **Your backend being off.** If the app can't load data during review, it's rejected under guideline 2.1. Keep your deployed backend running.
+- **Rejections.** Each rejection adds a full cycle: fix, rebuild, resubmit, wait again. Avoiding the [common rejection reasons](/guides/app-store-review-guidelines) is the biggest time saver.
+- **Regulated categories.** Banking, crypto, healthcare, gambling, and similar apps may need documentation and must be submitted by the organization that provides the service.
+
+## How to Speed Up App Store Review
+
+1. **Run a pre-submission check.** In a Vibecode Mobile app project, run **Preflight** (`/appstore-preflight`). For any app, go through the [review guidelines checklist](/guides/app-store-review-guidelines).
+2. **Give the reviewer everything.** A demo account, notes on how to reach key features, and anything special about your app go in **App Review Information**.
+3. **Use TestFlight first.** Test the exact build with real users so the reviewer doesn't find the bugs.
+4. **Plan launches with a scheduled release.** Submit early, then set the version to release on your launch date instead of waiting for approval on the day.
+5. **Request an expedited review** only when you need it (see below).
+
+## How to Request an Expedited Review
+
+Apple can expedite a review when you face extenuating circumstances, such as:
+
+- **A critical bug fix.** Include the steps to reproduce the bug in the current version of your app.
+- **An event-related app.** Include the event, its date, and your app's connection to it. Apple recommends scheduling the release in advance instead, but if your app is still in review and the event is close, you can ask.
+
+Submit the request through Apple's [expedited review request](https://developer.apple.com/help/app-review/after-submitting-for-review/request-expedited-review) after your app is submitted. Expedited reviews are granted at Apple's discretion, so don't plan a launch around one.
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion title="How long does App Store review take in 2026?">
+    Apple reviews at least 50% of submissions within 24 hours and 90% within 48 hours. Most apps are reviewed within two days of reaching Waiting for Review.
+  </Accordion>
+
+  <Accordion title="Why is my app stuck in Waiting for Review?">
+    Waiting for Review means Apple has your submission and hasn't started yet. Since Apple reviews 90% of submissions within 48 hours, longer waits are uncommon. Check that the submission is complete and that you haven't missed a message from App Review in App Store Connect. If it's urgent and you qualify, request an expedited review.
+  </Accordion>
+
+  <Accordion title="How long does In Review take?">
+    Apple doesn't publish a separate time for the In Review stage; its 24 and 48 hour figures cover the review as a whole. If the reviewer needs more information, they message you in App Store Connect, and the review waits for your reply, so answer quickly.
+  </Accordion>
+
+  <Accordion title="Do app updates take as long to review as new apps?">
+    Updates go through the same App Review process, and Apple's typical times (50% within 24 hours, 90% within 48 hours) apply to them too.
+  </Accordion>
+
+  <Accordion title="How long after approval does my app appear on the App Store?">
+    If you chose automatic release, it's released once approved. Apple notes that Processing for Distribution can take up to 24 hours before the app is available in every region you picked.
+  </Accordion>
+
+  <Accordion title="How long does it take to publish an app with Vibecode?">
+    The build and upload run in the cloud (Expo builds for Mobile apps take about 20 minutes), then Apple processes the build and reviews it, usually within 48 hours. If you're starting from scratch, also allow time to set up your Apple Developer account and App Store listing.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Publish to the App Store" icon="apple" href="/getting-started/deploy-app-store">
+    Step-by-step publishing guide
+  </Card>
+  <Card title="Review Guidelines Checklist" icon="list-check" href="/guides/app-store-review-guidelines">
+    Avoid rejections that add days
+  </Card>
+  <Card title="Apple Developer Account" icon="id-card" href="/guides/apple-developer-account">
+    Enroll and pay the $99 fee
+  </Card>
+  <Card title="Vibecode Pricing" icon="credit-card" href="https://www.vibecodeapp.com/pricing">
+    Plans with App Store submission
+  </Card>
+</CardGroup>

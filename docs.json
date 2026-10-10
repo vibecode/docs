@@ -31,11 +31,30 @@
           },
           {
             "group": "Prompt Templates",
-            "pages": ["getting-started/web-to-mobile", "getting-started/native-ui-components"]
+            "pages": ["getting-started/native-ui-components"]
           },
           {
             "group": "Example Projects",
             "pages": ["getting-started/use-case-1", "getting-started/use-case-2"]
+          }
+        ]
+      },
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Build an App",
+            "pages": ["guides/build-iphone-app-with-ai", "guides/swift-vs-react-native", "getting-started/web-to-mobile"]
+          },
+          {
+            "group": "Publish to the App Store",
+            "pages": [
+              "guides/apple-developer-account",
+              "guides/publish-app-without-mac",
+              "guides/testflight",
+              "guides/app-store-review-time",
+              "guides/app-store-review-guidelines"
+            ]
           }
         ]
       },

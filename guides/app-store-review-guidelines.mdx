@@ -1,0 +1,145 @@
+---
+title: "App Store Review Guidelines: Checklist to Avoid Rejection (2026)"
+sidebarTitle: "Review Guidelines Checklist"
+description: "Apple's App Store Review Guidelines in plain English, the most common rejection reasons with their guideline numbers, a pre-submission checklist, and what to do if your app is rejected."
+keywords: ["app store review guidelines", "app review guidelines", "app store guidelines", "app store rejection reasons", "apple app store guidelines"]
+---
+
+**Apple's App Review Guidelines are the rules every App Store app is checked against, organized in five sections: Safety, Performance, Business, Design, and Legal.** Most rejections come from a handful of them: Apple says over 40% of unresolved issues fall under guideline 2.1 App Completeness (crashes, placeholder content, broken links, missing demo login), followed by privacy (5.1), minimum functionality (4.2), accurate metadata (2.3), in-app purchase (3.1.1), and spam or copycat apps (4.3, 4.1). Run through the checklist below before you submit.
+
+*Last updated: October 10, 2026. Summarizes Apple's [App Review Guidelines](https://developer.apple.com/app-store/review/guidelines/), which are the official source and change over time.*
+
+## The Five Sections of the Guidelines
+
+| Section | What it covers | Examples |
+|---|---|---|
+| **1. Safety** | Protecting users from harmful content and from physical harm | Objectionable content, user-generated content moderation (1.2), kids apps, medical apps |
+| **2. Performance** | Whether the app works and is described honestly | App completeness (2.1), accurate metadata and screenshots (2.3), software requirements (2.5) |
+| **3. Business** | How you make money | In-app purchase (3.1.1), subscriptions (3.1.2), ads |
+| **4. Design** | Whether it's a real, original, app-like experience | Copycats (4.1), minimum functionality (4.2), spam (4.3), Sign in with Apple and login services (4.8) |
+| **5. Legal** | Privacy, intellectual property, and the law | Privacy policies and data collection (5.1), account deletion (5.1.1(v)), trademarks (5.2) |
+
+## Most Common Rejection Reasons
+
+| Reason | Guideline | What Apple sees | How to fix it |
+|---|---|---|---|
+| Crashes and bugs | 2.1 | The app crashes, freezes, or a feature doesn't work during review | Test on a real device and fix every bug before you submit |
+| Placeholder content | 2.1 | "Lorem ipsum", "coming soon", test data, or empty screens | Finish or remove unfinished screens |
+| Login with no demo account | 2.1 | The reviewer can't get past sign-in | Add a working demo account (that doesn't expire) in App Review Information |
+| Backend not running | 2.1 | The app loads but shows no data or errors | Deploy your backend and keep it running during review |
+| Broken links | 2.1, 5.1 | Support or privacy policy links that don't load | Every link must work, including your support and privacy policy URLs |
+| Missing or weak privacy policy | 5.1.1(i) | No privacy policy link, or one that doesn't explain your data use | Link a real policy in App Store Connect and inside the app |
+| Vague permission requests | 5.1.1 | "This app needs camera access" with no reason | Explain exactly why, for example "Take photos of receipts to log expenses" |
+| No account deletion | 5.1.1(v) | Users can create an account but not delete it in the app | Add a **Delete account** option in settings |
+| Just a website | 4.2 | A website inside an app, or too little functionality | Add native screens and features that make it app-like |
+| Inaccurate screenshots or description | 2.3 | Screenshots that are only a splash or login screen, or show features the app doesn't have | Show the app in use, and describe what it actually does |
+| Paying outside Apple's system | 3.1.1 | Digital features or content unlocked by a non-Apple payment | Use Apple in-app purchase for digital goods and subscriptions |
+| Copies and duplicates | 4.1, 4.3 | A clone of a popular app, or several near-identical apps | Make it your own: original name, icon, and design |
+| Using someone else's brand | 5.2 | Another company's name, logo, or content without permission | Only use content you created or are licensed to use |
+
+## Pre-Submission Checklist
+
+**Works and is complete (2.1)**
+- [ ] The app opens and runs on a real iPhone without crashing. Every button and link does something.
+- [ ] No placeholder text, test data, "coming soon" screens, or features that aren't finished
+- [ ] Your backend is deployed and will stay on while Apple reviews the app
+- [ ] If the app needs a login, a demo account (that won't expire) is in **App Review Information**, with notes for anything that's hard to reach
+- [ ] No hidden or undocumented features (2.3.1)
+
+**Honest listing (2.3)**
+- [ ] Screenshots show the app in use, not just the title, login page, or splash screen
+- [ ] The name, description, and screenshots match what the app actually does
+- [ ] The age rating answers are accurate
+
+**Privacy (5.1)**
+- [ ] A privacy policy link is in App Store Connect **and** inside the app. It says what data you collect, how you use it, and how users can ask for it to be deleted.
+- [ ] Every permission request (camera, location, photos, contacts, notifications) explains why the app needs it
+- [ ] The app only asks for permissions it actually uses
+- [ ] If users can create an account, they can delete it from inside the app
+- [ ] The app doesn't make people log in unless it has real account-based features
+- [ ] If the app sends personal data to another company, including a third-party AI service, it says so and asks permission first (5.1.2(i))
+- [ ] If the app tracks users across other companies' apps or websites, it asks through App Tracking Transparency
+- [ ] The App Privacy questions in App Store Connect match what the app really collects
+
+**Payments (3.1)**
+- [ ] Subscriptions, premium features, in-game currency, and other digital goods use Apple in-app purchase (3.1.1)
+- [ ] Paywalls show clear prices and terms, and include **Restore Purchases**
+- [ ] Auto-renewing subscriptions last at least 7 days and give ongoing value (3.1.2(a))
+- [ ] Your in-app purchase products are complete in App Store Connect and submitted with the app
+
+**Original and app-like (4)**
+- [ ] The app does more than show a website (4.2)
+- [ ] It isn't a copy of another app, and you're not submitting several near-identical apps (4.1, 4.3)
+- [ ] If it offers Google, Facebook, or another third-party login for the main account, it also offers Sign in with Apple or an equivalent private login option (4.8)
+- [ ] No other company's trademarks, logos, or copyrighted content without permission (5.2)
+
+**Social and user-generated content (1.2)**
+- [ ] Users can report offensive content and block abusive users
+- [ ] Objectionable content is filtered, and your contact information is published
+
+**Contact and support**
+- [ ] The support URL leads to real contact information
+
+## How Vibecode Helps You Pass Review
+
+- **Preflight (Mobile apps):** run `/appstore-preflight` in your project chat, or click **Preflight** in the Deploy menu. The agent checks privacy permissions (5.1), in-app purchases (3.1.1), completeness (2.1, 4.2), and misleading design (4.1, 4.3), fixes what it can, and lists what's left. See [Run Preflight Before Submitting](/getting-started/deploy-app-store#run-preflight-before-submitting).
+- **Agent testing:** after each change, the agent opens your app and taps through what it built, so fewer bugs reach App Review. See [Agent Testing](/features/agent-testing).
+- **Deployed backend:** for native iOS apps, Vibecode asks you to deploy your backend before it builds the app you publish, so the reviewer sees real data. For Mobile apps, [deploy your backend](/deploying/guide) before you start Expo Launch.
+- **In-app purchases through Apple:** [RevenueCat](/monetization/revenuecat-setup) runs on Apple's in-app purchase system, and Preflight checks that your paywall shows clear pricing and a **Restore Purchases** button
+- **Fixing rejections:** paste Apple's rejection message into your project chat and ask the agent to fix it, then publish the new build
+
+You can also just ask: "Check my app against Apple's App Review Guidelines before I submit."
+
+## What to Do If Your App Is Rejected
+
+1. **Read the message.** Apple tells you which guideline your app didn't meet in App Store Connect, often with screenshots.
+2. **Fix it.** Paste the message into your Vibecode project chat and ask the agent to fix the issue. For metadata-only problems, edit the listing in App Store Connect; you don't need a new build.
+3. **Resubmit.** Publish the new build and submit it for review again, or reply to App Review in App Store Connect if they asked a question.
+4. **Appeal if Apple got it wrong.** If you believe the reviewer misunderstood your app, you can appeal to the App Review Board. Give specific reasons your app complies, submit only one appeal per rejected submission, and answer any open questions from App Review first.
+
+<Tip>Fixing a bug in an app that's already live and Apple finds other issues? Apple can approve the bug fix and let you resolve the other issues in your next submission, as long as there are no legal or safety concerns. Reply to the offer in App Store Connect to accept.</Tip>
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion title="What is the most common reason apps are rejected?">
+    Guideline 2.1, App Completeness. Apple says it accounts for over 40% of unresolved issues: crashes, bugs, placeholder content, broken links, and missing demo accounts.
+  </Accordion>
+
+  <Accordion title="Does Apple accept apps built with AI?">
+    The guidelines judge the app you submit, not the tool you built it with. An AI-built app has to meet the same rules as any other: it must be complete, original, honest about what it does, and handle privacy and payments correctly. If your app sends personal data to a third-party AI service, guideline 5.1.2(i) requires you to disclose that and get permission.
+  </Accordion>
+
+  <Accordion title="Can I put a website in an app?">
+    Not by itself. Guideline 4.2 says an app should "elevate it beyond a repackaged website." Rebuilding your site with native screens and features works much better. See [How to Turn a Website Into an App](/getting-started/web-to-mobile).
+  </Accordion>
+
+  <Accordion title="Do I have to use Apple's in-app purchase?">
+    For digital content, features, and subscriptions used inside the app, yes (3.1.1). Physical goods and services used outside the app, such as food delivery or rides, use other payment methods.
+  </Accordion>
+
+  <Accordion title="Do I need Sign in with Apple?">
+    Only if your app uses a third-party or social login (such as Google Sign-In or Facebook Login) for the user's main account. Then you must also offer Sign in with Apple or another login that limits data collection to name and email, lets users keep their email private, and doesn't track them for ads without consent (4.8).
+  </Accordion>
+
+  <Accordion title="How long does review take after I fix a rejection?">
+    A resubmission goes back into the queue. Apple reviews 50% of submissions within 24 hours and 90% within 48 hours. See [How Long Does App Store Review Take?](/guides/app-store-review-time)
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Publish to the App Store" icon="apple" href="/getting-started/deploy-app-store">
+    The full publishing guide
+  </Card>
+  <Card title="App Store Review Time" icon="clock" href="/guides/app-store-review-time">
+    How long review takes and how to speed it up
+  </Card>
+  <Card title="In-App Purchases" icon="cart-shopping" href="/monetization/revenuecat-setup">
+    Subscriptions that pass guideline 3.1.1
+  </Card>
+  <Card title="Compare AI App Builders" icon="scale-balanced" href="https://www.vibecodeapp.com/compare">
+    Which builders publish to the App Store
+  </Card>
+</CardGroup>
