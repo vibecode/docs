@@ -7,7 +7,7 @@ description: "Understanding Vibecode pricing, plans, and credit system"
 
 Vibecode uses a wholesale credit system: **$1 in credits = $1 in AI usage**. We charge exactly what the AI providers (Anthropic, OpenAI, etc.) charge us. No markup on AI costs.
 
-Credits are used when you send prompts in Vibecode. You need credits to build and iterate on your apps. The one exception is the first app build on a new account: it's free, and it doesn't use or add credits.
+Credits are used when you send prompts in Vibecode. You need credits to build and iterate on your apps. The one exception is the first app build on a new account that signs up with Google or Apple: it's free, and it doesn't use or add credits.
 
 **Credits roll over each billing cycle and never expire.**
 
@@ -15,7 +15,7 @@ Credits are used when you send prompts in Vibecode. You need credits to build an
 
 ### Free — $0
 
-- Your first app build is free (new accounts that sign up with Google or Apple on the web or iPhone app). No credits are added. To keep building after it, you'll need credits: subscribe to a paid plan, turn on auto-reload, or use one of the options in [Getting More Credits](#getting-more-credits).
+- Your first app build is free (new accounts that sign up with Google or Apple on the web or iPhone app). No credits are added. To keep building after it, you'll need credits: subscribe to a paid plan, turn on [auto-reload](#auto-reload), or redeem a promo code.
 - Access to Premium AI models
 - Build AI apps with just prompts — no API keys required
 
@@ -71,9 +71,40 @@ Our pricing tiers are experimental and may evolve. We may change tier limits at 
 
 ## Getting More Credits
 
+### Referral Program
+
+Share your referral link. When a friend creates an account with it, you **both** get $1 in credits right away. The $1 signup bonus applies to your first 5 referrals.
+
+When your friend subscribes to a paid plan for the first time, you both also get a one-time bonus based on their plan:
+
+| Friend's plan | You get | Your friend gets |
+|---------------|---------|------------------|
+| Plus | $10 | $10 |
+| Pro | $20 | $20 |
+| Max | $50 | $50 |
+
+After your first 5 referrals, you still get the plan bonus when a friend subscribes.
+
+To find your link:
+
+- **Web:** click **Copy referral link** in the **Refer friends** card at the bottom of the sidebar, or open **Settings** > **Referral history**
+- **iPhone:** in Profile or Settings, tap your link in the **Refer a friend** card to share it
+
+<Frame caption="The Refer friends card in the web sidebar">
+  <img src="/images/screens/refer-friends-card.png" alt="The Refer friends card in the web sidebar" style={{ maxWidth: "260px" }} />
+</Frame>
+
+On iPhone, your friend can also enter your code during onboarding and tap **Apply code**. See the [referral program page](https://www.vibecodeapp.com/referral) for full terms.
+
 ### Free Credits via Social Media
 
-Post about Vibecode on X, Instagram, YouTube, TikTok, LinkedIn, Facebook, Reddit, Threads, or Bluesky. Then log into Vibecode and click the credits section (bottom left on web, or Profile/Settings on mobile) to redeem. You don't need a paid plan; our team reviews each post before the credits are added.
+Post about what you're building on X, Instagram, YouTube, TikTok, LinkedIn, Facebook, Reddit, or Threads. Then submit your post on the web:
+
+1. Open a project and click your credit balance in the top-right corner
+2. Click **Get more credits**
+3. Paste the link to your post and click **Submit for Review**
+
+If you're on the Free plan and have used your first free build, add credits or a plan before submitting. Our team reviews each post and may award bonus credits based on post quality and engagement. You can track your submissions in the same window.
 
 ### Auto-Reload
 
@@ -87,17 +118,21 @@ Set up auto-reload in the web app at [vibecodeapp.com/account/subscription](http
 
 Upgrading gives you more credits per month plus access to additional features.
 
+<Frame caption="Click your credit balance to buy credits, compare plans, redeem a promo code, or turn on auto reload">
+  <img src="/images/screens/credits-menu.png" alt="Click your credit balance to buy credits, compare plans, redeem a promo code, or turn on auto reload" style={{ maxWidth: "400px" }} />
+</Frame>
+
 ## Billing FAQ
 
 <AccordionGroup>
   <Accordion title="How can I upgrade my subscription?">
-    **Web:** Sign into Vibecode and click Upgrade in the bottom left.
+    **Web:** Open a project, click your credit balance at the top, then click **Compare plans**.
 
     **iPhone:** Click the Profile or Settings button and scroll down to "Upgrade Subscription."
   </Accordion>
 
   <Accordion title="How can I downgrade my subscription?">
-    **Web:** Sign into Vibecode and click Upgrade in the bottom left. Select a different plan.
+    **Web:** Open a project, click your credit balance at the top, then click **Compare plans** and select a different plan.
 
     **iPhone:** Follow the [Apple subscription management instructions](https://support.apple.com/en-us/118448).
   </Accordion>
@@ -135,7 +170,7 @@ Upgrading gives you more credits per month plus access to additional features.
   </Accordion>
 
   <Accordion title="How do I see my remaining credits?">
-    **Web:** Bottom left of the web app.
+    **Web:** At the top of any project, or in **Settings** > **Credits balance**.
 
     **Mobile:** Profile or Settings section.
   </Accordion>
@@ -154,6 +189,8 @@ Here are rough estimates to help you plan your credit usage:
 | AI chat response | ~$0.01 – $0.05 |
 
 Costs vary based on complexity and the AI model used. These are rough estimates — actual usage depends on prompt length and output size.
+
+<Note>[Native iOS](/getting-started/native-ios-apps) builds are charged differently: each build (to install on your iPhone or for an App Store release) uses credits per minute of cloud build time, including builds that fail.</Note>
 
 ## Next Steps
 
