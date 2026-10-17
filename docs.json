@@ -35,6 +35,10 @@
             "pages": ["getting-started/web-app", "vibecode-cli"]
           },
           {
+            "group": "Vibecode in AI Assistants",
+            "pages": ["guides/vibecode-in-claude"]
+          },
+          {
             "group": "Vibecode Tools",
             "pages": ["getting-started/pinch-to-build", "getting-started/export-ssh", "getting-started/download-code"]
           },
