@@ -1,0 +1,71 @@
+---
+title: "Use Vibecode in Claude"
+sidebarTitle: "Vibecode in Claude"
+description: "Connect Vibecode to Claude to build native iPhone apps and web apps by chatting, follow each build in the chat, and try the finished app on a live iPhone simulator without leaving Claude."
+keywords: ["vibecode claude", "claude connector", "build an app in claude", "claude mcp app builder", "vibecode mcp"]
+---
+
+**Vibecode works inside Claude.** Describe an app in a Claude chat and Vibecode builds it: a native iPhone app, or a web app. A Vibecode card in the chat follows the build, then shows the finished iPhone app running on a live iPhone simulator you can tap through. Every app you make this way lives in your Vibecode account, so you can keep working on it in Vibecode on the web or in the Vibecode iPhone app.
+
+## What You Need
+
+- A Claude account. Vibecode works in Claude on the web, in the Claude desktop app and in the Claude iPhone app.
+- A Vibecode account. You can create one while connecting. New accounts that sign up with Google or Apple get their [first app build free](/getting-started/plans-and-credits); after that, building and the live preview use [credits](/getting-started/plans-and-credits).
+
+## Connect Vibecode
+
+<Steps>
+  <Step title="Find Vibecode in Claude">
+    In Claude, open **Customize**, then **Connectors**, and look for **Vibecode** in the connector directory.
+
+    If it isn't listed for you yet, add it yourself: select **Add**, then **Add custom connector**, name it **Vibecode**, and enter this server URL:
+
+    ```
+    https://api.vibecodeapp.com/mcp
+    ```
+
+    Select **Continue**, keep the options Claude picks for you (**Sign in now** and **Use Claude's published identity**), and select **Add**.
+  </Step>
+  <Step title="Sign in to Vibecode">
+    Select **Connect**. Sign in to Vibecode (or create an account), then select **Allow** on the page that says Claude wants to access Vibecode on your behalf.
+  </Step>
+  <Step title="Start a chat">
+    You're back in Claude, with Vibecode connected. You only connect once: Vibecode is then available in Claude on the web, on the desktop and on your iPhone.
+  </Step>
+</Steps>
+
+## Build an App
+
+Ask Claude for the app you want, in plain English:
+
+- *"Using Vibecode, build me an iPhone app to track my workouts, with a weekly summary."*
+- *"Build me a habit tracker iPhone app with daily streaks."*
+- *"Using Vibecode, build me a web app to plan my meals for the week."*
+
+Claude writes a short brief and starts the build. Claude asks for your permission before it uses a Vibecode tool: choose **Allow once**, or **Always allow** so it stops asking for that tool.
+
+A build usually takes about 10 minutes. While it runs, the Vibecode card shows what the agent is working on, and shows the app on an iPhone simulator while the agent tests it. Claude can wait for the build and tell you when it's ready.
+
+## Try the App in the Chat
+
+When an iPhone app is ready, the card shows it running on a live iPhone simulator. Click or tap through it as you would on a phone.
+
+- The preview uses credits while it runs. If nobody touches it for 2 minutes, it pauses itself; select **Resume preview** to start it again.
+- On a computer, select the full screen button on the card to make the preview larger.
+- A web app opens in Vibecode from the card.
+
+## Keep Going
+
+- **Change an app:** ask Claude, for example *"Make the buttons in my workout app blue and add a rest timer."* Vibecode makes the change and tests it, and the card follows along.
+- **See your apps:** ask *"Show me my Vibecode apps"* to pick up any app in your account, including ones you built in Vibecode itself.
+- **Open it elsewhere:** when an iPhone app is ready, the card has buttons to open it in Vibecode, to see it on your phone in the Vibecode iPhone app, and to publish it to the App Store from Vibecode. You can also ask Claude for these links.
+
+## Claude Code
+
+If you use Claude Code signed in with your Claude account, the connectors you add in Claude are available there too, so you can ask Claude Code to build or change your Vibecode apps the same way. Claude Code shows no card: ask it for links to open the app in Vibecode.
+
+## Disconnect
+
+In Claude, open **Customize**, then **Connectors**, select **Vibecode**, and remove or disconnect it. Your apps stay in your Vibecode account.
+
+To learn what Vibecode receives from Claude and what it sends back, see [Vibecode in ChatGPT and Claude](https://www.vibecodeapp.com/privacy) in our Privacy Policy. For help, visit [Support](/support).
