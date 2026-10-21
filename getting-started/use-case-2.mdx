@@ -1,38 +1,129 @@
 ---
 title: 'Make an Instagram Clone'
-description: 'Build a social media app with authentication and storage'
+description: 'Build a working Instagram clone app in Vibecode: remix the free Pixgram template or start from one prompt, then publish it to the App Store.'
+keywords: ["instagram clone", "instagram clone app", "instagram clone app free", "how to make an app like instagram", "clone instagram"]
 ---
 
-Building an Instagram clone is a great way to learn how to create real apps with user authentication, databases, and cloud storage. These features allow you to build apps that users can actually sign into and have their data persist.
+<Tip>
+  **TL;DR:** [Remix Pixgram](https://www.vibecodeapp.com/templates/instagram-clone), our Instagram clone template, to copy a working Swift app into your account for free. Running and changing it use credits, which come with plans from $20 a month. New to Vibecode? Build from the [prompt below](#prompt-example) first, since only your first project gets the free build. The [Instagram clone guide](https://www.vibecodeapp.com/clones/instagram-clone) has the demo and the full prompt.
+</Tip>
 
-## Getting Started
+**An Instagram clone is your own app built on Instagram's core features: a photo feed, stories, likes, comments, profiles and direct messages.** Pixgram has all of them, as a working iPhone app written in native Swift.
 
-Building an Instagram clone requires backend services like authentication, database, and storage. Here's how:
+<CardGroup cols={2}>
+  <Card title="Remix the Instagram clone" icon="copy" href="https://www.vibecodeapp.com/templates/instagram-clone">
+    Pixgram, a working Swift app. Free to copy into your account.
+  </Card>
+  <Card title="Full Instagram clone guide" icon="book-open" href="https://www.vibecodeapp.com/clones/instagram-clone">
+    Demo video, the full prompt, features and costs
+  </Card>
+</CardGroup>
 
-1. Open Vibecode and click **New app** on the web (or **New project** in the iPhone app)
-2. Before entering your first prompt, enable **Vibecode Cloud** in the project settings
-3. This gives you access to authentication, database, and storage features
+<div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
+  <img src="/images/instagram-clone/pixgram-feed.webp" alt="Pixgram home feed with a row of story rings above a photo post of a wooden boat on a mountain lake" style={{ width: '31%', maxWidth: '210px' }} className="rounded-xl" />
+  <img src="/images/instagram-clone/pixgram-story.webp" alt="Pixgram story viewer showing a field of red poppies with progress bars at the top and a Send message bar" style={{ width: '31%', maxWidth: '210px' }} className="rounded-xl" />
+  <img src="/images/instagram-clone/pixgram-comments.webp" alt="Pixgram comments sheet with replies, comment likes, an emoji bar and an Add a comment field" style={{ width: '31%', maxWidth: '210px' }} className="rounded-xl" />
+</div>
 
-## Why Backend Features Matter
+Want to clone your Instagram account to run two on one phone? Instagram itself lets you [add accounts and switch between them](https://help.instagram.com/589697191199472). This page is about building your own app.
 
-When you enable backend features, you get:
+## Getting started
 
-- **Authentication** - Users can create accounts and sign in securely
-- **Database** - Store user data and app content in the cloud
-- **Storage** - Save images, videos, and other files in the cloud
+Remixing is fastest if your account has credits. Copying Pixgram is free, but running it, building from a prompt and each change use credits, which come with [paid plans](/getting-started/plans-and-credits) from $20 a month. New accounts that sign up with Google or Apple get their first app build free, but only on their first project. If you're new, [start from a prompt](#start-from-a-prompt) before you remix anything.
 
-This means you can create real apps where people can sign into their own accounts, and all of their data is stored safely in the cloud and persists across sessions and devices.
+### Remix the template
 
-## Prompt Example
+1. Open the [Instagram clone template](https://www.vibecodeapp.com/templates/instagram-clone) and click **Remix this template**.
+2. Click **Remix Pixgram**, or **Remix this app** on a phone. If you're new, you answer a few questions and sign up, and Vibecode makes your copy. You can skip the plan offer that follows with **Continue to my app**.
+3. Your copy opens in the workspace. With credits on your account, it runs in the cloud iOS simulator. In our paid-account test on October 20, 2026, it was running a minute after the click.
+4. Ask for changes in chat, like "Rename the app to Crumb and make it a feed for home bakers."
 
-Once backend is enabled, use a prompt like:
+### Start from a prompt
 
+1. Signed out? Paste the [prompt below](#prompt-example) into the box on the [Vibecode homepage](https://www.vibecodeapp.com/), with **iPhone app** selected, and click **Build it**.
+2. Signed in? Click **New app**, choose **iOS app** and send the prompt. In the iPhone app, tap **New project**, then **iOS app**.
+3. Claude Code builds the app, tests it in the simulator and fixes what it finds. Our test build took 38 minutes on a paid account with Claude Opus 5.5.
+
+## What you get
+
+Pixgram comes with:
+
+- A home feed with photo and carousel posts
+- Stories with progress bars
+- Double-tap likes, comments and bookmarks
+- Explore with account search
+- A Create flow for new posts
+- Activity, profiles and direct messages
+
+It doesn't have Reels, sign-up, photo uploads or push notifications yet. Ask the agent for each one.
+
+## Why backend features matter
+
+Pixgram runs on sample data, so it needs no backend to run. Real users need one:
+
+- **Authentication.** People create accounts and sign in.
+- **Database.** Your app saves posts, likes, comments and follows in the cloud.
+- **Storage.** Your app keeps the photos people upload in the cloud.
+
+To add them, open the **Database** tab in your project and click **Enable database**. Vibecode puts a setup prompt in the chat box. Send it, and the agent sets up sign-in and a database with Vibecode Cloud. Then ask for photo uploads, like "Let people post photos from their library." Vibecode Cloud is included from the Plus plan, and [Backend and Auth](/features/backend-auth) explains how it works.
+
+<Frame>
+  ![The Database card in a Vibecode project, with the Enable database button, which puts a Vibecode Cloud setup prompt in the chat](/images/instagram-clone/database-tab.webp)
+</Frame>
+
+## Prompt example
+
+This is a 134-word version of the 785-word prompt that built Pixgram, which you can copy from the [Instagram clone guide](https://www.vibecodeapp.com/clones/instagram-clone#prompt). We sent it to a new iOS app on October 20, 2026, from a paid account with Claude Opus 5.5.
+
+```text First prompt wrap
+Build a native iPhone photo-sharing app called Pinhole, inspired by Instagram but with its own name, logo and colors. Use five tabs: Home, Explore, Create, Activity and Profile. Home has a stories row and a feed of photo posts. Double-tap a photo to like it with a heart animation, and open comments in a bottom sheet. Stories open full screen with progress bars. Explore is a photo grid with search. Create lets you pick a sample photo, add a caption and post it to the top of the feed. Activity lists likes, comments and new followers. Profile shows post, follower and following counts, a bio and a 3-column grid. Add direct messages with a chat list and threads. Use realistic sample data and real Unsplash photos, and make every button work. No login yet.
 ```
-Create an Instagram clone where users can sign up, log in, post photos with captions,
-like other users' posts, and follow other users. Store all user data and posts in the database.
-```
 
-## Next Steps
+It built Pinhole, with its own pinhole-camera logo, warm orange colors and all five tabs. The agent tested each tab in the simulator and fixed what it found, such as a cut-off logo.
+
+<div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
+  <img src="/images/instagram-clone/pinhole-home.webp" alt="Pinhole, built from this prompt: the home feed with a serif Pinhole wordmark, orange story rings and a photo post from Banff National Park" style={{ width: '31%', maxWidth: '210px' }} className="rounded-xl" />
+  <img src="/images/instagram-clone/pinhole-explore.webp" alt="Pinhole's Explore tab with a search bar, For you, Nature and Food filters, and a grid of photos" style={{ width: '31%', maxWidth: '210px' }} className="rounded-xl" />
+  <img src="/images/instagram-clone/pinhole-profile.webp" alt="Pinhole profile for noor.frames with post and follower counts, a bio, story highlights and a 3-column photo grid" style={{ width: '31%', maxWidth: '210px' }} className="rounded-xl" />
+</div>
+
+A new account's free first build runs on GPT-6.1 Sol with a time limit, and it builds a first version with a few of these features, not the whole app. You can build the rest with credits.
+
+## Publish it
+
+Click **Publish**, then **Publish to App Store**, and Vibecode builds, signs, uploads and submits your Swift app for review. You need the Plus plan or higher and an [Apple Developer account](/guides/apple-developer-account), which costs $99 a year.
+
+Before you submit a social app, add ways to report posts, block users and filter objectionable content, and list contact details. [Apple's guideline 1.2](https://developer.apple.com/app-store/review/guidelines/#user-generated-content) requires all four. Once people can sign up, they also need a way to delete their account in the app. [Publish to the App Store](/getting-started/deploy-app-store) has every step, and the [review guidelines checklist](/guides/app-store-review-guidelines) covers common rejections.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="What is an Instagram clone?">
+    An app with Instagram's core features under its own name and design. People build one to learn how social apps work, or to start a photo app for their own community.
+  </Accordion>
+
+  <Accordion title="Is there a free Instagram clone app?">
+    Yes, with limits. Pixgram is free to copy, but running and changing it use credits. For a free start, sign up with Google or Apple and build from the [prompt above](#prompt-example) as your first project.
+  </Accordion>
+
+  <Accordion title="Is it legal to make an Instagram clone?">
+    Yes, if it's your own brand. A photo feed and stories are common features, but Instagram's name, logo and other brand assets aren't yours to use, so Pixgram has its own name and logo. The [guide's FAQ](https://www.vibecodeapp.com/clones/instagram-clone#faq) has more.
+  </Accordion>
+
+  <Accordion title="Can I publish an Instagram clone to the App Store?">
+    Yes, if it has its own name, design and purpose, like a photo app for a running club. [Apple's guideline 4.1](https://developer.apple.com/app-store/review/guidelines/#copycats) rejects straight copies. See [Publish it](#publish-it) for the steps.
+  </Accordion>
+
+  <Accordion title="Does it work on Android?">
+    Pixgram is native Swift, so it runs on iPhone and iPad. For Android, click **New app**, open **Legacy**, choose **Mobile app (Legacy)** and send the prompt above with "native iPhone" changed to "mobile". That builds a React Native app, and on the Pro and Max plans you can [download its code](/getting-started/download-code) and publish it on Google Play yourself. [Swift vs React Native](/guides/swift-vs-react-native) explains the difference.
+  </Accordion>
+
+  <Accordion title="Is there another app similar to Instagram?">
+    Yes. [VSCO](https://www.vsco.co) pairs photo editing with a community, [Pixelfed](https://pixelfed.org) is a free, open-source photo-sharing network, and [Glass](https://glass.photo) is a paid community for photographers with no ads. Or build one for your own group from Pixgram.
+  </Accordion>
+</AccordionGroup>
+
+## Next steps
 
 <CardGroup cols={2}>
   <Card title="Build a To-Do List" icon="list-check" href="/getting-started/use-case-1">
@@ -40,5 +131,8 @@ like other users' posts, and follow other users. Store all user data and posts i
   </Card>
   <Card title="Vibecode Cloud" icon="cloud" href="/features/vibecode-cloud">
     Learn about the backend powering your app
+  </Card>
+  <Card title="Clone templates" icon="clone" href="https://www.vibecodeapp.com/templates">
+    Remix clones of TikTok, YouTube, Discord, Uber and more
   </Card>
 </CardGroup>
