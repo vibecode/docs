@@ -1,0 +1,89 @@
+---
+title: "Vibecode Cloud vs. Vercel, Supabase and Clerk"
+sidebarTitle: "Cost vs. Other Stacks"
+description: "What a Vibecode Cloud backend costs next to the same hosting, database, file storage, sign-in and email from Vercel, Supabase, Clerk and Resend."
+---
+
+**A Vibecode Cloud backend costs $20 a month per app. Hosting, a database, file storage, sign-in and sign-in emails are all included. Buying the same pieces from Vercel, Supabase, Clerk and Resend costs $45 to $70 a month for an app with 10,000 monthly users.**
+
+Plus ($20/mo) includes one live backend, Pro includes three and Max includes five. Each backend beyond that is $20 a month. See [deployment pricing](/deploying/guide#pricing).
+
+## Vibecode Cloud vs. the popular stack
+
+Per month, for one live app with 10,000 monthly users.\*
+
+| Job | Vibecode Cloud | Cost | Popular | Cost |
+|---|---|---|---|---|
+| Hosting + API | Bun + Hono server, custom domain with HTTPS | Included | Vercel Pro | $20 |
+| Database | SQLite with Prisma | Included | Supabase Pro | $25 |
+| File storage + CDN | Vibecode Storage, 20 GB | Included | Supabase Storage | In Pro |
+| Sign-in | Better Auth: email and password, email codes, Google, Apple | Included | Clerk | $0–25 |
+| Sign-in emails | Vibecode email, 100 a day | Included | Resend | $0 |
+| **Total** | | **$20** | | **$45–70** |
+
+\*List prices as of October 26, 2026, from the [Vercel](https://vercel.com/pricing), [Supabase](https://supabase.com/pricing), [Clerk](https://clerk.com/pricing) and [Resend](https://resend.com/pricing) pricing pages. Assumes one developer seat and usage within each plan's included amounts.
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="What does the $20 a month cover?">
+    Hosting for your web app and backend, a SQLite database, 20 GB of file storage with a CDN, user sign-in with Better Auth, and sign-in and welcome emails. On Plus, the $20 also includes $20 of AI credits. A backend beyond your plan's allowance is $20 a month on its own, with no credits.
+  </Accordion>
+
+  <Accordion title="Do I pay more as my app gets more users?">
+    No. Vibecode Cloud has no per-user, per-request or bandwidth fees. The popular stack charges by usage: Clerk charges $0.02 for each monthly user past 50,000, and Vercel and Supabase bill for usage beyond each plan's included amounts.
+  </Accordion>
+
+  <Accordion title="Are AI features included?">
+    No. AI calls your app makes, like chat, image generation, voice and the other [integrations](/integrations/index), are billed to your Vibecode credits. You don't need your own API keys. The comparison above leaves AI out.
+  </Accordion>
+
+  <Accordion title="What are the limits?">
+    - **File storage:** 20 GB per app, up to 500 MB per file
+    - **Emails:** 100 a day per app, for sign-in codes and welcome emails
+    - **Compute:** up to one CPU core per app
+
+    For more emails, or emails other than sign-in and welcome, connect [Resend](/integrations/resend-email).
+  </Accordion>
+
+  <Accordion title="Why not use the popular stack's free tiers?">
+    - **Vercel Hobby** is for personal, non-commercial use only.
+    - **Supabase Free** caps the database at 500 MB and file storage at 1 GB.
+    - **Clerk Free** shows a "Secured by Clerk" badge on your sign-in screen.
+    - **Resend Free** is fine for sign-in emails: it has the same 100-a-day cap as Vibecode email, so it counts as $0 above.
+  </Accordion>
+
+  <Accordion title="Why is the popular stack a range?">
+    Supabase Pro also includes sign-in for up to 100,000 monthly users. If you use Supabase Auth instead of Clerk, the popular stack is $45 a month. Clerk is free up to 50,000 monthly users but shows its badge on your sign-in screen. Clerk Pro removes the badge for $25 a month, which makes it $70.
+  </Accordion>
+
+  <Accordion title="Why SQLite instead of Postgres?">
+    The database is a file on your backend's server, so there's nothing to provision, connect or pay for separately. Your app reads it through Prisma. If you'd rather use Postgres, connect Supabase or another database instead.
+  </Accordion>
+
+  <Accordion title="Can I use Supabase, Firebase or Clerk instead?">
+    Yes. Ask the agent to connect them and add your keys in the ENV tab. You then pay those services directly, as in the table above.
+  </Accordion>
+
+  <Accordion title="Can I move my backend off Vibecode later?">
+    Yes. On Pro and up you can [download your code](/getting-started/download-code). The backend is a standard Hono server with Prisma and Better Auth, so it runs anywhere Bun runs. File storage and sign-in emails use the Vibecode SDK, so swap those for another provider when you move.
+  </Accordion>
+
+  <Accordion title="How did you get these numbers?">
+    For each job, we took the cheapest plan that allows a commercial app with 10,000 monthly users, using list prices on October 26, 2026:
+
+    - **Vercel Pro:** $20 a month per developer seat, with $20 of usage included
+    - **Supabase Pro:** $25 a month, with an 8 GB database, 100 GB of file storage and 100,000 monthly sign-in users
+    - **Clerk:** free up to 50,000 monthly retained users with the Clerk badge, or $25 a month for Pro
+    - **Resend:** free for 3,000 emails a month and 100 a day
+  </Accordion>
+</AccordionGroup>
+
+<CardGroup cols={2}>
+  <Card title="Vibecode Cloud" icon="cloud" href="/features/vibecode-cloud">
+    What's included and how to turn it on
+  </Card>
+  <Card title="Deploy Your App" icon="rocket" href="/deploying/guide">
+    Deploy your backend and app
+  </Card>
+</CardGroup>
