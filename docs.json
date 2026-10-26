@@ -61,7 +61,7 @@
           },
           {
             "group": "Backend & Data",
-            "pages": ["features/vibecode-cloud", "features/backend-auth"]
+            "pages": ["features/vibecode-cloud", "features/vibecode-cloud-cost", "features/backend-auth"]
           },
           {
             "group": "Authentication",
