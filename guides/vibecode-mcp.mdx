@@ -1,0 +1,161 @@
+---
+title: "Connect Vibecode to Your AI Tool (MCP)"
+sidebarTitle: "Vibecode MCP"
+description: "Connect Vibecode to ChatGPT, Claude, Claude Code, Codex, Cursor, VS Code, Gemini CLI or any app that supports MCP, then build and change iPhone and web apps by asking your AI."
+keywords: ["vibecode mcp", "mcp server", "vibecode claude code", "vibecode codex", "vibecode cursor", "vibecode vs code", "vibecode gemini cli", "build an app with mcp"]
+---
+
+**Vibecode has an MCP server, so you can use it from the AI tools you already use.** Connect it once, sign in to your Vibecode account, and ask your AI for an app. Vibecode's agent builds the app, tests it, and saves it to your account. You can keep working on it in Vibecode on the web or in the Vibecode iPhone app.
+
+The server URL is:
+
+```
+https://api.vibecodeapp.com/mcp
+```
+
+## What You Need
+
+- An AI app that supports MCP servers with sign-in. ChatGPT, Claude, Claude Code, Codex, Cursor, VS Code and Gemini CLI all do.
+- A Vibecode account. You can create one on the sign-in page when you connect. New accounts that sign up with Google or Apple get their [first app build free](/getting-started/plans-and-credits). After that, builds and changes use [credits](/getting-started/plans-and-credits).
+
+## Connect Vibecode
+
+### ChatGPT and Claude
+
+- **ChatGPT:** open [Vibecode in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6ac19ea1f9488191a0a16ee661f57e60) and connect it, then sign in to Vibecode.
+- **Claude:** open **Customize**, then **Connectors**, and add Vibecode. If it isn't in the directory for you yet, add it as a custom connector with the server URL. [Use Vibecode in Claude](/guides/vibecode-in-claude) has every step.
+
+### Coding Tools and Other Apps
+
+<Tabs>
+  <Tab title="Claude Code">
+    <Steps>
+      <Step title="Add the server">
+        ```bash
+        claude mcp add --transport http -s user vibecode https://api.vibecodeapp.com/mcp
+        ```
+
+        `-s user` makes Vibecode available in every folder, not just the current one.
+      </Step>
+      <Step title="Sign in">
+        In Claude Code, run `/mcp`, select **vibecode**, then select **Authenticate**. Your browser opens the Vibecode sign-in page. Sign in and select **Allow**.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Codex">
+    <Steps>
+      <Step title="Add the server">
+        ```bash
+        codex mcp add vibecode --url https://api.vibecodeapp.com/mcp
+        ```
+      </Step>
+      <Step title="Sign in">
+        Codex opens the Vibecode sign-in page. Sign in and select **Allow**. To sign in again later, run `codex mcp login vibecode`.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Cursor">
+    <Steps>
+      <Step title="Add the server">
+        Open [Add Vibecode to Cursor](https://cursor.com/install-mcp?name=vibecode&config=eyJ1cmwiOiJodHRwczovL2FwaS52aWJlY29kZWFwcC5jb20vbWNwIn0=). Cursor opens and asks **Install MCP server?** Leave the client ID and secret empty, and select **Install**.
+      </Step>
+      <Step title="Sign in">
+        Vibecode shows **Needs authentication**. Select **Authenticate**, then sign in to Vibecode and select **Allow**. Vibecode then shows its tools as enabled.
+      </Step>
+    </Steps>
+
+    To add it by hand instead, put this in `~/.cursor/mcp.json`:
+
+    ```json
+    {
+      "mcpServers": {
+        "vibecode": { "url": "https://api.vibecodeapp.com/mcp" }
+      }
+    }
+    ```
+  </Tab>
+  <Tab title="VS Code">
+    <Steps>
+      <Step title="Add the server">
+        Open [Add Vibecode to VS Code](https://vscode.dev/redirect/mcp/install?name=vibecode&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fapi.vibecodeapp.com%2Fmcp%22%7D). VS Code shows the Vibecode server. Select **Install**.
+      </Step>
+      <Step title="Sign in">
+        VS Code says the server wants to authenticate to Vibecode. Select **Allow**, then **Open** to open the sign-in page. Sign in to Vibecode and select **Allow**.
+      </Step>
+    </Steps>
+
+    To add it by hand instead, run **MCP: Add Server** from the Command Palette, choose **HTTP**, and enter the server URL.
+  </Tab>
+  <Tab title="Gemini CLI">
+    <Steps>
+      <Step title="Add the server">
+        ```bash
+        gemini mcp add -s user --transport http vibecode https://api.vibecodeapp.com/mcp
+        ```
+
+        `-s user` makes Vibecode available in every folder, not just the current one.
+      </Step>
+      <Step title="Sign in">
+        Gemini CLI doesn't ask you to sign in on its own. Start it, run `/mcp auth vibecode`, and select **Yes**. Sign in to Vibecode and select **Allow**. `/mcp list` then shows Vibecode as **Ready**.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Other">
+    Add a remote MCP server (also called HTTP or streamable HTTP) with the server URL. Leave any client ID and secret fields empty: Vibecode accepts apps that register themselves. When your app opens the Vibecode sign-in page, sign in and select **Allow**.
+  </Tab>
+</Tabs>
+
+## What Your AI Can Do
+
+Ask in plain English, for example:
+
+- *"Using Vibecode, build me an iPhone app to track my workouts, with a weekly summary."*
+- *"Build me a web app to plan my meals for the week."*
+- *"Show me my Vibecode apps."*
+- *"Make the buttons in my workout app blue and add a rest timer."*
+- *"Why did the last build of my habit tracker fail?"*
+
+A build usually takes about 10 minutes. Your AI can wait for it and tell you when the app is ready, with links to open it in Vibecode, see it on your phone in the Vibecode iPhone app, or publish it to the App Store.
+
+What Vibecode offers depends on the app. Other apps means Claude Code, Codex, Cursor, VS Code, Gemini CLI and any other MCP app. They show no app card, so your AI gives you links instead.
+
+| | ChatGPT | Claude | Other apps |
+| --- | --- | --- | --- |
+| Build and change apps, follow builds | Yes | Yes | Yes |
+| A live app card in the chat | Yes | Yes | No |
+| See what the agent did, read the code and logs, restore an earlier version | Yes | No | Yes |
+| Rename, copy or delete apps | Yes | No | Yes |
+| Run commands in the app's workspace | No | No | Yes |
+
+`run_command` runs a shell command in the app's workspace, a Linux sandbox in the app's folder, and returns the output. Use it to run tests, check versions or install a package. A command stops after 45 seconds.
+
+## Your Account and Your Data
+
+- Your AI only gets access after you sign in and select **Allow**. The sign-in page names the app asking for access.
+- It can see your Vibecode apps and their code. Your app's keys stay hidden in files, logs and command output.
+- Builds and changes use your Vibecode credits, the same as building in Vibecode.
+- To learn what Vibecode receives and sends back, see [Vibecode in ChatGPT and Claude](https://www.vibecodeapp.com/privacy) in our Privacy Policy.
+
+## Disconnect
+
+Remove the server in your app's MCP or connector settings. In the command-line tools:
+
+```bash
+claude mcp remove vibecode -s user
+codex mcp remove vibecode
+gemini mcp remove -s user vibecode
+```
+
+Your apps stay in your Vibecode account.
+
+## Troubleshooting
+
+- **The sign-in page doesn't open.** In Gemini CLI, run `/mcp auth vibecode`. In VS Code, select **Allow**, then **Open**. In Cursor, select **Authenticate** next to Vibecode. In Codex, run `codex mcp login vibecode`.
+- **Claude Code shows two Vibecode servers.** Connectors you add in Claude also appear in Claude Code, as **claude.ai Vibecode**, with Claude's tools. The one you add with `claude mcp add` has all the tools in the table above.
+- **A build doesn't start.** Your account may be out of credits. Your AI tells you why, and you can add credits or choose a plan in Vibecode.
+
+## Vibecode MCP or Vibecode CLI?
+
+With the MCP, Vibecode's agent writes the app and your AI directs it. With the [Vibecode CLI](/vibecode-cli), your own agent writes the code and uses Vibecode's sandboxes, databases, sign-in and hosting to run and publish it.
+
+For help, visit [Support](/support).
