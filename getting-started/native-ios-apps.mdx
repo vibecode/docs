@@ -24,6 +24,7 @@ You choose the platform per project:
 | **Preview** | Cloud iOS Simulator, streamed live | On your phone or in the web preview | In the browser |
 | **Install on your phone** | Vibecode builds and signs it for your iPhone | Run it through the Vibecode app | Open the URL |
 | **App Store** | Built, signed, and uploaded by Vibecode | Built with Expo Launch | Not applicable |
+| **In-app purchases** | [RevenueCat](/monetization/revenuecat-setup#ios-app-swift-projects), set up by the agent | [RevenueCat](/monetization/revenuecat-setup#mobile-app-react-native-projects) in the **Payment** tab | [Stripe](/monetization/stripe-setup) |
 
 Pick **iOS app** when you want a real native iPhone app that looks and feels like one. Pick **Mobile app** when you need the same app on iOS and Android. For a deeper comparison, see [Swift vs React Native](/guides/swift-vs-react-native).
 
@@ -128,6 +129,10 @@ Your listing, Apple's review, and what to do after approval are covered in [How 
 
 Want a TestFlight build instead? Ask the agent in chat to "upload this build to TestFlight." Then [invite testers in App Store Connect](/guides/testflight).
 
+## Subscriptions and In-App Purchases
+
+Ask the agent to add a subscription, for example "Add a monthly and a yearly plan with a 7-day free trial and a paywall for the premium features." It connects [RevenueCat](/monetization/revenuecat-setup#ios-app-swift-projects), creates the products in App Store Connect, builds the paywall, and tests a purchase in the cloud simulator, where purchases are free. You need a paid plan and an Apple Developer Program membership.
+
 ## Your Code
 
 Native iOS projects are standard Xcode projects that use Swift Package Manager for dependencies. On the Pro and Max plans you can [download the code](/getting-started/download-code) from the web app or [connect via SSH](/getting-started/export-ssh), then open it in Xcode.
@@ -138,7 +143,6 @@ A few features are specific to React Native projects and don't apply to native i
 
 - **Share links and the Appsmith app**: a native app has no web URL to share. Use **Install** to put it on your phone.
 - **Preflight**: the App Store preflight check is for Expo projects
-- **RevenueCat**: not available for native iOS apps yet
 - **Expo integrations** such as [Expo Push Notifications](/integrations/expo-push-notifications)
 
 ## Frequently Asked Questions
