@@ -49,6 +49,7 @@ On Linux, Cursor recommends its package repositories over the AppImage, because 
 
 <CodeGroup>
 ```bash Debian, Ubuntu
+sudo install -d -m 0755 /etc/apt/keyrings
 curl -fsSL https://downloads.cursor.com/keys/anysphere.asc | gpg --dearmor | sudo tee /etc/apt/keyrings/cursor.gpg > /dev/null
 echo "deb [arch=amd64,arm64 signed-by=/etc/apt/keyrings/cursor.gpg] https://downloads.cursor.com/aptrepo stable main" | sudo tee /etc/apt/sources.list.d/cursor.list > /dev/null
 sudo apt update
