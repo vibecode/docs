@@ -1,0 +1,257 @@
+---
+title: "How to Use Gemini CLI: Install, Free Limits, and Building Apps (2026)"
+sidebarTitle: "Gemini CLI"
+description: "Gemini CLI is Google's open-source AI agent for the terminal. Install it with npm, sign in with a Gemini API key (personal Google sign-in stopped in June 2026), and connect Vibecode to build iPhone apps."
+keywords: ["gemini cli", "how to use gemini cli", "install gemini cli", "is gemini cli free", "gemini vibe coding", "vibecode gemini"]
+---
+
+**Gemini CLI is Google's open-source AI coding agent for the terminal: you describe what you want in plain English, and it reads your project, edits files, and runs commands using Gemini models.** To use it, install it with `npm install -g @google/gemini-cli`, run `gemini` in your project folder, and sign in with a Gemini API key. The software is free, but since June 18, 2026, Google no longer serves Gemini CLI to personal Google accounts, free or paid. To build a native iPhone app without a Mac, connect Vibecode to Gemini CLI. Gemini CLI then directs Vibecode's agent, which builds the app on cloud Macs. Inside Vibecode itself, you can pick a Google Gemini model for any message.
+
+## Gemini CLI at a Glance
+
+| | |
+|---|---|
+| **What it is** | An AI agent in your terminal. It reads and edits files, runs shell commands, searches the web, and connects to MCP servers. |
+| **Made by** | Google. Open source under the Apache 2.0 license. |
+| **Where it runs** | Your terminal, plus a companion extension for VS Code and editors based on it |
+| **Works on** | Google recommends macOS 15+, Windows 11 24H2+, or Ubuntu 20.04+, with 4 GB+ RAM. Needs Node.js 20+. |
+| **Install** | `npm install -g @google/gemini-cli` |
+| **Is it free?** | The software is. To run it you need a Gemini API key (it has a small free tier), Vertex AI, or a Gemini Code Assist license from your organization. |
+| **Releases** | Weekly. The latest stable version is 0.65.0, from October 20, 2026. |
+| **With Vibecode** | Connect Vibecode over MCP, and Gemini CLI can have Vibecode's agent build native iPhone apps and web apps in the cloud. |
+
+## Is Gemini CLI Free?
+
+The software is free and open source. What costs money is the Gemini model behind it, and that changed on June 18, 2026. That day Google stopped serving Gemini CLI for personal Google accounts: the free Gemini Code Assist for individuals tier, Google AI Pro, and Google AI Ultra. **Sign in with Google** no longer works for them. Google moved those users to a new tool, Antigravity CLI.
+
+These options still work in Gemini CLI:
+
+| Option | Price and daily limit | Notes |
+|---|---|---|
+| Gemini API key, free tier | $0. 250 requests a day, Flash models only. | Create the key in Google AI Studio. Google may use your prompts to improve its products. |
+| Gemini API key, paid | Pay per token. Limits rise as you spend more. | Gemini 2.5 Flash costs $0.30 per million text input tokens and $2.50 per million output tokens. Google doesn't use your prompts to improve its products. |
+| Vertex AI | Pay per token, after 90 free days in Express mode. Limits vary by account. | For Google Cloud users. Now part of Google's Gemini Enterprise Agent Platform. |
+| Gemini Code Assist Standard or Enterprise | A per-seat license through your organization. 1,500 (Standard) or 2,000 (Enterprise) requests per user a day. | Google stopped selling new subscriptions on October 9, 2026. Existing ones work until the contract ends. |
+
+Limits and prices are from Google's [Gemini CLI quotas page](https://geminicli.com/docs/resources/quota-and-pricing/), [Gemini API pricing](https://ai.google.dev/gemini-api/docs/pricing), and [Code Assist sunset notice](https://docs.cloud.google.com/gemini/docs/codeassist/sunset) as of October 2026. Google's pages disagree right now. The quota table still lists 1,000 free requests a day for a personal Google account, but the banner on the same page and Google's [deprecation notice](https://developers.google.com/gemini-code-assist/docs/deprecations/code-assist-individuals) say that sign-in stopped on June 18, 2026. This page follows the deprecation notice.
+
+### Gemini CLI Free Tier Limits
+
+An unpaid Gemini API key gets 250 model requests a day, on Flash models only, with a per-minute limit on top. Vertex AI Express mode gives you 90 days before you must enable billing. Run `/stats model` in Gemini CLI to see your usage and limits. If you keep hitting the daily limit, Google recommends a paid API key or Vertex AI, which bill per token instead of stopping you.
+
+### What Is Antigravity CLI?
+
+Antigravity CLI (command `agy`) is Google's replacement for Gemini CLI on personal accounts. It has a $0 plan for individuals with basic weekly rate limits, and Google AI Pro and Ultra raise those limits. It still reads your `GEMINI.md` files. Google also says Gemini CLI isn't optimized for its flagship model, Gemini 4 Argon, and points you to Antigravity for it. This guide covers Gemini CLI, which still ships every week.
+
+## How to Install Gemini CLI
+
+Gemini CLI needs Node.js 20 or later (check with `node --version`). Then run one of these:
+
+<CodeGroup>
+```bash npm
+npm install -g @google/gemini-cli
+```
+```bash npx (no install)
+npx @google/gemini-cli
+```
+```bash Homebrew (macOS, Linux)
+brew install gemini-cli
+```
+```bash MacPorts (macOS)
+sudo port install gemini-cli
+```
+</CodeGroup>
+
+Open a new terminal window and check it worked:
+
+```bash
+gemini --version
+```
+
+It prints the version number, such as `0.65.0`.
+
+<Tip>Use npm if you can. Homebrew marked its `gemini-cli` formula deprecated on June 18, 2026, and plans to disable it on December 18, 2026. To update an npm install, run `npm install -g @google/gemini-cli@latest`.</Tip>
+
+### How to Sign In to Gemini CLI
+
+For most people, that now means a Gemini API key:
+
+1. Create a key in [Google AI Studio](https://aistudio.google.com/app/apikey).
+2. Set it in your terminal:
+
+<CodeGroup>
+```bash macOS, Linux
+export GEMINI_API_KEY="YOUR_API_KEY"
+```
+```powershell Windows PowerShell
+$env:GEMINI_API_KEY="YOUR_API_KEY"
+```
+</CodeGroup>
+
+3. Run `gemini` and select **Use Gemini API key**.
+
+To keep the key for every session, put `GEMINI_API_KEY="YOUR_API_KEY"` in `~/.gemini/.env`. Gemini CLI loads that file when it starts.
+
+Other accounts:
+
+- **Work or school account with a Code Assist license:** set `GOOGLE_CLOUD_PROJECT` to your project ID, run `gemini`, and select **Sign in with Google**.
+- **Vertex AI:** set `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION`, run `gcloud auth application-default login`, then select **Vertex AI**.
+- **Personal Google account:** **Sign in with Google** no longer works. Users report the error "This client is no longer supported for Gemini Code Assist for individuals", or Gemini CLI asks for an API key instead.
+
+Run `/auth` to change how you sign in. Google's [authentication guide](https://geminicli.com/docs/get-started/authentication) has every option.
+
+## How to Use Gemini CLI
+
+1. **Open a terminal in your project folder:** `cd path/to/your-project`
+2. **Start it:** type `gemini` and press Enter
+3. **Sign in:** the first time, select **Use Gemini API key**
+4. **Ask in plain English:** for example, `what does this project do?` or `add a dark mode toggle to the settings screen`
+5. **Approve changes:** Gemini CLI asks before it edits a file or runs a command. Press `Shift+Tab` to cycle between asking every time, approving edits automatically, and Plan Mode (read-only).
+6. **Keep going:** describe the next change, or say `commit my changes with a descriptive message`
+
+Commands you'll use most:
+
+| Command | What it does |
+|---|---|
+| `gemini` | Start an interactive session in the current folder |
+| `gemini "fix the build error"` | Start a session with a first prompt |
+| `gemini -r latest` | Continue your most recent session |
+| `gemini -p "explain this function"` | Ask a one-off question and exit |
+| `@path/to/file` | Add a file or folder to your prompt |
+| `/init` | Create a `GEMINI.md` file for this project |
+| `/model` | Choose the Gemini model |
+| `/stats model` | Show token usage and your limits |
+| `/rewind` | Go back to an earlier message, and undo file changes if you want |
+| `/clear` | Clear the conversation and start a new session |
+| `/help` | List available commands |
+| `/quit` | Exit |
+
+### Give Gemini CLI Lasting Context with GEMINI.md
+
+`GEMINI.md` is a Markdown file of instructions that Gemini CLI sends with every prompt, such as "use TypeScript" or "run the tests after every change". It reads `~/.gemini/GEMINI.md` for all your projects, then any `GEMINI.md` in your project folder and its parent folders. Run `/init` to have Gemini CLI write one, `/memory show` to see what it loaded, and `/memory reload` after you edit it. To use an existing `AGENTS.md` too, add `"context": {"fileName": ["AGENTS.md", "GEMINI.md"]}` to `~/.gemini/settings.json`.
+
+## How to Vibe Code an App with Gemini
+
+"Vibe coding" means building by describing what you want and judging the result, instead of writing the code yourself (more in [What is vibe coding?](https://www.vibecodeapp.com/what-is-vibe-coding) and [Can I vibe code?](https://www.vibecodeapp.com/blog/can-i-vibe-code)). There are three common ways to do it with Gemini:
+
+| Way to vibe code with Gemini | What it builds | Native iPhone apps |
+|---|---|---|
+| Gemini CLI, in your terminal | Whatever is in your project folder, using Gemini models and your API key | Writes the code, but building it needs a Mac with Xcode |
+| Google AI Studio Build mode, in your browser | Web apps (React and Node.js) and native Android apps (Kotlin). Cloud Run hosting and paid models can cost extra. | Not in Google's docs |
+| Vibecode, in your browser or the Vibecode iPhone app | Native Swift iPhone apps, React Native (Expo) apps for iPhone and Android, and web apps, with Gemini, Claude, GPT, or other models per message. Paid with credits, first app build free. | Built on cloud Macs. No Mac needed. |
+
+[Build mode in Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-build-mode) is Google's browser tool for vibe coding. You describe an app, it writes a full-stack web app or a native Android app, and you deploy it to Google Cloud Run.
+
+In Vibecode, every build runs Claude Code in a cloud sandbox, and the model picker in the prompt box sets the model for each message. Pick a Google Gemini model there and that message runs on Gemini, paid with Vibecode credits. You don't need Gemini CLI or a Google API key for this.
+
+## How to Build an iPhone App with Gemini CLI
+
+On your own, Gemini CLI can write a Swift app, but a native iPhone app needs a Mac with Xcode to build and run, plus an Apple Developer account to install or publish it.
+
+With Vibecode connected over MCP, you don't need a Mac. Gemini CLI directs Vibecode's agent, which writes the app, builds it on cloud Macs, tests it, and saves it to your Vibecode account.
+
+<Steps>
+  <Step title="Add Vibecode to Gemini CLI">
+    ```bash
+    gemini mcp add -s user --transport http vibecode https://api.vibecodeapp.com/mcp
+    ```
+
+    Keep `-s user`. Without it, Gemini CLI adds Vibecode only to the folder you're in.
+  </Step>
+  <Step title="Sign in to Vibecode">
+    Gemini CLI doesn't ask you to sign in on its own. Start `gemini`, run `/mcp auth vibecode`, and select **Yes**. Sign in to Vibecode (or create an account) and select **Allow**.
+  </Step>
+  <Step title="Check the connection">
+    Run `/mcp list`. Vibecode shows as **Ready**.
+  </Step>
+</Steps>
+
+<Warning>The two steps people miss are `-s user` when you add the server, and running `/mcp auth vibecode` yourself. Gemini CLI doesn't open the Vibecode sign-in page on its own.</Warning>
+
+Then ask in plain English:
+
+- *"Using Vibecode, build me an iPhone app to track my workouts, with a weekly summary."*
+- *"Build me a web app to plan my meals for the week."*
+- *"Show me my Vibecode apps."*
+- *"Make the buttons in my workout app blue and add a rest timer."*
+- *"Why did the last build of my habit tracker fail?"*
+
+Gemini CLI asks before it runs each Vibecode tool, and you can allow a tool once or always. A build usually takes about 10 minutes. Gemini CLI can wait for it, then give you links to open the app in Vibecode, see it on your phone in the Vibecode iPhone app, or publish it to the App Store. A terminal has no app card, so you get links.
+
+Gemini CLI gets every Vibecode tool. It can read the app's code and logs, restore an earlier version, and rename, copy, or delete apps. It also gets `run_command`, which runs a shell command in the app's cloud workspace (to run tests or check a version, for example) and stops after 45 seconds.
+
+| | Gemini CLI on its own | Gemini CLI with Vibecode |
+|---|---|---|
+| Who writes the app | Gemini CLI, in your project folder | Vibecode's agent, in a cloud workspace. Gemini CLI directs it. |
+| A native iPhone app (Swift) | A Mac with Xcode | [Built on cloud Macs](/getting-started/native-ios-apps). No Mac needed. |
+| Testing | You ask for tests and run them | The agent [tests the app it built](/features/agent-testing) |
+| The app on your phone | Install it from Xcode on a Mac | The Vibecode iPhone app |
+| App Store publishing | Signing and App Store Connect yourself | [Publish from Vibecode](/getting-started/deploy-app-store) |
+| What you pay | Your Gemini API usage | Your Gemini API usage, plus [Vibecode credits](/getting-started/plans-and-credits) for builds. First app build free. |
+
+Connecting is free. To remove Vibecode, run `gemini mcp remove -s user vibecode`. Your apps stay in your account. [Connect Vibecode to your AI tool](/guides/vibecode-mcp) has the steps for other apps.
+
+Want the opposite setup, where Gemini CLI writes the code and uses Vibecode to run and publish it? That's the [Vibecode CLI](/vibecode-cli).
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion title="Is Gemini CLI free?">
+    The software is free and open source, but it needs model access to run. Since June 18, 2026, personal Google accounts (free, Google AI Pro, and Google AI Ultra) can't sign in to it. The free option left is an unpaid Gemini API key from Google AI Studio. Beyond that, you pay per token.
+  </Accordion>
+
+  <Accordion title="What are Gemini CLI's free limits?">
+    As of October 2026, an unpaid Gemini API key gets 250 requests a day on Flash models only, plus a per-minute limit. Vertex AI Express mode runs 90 days before you need billing. Personal Google accounts, which used to get 1,000 requests a day, get none. Run `/stats model` to see yours.
+  </Accordion>
+
+  <Accordion title="Why doesn't Sign in with Google work in Gemini CLI anymore?">
+    On June 18, 2026, Google stopped serving Gemini CLI for personal accounts, including Google AI Pro and Ultra subscribers, and moved them to Antigravity CLI. Work and school accounts with a Gemini Code Assist Standard or Enterprise license can still sign in with Google. Everyone else needs a Gemini API key or Vertex AI.
+  </Accordion>
+
+  <Accordion title="How do I add an MCP server to Gemini CLI?">
+    Run `gemini mcp add` with a name and the server's command or URL. For a remote server, add `--transport http`, and add `-s user` so it works in every folder, not just the current project. For example: `gemini mcp add -s user --transport http vibecode https://api.vibecodeapp.com/mcp`. If the server needs a sign-in, run `/mcp auth` and the server's name inside Gemini CLI.
+  </Accordion>
+
+  <Accordion title="Can Gemini CLI build iPhone apps?">
+    It can write the code, but a native Swift app needs a Mac with Xcode to build and run, and an Apple Developer account to install or publish it. With Vibecode connected, Gemini CLI has Vibecode's agent build the app on cloud Macs, so you don't need a Mac.
+  </Accordion>
+
+  <Accordion title="Can I use Gemini models in Vibecode?">
+    Yes. The model picker in Vibecode's prompt box lets you choose Google Gemini models for any message, as well as Claude and OpenAI GPT models. Usage comes from your Vibecode credits, so you don't need a Google account or API key.
+  </Accordion>
+
+  <Accordion title="Does Vibecode run Gemini CLI?">
+    No. Every Vibecode build runs Claude Code in a cloud sandbox, with the model you pick. Gemini CLI comes in only when you run it on your own computer and connect Vibecode over MCP.
+  </Accordion>
+
+  <Accordion title="Gemini CLI vs Claude Code">
+    Both are terminal coding agents that read your project, edit files, and run commands. Gemini CLI is open source, runs Gemini models, and has a small free tier through a Gemini API key, so it costs less to try. Claude Code runs Anthropic's Claude models and needs a paid Claude plan (Pro is $20/month as of October 2026) or a Claude Console account. Both connect to Vibecode over MCP. See [How to use Claude Code](/getting-started/claude-code).
+  </Accordion>
+
+  <Accordion title="Gemini CLI vs Antigravity CLI">
+    Both are Google coding agents for the terminal. Antigravity CLI is newer, and it's the only one personal Google accounts can use since June 18, 2026. Gemini CLI is open source, still gets weekly releases, and works with API keys, Vertex AI, and organization licenses.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Connect Vibecode to Your AI Tool" icon="plug" href="/guides/vibecode-mcp">
+    Steps for Gemini CLI, Claude Code, Codex, Cursor, and more
+  </Card>
+  <Card title="How to Use Claude Code" icon="terminal" href="/getting-started/claude-code">
+    Install, cost, and building apps with Claude Code
+  </Card>
+  <Card title="How to Use Codex" icon="code" href="/guides/codex">
+    OpenAI's coding agent, and building apps with it
+  </Card>
+  <Card title="How to Use Cursor" icon="arrow-pointer" href="/guides/cursor">
+    The AI code editor, and building apps with it
+  </Card>
+  <Card title="Build an App with ChatGPT" icon="comments" href="/guides/build-app-with-chatgpt">
+    Build and follow an app from a ChatGPT chat
+  </Card>
+  <Card title="Native iOS Apps" icon="apple" href="/getting-started/native-ios-apps">
+    Swift apps for iPhone, no Mac needed
+  </Card>
+</CardGroup>
