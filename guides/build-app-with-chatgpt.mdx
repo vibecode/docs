@@ -1,0 +1,224 @@
+---
+title: "Can ChatGPT Build an App? How to Make an iPhone App with ChatGPT (2026)"
+sidebarTitle: "Vibecode in ChatGPT"
+description: "ChatGPT writes code, but on its own it can't build, run, or publish an iPhone app. Connect Vibecode in ChatGPT and ChatGPT builds a real native iPhone app or web app that runs in the chat and can go to the App Store."
+keywords: ["can chatgpt build an app", "how to make an app with chatgpt", "chatgpt app builder", "build iphone app with chatgpt", "vibecode chatgpt", "chatgpt vibe coding"]
+---
+
+**ChatGPT can write the code for an app, but on its own it can't compile, run, test, or publish an iPhone app for you.** To turn that code into an app yourself, you need Xcode on a Mac, a paid Apple Developer account to publish it, and the setup in between: a project, build errors, signing, and the App Store listing. Or connect Vibecode in ChatGPT, and ChatGPT builds a real native iPhone app or web app for you. You try it running inside the chat, and an iPhone app can go to the App Store. You don't need a Mac, and you don't write any code.
+
+## Can ChatGPT Build an App on Its Own?
+
+Here is what a plain ChatGPT chat does for an iPhone app, and what changes with Vibecode connected:
+
+| To get an iPhone app you need | ChatGPT on its own | ChatGPT with Vibecode |
+|---|---|---|
+| The code | ChatGPT writes it in the chat, and you copy it into a project | Vibecode's agent writes it from a brief that ChatGPT sends |
+| A build | You compile it in Xcode on a Mac | Built on cloud Macs. No Mac needed. |
+| A way to run it | The iOS Simulator in Xcode, or your own iPhone | A live iPhone simulator inside the chat |
+| Testing | You tap through it and paste errors back into ChatGPT | The agent [tests the app](/features/agent-testing) and fixes what it finds |
+| App Store publishing | Signing, App Store Connect, and App Review, all yourself | [Publish from Vibecode](/getting-started/deploy-app-store) |
+| Cost | Any ChatGPT plan, a Mac, and $99/year to publish | Connecting is free. Your first app build is free, then Vibecode credits. |
+
+## What Is Vibecode in ChatGPT?
+
+Vibecode is a plugin in ChatGPT. On July 9, 2026, OpenAI replaced its App Directory with the Plugin Directory, so what used to be called ChatGPT apps now sit under **Plugins**. The Vibecode plugin connects ChatGPT to your Vibecode account.
+
+When you ask for an app, ChatGPT turns your request into a short build brief and sends it to Vibecode. Vibecode's agent builds the app in the cloud: a native Swift and SwiftUI [iPhone app](/getting-started/native-ios-apps) compiled on cloud Macs, or a web app that runs in the browser. It tests the app and saves it to your Vibecode account, where you can keep working on it in Vibecode on the web or in the Vibecode iPhone app.
+
+## What You Need
+
+- **A ChatGPT account.** OpenAI's plugin directory is on every ChatGPT plan, including Free. Whether you can install a given plugin depends on your plan, region, workspace, and the ChatGPT app you use. Plugins are in ChatGPT on the web, in the desktop app, and in the mobile apps.
+- **On a work account, a workspace that allows it.** ChatGPT Business turns many apps on by default. Enterprise and Edu workspaces start with a selected set. If Vibecode shows **Disabled by admin**, ask your workspace admin.
+- **A Vibecode account.** You can create one while connecting. New accounts that sign up with Google or Apple get their [first app build free](/getting-started/plans-and-credits). After that, builds, changes, and the live preview use [credits](/getting-started/plans-and-credits).
+
+You don't need a Mac, Xcode, or coding experience. OpenAI's plan, region, and workspace rules are from [OpenAI's plugin help article](https://help.openai.com/en/articles/20001256-plugins-in-chatgpt) as of October 2026.
+
+## How to Connect Vibecode in ChatGPT
+
+<Steps>
+  <Step title="Open Vibecode in ChatGPT">
+    Open [Vibecode in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6ac19ea1f9488191a0a16ee661f57e60). Or select **Plugins** in the ChatGPT sidebar and search for **Vibecode**. **Plugins** is in the sidebar on chatgpt.com, in the ChatGPT desktop app, and in the ChatGPT mobile apps.
+  </Step>
+  <Step title="Install it">
+    Select **Install plugin**. If ChatGPT asks you to connect Vibecode, select **Connect**. If ChatGPT doesn't ask yet, it asks when you first use Vibecode in a chat.
+  </Step>
+  <Step title="Sign in to Vibecode">
+    Sign in to Vibecode (or create an account), then select **Allow**. ChatGPT can now build and change apps in your Vibecode account.
+  </Step>
+  <Step title="Start a chat">
+    Ask for an app in a new chat. ChatGPT uses your installed plugins when they fit the request. To pick Vibecode yourself, type **@Vibecode**, or select **+** and choose Vibecode.
+  </Step>
+</Steps>
+
+<Tip>Very old versions of the ChatGPT iPhone and Android apps show **Apps** instead of **Plugins**. If you can't find Plugins, update the app.</Tip>
+
+## How to Build an App in ChatGPT
+
+Ask ChatGPT for the app you want, in plain English:
+
+- *"Using Vibecode, build me an iPhone app to track my workouts, with a weekly summary."*
+- *"Build me a web app to plan my meals for the week."*
+- *"Using Vibecode, build me a habit tracker iPhone app with daily streaks."*
+
+ChatGPT writes a short brief and starts the build. It may ask you to approve a Vibecode action first, such as a change to an app. Your **Permissions** settings under **Settings** > **Plugins** decide how often it asks.
+
+A build usually takes about 10 minutes. While it runs, a Vibecode card in the chat shows what the agent is working on, and shows the app on an iPhone simulator while the agent tests it. You can keep chatting in the meantime.
+
+When the build finishes, the card posts a short message, such as *"Vibecode finished working on Workout Tracker."*, and ChatGPT replies. If ChatGPT doesn't let the card post on its own, the card shows a **Continue in chat** button instead.
+
+## Try the App in the Chat
+
+When the app is ready, it runs live in the card:
+
+- **An iPhone app** runs on a live iPhone simulator. Click or tap through it as you would on a phone.
+- **A web app** runs live in a browser view inside the card.
+
+The live preview uses credits while it runs. A new account's first app has free preview time. If nobody touches the iPhone preview for 2 minutes, it pauses itself. Select **Resume preview** to start it again. Where ChatGPT allows it, the card has a full screen button that makes the preview larger.
+
+The card also links to the app outside ChatGPT:
+
+| Button | What it does |
+|---|---|
+| **Open in Vibecode** | Opens the app's project in Vibecode on the web |
+| **See it on your phone** (on a computer) | Shows a QR code. Scan it with your iPhone camera to open the app in the Vibecode iPhone app. |
+| **Open in the Vibecode app** (on a phone) | Opens the app in the Vibecode iPhone app |
+| **Publish to the App Store** (iPhone apps) | Opens App Store publishing in Vibecode |
+
+## Keep Going
+
+- **Change an app.** Ask, for example, *"Make the buttons in my workout app blue and add a rest timer."* Vibecode makes the change and tests it, and the card follows along.
+- **Pick up any app.** Ask *"Show me my Vibecode apps"* to see the apps in your account, including ones you built in Vibecode itself.
+- **Find out what happened.** Ask what the agent changed, or *"Why did the last build of my habit tracker fail?"* ChatGPT can read the app's code and logs to answer.
+- **Undo or stop a change.** Ask ChatGPT to go back to an earlier version, or to stop a change that's running.
+- **Manage your apps.** Ask ChatGPT to rename, copy, or delete an app.
+
+ChatGPT can't run commands in an app's workspace. Coding tools such as Codex, Claude Code, and Cursor can, through the [Vibecode MCP server](/guides/vibecode-mcp).
+
+## How to Disconnect Vibecode from ChatGPT
+
+1. In ChatGPT, open **Settings** > **Plugins** and select **Vibecode**.
+2. Under **Connected accounts**, open the more options menu (**•••**) next to your Vibecode account. If you don't see Connected accounts, use **Connection** or the plugin's **•••** menu.
+3. Select **Disconnect**.
+
+Uninstalling the plugin can also disconnect it. Disconnecting stops ChatGPT's access to your Vibecode account. It doesn't delete your ChatGPT conversations, and your apps stay in your Vibecode account.
+
+To learn what Vibecode receives from ChatGPT and what it sends back, see [Vibecode in ChatGPT and Claude](https://www.vibecodeapp.com/privacy) in our Privacy Policy. For help, visit [Support](/support).
+
+## Is It Free to Build an App with ChatGPT?
+
+Connecting Vibecode is free. Everything else, as of October 2026:
+
+| What | Cost |
+|---|---|
+| ChatGPT's plugin directory | On every ChatGPT plan, including Free. OpenAI says app use may count toward your ChatGPT plan's limits. |
+| Your first app build | Free for new Vibecode accounts that sign up with Google or Apple |
+| The live preview in the card | Uses credits. A new account's first app has free preview time. |
+| More builds and changes | Vibecode credits: Plus $20/month ($20 in credits), Pro $50/month ($55 in credits), Max $200/month ($220 in credits). Credits roll over. |
+| Publishing to the App Store | A paid Vibecode plan, plus an Apple Developer Program membership ($99/year) |
+
+Vibecode prices are from [vibecodeapp.com/pricing](https://www.vibecodeapp.com/pricing), ChatGPT's plan rules from [OpenAI's help center](https://help.openai.com/en/articles/11487775-connected-apps-in-chatgpt), and the Apple fee from [developer.apple.com/programs](https://developer.apple.com/programs/), all as of October 2026. Builds and changes from ChatGPT use the same credits as building in Vibecode.
+
+## Can You Vibe Code with ChatGPT?
+
+Vibe coding means building by describing what you want and judging the result, instead of writing the code yourself (more in [What is vibe coding?](https://www.vibecodeapp.com/what-is-vibe-coding) and [Can I vibe code?](https://www.vibecodeapp.com/blog/can-i-vibe-code)). In a plain ChatGPT chat, what comes back is code, and running it is your job. With Vibecode connected, you describe the app, try it in the card, ask for a change, and try it again, all in the chat.
+
+## Other Ways to Build an App with ChatGPT
+
+Vibecode isn't the only way. These are OpenAI's own tools and the do-it-yourself route, as of October 2026:
+
+| Option | What you get | To get an iPhone app on the App Store |
+|---|---|---|
+| Vibecode in ChatGPT | A native iPhone app or a web app, running in the chat | No Mac. Publish from Vibecode. |
+| Codex | A coding agent that edits the code in your project | A Mac with Xcode. You build, sign, and submit it. |
+| ChatGPT in Xcode | ChatGPT inside Xcode's coding assistant | A Mac with Xcode. You build, sign, and submit it. |
+| ChatGPT Sites | A hosted website or lightweight web app | Not possible. A Site is a website. |
+| Copy and paste into Xcode | ChatGPT's code, pasted into a project by you | A Mac with Xcode. You build, sign, and submit it. |
+
+### Codex
+
+Codex is OpenAI's coding agent. On ChatGPT Free and Go it runs in the ChatGPT desktop app, and from Plus up it also runs in the Codex CLI, the IDE extension, and Codex Cloud. For a native iPhone app you still need Xcode on a Mac. There you can choose Codex as the agent in Xcode's coding assistant, and it can build and test your app. Or connect Vibecode to Codex and let Codex direct Vibecode's agent, with no Xcode. Our [Codex guide](/guides/codex) covers both.
+
+### ChatGPT in Xcode
+
+Apple's Xcode has ChatGPT built in, where available. Choose **Xcode** > **Settings**, select **Intelligence**, and select **Turn On** in the **ChatGPT in Xcode** row. It works with or without a ChatGPT account. You still need a Mac that runs Xcode (see the next section).
+
+### ChatGPT Sites
+
+ChatGPT Sites builds interactive websites and lightweight apps from a chat and hosts them at a URL. It's on ChatGPT Plus and Pro and in Business and Enterprise workspaces, not on Free or Go. Start it from **Work** on chatgpt.com or in the ChatGPT desktop app, and mention **@Sites**. Building a Site counts toward your Codex usage. A Site is a website, not an iPhone app.
+
+### Copy ChatGPT's Code into Xcode Yourself
+
+This route costs nothing beyond a Mac and, to publish, Apple's fee. You do every step yourself:
+
+1. **Get a Mac with Xcode.** Xcode is free on the Mac App Store. Xcode 27 needs a Mac with Apple silicon (M1 or later) running macOS Tahoe 26.6 or later.
+2. **Make a project.** Create a new iPhone app project in Xcode. Ask ChatGPT for SwiftUI code one screen at a time, and paste each file in.
+3. **Fix build errors.** Build the app. When Xcode shows errors, paste them into ChatGPT and apply its fixes. Expect several rounds.
+4. **Test it.** Run the app in the iOS Simulator on your Mac and tap through it yourself.
+5. **Put it on your iPhone.** Sign in to your Apple Account in Xcode. Without a paid membership, Xcode uses a free Personal Team: up to 3 devices, and the install expires after 7 days, so you rebuild and reinstall it.
+6. **Publish it.** Join the Apple Developer Program ($99/year). Then upload a build, complete the App Store listing in App Store Connect, and pass App Review. See [How to Publish an App to the App Store](/getting-started/deploy-app-store).
+
+Xcode and Apple Developer details are from [Apple's Xcode listing](https://apps.apple.com/us/app/xcode/id497799835?mt=12) and [membership comparison](https://developer.apple.com/support/compare-memberships/) as of October 2026.
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion title="Can ChatGPT build an app?">
+    Not on its own. ChatGPT writes the code, and you build, run, test, and publish it yourself in Xcode on a Mac. With Vibecode connected, ChatGPT has Vibecode's agent build and test a native iPhone app or web app in the cloud, and the app runs in the chat.
+  </Accordion>
+
+  <Accordion title="Can ChatGPT make an iPhone app?">
+    Yes, with Vibecode. Vibecode builds a native Swift and SwiftUI iPhone app on cloud Macs, and the card runs it on a live iPhone simulator in the chat. Without Vibecode, ChatGPT can write Swift code, but you need a Mac with Xcode to build and run it, and an Apple Developer account ($99/year) to publish it.
+  </Accordion>
+
+  <Accordion title="Is it free?">
+    Connecting Vibecode is free, and OpenAI's plugin directory is on every ChatGPT plan, including Free. A new Vibecode account that signs up with Google or Apple gets its first app build free, with free preview time. After that, Vibecode plans start at $20/month. See [Vibecode pricing](https://www.vibecodeapp.com/pricing).
+  </Accordion>
+
+  <Accordion title="Do I need to know how to code?">
+    No. You describe the app and ask for changes in plain English, and Vibecode's agent writes, builds, and tests the code. If you want the code later, paid plans can [download it](/getting-started/download-code).
+  </Accordion>
+
+  <Accordion title="Can I publish the app to the App Store?">
+    Yes, for an iPhone app. When it's ready, select **Publish to the App Store** on the card to open App Store publishing in Vibecode. Vibecode builds, signs, uploads, and submits the app for review. You need an Apple Developer Program membership ($99/year) and a paid Vibecode plan. See [How to Publish an App to the App Store](/getting-started/deploy-app-store).
+  </Accordion>
+
+  <Accordion title="Does Vibecode work in the ChatGPT iPhone app?">
+    Yes. OpenAI makes plugins available in ChatGPT on the web, on desktop, and on mobile. On a phone, the card's main button opens your app in the Vibecode iPhone app instead of showing a QR code. If the live preview doesn't start on its own, select **Tap to start live preview** on the card.
+  </Accordion>
+
+  <Accordion title="What can ChatGPT see in my Vibecode account?">
+    After you sign in and select **Allow**, ChatGPT can see your Vibecode apps: their names, build status, what the agent did, and their code and logs. Your app's keys stay hidden in files and logs. Vibecode receives only what ChatGPT sends it, such as the app brief or your change request, not the rest of your conversation. OpenAI notes that ChatGPT may share relevant context from your chats and memories with apps you connect. See [Vibecode in ChatGPT and Claude](https://www.vibecodeapp.com/privacy) in our Privacy Policy.
+  </Accordion>
+
+  <Accordion title="Why can't I find Vibecode in ChatGPT?">
+    OpenAI says plugin availability depends on your plan, region, workspace, role, and the ChatGPT app you use. Check that you're in the right ChatGPT account or workspace and that your ChatGPT app is up to date. In a work workspace, an admin may need to turn Vibecode on. You can also open [Vibecode in ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6ac19ea1f9488191a0a16ee661f57e60) directly.
+  </Accordion>
+
+  <Accordion title="Can ChatGPT make an Android app with Vibecode?">
+    Not directly. In ChatGPT, Vibecode builds iPhone apps and web apps, and a web app runs in any phone's browser. For one app on iPhone and Android, create a **Mobile app** (React Native) in Vibecode itself ([Swift vs React Native](/guides/swift-vs-react-native)).
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Connect Vibecode to Your AI Tool" icon="plug" href="/guides/vibecode-mcp">
+    Use Vibecode from Claude Code, Codex, Cursor, and more
+  </Card>
+  <Card title="Vibecode in Claude" icon="comments" href="/guides/vibecode-in-claude">
+    The same app card and builds, in Claude
+  </Card>
+  <Card title="Codex" icon="terminal" href="/guides/codex">
+    OpenAI's coding agent, and how to connect it to Vibecode
+  </Card>
+  <Card title="Build an iPhone App with AI" icon="mobile" href="/guides/build-iphone-app-with-ai">
+    Every step from idea to App Store, no Mac needed
+  </Card>
+  <Card title="Publish to the App Store" icon="apple" href="/getting-started/deploy-app-store">
+    What Apple needs, and how Vibecode submits your app
+  </Card>
+  <Card title="Plans and Credits" icon="credit-card" href="/getting-started/plans-and-credits">
+    What builds and the live preview cost in credits
+  </Card>
+</CardGroup>
