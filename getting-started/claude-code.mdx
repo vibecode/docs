@@ -2,7 +2,7 @@
 title: "How to Use Claude Code: Install, Cost, and Building Apps (2026)"
 sidebarTitle: "Claude Code"
 description: "Claude Code is Anthropic's AI coding agent. Install it on Mac, Windows, or Linux, see what it costs (it isn't free), use it in VS Code, or let Vibecode run it for you in the cloud to build iPhone, Android, and web apps."
-keywords: ["how to use claude code", "install claude code", "is claude code free", "claude code windows", "claude code vs code", "vibe coding with claude"]
+keywords: ["how to use claude code", "install claude code", "is claude code free", "claude code windows", "claude code vs code", "vibe coding with claude", "claude code mcp", "claude code iphone app"]
 ---
 
 **Claude Code is Anthropic's AI coding agent: you describe what you want in plain English, and it reads your project, edits the files, and runs commands until the job is done.** To use it on your own computer, install it with one command, run `claude` in your project folder, and sign in with a paid Claude plan (Pro is $20/month, or $17/month billed yearly). Or skip the setup: Vibecode runs Claude Code for you in a cloud sandbox, so you can build native iPhone, Android, and web apps from your browser or phone without a terminal or a Claude subscription.
@@ -132,7 +132,39 @@ The same extension installs in Cursor and other VS Code-based editors. You still
 | App Store publishing | Signing, Xcode or EAS, and App Store Connect yourself | [Publish from the web app](/getting-started/deploy-app-store) |
 | Your code | On your machine | [Download it](/getting-started/download-code) or [connect over SSH](/getting-started/export-ssh) |
 
-Already happy in your own terminal? The [Vibecode CLI](/vibecode-cli) gives your local Claude Code (or Cursor, Codex, or Gemini) access to Vibecode's sandboxes, backends, integrations, and deployments.
+Already happy in your own terminal? With the [Vibecode MCP](#build-an-iphone-app-with-claude-code-on-your-computer), Vibecode's agent builds the app and your Claude Code directs it. With the [Vibecode CLI](/vibecode-cli), your own Claude Code writes the code and uses Vibecode's sandboxes, backends, integrations, and deployments.
+
+## Build an iPhone App with Claude Code on Your Computer
+
+Already using Claude Code in your terminal? Connect Vibecode to it, and Claude Code can build native iPhone apps and web apps through Vibecode. You don't need a Mac or Xcode.
+
+<Steps>
+  <Step title="Add the server">
+    ```bash
+    claude mcp add --transport http -s user vibecode https://api.vibecodeapp.com/mcp
+    ```
+
+    `-s user` makes Vibecode available in every folder, not just the current one.
+  </Step>
+  <Step title="Sign in">
+    In Claude Code, run `/mcp`, select **vibecode**, then select **Authenticate**. Your browser opens the Vibecode sign-in page. Sign in and select **Allow**.
+  </Step>
+</Steps>
+
+Then ask for an app in plain English:
+
+- "Using Vibecode, build me an iPhone app to track my workouts, with a weekly summary."
+- "Build me a web app to plan my meals for the week."
+- "Make the buttons in my workout app blue and add a rest timer."
+
+What happens next:
+
+- Vibecode's agent builds and tests the app in the cloud. A build usually takes about 10 minutes.
+- Claude Code can wait for the build, then gives you links to open the app in Vibecode, see it on your phone, or publish it.
+- Claude Code gets every Vibecode tool, including reading the app's code and running commands in its workspace (`run_command` stops after 45 seconds).
+- Builds use your [Vibecode credits](/getting-started/plans-and-credits).
+
+For other AI tools and troubleshooting, see [Connect Vibecode to Your AI Tool](/guides/vibecode-mcp).
 
 ## How Vibecode Runs Claude Code for You
 
@@ -193,6 +225,10 @@ These work in your terminal and in Vibecode:
     Yes, but on your own machine a native Swift app needs a Mac with Xcode to build and run it, plus an Apple Developer account to install or publish it. In Vibecode, Claude Code builds native Swift and SwiftUI apps on cloud Macs and runs them in a cloud iOS Simulator streamed to your browser, so you don't need a Mac. See [Native iOS Apps](/getting-started/native-ios-apps).
   </Accordion>
 
+  <Accordion title="Can I use Vibecode from Claude Code on my computer?">
+    Yes. Connect it with one command, `claude mcp add --transport http -s user vibecode https://api.vibecodeapp.com/mcp`. Then run `/mcp` in Claude Code, select **vibecode**, and select **Authenticate** to sign in. See [Build an iPhone App with Claude Code on Your Computer](#build-an-iphone-app-with-claude-code-on-your-computer).
+  </Accordion>
+
   <Accordion title="Do I need a Claude subscription to use Claude Code in Vibecode?">
     No. Vibecode runs Claude Code in the cloud and bills usage to your Vibecode credits. You don't need an Anthropic account or API key.
   </Accordion>
@@ -205,6 +241,9 @@ These work in your terminal and in Vibecode:
 ## Next Steps
 
 <CardGroup cols={2}>
+  <Card title="Connect Vibecode to Claude Code" icon="plug" href="/guides/vibecode-mcp">
+    Add Vibecode to your own Claude Code with one command
+  </Card>
   <Card title="Create Your First App" icon="rocket" href="/getting-started/creating-first-app">
     Build an app with Claude Code in Vibecode
   </Card>
