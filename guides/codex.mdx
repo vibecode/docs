@@ -1,0 +1,251 @@
+---
+title: "How to Use OpenAI Codex: Install, Cost, and Building Apps (2026)"
+sidebarTitle: "Codex"
+description: "OpenAI Codex is an AI coding agent for your terminal, code editor, ChatGPT desktop app, and the cloud. It's free in the desktop app; the CLI needs ChatGPT Plus or an API key. Install it, use it, and build iPhone apps."
+keywords: ["how to use codex", "openai codex", "install codex cli", "is codex free", "codex vibe coding", "codex mcp", "codex vs claude code"]
+---
+
+**OpenAI Codex is OpenAI's AI coding agent: you describe what you want in plain English, and it reads your project, edits the files, and runs commands until the job is done.** To use it in your terminal, install the Codex CLI with one command, run `codex` in your project folder, and sign in with ChatGPT. The CLI and the code editor extension come with ChatGPT Plus ($20/month) and higher plans, and the Free and Go plans include Codex in the ChatGPT desktop app. To build a native iPhone app without a Mac, connect Vibecode to Codex: Codex directs Vibecode's agent, which builds and tests the app on cloud Macs.
+
+## Codex at a Glance
+
+| | |
+|---|---|
+| **What it is** | An agentic coding tool. It reads your code, edits files across the project, runs commands, and reviews changes. |
+| **Made by** | OpenAI. The Codex CLI is open source (Apache-2.0) on [GitHub](https://github.com/openai/codex). |
+| **Works on** | macOS, Windows (natively in PowerShell, or in WSL2), and Linux |
+| **Install** | `curl -fsSL https://chatgpt.com/codex/install.sh \| sh` (Mac, Linux, WSL) or `powershell -ExecutionPolicy ByPass -c "irm https://chatgpt.com/codex/install.ps1 \| iex"` (Windows) |
+| **Is it free?** | Partly. Free and Go include Codex in the ChatGPT desktop app (still rolling out). The CLI and IDE extension need ChatGPT Plus or higher, or an OpenAI API key. |
+| **With Vibecode** | Add Vibecode with one command, and Codex can have Vibecode's agent build native iPhone apps and web apps, with no Mac. Your first app build is free. |
+
+## Where Codex Runs
+
+Codex is one agent with several front ends. They share one configuration file, `~/.codex/config.toml`, so your settings and MCP servers follow you between them.
+
+| Surface | What it is |
+|---|---|
+| **Codex CLI** | A coding agent in your terminal, working on the folder you start it in |
+| **IDE extension** | Codex in a side panel of VS Code, Cursor, or Windsurf. Xcode and JetBrains IDEs have their own Codex integrations. |
+| **ChatGPT desktop app** | Pick **Codex** from the ChatGPT dropdown to work on a local folder. On macOS, Windows, and Linux (preview). |
+| **Codex Cloud** | Runs a task in its own cloud workspace, started from ChatGPT on the web, the desktop app, or your phone. It keeps working while your computer sleeps. |
+| **ChatGPT iPhone app** | Start, approve, and review tasks running in Codex Cloud or on your connected Mac or PC |
+
+## Is Codex Free?
+
+Partly. OpenAI lists Codex on the Free and Go plans only in the ChatGPT desktop app, with the GPT-6 Luna model, and is still rolling it out. For the CLI, the IDE extension, Codex Cloud, and the iPhone app, you need ChatGPT Plus or higher. An OpenAI API key also works for local use.
+
+| Option | Price | Notes |
+|---|---|---|
+| ChatGPT Free | $0 | Codex in the desktop app with GPT-6 Luna, rolling out |
+| ChatGPT Go | $8/month | Codex in the desktop app with GPT-6 Luna, rolling out |
+| ChatGPT Plus | $20/month | The cheapest plan with the CLI, IDE extension, and Codex Cloud. Adds GPT-6.1 Sol. |
+| ChatGPT Pro | $100, $200, or $500/month | Higher limits. Pro currently has no five-hour limit. |
+| ChatGPT Business | $20/user/month billed yearly (2+ users), or $25 billed monthly | Admin controls and larger cloud machines |
+| OpenAI API key | Pay per token at API rates | Local Codex only. No cloud tasks, GitHub code review, or Slack. |
+| **Vibecode** | **First app build free**, then credits ([plans from $20/month](https://www.vibecodeapp.com/pricing)) | Connect it to Codex. Vibecode's agent builds the app in the cloud. |
+
+Enterprise and Edu pricing comes from OpenAI's sales team. On Plus, OpenAI estimates 15 to 160 local messages every five hours with GPT-6.1 Sol, depending on the task, and weekly limits may also apply. In the CLI, `/status` shows what you have left.
+
+Prices and limits are from OpenAI's [Codex pricing page](https://learn.chatgpt.com/docs/pricing) as of October 2026. OpenAI changes plans and models often, so check there before you buy.
+
+## How to Install Codex CLI
+
+Open a terminal and run the command for your system:
+
+<CodeGroup>
+```bash macOS, Linux, WSL
+curl -fsSL https://chatgpt.com/codex/install.sh | sh
+```
+```powershell Windows PowerShell
+powershell -ExecutionPolicy ByPass -c "irm https://chatgpt.com/codex/install.ps1 | iex"
+```
+```bash npm
+npm install -g @openai/codex
+```
+```bash Homebrew
+brew install --cask codex
+```
+</CodeGroup>
+
+Check it worked with `codex --version`. To update later, run the same install command again (with Homebrew, `brew upgrade --cask codex`).
+
+**On Windows**, run the PowerShell command in a new PowerShell window. Codex runs natively there with its own Windows sandbox. Prefer Linux tools? Run `wsl --install` in PowerShell as an administrator, open your WSL shell, and use the macOS/Linux command. WSL1 isn't supported, and projects in your Linux home folder run faster than ones under `/mnt/c/`.
+
+**On Linux and WSL2**, Codex's sandbox needs bubblewrap. Install it first with `sudo apt install bubblewrap` (Ubuntu, Debian) or `sudo dnf install bubblewrap` (Fedora).
+
+## How to Use Codex
+
+1. **Open a terminal in your project folder:** `cd path/to/your-project`
+2. **Start it:** type `codex` and press Enter
+3. **Sign in:** the first time, choose **Sign in with ChatGPT** and finish in your browser. To use an API key instead, run `printenv OPENAI_API_KEY | codex login --with-api-key`.
+4. **Ask in plain English:** for example, `Tell me about this project` or `add a dark mode toggle to the settings screen`
+5. **Watch and approve:** Codex shows its commands and edits as it works, and asks before it steps outside its sandbox
+6. **Keep going:** describe the next change, or type `/review` to have Codex check what changed
+
+OpenAI recommends a Git commit before and after each task, so you can undo anything Codex did.
+
+### Approval and Sandbox Modes
+
+The sandbox limits which files and network access Codex's commands get. The approval policy decides when it stops to ask you. Type `/permissions` to switch during a session.
+
+| Mode | How to start it | What Codex can do |
+|---|---|---|
+| Auto (default in a Git folder) | `codex` | Read, edit, and run commands in the project folder. Asks before editing outside it or using the network. |
+| Read only (default outside Git) | `codex --sandbox read-only --ask-for-approval on-request` | Read files and run commands, but not change files |
+| Approve for me | `codex --approve-for-me` | Same limits as Auto, but a reviewer agent answers approval requests for you. Uses extra usage. |
+| Full access | `codex --yolo` | No sandbox and no approvals. OpenAI advises it only inside a dedicated sandbox VM. |
+
+The desktop app and IDE extension offer **Ask for approval**, **Approve for me**, and **Full access** in the permissions control below the message box.
+
+### Commands You'll Use Most
+
+| Command | What it does |
+|---|---|
+| `codex "fix the build error"` | Start a session with a first prompt |
+| `codex resume --last` | Continue your most recent chat in this folder |
+| `/model` | Choose the model and reasoning effort |
+| `/plan` | Plan mode: Codex asks questions and plans before it writes code |
+| `/review` | Review your uncommitted changes |
+| `/new` | Start a fresh chat (do this between unrelated tasks) |
+| `/init` | Create an `AGENTS.md` file for this project |
+| `/mcp` | List connected MCP servers and their tools |
+
+### Give Codex Project Notes with AGENTS.md
+
+Codex reads `AGENTS.md` files before it starts any work. Run `/init` to create one, then edit it to say how to run the app, which build and test commands to use, and what "done" means. A personal `~/.codex/AGENTS.md` applies to every project. Keep it short: Codex stops reading these files at 32 KiB by default.
+
+## How to Use Codex in VS Code or Cursor
+
+1. In VS Code (1.96.2 or later), open the Extensions view, search for **Codex**, and install the extension published by **OpenAI**. Cursor and Windsurf use the same extension (`openai.chatgpt`).
+2. Click the Codex icon. If you don't see it, open the Command Palette and run **Codex: Open Codex Sidebar**.
+3. Select **Sign in with ChatGPT**, or **Use API Key**.
+4. Type your request. Add an open file or a selection as context, and review each change as a diff beside your code.
+
+The extension shares its configuration with the CLI, MCP servers included. In Xcode, choose Codex as the agent in the coding assistant. In JetBrains IDEs, open AI Chat and select Codex.
+
+## How to Vibe Code an App with Codex
+
+"Vibe coding" means building by describing what you want and judging the result, instead of writing the code yourself (more in [What is vibe coding?](https://www.vibecodeapp.com/what-is-vibe-coding) and [Can I vibe code?](https://www.vibecodeapp.com/blog/can-i-vibe-code)). With Codex, this loop works:
+
+1. **Start clean.** Make a new folder, run `git init`, then run `codex`.
+2. **Plan first.** Turn on `/plan` and describe the app: what it does, who it's for, and what "done" looks like. Review the plan, then let it build.
+3. **Run it.** Ask Codex to start the app and tell you how to open it.
+4. **Change one thing at a time.** Say what's wrong in plain English, and paste a screenshot into the message box when it helps.
+5. **Commit each working step** so you can go back when a change goes wrong.
+
+For a simple website, OpenAI's Sites (in public beta, depending on plan and region) can build and host it from ChatGPT or Codex. For a mobile app, Codex on your own computer gives you the code, but not the Mac, the phone preview, or the App Store setup.
+
+## How to Build an iPhone App with Codex
+
+On your own computer, Codex can write a native Swift app, but you need a Mac with Xcode to build and run it, and an Apple Developer account ($99/year) to publish it. With Vibecode connected over MCP, Codex directs Vibecode's agent, which builds the app on cloud Macs, tests it, and saves it to your Vibecode account. You don't need a Mac.
+
+<Steps>
+  <Step title="Add Vibecode to Codex">
+    ```bash
+    codex mcp add vibecode --url https://api.vibecodeapp.com/mcp
+    ```
+  </Step>
+  <Step title="Sign in">
+    Codex opens the Vibecode sign-in page. Sign in (or create an account) and select **Allow**. To sign in again later, run `codex mcp login vibecode`.
+  </Step>
+  <Step title="Ask for an app">
+    Start `codex` and ask in plain English. Type `/mcp` to check that Vibecode is connected.
+  </Step>
+</Steps>
+
+Prompts that work:
+
+- *"Using Vibecode, build me an iPhone app to track my workouts, with a weekly summary."*
+- *"Show me my Vibecode apps."*
+- *"Make the buttons in my workout app blue and add a rest timer."*
+- *"Why did the last build of my habit tracker fail?"*
+
+**What happens next.** Vibecode's agent writes the app (Swift and SwiftUI for a native iPhone app, or a web app), compiles iPhone apps on cloud Macs, tests the app, and saves it to your account. A build usually takes about 10 minutes. Codex can wait for it, then give you links to open the app in Vibecode, see it on your phone in the Vibecode iPhone app, or publish it to the App Store.
+
+Codex gets every Vibecode tool. It can read the app's code and logs, restore an earlier version, and rename, copy, or delete apps. With `run_command`, it runs a shell command in the app's cloud workspace, such as a test, and each command stops after 45 seconds.
+
+The CLI, the IDE extension, and the ChatGPT desktop app share `~/.codex/config.toml`, so Vibecode appears in all three once you add it. If one asks you to sign in, select **Authenticate** next to Vibecode in its MCP servers list. Using only the desktop app? Open **Settings**, then **MCP servers**, select **Add server**, choose **Streamable HTTP**, and enter the server URL above.
+
+| To ship an iPhone app you need | Codex on your own | Codex with Vibecode |
+|---|---|---|
+| A Mac to build it | A Mac with Xcode | No Mac. [Built on cloud Macs](/getting-started/native-ios-apps). |
+| A way to try it | Xcode's iOS Simulator or your own iPhone | Vibecode on the web, or your phone in the Vibecode iPhone app |
+| Testing | You ask for tests and run them | Vibecode's agent [tests the app it built](/features/agent-testing) |
+| App Store publishing | Signing, uploading, and App Store Connect yourself | [Publish from Vibecode](/getting-started/deploy-app-store) with your Apple Developer account |
+| Your code | On your machine | In your Vibecode account. You can [download it](/getting-started/download-code). |
+
+Connecting is free. Builds and changes use your [Vibecode credits](/getting-started/plans-and-credits), and Codex's own messages still count toward your ChatGPT plan. New accounts that sign up with Google or Apple get their first app build free. To disconnect, run `codex mcp remove vibecode`. Your apps stay in your account.
+
+Want Codex to write all the code itself? The [Vibecode CLI](/vibecode-cli) works the other way: your agent writes the code and uses Vibecode's sandboxes, databases, sign-in, and hosting to run and publish it.
+
+## Codex vs Claude Code
+
+| | Codex | Claude Code |
+|---|---|---|
+| **Made by** | OpenAI | Anthropic |
+| **Models** | OpenAI's GPT models, such as GPT-6.1 Sol | Anthropic's Claude models |
+| **Cheapest way in** | Free in the ChatGPT desktop app (rolling out). The CLI starts with ChatGPT Plus at $20/month. | Claude Pro at $20/month ($17/month billed yearly). Not in the free plan. |
+| **Where it runs** | CLI, IDE extension, ChatGPT desktop app, Codex Cloud | Terminal, VS Code, Cursor, JetBrains IDEs, the Claude desktop app, and the web |
+| **Project notes** | `AGENTS.md` | `CLAUDE.md` (it can also read an `AGENTS.md`) |
+| **In Vibecode** | Connect over MCP, and Codex directs Vibecode's agent | Vibecode runs Claude Code in every build. You can also connect it over MCP. |
+
+For vibe coding, both turn plain-English requests into working code and ask before risky steps. The bigger difference is which subscription you already pay for. With ChatGPT, start with Codex. With Claude, start with [Claude Code](/getting-started/claude-code). Codex has a free way in and an open-source CLI. Claude Code is the agent inside every Vibecode build. Switching later is cheap: Codex's `/import` command brings over supported Claude Code setup and chats.
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion title="Is Codex free?">
+    Partly. On the ChatGPT Free and Go plans, Codex is in the ChatGPT desktop app with GPT-6 Luna, as OpenAI rolls it out. The CLI, the IDE extension, and Codex Cloud need ChatGPT Plus ($20/month) or higher, or you can pay per token with an OpenAI API key for local use.
+  </Accordion>
+
+  <Accordion title="How much does Codex cost?">
+    As of October 2026, ChatGPT Plus is $20/month, Pro is $100, $200, or $500/month, and Business is $20 per user per month billed yearly. An API key is billed at OpenAI's API rates. See OpenAI's [Codex pricing](https://learn.chatgpt.com/docs/pricing).
+  </Accordion>
+
+  <Accordion title="How do I install Codex CLI?">
+    On macOS, Linux, or WSL run `curl -fsSL https://chatgpt.com/codex/install.sh | sh`. On Windows, use the PowerShell command in [How to Install Codex CLI](#how-to-install-codex-cli), or install with npm or Homebrew. Then run `codex` in your project folder and sign in.
+  </Accordion>
+
+  <Accordion title="Is there a Codex desktop app?">
+    Yes. Codex is part of the ChatGPT desktop app for macOS, Windows, and Linux (in preview). Select **Codex** from the ChatGPT dropdown. On macOS or Windows, `codex app` in the CLI opens the app, or starts its installer.
+  </Accordion>
+
+  <Accordion title="Does Codex work in VS Code and Cursor?">
+    Yes. Install the **Codex** extension published by OpenAI (VS Code 1.96.2 or later). The same extension works in Cursor and Windsurf. Sign in with ChatGPT or an API key.
+  </Accordion>
+
+  <Accordion title="Can Codex build iPhone apps?">
+    Codex can write the Swift code, but on your own you need a Mac with Xcode to build it and an Apple Developer account to publish it. With Vibecode connected, Codex has Vibecode's agent build the app on cloud Macs, so you don't need a Mac.
+  </Accordion>
+
+  <Accordion title="How do I add an MCP server to Codex?">
+    Run `codex mcp add <name> --url <server-url>`, for example `codex mcp add vibecode --url https://api.vibecodeapp.com/mcp`. Codex may open the server's sign-in page right away (it does for Vibecode). If it doesn't, run `codex mcp login <name>`. Servers live in `~/.codex/config.toml`, shared by the CLI, IDE extension, and desktop app.
+  </Accordion>
+
+  <Accordion title="Codex vs Claude Code: which is better for vibe coding?">
+    Both work. Pick the one that comes with the subscription you already have: Codex with ChatGPT, Claude Code with Claude. Codex has a free way in, and Claude Code needs a paid Claude plan. Either one can build a native iPhone app through Vibecode without a Mac.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Connect Vibecode to Your AI Tool" icon="plug" href="/guides/vibecode-mcp">
+    Steps for Codex, Claude Code, Cursor, and more
+  </Card>
+  <Card title="How to Use Claude Code" icon="terminal" href="/getting-started/claude-code">
+    Install, cost, and building apps with Claude Code
+  </Card>
+  <Card title="How to Use Cursor" icon="code" href="/guides/cursor">
+    Vibe code in Cursor and build apps with Vibecode
+  </Card>
+  <Card title="How to Use Gemini CLI" icon="gem" href="/guides/gemini-cli">
+    Google's coding agent, and how it builds apps
+  </Card>
+  <Card title="Build an App with ChatGPT" icon="comments" href="/guides/build-app-with-chatgpt">
+    Build an iPhone app in a ChatGPT chat
+  </Card>
+  <Card title="Native iOS Apps" icon="apple" href="/getting-started/native-ios-apps">
+    Swift apps for iPhone, no Mac needed
+  </Card>
+</CardGroup>
