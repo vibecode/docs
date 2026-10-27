@@ -1,0 +1,294 @@
+---
+title: "How to Use Cursor: Download, Pricing, and Building Apps (2026)"
+sidebarTitle: "Cursor"
+description: "Cursor is an AI code editor with agents that work on your computer or in Cursor's cloud. It has a free plan, and paid plans start at $8/month. Download it, add MCP servers, and build iPhone apps with Vibecode."
+keywords: ["how to use cursor", "cursor ai", "cursor pricing", "is cursor free", "cursor vibe coding", "cursor mcp", "cursor download"]
+---
+
+**Cursor is an AI code editor: you open a project folder, describe what you want, and its agent reads your code, edits the files, and runs commands, on your computer or on Cursor's cloud machines.** To start, download it for Mac, Windows, or Linux from [cursor.com/download](https://cursor.com/download), sign in, and open a folder. The Free plan includes limited use of Cursor's own models, and paid plans start at $8/month. To build a native iPhone app without a Mac, connect Vibecode: Cursor's agent tells Vibecode's agent what to build, and Vibecode builds the app on cloud Macs.
+
+## Cursor at a Glance
+
+| | |
+|---|---|
+| **What it is** | A code editor built on VS Code, with an agent that plans, edits files, and runs commands |
+| **Made by** | Anysphere. Cursor became part of SpaceX in August 2026. |
+| **Where it runs** | The desktop app, your terminal (Cursor CLI), the web at cursor.com/agents, and the Cursor iPhone and iPad app |
+| **Works on** | macOS 12 or later, Windows 10 or later, and Linux. Version 3.27 as of October 2026. |
+| **Is it free?** | Yes, with limits. Paid plans start at $8/month. |
+| **With Vibecode** | Add Vibecode's MCP server, and Cursor can have Vibecode build iPhone and web apps. No Mac needed. |
+
+## Is Cursor Free?
+
+Yes. The Free plan includes Agent, Chat, and Tab completions with limited use of Cursor's own models (Grok and Composer), but not Claude, GPT, Gemini, or cloud agents. Cursor is sold as part of The X Subscription, one subscription for Cursor, Grok, and X. Each paid plan includes a weekly usage pool for Cursor's own models, shared with the Grok apps.
+
+| Plan | Price | What you get in Cursor |
+|---|---|---|
+| Free | $0 | Limited use of Cursor's own models |
+| Plus | $8/month ($80/year) | A weekly pool for Cursor's own models. No Auto, cloud agents, or third-party models. |
+| Premium | $30/month ($300/year) | 4x the Plus usage. Adds cloud agents, Bugbot, and Claude, GPT, and Gemini at API prices. |
+| Super | $100/month ($1,000/year) | 15x the Plus usage, and priority access at peak times |
+| Ultra | $200/month ($2,000/year) | 50x the Plus usage, and the earliest access to new models |
+| Teams | $30, $100, or $200 per seat/month | Premium, Super, or Ultra seats, plus central billing and SSO |
+| Enterprise | Custom | Pooled usage, SCIM, audit logs, and invoices |
+
+Claude, GPT, and Gemini aren't in any plan's pool. On Premium and above you pay their API list price from prepaid credit that you top up. The pool resets weekly, and unused usage doesn't roll over.
+
+If you subscribed before The X Subscription, you may be on a legacy plan: Hobby (free), Pro ($20/month), Pro+ ($60/month), or Ultra ($200/month). Those plans keep working, but new customers can't buy them. That's why older articles list Cursor Pro at $20.
+
+Prices are from [cursor.com/pricing](https://cursor.com/pricing) and Cursor's [Models & Pricing](https://cursor.com/docs/models-and-pricing) docs as of October 2026, and exclude tax. Cursor changes its plans from time to time, so check there before you buy.
+
+## How to Download and Install Cursor
+
+1. Go to [cursor.com/download](https://cursor.com/download) and pick your system: macOS 12 or later (Apple silicon or Intel), Windows 10 or later (x64 or ARM64), or Linux (`.deb`, RPM, or AppImage, for x64 or ARM64)
+2. **Mac:** open the `.dmg` and drag Cursor into **Applications**. **Windows:** run the installer. **Linux:** install the package below, or run the AppImage.
+3. Open Cursor and sign in, or create a free account
+4. Open your project with **File** > **Open Folder**
+
+On Linux, Cursor recommends its package repositories over the AppImage, because they add a desktop icon, automatic updates, and the command-line tools:
+
+<CodeGroup>
+```bash Debian, Ubuntu
+sudo install -d -m 0755 /etc/apt/keyrings
+curl -fsSL https://downloads.cursor.com/keys/anysphere.asc | gpg --dearmor | sudo tee /etc/apt/keyrings/cursor.gpg > /dev/null
+echo "deb [arch=amd64,arm64 signed-by=/etc/apt/keyrings/cursor.gpg] https://downloads.cursor.com/aptrepo stable main" | sudo tee /etc/apt/sources.list.d/cursor.list > /dev/null
+sudo apt update
+sudo apt install cursor
+```
+```bash Fedora, RHEL
+sudo tee /etc/yum.repos.d/cursor.repo << 'EOF'
+[cursor]
+name=Cursor
+baseurl=https://downloads.cursor.com/yumrepo
+enabled=1
+gpgcheck=1
+gpgkey=https://downloads.cursor.com/keys/anysphere.asc
+EOF
+sudo dnf install cursor
+```
+```bash AppImage
+chmod +x Cursor-*.AppImage
+./Cursor-*.AppImage
+```
+</CodeGroup>
+
+### Import Your VS Code Settings
+
+Cursor is built on VS Code. To bring over your extensions, themes, settings, and keybindings, open Cursor Settings (`Cmd+Shift+J` on Mac, `Ctrl+Shift+J` on Windows/Linux), go to **General** > **Account**, and click **Import** under **VS Code Import**. Cursor installs extensions from the Open VSX registry, not the VS Code Marketplace, so a few may be missing. The default shortcuts are the same as VS Code's.
+
+### Install the Cursor CLI
+
+Cursor's agent also runs in a terminal. Install the CLI, then run `agent` in your project folder:
+
+<CodeGroup>
+```bash macOS, Linux, WSL
+curl https://cursor.com/install -fsS | bash
+```
+```powershell Windows PowerShell
+irm 'https://cursor.com/install?win32=true' | iex
+```
+</CodeGroup>
+
+If your shell can't find `agent`, add `~/.local/bin` to your PATH.
+
+## How to Use Cursor
+
+1. **Open Agent:** press `Cmd+I` (Mac) or `Ctrl+I` (Windows/Linux)
+2. **Get oriented:** ask *"Explain this codebase. Point me to the main entry points and anything I should read before making changes."*
+3. **Ask for a change:** for example, *"Add a dark mode toggle to the settings page."* Agent searches your code, edits files, and runs terminal commands.
+4. **Review the diff:** reject what you don't want, then ask Agent to run your tests
+5. **Undo a wrong turn:** click a checkpoint in the chat to restore your files to that point
+
+Press `Shift+Tab` in the chat input to switch modes:
+
+| Mode | What it does |
+|---|---|
+| **Agent** | The default. Searches your code, edits files, and runs commands. |
+| **Plan** | Researches your code, asks clarifying questions, and writes a plan you can edit. It builds only after you approve. |
+| **Ask** | Read-only. Answers questions without changing anything. |
+
+### Tab Completion
+
+Tab is Cursor's autocomplete. It suggests your next edit in gray text, sometimes several lines at once. Press `Tab` to accept or `Esc` to reject, then `Tab` again to jump to the next spot Cursor expects you to edit.
+
+### Edit Selected Code
+
+Select code and press `Cmd+K` or `Cmd+L` (`Ctrl+K` or `Ctrl+L` on Windows/Linux) to open a new Agent chat with the selection attached. Then say what to change, such as *"Rename this to fetchOrders and update every caller."*
+
+### Rules
+
+Rules are standing instructions Agent follows in every chat:
+
+- **Project rules** are `.mdc` files in `.cursor/rules/`, checked into git. Create one with **New Cursor Rule** in the Command Palette, and choose whether it always applies, applies to matching files, or applies when relevant.
+- **User rules** apply to all your projects. Add them in **Customize** > **Rules**.
+- **AGENTS.md** in your project root works too, and so does `CLAUDE.md`.
+
+```md .cursor/rules/style.mdc
+---
+alwaysApply: true
+---
+
+- Use TypeScript for all new files
+- Prefer functional components in React
+```
+
+### Pick a Model
+
+Choose a model in the picker in the chat panel, or press `Cmd+/` (`Ctrl+/` on Windows/Linux) to cycle through them. **Auto** picks one per request and bills it to your weekly pool (Plus doesn't include Auto). **Grok 4.7** is Cursor's flagship model for the hardest tasks, and **Composer** is its fast, lower-cost model. Claude, GPT, and Gemini models, such as Claude Opus 5.5 and GPT-5.6 Sol, are available on Premium and above at API prices.
+
+## How to Add an MCP Server to Cursor
+
+MCP (Model Context Protocol) lets Cursor's agent use tools from other apps and services, such as GitHub, a database, or Vibecode. You can add a server in three ways:
+
+- **From Cursor:** open **Customize** > **MCPs**, find the server, click **Add to Cursor**, and follow its sign-in prompts.
+- **From an install link:** some services publish a link that opens Cursor and asks **Install MCP server?** Vibecode's link is below.
+- **By hand:** edit `~/.cursor/mcp.json` for servers you want in every project, or `.cursor/mcp.json` in a project folder to share them through git. If a server name is in both, the project file wins.
+
+A remote server needs only its URL. A local server uses `command` and `args` instead, as in the Xcode example below. Save the file and restart Cursor.
+
+```json ~/.cursor/mcp.json
+{
+  "mcpServers": {
+    "vibecode": { "url": "https://api.vibecodeapp.com/mcp" }
+  }
+}
+```
+
+Agent uses a server's tools when they're relevant, and **Cursor Settings** > **Agents** > **Approvals & Execution** decides whether it asks you first. If a server doesn't work, open the Output panel (`Cmd+Shift+U` or `Ctrl+Shift+U`) and choose **MCP Logs**.
+
+## How to Vibe Code an App with Cursor
+
+"Vibe coding" means building by describing what you want and judging the result, instead of writing the code yourself (more in [What is vibe coding?](https://www.vibecodeapp.com/what-is-vibe-coding) and [Can I vibe code?](https://www.vibecodeapp.com/blog/can-i-vibe-code)). Cursor suits it if you're comfortable with a project folder and a terminal:
+
+1. **Plan first:** open an empty folder, switch to Plan mode, and describe the app, for example *"Plan a web app for tracking my workouts, with a weekly summary. Ask me anything you need to know."*
+2. **Build:** fix anything wrong in the plan, then tell Agent to build it
+3. **Check its work:** ask Agent to start the dev server and test the app. It can control a browser to click through pages and take screenshots.
+4. **Grow it one feature at a time,** and add a rule when you correct the same mistake twice
+
+Cursor writes, runs, and tests the code. Hosting, a database, sign-in, and app store accounts are yours to set up.
+
+## How to Build an iPhone App with Cursor
+
+On your own, you need a Mac with Xcode. With Vibecode connected, you don't.
+
+### On Your Own: Cursor and Xcode on a Mac
+
+Cursor can write Swift and SwiftUI, but an iPhone app is built and run with Xcode, which needs a Mac. Cursor's [Swift guide](https://cursor.com/for/ios-macos-swift) suggests editing in Cursor and switching to Xcode to build and run.
+
+With Xcode 26.3 or later and a paid Cursor plan, Cursor's agent can drive Xcode through its built-in MCP server to build, run tests, and capture SwiftUI previews while Xcode is open. Turn on **Xcode Tools** in **Xcode** > **Settings** > **Intelligence** > **Model Context Protocol**, then add the server:
+
+```json ~/.cursor/mcp.json
+{
+  "mcpServers": {
+    "xcode-tools": { "command": "xcrun", "args": ["mcpbridge"] }
+  }
+}
+```
+
+You still sign the app and submit it to the App Store with Xcode and App Store Connect. Details are in Cursor's [Xcode docs](https://cursor.com/docs/integrations/xcode).
+
+### With Vibecode: No Mac Needed
+
+Connect Vibecode's MCP server, and Cursor's agent directs Vibecode's agent, which writes the app, builds it on cloud Macs, tests it, and saves it to your Vibecode account. Cursor runs on Mac, Windows, and Linux, so you can build a native iPhone app from any of them.
+
+<Steps>
+  <Step title="Add Vibecode to Cursor">
+    Open [Add Vibecode to Cursor](https://cursor.com/install-mcp?name=vibecode&config=eyJ1cmwiOiJodHRwczovL2FwaS52aWJlY29kZWFwcC5jb20vbWNwIn0=). Cursor opens and asks **Install MCP server?** Leave the client ID and secret empty, and select **Install**. (Or add the `mcp.json` entry from the MCP section above.)
+  </Step>
+  <Step title="Sign in to Vibecode">
+    Vibecode shows **Needs authentication**. Select **Authenticate**, sign in to Vibecode (or create an account), and select **Allow**. Vibecode then shows its tools as enabled.
+  </Step>
+  <Step title="Ask for an app">
+    Open Agent and describe the app you want.
+  </Step>
+</Steps>
+
+Prompts that work:
+
+- *"Using Vibecode, build me an iPhone app to track my workouts, with a weekly summary."*
+- *"Build me a web app to plan my meals for the week."*
+- *"Show me my Vibecode apps."*
+- *"Make the buttons in my workout app blue and add a rest timer."*
+- *"Why did the last build of my habit tracker fail?"*
+
+Cursor passes the request to Vibecode, and Vibecode's agent writes and tests the app, building iPhone apps on cloud Macs. A build usually takes about 10 minutes. Cursor can wait for it, and because it shows no app card, it gives you links to open the app in Vibecode, see it on your phone in the Vibecode iPhone app, or publish it to the App Store.
+
+Cursor gets every Vibecode tool. It can also see what Vibecode's agent did, read an app's code and logs, restore an earlier version, and rename, copy, or delete apps. With `run_command` it runs a shell command in the app's cloud workspace, for example to run tests or check a package version. A command stops after 45 seconds.
+
+Connecting is free, and builds and changes use your Vibecode credits. New accounts that sign up with Google or Apple get their first app build free. After that, plans start at $20/month with $20 in credits, and credits roll over ([Vibecode pricing](https://www.vibecodeapp.com/pricing), as of October 2026).
+
+| | Cursor on your own | Cursor with Vibecode |
+|---|---|---|
+| Your computer | A Mac with Xcode | Mac, Windows, or Linux |
+| Who writes the Swift | Cursor's agent, in your folder | Vibecode's agent, directed by Cursor |
+| Building and testing | Xcode on your Mac | Vibecode, on cloud Macs |
+| Trying it on your iPhone | Install it from Xcode | Open it in the Vibecode iPhone app |
+| App Store | Sign and submit in Xcode and App Store Connect | A link to publish from Vibecode |
+| Where the code lives | Your computer | Your Vibecode account. On Pro and Max, download it or open it over SSH. |
+
+Either way, publishing to the App Store needs an [Apple Developer Program membership](/guides/apple-developer-account).
+
+### Open a Vibecode Project in Cursor over SSH
+
+On Vibecode's Pro and Max plans you can open a Vibecode project in Cursor over SSH and edit its code with Cursor's own agent ([Export and SSH](/getting-started/export-ssh)). With the [Vibecode CLI](/vibecode-cli), Cursor's agent writes the code and uses Vibecode's sandboxes, databases, sign-in, and hosting to run and publish it.
+
+Vibecode builds iPhone, Android, and web apps. For a backend service, a library, a desktop app, or an existing codebase, use Cursor on its own. For a full side-by-side, see [Vibecode vs Cursor](https://www.vibecodeapp.com/compare/cursor).
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion title="Is Cursor free?">
+    Yes. The Free plan includes Agent, Chat, and Tab with limited use of Cursor's own models (Grok and Composer), but not Claude, GPT, or Gemini. Paid plans start at $8/month as of October 2026.
+  </Accordion>
+
+  <Accordion title="How much does Cursor cost?">
+    As of October 2026, Plus is $8/month, Premium $30/month, Super $100/month, and Ultra $200/month. Claude, GPT, and Gemini cost extra, at API list price. The older Pro plan ($20/month) still works for existing subscribers but isn't sold to new customers.
+  </Accordion>
+
+  <Accordion title="Is Cursor based on VS Code?">
+    Yes. Cursor is built on VS Code and uses the same default shortcuts. Import your extensions, themes, settings, and keybindings from **Cursor Settings** > **General** > **Account** > **VS Code Import**.
+  </Accordion>
+
+  <Accordion title="How do I add an MCP server to Cursor?">
+    Click **Add to Cursor** on a server in **Customize** > **MCPs**, open the server's install link, or add it to `~/.cursor/mcp.json`. For Vibecode, open [Add Vibecode to Cursor](https://cursor.com/install-mcp?name=vibecode&config=eyJ1cmwiOiJodHRwczovL2FwaS52aWJlY29kZWFwcC5jb20vbWNwIn0=), select **Install**, then **Authenticate**.
+  </Accordion>
+
+  <Accordion title="Can Cursor build iPhone apps?">
+    On your own, Cursor writes the Swift code and Xcode on a Mac builds and runs it. With Xcode 26.3 or later and a paid plan, Cursor's agent can run Xcode's builds, tests, and previews. With Vibecode connected, Vibecode builds the app on cloud Macs, so you don't need a Mac. See [Native iOS Apps](/getting-started/native-ios-apps).
+  </Accordion>
+
+  <Accordion title="Cursor vs Claude Code: which should I use?">
+    Cursor is a code editor with its own agent and a choice of models: its plans cover Cursor's own models, and Claude, GPT, and Gemini cost extra. Claude Code is Anthropic's coding agent, built on Claude. It runs in your terminal and in editors such as VS Code and Cursor, and needs a paid Claude plan (Pro is $20/month). You can use both, since the Claude Code extension installs in Cursor. See [How to Use Claude Code](/getting-started/claude-code).
+  </Accordion>
+
+  <Accordion title="Can I use Claude or GPT in Cursor?">
+    Yes, on Premium ($30/month) and above. You pay each model's API list price from prepaid credit. Free and Plus include only Cursor's own models.
+  </Accordion>
+
+  <Accordion title="Do I need to know how to code to use Cursor?">
+    Not to start, but Cursor expects you to read its changes, run your project, and set up hosting yourself. For a finished iPhone app without that work, connect Vibecode, or [build your first app in Vibecode](/getting-started/creating-first-app).
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Connect Vibecode to Your AI Tool" icon="plug" href="/guides/vibecode-mcp">
+    Set up Vibecode in Cursor, Claude Code, Codex, and more
+  </Card>
+  <Card title="How to Use Claude Code" icon="terminal" href="/getting-started/claude-code">
+    Install, cost, and building apps with Anthropic's agent
+  </Card>
+  <Card title="How to Use Codex" icon="code" href="/guides/codex">
+    OpenAI's coding agent, and building apps with it
+  </Card>
+  <Card title="How to Use Gemini CLI" icon="gem" href="/guides/gemini-cli">
+    Google's coding agent in your terminal
+  </Card>
+  <Card title="Vibecode vs Cursor" icon="scale-balanced" href="https://www.vibecodeapp.com/compare/cursor">
+    An app builder and an AI code editor, side by side
+  </Card>
+  <Card title="Native iOS Apps" icon="apple" href="/getting-started/native-ios-apps">
+    Swift apps for iPhone, built on cloud Macs
+  </Card>
+</CardGroup>

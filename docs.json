@@ -36,7 +36,7 @@
           },
           {
             "group": "Vibecode in AI Assistants",
-            "pages": ["guides/vibecode-mcp", "guides/vibecode-in-claude"]
+            "pages": ["guides/vibecode-mcp", "guides/vibecode-in-claude", "guides/build-app-with-chatgpt", "guides/codex", "guides/cursor", "guides/gemini-cli"]
           },
           {
             "group": "Vibecode Tools",
