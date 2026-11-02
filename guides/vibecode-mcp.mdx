@@ -122,6 +122,7 @@ Ask in plain English, for example:
 - *"Show me my Vibecode apps."*
 - *"Make the buttons in my workout app blue and add a rest timer."*
 - *"Why did the last build of my habit tracker fail?"*
+- *"Deploy my meal planner so my friends can use it."*
 
 A build usually takes about 10 minutes. Your AI can wait for it and tell you when the app is ready, with links to open it in Vibecode, see it on your phone in the Vibecode iPhone app, or publish it to the App Store.
 
@@ -131,9 +132,13 @@ What Vibecode offers depends on the app. Other apps means Claude Code, Codex, Cu
 | --- | --- | --- | --- |
 | Build and change apps, follow builds | Yes | Yes | Yes |
 | A live app card in the chat | Yes | Yes | No |
-| See what the agent did, read the code and logs, restore an earlier version | Yes | No | Yes |
-| Rename, copy or delete apps | Yes | No | Yes |
+| See what the agent did, read the code and logs, restore an earlier version | Yes | Yes | Yes |
+| Rename, copy or delete apps | Yes | Yes | Yes |
+| Deploy an app and set a web app's address | Yes | Yes | Yes |
+| Password-protect a web app | No | Yes | Yes |
 | Run commands in the app's workspace | No | No | Yes |
+
+Deploying puts an app's latest saved version online, the same as the **Deploy** button in Vibecode: a web app's site, at its `vibecode.run` address or your own domain, or the server behind a mobile or iPhone app. Your AI never starts a charge. If deploying would cost more than your plan includes, nothing is deployed, and your AI gives you a link to deploy in Vibecode instead. [Choose Your Deployment Path](/deploying/overview) has the details.
 
 `run_command` runs a shell command in the app's workspace, a Linux sandbox in the app's folder, and returns the output. Use it to run tests, check versions or install a package. A command stops after 45 seconds.
 
