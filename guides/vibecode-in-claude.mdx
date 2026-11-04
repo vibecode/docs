@@ -58,11 +58,14 @@ When an iPhone app is ready, the card shows it running on a live iPhone simulato
 
 - **Change an app:** ask Claude, for example *"Make the buttons in my workout app blue and add a rest timer."* Vibecode makes the change and tests it, and the card follows along.
 - **See your apps:** ask *"Show me my Vibecode apps"* to pick up any app in your account, including ones you built in Vibecode itself.
+- **Find out what happened:** ask what the agent changed, or why a build failed. Claude can read the app's code and logs, and go back to an earlier version.
+- **Manage your apps:** ask Claude to rename, copy, or delete an app.
+- **Put it online:** ask Claude to deploy an app so anyone can use it, give a web app its `vibecode.run` address or connect your own domain, or password-protect it. If deploying would cost more than your plan includes, Claude gives you a link to deploy in Vibecode instead.
 - **Open it elsewhere:** when an iPhone app is ready, the card has buttons to open it in Vibecode, to see it on your phone in the Vibecode iPhone app, and to publish it to the App Store from Vibecode. You can also ask Claude for these links.
 
 ## Claude Code
 
-Add Vibecode to Claude Code itself, with `claude mcp add`, to get every Vibecode tool there, including reading an app's code and running commands in its workspace. [Connect Vibecode to your AI tool](/guides/vibecode-mcp) has the steps. Claude Code shows no card: ask it for links to open the app in Vibecode.
+Add Vibecode to Claude Code itself, with `claude mcp add`, to get every Vibecode tool there, including running commands in an app's workspace. [Connect Vibecode to your AI tool](/guides/vibecode-mcp) has the steps. Claude Code shows no card: ask it for links to open the app in Vibecode.
 
 The connectors you add in Claude also appear in Claude Code, as **claude.ai Vibecode**, with the same tools as in Claude.
 
