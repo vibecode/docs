@@ -2,11 +2,13 @@
 title: "How to Publish an App to the App Store (2026)"
 sidebarTitle: "Publish to the App Store"
 description: "No Mac needed. Vibecode builds, signs, uploads and submits your iPhone app to the App Store for you. Steps with screenshots, Apple's $99 fee and review times."
-keywords: ["how to publish an app to the app store", "how to put an app on the app store", "how to upload an app to the app store", "how to submit an app to the app store", "how to get an app on the app store"]
+keywords: ["how to publish an app to the app store", "how to put an app on the app store", "how to upload an app to the app store", "how to submit an app to the app store", "how to get an app on the app store", "can ai publish an app to the app store", "ai app builder that publishes to the app store"]
 ---
 
 <Tip>
-**TL;DR:** Here's how to publish an app on the App Store with Vibecode, no Mac needed. You need Apple's Developer Program ([$99 a year](https://developer.apple.com/programs/enroll/)) and a Vibecode Plus plan or higher. Click **Publish → Publish to App Store**, confirm your bundle ID and send the request Vibecode puts in your chat. The agent builds the app, writes the listing and submits it for review, after one Apple ID sign-in on a new app. In our test on October 29, 2026, the agent had done everything up to the Apple ID sign-in 27 minutes after we pressed Send. With a different app on the same account, the release build, upload and submission took under 5 minutes. Apple then reviews 90% of submissions within 48 hours ([Apple](https://developer.apple.com/distribute/app-review/)).
+**TL;DR:** Yes, AI can build an app and publish it to the App Store, and Vibecode does both. Its agent writes your iPhone app in Swift, and Vibecode builds it, signs it with your Apple Developer account, uploads it and submits it for Apple's review. React Native apps go through Expo Launch, and you submit those in App Store Connect.
+
+Here's how to publish an app on the App Store with Vibecode, no Mac needed: click **Publish → Publish to App Store**, confirm the bundle ID and send the request Vibecode writes in your chat. You need Apple's Developer Program ([$99 a year](https://developer.apple.com/programs/enroll/)) and a Vibecode Plus plan or higher. In our test on October 29, 2026, the agent had done everything it could 27 minutes after we pressed Send. The rest waited on a phone number for Apple's reviewers and one Apple ID sign-in, which a new app's first release needs. For a different app on October 27, the release build, upload and submission took under 5 minutes. Apple then reviews 90% of submissions within 48 hours ([Apple](https://developer.apple.com/distribute/app-review/)).
 </Tip>
 
 **To publish an app on the App Store you need four things: a paid [Apple Developer Program membership ($99/year)](https://developer.apple.com/programs/enroll/), a signed build of your app uploaded to App Store Connect, a complete App Store listing (name, description, screenshots, privacy policy, and privacy details), and approval from [Apple's App Review](https://developer.apple.com/distribute/app-review/), which finishes 90% of submissions in under 48 hours.** With Vibecode you don't need a Mac or Xcode. For a native Swift **iOS app**, click **Publish → Publish to App Store**: Vibecode builds, signs, uploads, and submits the app for review. For a React Native **Mobile app**, click **Deploy → Submit to App Store**: Vibecode prepares the app, Expo Launch builds and uploads it, and you submit it for review in App Store Connect.
@@ -27,6 +29,26 @@ Still building the app itself? [How to make an app](https://www.vibecodeapp.com/
 | 6. Submit for review | Send the version to App Review | Vibecode (iOS apps) or you in App Store Connect (Mobile apps) | One click |
 | 7. App Review | Apple checks the app against the [App Review Guidelines](/guides/app-store-review-guidelines) | Apple | 50% within 24 hours, 90% within 48 hours ([Apple](https://developer.apple.com/distribute/app-review/), [details](/guides/app-store-review-time)) |
 | 8. Release | Release manually, automatically on approval, or on a date | You | Your choice |
+
+## Which AI App Builders Submit to the App Store for You
+
+Every route to the App Store needs Apple's Developer Program, at $99 a year ([Apple](https://developer.apple.com/programs/enroll/)), and Apple reviews every app. What differs is who builds the app, who uploads it and who presses submit. We checked each tool's own docs on October 29, 2026, and each name links to the page we read:
+
+| App builder | Who submits for review | Who builds and uploads |
+|---|---|---|
+| [Vibecode, iOS app](#publish-a-native-ios-swift-app) | Vibecode, after one Apple ID sign-in on a new app's first release | Vibecode builds your Swift app on its cloud Macs, signs it with your Apple Developer account and uploads it |
+| [Vibecode, Mobile app](#publish-a-mobile-react-native-app) | You, in App Store Connect | Expo Launch builds your React Native app and uploads it |
+| [Rork](https://docs.rork.com/store-guides/publish-app-store) | You finish the listing in App Store Connect and submit it there | Rork builds your Swift app on its own machines and uploads it ([Rork](https://docs.rork.com/iphone/rork-iphone)) |
+| [Replit](https://docs.replit.com/build/mobile-upload-ios) | You click **Add for Review** in App Store Connect ([Replit](https://docs.replit.com/build/mobile-publish-ios)) | Replit's Launch builds your Expo app on Expo's servers and uploads it |
+| [FlutterFlow](https://docs.flutterflow.io/deployment/apple-app-store-deployment/) | You click **Add for Review** in App Store Connect | FlutterFlow builds and uploads it, after you create the app in App Store Connect |
+| [Adalo](https://help.adalo.com/publishing-apps/publishing-to-the-apple-app-store/start-your-build-in-adalo) | You click **Add for Review** in App Store Connect ([Adalo](https://help.adalo.com/publishing-apps/publishing-to-the-apple-app-store/distribute-your-build-to-the-app-store)) | Adalo builds the app and sends it to TestFlight |
+| [Bolt](https://support.bolt.new/integrations/expo) | You, in App Store Connect | You download the code and run Expo's EAS commands from your computer. EAS builds the app in Expo's cloud and uploads it. |
+| [Base44](https://docs.base44.com/documentation/building-your-app/uploading-to-app-stores) | You, in App Store Connect | Base44 makes a signed file of your web app in a native wrapper, and you upload it |
+| [Lovable](https://docs.lovable.dev/features/publish#can-i-publish-my-project-as-a-native-ios-or-android-app-to-the-app-store-or-play-store) | You, in App Store Connect | Lovable builds web apps and has no App Store flow. Its docs suggest wrapping the app with Capacitor, outside Lovable. |
+
+Of the tools in this table, only Vibecode's iOS app flow submits your app for review. With the others, the last step is yours in App Store Connect, and with Bolt, Base44 and Lovable you also handle the build or the upload. For price, code export and what each tool builds, see [the best AI app builders](https://www.vibecodeapp.com/best/ai-app-builders) and [the best AI mobile app builders](https://www.vibecodeapp.com/best/ai-mobile-app-builders).
+
+Apple never removed Vibecode from the App Store. The Vibecode iPhone app has been on the App Store since June 17, 2025 ([App Store status](https://www.vibecodeapp.com/app-store-status)).
 
 ## Before You Start
 
@@ -160,7 +182,7 @@ Vibecode builds iOS apps for iPhone and iPad. If your app supports iPad, Apple n
 | Signed release build, upload, Apple's processing and submission | Vibecode | Not reached in this run. Under 5 minutes for another app on October 27, whose cloud build took under 2 minutes |
 | App Review | Apple | 50% of submissions within 24 hours, 90% within 48 hours ([Apple](https://developer.apple.com/distribute/app-review/)) |
 
-From the moment we pressed Send, the agent had done everything it could on its own in 27 minutes, including the iPhone-only rebuild we asked for, and the rest waited on the account owner's Apple ID sign-in. The full steps for native projects are also in [Native iOS Apps: Publish to the App Store](/getting-started/native-ios-apps#publish-to-the-app-store). Want testers first? See [How to Use TestFlight](/guides/testflight). Haven't built your app yet? [Describe your app and Vibecode builds it](https://www.vibecodeapp.com/).
+From the moment we pressed Send, the agent had done everything it could on its own in 27 minutes, including the iPhone-only rebuild we asked for, and the rest waited on a phone number for Apple's reviewers and the account owner's Apple ID sign-in. The full steps for native projects are also in [Native iOS Apps: Publish to the App Store](/getting-started/native-ios-apps#publish-to-the-app-store). Want testers first? See [How to Use TestFlight](/guides/testflight). Haven't built your app yet? [Describe your app and Vibecode builds it](https://www.vibecodeapp.com/).
 
 ## Publish a Mobile (React Native) App
 
@@ -226,7 +248,7 @@ Before Apple reviews your app, its App Store listing must be complete. For Mobil
 | Subtitle | No | Up to 30 characters |
 | Description | Yes | Up to 4,000 characters, plain text |
 | Keywords | Yes | Up to 100 bytes, comma-separated. Don't repeat your app name or use other apps' names. |
-| Screenshots | Yes | 1 to 10 per device size, PNG or JPEG, no transparency. For iPhone, Apple requires the 6.1" Dynamic Island size (1179 × 2556 or 1206 × 2622); add iPad 13" (2064 × 2752) if your app supports iPad. Other sizes: [Apple's screenshot specifications](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications/). |
+| Screenshots | Yes | 1 to 10 per device size, PNG or JPEG, no transparency. For iPhone, Apple requires at least one screenshot at its "iPhone with Dynamic Island (medium display)" size (1179 × 2556 or 1206 × 2622); add iPad 13" (2064 × 2752) if your app supports iPad. Other sizes: [Apple's screenshot specifications](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications/). |
 | Privacy policy URL | Yes | Must say what data you collect, how you use it, and how users can request deletion |
 | Support URL | Yes | Must lead to real contact information |
 | App Privacy details | Yes | Answer Apple's questions about the data your app collects (shown as the "privacy nutrition label") |
@@ -262,7 +284,7 @@ Besides the listing, Apple asks a few questions before it takes a new app. For i
 - **Review:** see [How Long Does App Store Review Take?](/guides/app-store-review-time) for timelines and expedited reviews.
 - **Rejections:** paste Apple's message from App Store Connect into your project chat, ask the agent to fix it, and submit again. The [App Store rejections checklist](/guides/app-store-review-guidelines) covers the common reasons.
 - **Release:** if you chose manual release, click **Release This Version** in App Store Connect. Your app appears on the App Store shortly after.
-- **Updates:** make changes in Vibecode, then publish again. Each new version needs a higher version number (for example `1.0.1`), and every update goes through App Review.
+- **Updates:** make changes in Vibecode, then publish again. For an iOS app, open **Publish** and click **Publish a new version**. Vibecode builds your changes, raises the version number (`1.0` becomes `1.0.1`), keeps your listing and submits the update for review. For a Mobile app, start Expo Launch again with a higher version number. Every update goes through App Review.
 - **TestFlight:** builds that reach App Store Connect are available in [TestFlight](/guides/testflight), so you can share a beta before release.
 - **Keep your membership active:** if your Apple Developer membership expires, your apps are no longer available for download, and you can't submit new apps or updates ([Apple](https://developer.apple.com/support/renewal/)).
 
@@ -300,7 +322,8 @@ For Mobile app projects, run [Preflight](#run-preflight-first) before you submit
 - Contact support via Intercom chat in the app if you need help
 
 **Version number issues?**
-- Each new build must have a higher version number than the previous one
+- A new App Store version needs a higher version number than your last approved one. Vibecode raises the build number on every upload.
+- For iOS apps, **Publish a new version** raises the version number for you. For Mobile apps, enter a higher version number when you start Expo Launch.
 
 **Bundle ID errors?**
 - Make sure your bundle ID is unique and not already taken
@@ -309,31 +332,19 @@ For Mobile app projects, run [Preflight](#run-preflight-first) before you submit
 
 **In-app purchases not showing?** See the [RevenueCat troubleshooting](/monetization/revenuecat-setup#troubleshooting) section. The Paid Apps Agreement is the usual cause.
 
-## Which App Builders Submit to the App Store for You
-
-Every route to the App Store needs Apple's Developer Program, at $99 a year ([Apple](https://developer.apple.com/programs/enroll/)). What differs is who builds the app, who uploads it and who presses submit. We checked each tool's own docs on October 29, 2026:
-
-| App builder | Who builds and uploads | Who submits for review | Source |
-|---|---|---|---|
-| Vibecode (iOS app) | Vibecode, on its cloud Macs | Vibecode's agent | [This page](#publish-a-native-ios-swift-app) |
-| Vibecode (Mobile app) | Expo Launch | You, in App Store Connect | [This page](#publish-a-mobile-react-native-app) |
-| Rork | Rork, on its own Macs | You finish the listing in App Store Connect and submit there | [Rork docs](https://docs.rork.com/faq/publishing), [Rork Max](https://rork.com/max) |
-| Replit | Replit's Launch, on Expo's servers | You, in App Store Connect | [Replit docs](https://docs.replit.com/build/mobile-upload-ios) |
-| FlutterFlow | FlutterFlow, after you create the app in App Store Connect | You click **Add for Review** in App Store Connect | [FlutterFlow docs](https://docs.flutterflow.io/deployment/apple-app-store-deployment/) |
-| Bolt | You, with Expo's EAS command-line tools on your computer | You, in App Store Connect | [Bolt docs](https://support.bolt.new/integrations/expo) |
-| Base44 | Base44 makes a signed file of your web app in a native wrapper, and you upload it | You, in App Store Connect | [Base44 docs](https://docs.base44.com/documentation/building-your-app/uploading-to-app-stores) |
-
-Some posts say Apple removed Vibecode from the App Store. It didn't. The Vibecode iPhone app has been on the App Store since June 17, 2025 ([App Store status](https://www.vibecodeapp.com/app-store-status)).
-
 ## Frequently Asked Questions
 
 <AccordionGroup>
+  <Accordion title="Can an AI app builder submit my app to the App Store for me?">
+    Yes, Vibecode does. For an iOS app, Vibecode builds, signs, uploads and submits it for Apple's review with your Apple Developer account, after one Apple ID sign-in on a new app's first release. Of the other builders we checked on October 29, 2026, Rork, Replit, FlutterFlow and Adalo upload the build, and you submit it yourself in App Store Connect. With Bolt you run the build yourself, with Base44 you upload the file yourself, and Lovable has no App Store flow. See [the comparison](#which-ai-app-builders-submit-to-the-app-store-for-you).
+  </Accordion>
+
   <Accordion title="How much does it cost to put an app on the App Store?">
     $99 per year for the Apple Developer Program, which every App Store app needs. Apple takes 15% of sales if you're in the [App Store Small Business Program](https://developer.apple.com/app-store/small-business-program/) (up to $1 million in proceeds a year), or the standard commission above that. App Store submission in Vibecode is included from the Plus plan ($20/month), and builds use credits. See [what an Apple Developer account costs](/guides/apple-developer-account#how-much-does-an-apple-developer-account-cost).
   </Accordion>
 
   <Accordion title="How long does it take to publish an app on the App Store?">
-    In our test, the agent had done everything it could on its own 27 minutes after we pressed Send. A new app's first release then needs your Apple ID sign-in, and for a different app we submitted on October 27, the final build, upload and submission took under 5 minutes. Apple then reviews at least 50% of submissions within 24 hours and 90% within 48 hours ([Apple](https://developer.apple.com/distribute/app-review/)). On your first app, also allow time for Apple to approve your developer account ([guide](/guides/apple-developer-account)).
+    In our test, the agent had done everything it could on its own 27 minutes after we pressed Send. A new app's first release then needs a phone number for Apple's reviewers and your Apple ID sign-in, and for a different app we submitted on October 27, the final build, upload and submission took under 5 minutes. Apple then reviews at least 50% of submissions within 24 hours and 90% within 48 hours ([Apple](https://developer.apple.com/distribute/app-review/)). Apple says apps with little or no review history can take longer ([Apple](https://developer.apple.com/help/app-review/after-submitting-for-review/review-status/)). On your first app, also allow time for Apple to approve your developer account ([guide](/guides/apple-developer-account)).
   </Accordion>
 
   <Accordion title="Can I publish an app to the App Store for free?">
@@ -354,6 +365,10 @@ Some posts say Apple removed Vibecode from the App Store. It didn't. The Vibecod
 
   <Accordion title="Can I publish from the Vibecode iPhone app?">
     Yes. Open your project and tap **Publish** at the top. iOS app projects offer **Install** and the App Store; Mobile app projects open the same App Store submission steps as the web app.
+  </Accordion>
+
+  <Accordion title="Did Apple remove Vibecode from the App Store?">
+    No. The Vibecode iPhone app has been on the App Store since June 17, 2025 and was never removed. In early 2026 Apple held updates to several vibe coding apps while it reviewed them under App Review Guideline 2.5.2. It approved Vibecode's next update on March 18, 2026, and Vibecode has shipped regular updates since. See [App Store status](https://www.vibecodeapp.com/app-store-status).
   </Accordion>
 
   <Accordion title="Can I publish an app without knowing how to code?">
