@@ -213,7 +213,7 @@ Prompts that work:
 
 Cursor passes the request to Vibecode, and Vibecode's agent writes and tests the app, building iPhone apps on cloud Macs. A build usually takes about 10 minutes. Cursor can wait for it, and because it shows no app card, it gives you links to open the app in Vibecode, see it on your phone in the Vibecode iPhone app, or publish it to the App Store.
 
-Cursor gets every Vibecode tool. It can also see what Vibecode's agent did, read an app's code and logs, restore an earlier version, rename, copy, or delete apps, and deploy an app and set a web app's address or password. On Pro and Max, `run_command` runs a shell command in the app's cloud workspace, for example to run tests or check a package version. A command stops after 45 seconds.
+Cursor gets every Vibecode tool. It can also see what Vibecode's agent did, read an app's code and logs, restore an earlier version, rename, copy, or delete apps, and deploy an app and set a web app's address or password. `run_command` runs a shell command in the app's cloud workspace, for example to run tests or check a package version. On Free, that's 50 commands a week, and each stops after 45 seconds. On Plus, Pro and Max there's no weekly limit, a command can run for up to 20 minutes, and `run_live_command` runs commands on the live app's server. See [Commands in Coding Tools](/guides/vibecode-mcp#commands-in-coding-tools).
 
 Connecting is free, and builds and changes use your Vibecode credits. New accounts that sign up with Google or Apple get their first app build free. After that, plans start at $20/month with $20 in credits, and credits roll over ([Vibecode pricing](https://www.vibecodeapp.com/pricing), as of October 2026).
 
@@ -230,7 +230,7 @@ Either way, publishing to the App Store needs an [Apple Developer Program member
 
 ### Work on a Vibecode Project from Cursor
 
-Connect Cursor to the [Vibecode MCP](/guides/vibecode-mcp) and Cursor's agent can read and change a Vibecode project. On Pro and Max it can also run terminal commands in the project's workspace. With the [Vibecode CLI](/vibecode-cli), Cursor's agent writes the code and uses Vibecode's sandboxes, databases, sign-in, and hosting to run and publish it.
+Connect Cursor to the [Vibecode MCP](/guides/vibecode-mcp) and Cursor's agent can read and change a Vibecode project. It can also run terminal commands in the project's workspace: 50 a week on Free, with no weekly limit on Plus, Pro and Max. With the [Vibecode CLI](/vibecode-cli), Cursor's agent writes the code and uses Vibecode's sandboxes, databases, sign-in, and hosting to run and publish it.
 
 Vibecode builds iPhone, Android, and web apps. For a backend service, a library, a desktop app, or an existing codebase, use Cursor on its own. For a full side-by-side, see [Vibecode vs Cursor](https://www.vibecodeapp.com/compare/cursor).
 
