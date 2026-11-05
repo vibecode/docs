@@ -162,7 +162,7 @@ Prompts that work:
 
 **What happens next.** Vibecode's agent writes the app (Swift and SwiftUI for a native iPhone app, or a web app), compiles iPhone apps on cloud Macs, tests the app, and saves it to your account. A build usually takes about 10 minutes. Codex can wait for it, then give you links to open the app in Vibecode, see it on your phone in the Vibecode iPhone app, or publish it to the App Store.
 
-Codex gets every Vibecode tool. It can read the app's code and logs, restore an earlier version, rename, copy, or delete apps, and deploy an app and set a web app's address or password. With `run_command`, it runs a shell command in the app's cloud workspace, such as a test, and each command stops after 45 seconds.
+Codex gets every Vibecode tool. It can read the app's code and logs, restore an earlier version, rename, copy, or delete apps, and deploy an app and set a web app's address or password. With `run_command`, it runs a shell command in the app's cloud workspace, such as a test. On Free, that's 50 commands a week, and each stops after 45 seconds. On Plus, Pro and Max there's no weekly limit, a command can run for up to 20 minutes, and `run_live_command` runs commands on the live app's server. See [Commands in Coding Tools](/guides/vibecode-mcp#commands-in-coding-tools).
 
 The CLI, the IDE extension, and the ChatGPT desktop app share `~/.codex/config.toml`, so Vibecode appears in all three once you add it. If one asks you to sign in, select **Authenticate** next to Vibecode in its MCP servers list. Using only the desktop app? Open **Settings**, then **MCP servers**, select **Add server**, choose **Streamable HTTP**, and enter the server URL above.
 

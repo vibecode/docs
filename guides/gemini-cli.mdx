@@ -178,7 +178,7 @@ Then ask in plain English:
 
 Gemini CLI asks before it runs each Vibecode tool, and you can allow a tool once or always. A build usually takes about 10 minutes. Gemini CLI can wait for it, then give you links to open the app in Vibecode, see it on your phone in the Vibecode iPhone app, or publish it to the App Store. A terminal has no app card, so you get links.
 
-Gemini CLI gets every Vibecode tool. It can read the app's code and logs, restore an earlier version, rename, copy, or delete apps, and deploy an app and set a web app's address or password. It also gets `run_command`, which runs a shell command in the app's cloud workspace (to run tests or check a version, for example) and stops after 45 seconds.
+Gemini CLI gets every Vibecode tool. It can read the app's code and logs, restore an earlier version, rename, copy, or delete apps, and deploy an app and set a web app's address or password. It also gets `run_command`, which runs a shell command in the app's cloud workspace, to run tests or check a version, for example. On Free, that's 50 commands a week, and each stops after 45 seconds. On Plus, Pro and Max there's no weekly limit, a command can run for up to 20 minutes, and `run_live_command` runs commands on the live app's server. See [Commands in Coding Tools](/guides/vibecode-mcp#commands-in-coding-tools).
 
 | | Gemini CLI on its own | Gemini CLI with Vibecode |
 |---|---|---|

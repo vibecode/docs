@@ -124,7 +124,7 @@ Ask in plain English, for example:
 - *"Why did the last build of my habit tracker fail?"*
 - *"Deploy my meal planner so my friends can use it."*
 
-A build usually takes about 10 minutes. Your AI can wait for it and tell you when the app is ready, with links to open it in Vibecode, see it on your phone in the Vibecode iPhone app, or publish it to the App Store.
+A build usually takes about 10 minutes. A new app with a backend (a full-stack app) can take about 30 minutes. Your AI can wait for it and tell you when the app is ready, with links to open it in Vibecode, see it on your phone in the Vibecode iPhone app, or publish it to the App Store.
 
 What Vibecode offers depends on the app. Other apps means Claude Code, Codex, Cursor, VS Code, Gemini CLI and any other MCP app. They show no app card, so your AI gives you links instead.
 
@@ -137,10 +137,29 @@ What Vibecode offers depends on the app. Other apps means Claude Code, Codex, Cu
 | Deploy an app and set a web app's address | Yes | Yes | Yes |
 | Password-protect a web app | No | Yes | Yes |
 | Run commands in the app's workspace | No | No | Yes |
+| Run commands on the live app's server | No | No | Plus, Pro and Max |
 
-Deploying puts an app's latest saved version online, the same as the **Deploy** button in Vibecode: a web app's site, at its `vibecode.run` address or your own domain, or the server behind a mobile or iPhone app. Your AI never starts a charge. If deploying would cost more than your plan includes, nothing is deployed, and your AI gives you a link to deploy in Vibecode instead. [Choose Your Deployment Path](/deploying/overview) has the details.
+Deploying puts an app's latest saved version online, the same as the **Deploy** button in Vibecode: a web app's site, at its `vibecode.run` address or your own domain, or the server behind a mobile or iPhone app. First, Vibecode saves any changes made in the app's workspace that aren't saved yet, such as edits made with `run_command`, as a new version, and deploys that. Your AI never starts a charge. If deploying would start a trial or a charge, nothing is deployed, and your AI gives you a link where you see the price and confirm. The app deploys as soon as you confirm. On the Free plan, the link goes to the plans instead, since plans include live backends. In ChatGPT, you deploy in Vibecode. [Choose Your Deployment Path](/deploying/overview) has the details.
 
-`run_command` runs a shell command in the app's workspace, a Linux sandbox in the app's folder, and returns the output. Use it to run tests, check versions or install a package. A command stops after 45 seconds.
+### Commands in Coding Tools
+
+Claude Code, Codex, Cursor, VS Code, Gemini CLI and other MCP apps get `run_command`. ChatGPT and Claude don't.
+
+`run_command` runs a shell command (with bash) in the app's workspace, a Linux sandbox in the app's folder, and returns the output. Use it to run tests, check versions, install a package or fix a file. A command can be up to 20,000 characters.
+
+| | Free | Plus, Pro and Max |
+| --- | --- | --- |
+| `run_command` calls | 50 a week, reset every Monday at 00:00 UTC | No weekly limit |
+| How long a command runs | Stops after 45 seconds | Keeps running, for up to 20 minutes |
+| `run_live_command` | No | Yes |
+
+On Free, only `run_command` counts toward the 50. Reading files and logs doesn't, and a command that couldn't run isn't counted. When 10 or fewer are left, each answer says how many. Once all 50 are used, `run_command` doesn't run, and your AI gives you a link to the plans. They reset on Monday.
+
+On Plus, Pro and Max, `run_command` waits about 40 seconds. If the command is still going, the answer says it's running, gives its `command_id`, and shows the output so far. Your AI then calls `get_command_output` with that id. Each call waits up to about 40 seconds and returns the new output, and the exit code once the command ends. A command is stopped after 20 minutes, or once it has printed more than 50 MB. When it ends, anything it started that still prints into its output stops too. To keep a server running, send its output to a file, as in `nohup <command> > server.log 2>&1 &`. If the workspace restarts, a running command is lost, and your AI has to run it again.
+
+`run_live_command` runs a command on the server of an app you've deployed with a backend, in its backend folder. That's the live app, with real users. It backs up the live database first, and you can restore that backup from the app's **Database** tab in Vibecode. A command can be up to 4,000 characters and stops after 45 seconds. On Free, your AI is told it needs a plan.
+
+Your app's keys are hidden in everything these tools return, and `read_file` doesn't show `.env` files.
 
 ## Your Account and Your Data
 

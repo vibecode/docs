@@ -183,7 +183,7 @@ What happens next:
 
 - Vibecode's agent builds and tests the app in the cloud. A build usually takes about 10 minutes.
 - Claude Code can wait for the build, then gives you links to open the app in Vibecode, see it on your phone, or publish it.
-- Claude Code gets every Vibecode tool, including reading the app's code and running commands in its workspace (`run_command` stops after 45 seconds).
+- Claude Code gets every Vibecode tool, including reading the app's code and running commands in its workspace with `run_command`. On Free, that's 50 commands a week, and each stops after 45 seconds. On Plus, Pro and Max there's no weekly limit, a command can run for up to 20 minutes, and `run_live_command` runs commands on the live app's server. See [Commands in Coding Tools](/guides/vibecode-mcp#commands-in-coding-tools).
 - Builds use your [Vibecode credits](/getting-started/plans-and-credits).
 
 For other AI tools and troubleshooting, see [Connect Vibecode to Your AI Tool](/guides/vibecode-mcp). Using another coding agent? See the guides for [Codex](/guides/codex), [Cursor](/guides/cursor), and [Gemini CLI](/guides/gemini-cli).
