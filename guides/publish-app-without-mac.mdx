@@ -7,6 +7,8 @@ keywords: ["publish app to app store without mac", "how to publish an app on the
 
 **Yes, you can publish an iPhone app to the App Store without owning a Mac. Apple's tools that build and sign iOS apps (Xcode) only run on macOS, so the build has to happen on a Mac somewhere, but it can be a cloud Mac that someone else runs.** Vibecode builds native Swift apps on its own cloud Macs and React Native apps in Expo's cloud, then uploads them to App Store Connect, so you can do everything from a browser on Windows, Linux, or a Chromebook. You still need a paid Apple Developer account ($99/year).
 
+Still building the app? Read [how to build an iPhone app without a Mac](https://www.vibecodeapp.com/blog/how-to-make-an-iphone-app-on-windows). We built one on a Windows PC, in Edge.
+
 ## Four Ways to Ship an iPhone App Without a Mac
 
 | Option | How it works | Coding needed? | Best for |
@@ -14,7 +16,7 @@ keywords: ["publish app to app store without mac", "how to publish an app on the
 | **Vibecode** | Describe the app; Vibecode builds native Swift apps on its cloud Macs (or React Native apps through Expo), signs them with your Apple account, uploads, and submits them | No | Non-developers and anyone who wants the whole path handled |
 | **Expo EAS Build and Submit** | Run `eas build --platform ios` and `eas submit --platform ios` from any computer; Expo builds on its Macs and uploads to App Store Connect | Yes (React Native) | Developers with a React Native app |
 | **Cloud CI with Mac runners** | Services such as Codemagic, Bitrise, or GitHub Actions build and upload your app on hosted Macs | Yes | Teams with an existing Swift, Flutter, or React Native codebase |
-| **Rent a cloud Mac** | Remote into a hosted Mac (for example MacinCloud or AWS EC2 Mac) and use Xcode like you would on your own | Yes | Developers who need full Xcode |
+| **Rent a cloud Mac** | Remote into a hosted Mac (for example MacinCloud or AWS EC2 Mac) and use Xcode like you would on your own ([our run from Windows 11](https://www.vibecodeapp.com/blog/xcode-for-windows#how-to-use-xcode-on-windows-with-a-cloud-mac-step-by-step)) | Yes | Developers who need full Xcode |
 
 All four still need an [Apple Developer Program membership](/guides/apple-developer-account) and an App Store listing in App Store Connect, which is a website you can use from any computer.
 
@@ -46,7 +48,7 @@ Expo's free tier also builds in the cloud. But you write the React Native code y
 
 ## How to Publish Without a Mac Using Vibecode
 
-For a full walkthrough on a Windows PC, with screenshots from Edge on Windows 11, see [How to make an iPhone app on Windows](https://www.vibecodeapp.com/blog/how-to-make-an-iphone-app-on-windows).
+For a full walkthrough on a Windows PC, with screenshots from Edge on Windows 11, see [How to build an iPhone app without a Mac](https://www.vibecodeapp.com/blog/how-to-make-an-iphone-app-on-windows).
 
 On an Android phone? See [How to make an iPhone app on Android](https://www.vibecodeapp.com/blog/how-to-make-an-iphone-app-on-android), built in Chrome.
 
